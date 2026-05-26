@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aprenda a voar pelo mundo gastando quase nada usando milhas. Guias, ferramentas secretas e simulador." />
+  <meta name="description" content="Aprenda a voar pelo mundo gastando quase nada usando milhas. Guias, estratégias e ferramentas secretas." />
   <title>Milhas.pro — Voe pelo mundo com milhas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gostatic.com" crossorigin />
@@ -25,10 +25,10 @@
         <a href="#intro">O que são</a>
         <a href="#programas">Programas</a>
         <a href="pages/curso.html">Curso</a>
+        <a href="pages/termometro.html">Termômetro</a>
+        <a href="pages/avancado.html">Avançado</a>
         <a href="#comprar">Comprar milhas</a>
         <a href="#secretos">Sites secretos</a>
-        <a href="#simulador">Simulador</a>
-        <a href="#blog">Blog</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -56,7 +56,7 @@
           <a href="#intro" class="btn btn--primary">
             Começar agora <span>→</span>
           </a>
-          <a href="#simulador" class="btn btn--ghost">Abrir simulador</a>
+          <a href="pages/curso.html" class="btn btn--ghost">Ver curso completo</a>
         </div>
 
         <div class="hero__stats reveal">
@@ -334,113 +334,6 @@
       </div>
     </section>
 
-    <!-- SIMULADOR -->
-    <section class="section" id="simulador">
-      <div class="section__head reveal">
-        <span class="kicker">05 · Ferramenta</span>
-        <h2>Simulador de <span class="grad-text">passagem</span></h2>
-        <p>Digite seu destino e veja uma estimativa de quantas milhas você precisa em cada programa.</p>
-      </div>
-
-      <div class="simulator reveal">
-        <form class="simulator__form" id="simForm">
-          <label>
-            <span>De onde</span>
-            <select id="simFrom">
-              <option value="GRU">São Paulo (GRU)</option>
-              <option value="GIG">Rio de Janeiro (GIG)</option>
-              <option value="BSB">Brasília (BSB)</option>
-              <option value="CNF">Belo Horizonte (CNF)</option>
-              <option value="POA">Porto Alegre (POA)</option>
-            </select>
-          </label>
-          <label>
-            <span>Para onde</span>
-            <select id="simTo">
-              <option value="MIA">Miami</option>
-              <option value="JFK">Nova York</option>
-              <option value="CDG">Paris</option>
-              <option value="LIS">Lisboa</option>
-              <option value="MAD">Madri</option>
-              <option value="NRT">Tóquio</option>
-              <option value="EZE">Buenos Aires</option>
-              <option value="SCL">Santiago</option>
-            </select>
-          </label>
-          <label>
-            <span>Classe</span>
-            <select id="simClass">
-              <option value="eco">Econômica</option>
-              <option value="prem">Premium Eco</option>
-              <option value="exe">Executiva</option>
-              <option value="first">Primeira</option>
-            </select>
-          </label>
-          <button type="submit" class="btn btn--primary">Calcular →</button>
-        </form>
-
-        <div class="simulator__results" id="simResults" hidden>
-          <div class="result-card">
-            <div class="result-card__logo" style="--c:#ff7a00">SM</div>
-            <div class="result-card__info">
-              <strong>Smiles</strong>
-              <span class="result-card__miles" data-miles>—</span>
-            </div>
-            <div class="result-card__price" data-price>—</div>
-          </div>
-          <div class="result-card">
-            <div class="result-card__logo" style="--c:#e10a36">LP</div>
-            <div class="result-card__info">
-              <strong>LATAM Pass</strong>
-              <span class="result-card__miles" data-miles>—</span>
-            </div>
-            <div class="result-card__price" data-price>—</div>
-          </div>
-          <div class="result-card">
-            <div class="result-card__logo" style="--c:#0099ff">TA</div>
-            <div class="result-card__info">
-              <strong>TudoAzul</strong>
-              <span class="result-card__miles" data-miles>—</span>
-            </div>
-            <div class="result-card__price" data-price>—</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG -->
-    <section class="section section--alt" id="blog">
-      <div class="section__head reveal">
-        <span class="kicker">06 · Aprenda mais</span>
-        <h2>Últimas do <span class="grad-text">blog</span></h2>
-        <p>Dicas, análises e oportunidades quentes — atualizado toda semana.</p>
-      </div>
-
-      <div class="posts">
-        <a class="post reveal" href="pages/blog.html">
-          <div class="post__date">22 mai 2026</div>
-          <h3>Smiles solta promo de 130% — vale a pena?</h3>
-          <p>Analisamos o custo do milheiro e em que rotas compensa entrar nessa compra.</p>
-          <span class="post__more">Ler →</span>
-        </a>
-        <a class="post reveal" href="pages/blog.html">
-          <div class="post__date">15 mai 2026</div>
-          <h3>Como emiti Paris executiva por R$ 312</h3>
-          <p>Passo a passo real: programa, transferências e momento certo.</p>
-          <span class="post__more">Ler →</span>
-        </a>
-        <a class="post reveal" href="pages/blog.html">
-          <div class="post__date">08 mai 2026</div>
-          <h3>Os 5 erros mais caros de quem começa em milhas</h3>
-          <p>Você provavelmente está cometendo pelo menos 2 deles agora.</p>
-          <span class="post__more">Ler →</span>
-        </a>
-      </div>
-
-      <div class="cta-row reveal">
-        <a href="pages/blog.html" class="btn btn--ghost">Ver todos os posts →</a>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -454,10 +347,11 @@
       </div>
       <div class="footer__links">
         <a href="#intro">Fundamentos</a>
+        <a href="pages/curso.html">Curso</a>
+        <a href="pages/termometro.html">Termômetro</a>
+        <a href="pages/avancado.html">Avançado</a>
         <a href="#comprar">Comprar</a>
-        <a href="#secretos">Secretos</a>
-        <a href="#simulador">Simulador</a>
-        <a href="#blog">Blog</a>
+        <a href="pages/sites-secretos.html">Secretos</a>
       </div>
       <div class="footer__small">© 2026 Milhas.pro — feito com ✈ e cafeína</div>
     </div>

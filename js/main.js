@@ -91,69 +91,11 @@
     counters.forEach(c => io.observe(c));
   }
 
-  /* ============================================================
-   * SIMULADOR de milhas — estimativa baseada em distância
-   * ============================================================ */
-  function initSimulator() {
-    const form = document.getElementById('simForm');
-    if (!form) return;
-
-    // Distância aproximada (km) GRU → destino. Pra outros origens aplica fator.
-    const DIST_FROM_GRU = {
-      MIA: 6580, JFK: 7700, CDG: 9420, LIS: 7800, MAD: 8400,
-      NRT: 18500, EZE: 1700, SCL: 2600
-    };
-    const ORIGIN_FACTOR = { GRU: 1, GIG: 1.02, BSB: 1.04, CNF: 1.03, POA: 1.05 };
-    const CLASS_MULT    = { eco: 1, prem: 1.6, exe: 2.6, first: 4.2 };
-
-    // Multiplicador por programa (Smiles, LATAM, TudoAzul são diferentes na real)
-    const PROGRAMS = [
-      { selector: 0, milesPerKm: 4.8, taxa: 0.026 }, // Smiles
-      { selector: 1, milesPerKm: 5.2, taxa: 0.024 }, // LATAM Pass
-      { selector: 2, milesPerKm: 4.5, taxa: 0.022 }, // TudoAzul
-    ];
-
-    const fmtMiles = (n) =>
-      Math.round(n / 1000) * 1000;
-    const fmtBRL = (n) =>
-      n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const from   = document.getElementById('simFrom').value;
-      const to     = document.getElementById('simTo').value;
-      const klass  = document.getElementById('simClass').value;
-
-      const baseKm   = DIST_FROM_GRU[to] || 5000;
-      const factor   = ORIGIN_FACTOR[from] || 1;
-      const classMul = CLASS_MULT[klass] || 1;
-
-      const km = baseKm * factor;
-
-      const results = document.getElementById('simResults');
-      const cards   = results.querySelectorAll('.result-card');
-
-      PROGRAMS.forEach((prog, i) => {
-        const card  = cards[i];
-        const miles = fmtMiles(km * prog.milesPerKm * classMul);
-        // custo estimado = milhas * taxa de custo médio
-        const price = miles * prog.taxa + 200; // + taxas fixas aproximadas
-
-        card.querySelector('[data-miles]').textContent = miles.toLocaleString('pt-BR') + ' milhas';
-        card.querySelector('[data-price]').textContent = fmtBRL(price);
-      });
-
-      results.hidden = false;
-      results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-  }
-
   /* ============================================================ */
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initScrollReveal();
     initCounters();
-    initSimulator();
+
   });
 })();

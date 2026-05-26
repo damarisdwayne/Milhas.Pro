@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Termômetro de passagens em milhas: quanto vale o milheiro de cada programa e quantas milhas é justo pagar em cada rota — nacional e internacional." />
+  <title>Termômetro de passagens — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .therm-table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; font-size: .92rem; }
+    .therm-table th, .therm-table td { padding: .65rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); }
+    .therm-table th { color: var(--text-dim); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+    .therm-table tr.good td:first-child { color: #34d399; font-weight: 600; }
+    .therm-table tr.ok td:first-child { color: #facc15; font-weight: 600; }
+    .therm-table tr.warn td:first-child { color: #fb923c; font-weight: 600; }
+    .therm-table tr.bad td:first-child { color: #f87171; font-weight: 600; }
+    .therm-table tbody tr:hover { background: rgba(255,255,255,.02); }
+    .route-block { margin-bottom: 2.5rem; }
+    .route-block h3 { font-size: 1.15rem; margin-bottom: .25rem; }
+    .route-block .route-sub { color: var(--text-mute); font-size: .85rem; margin-bottom: 1rem; }
+    .best-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0 3rem; }
+    .best-card { background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.25rem; }
+    .best-card h4 { font-family: var(--font-mono); font-size: .85rem; color: var(--accent); margin-bottom: .65rem; letter-spacing: .04em; }
+    .best-card ul { list-style: none; padding: 0; margin: 0; font-size: .9rem; }
+    .best-card li { padding: .35rem 0; border-bottom: 1px dashed var(--border-soft); }
+    .best-card li:last-child { border-bottom: none; }
+    .best-card li strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html#intro">O que são</a>
+        <a href="../index.html#programas">Programas</a>
+        <a href="curso.html">Curso</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="avancado.html">Avançado</a>
+        <a href="comprar-milhas.html">Comprar</a>
+        <a href="sites-secretos.html">Secretos</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🌡️ Termômetro</span>
+      <h1>Está <span class="grad-text">caro</span> ou está <span class="grad-text">barato</span>?</h1>
+      <p>Referência prática pra você bater o olho e saber se a emissão que apareceu é boa, normal, no limite ou péssima. Valores médios em períodos normais (fora de férias/feriados).</p>
+    </section>
+
+    <!-- MILHEIRO -->
+    <section class="section" id="milheiro">
+      <div class="section__head reveal">
+        <span class="kicker">💰 Quanto vale o milheiro</span>
+        <h2>Preço-base de 1.000 milhas</h2>
+        <p>Use essa tabela pra converter milhas em reais e comparar com o preço em dinheiro. Pequenas variações são normais.</p>
+      </div>
+
+      <div class="reveal" style="max-width:720px; margin:0 auto;">
+        <table class="therm-table">
+          <thead>
+            <tr><th>Programa</th><th>R$ por milheiro</th><th>Observação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Smiles</td><td>R$ 14 – 16</td><td>Pagol em promo derruba ainda mais</td></tr>
+            <tr><td>TudoAzul</td><td>R$ 15 – 17</td><td>Clube + Itaú Azul = melhor combo</td></tr>
+            <tr><td>LATAM Pass</td><td>R$ 24 – 26</td><td>Caro em compra direta — use Livelo c/ bônus mín 30%</td></tr>
+            <tr><td>TAP Miles&amp;Go</td><td>R$ 44 – 50</td><td>Via Livelo 1:1</td></tr>
+            <tr><td>Iberia (Avios)</td><td>R$ 55 – 60</td><td>2 Livelo/Esfera = 1 Avios</td></tr>
+            <tr><td>SUMA (Air Europa)</td><td>R$ 60 – 65</td><td>Compre só em promo de 35–50%</td></tr>
+            <tr><td>American AAdvantage</td><td>R$ 85 – 90</td><td>Cartão Santander AAdvantage</td></tr>
+          </tbody>
+        </table>
+        <p style="text-align:center; color:var(--text-dim); font-size:.9rem">
+          <strong>Cálculo do custo real:</strong> (milhas ÷ 1.000) × R$ do milheiro + taxas de embarque.
+        </p>
+      </div>
+    </section>
+
+    <!-- NACIONAIS -->
+    <section class="section section--alt" id="nacionais">
+      <div class="section__head reveal">
+        <span class="kicker">🇧🇷 Rotas nacionais</span>
+        <h2>Termômetro doméstico</h2>
+        <p>Valores em milhas <strong>ida e volta</strong>. Pra só ida ou só volta, divida por 2.</p>
+      </div>
+
+      <div class="reveal" style="max-width:1000px; margin:0 auto;">
+
+        <div class="route-block">
+          <h3>Sudeste ↔ Sudeste</h3>
+          <div class="route-sub">GRU, CGH, VCP, SDU, GIG, CNF, VIX</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 10.000</td><td>≤ 10.000</td><td>≤ 5.000</td><td>≤ R$ 200</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>20.000</td><td>15.000</td><td>10.000</td><td>R$ 300</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>25.000</td><td>20.000</td><td>15.000</td><td>R$ 400</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 40.000</td><td>≥ 35.000</td><td>≥ 25.000</td><td>≥ R$ 600</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Sudeste ↔ Sul</h3>
+          <div class="route-sub">CWB, IGU, NVT, FLN, POA, CXJ</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 20.000</td><td>≤ 15.000</td><td>≤ 10.000</td><td>≤ R$ 300</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>25.000</td><td>20.000</td><td>15.000</td><td>R$ 400</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>30.000</td><td>25.000</td><td>18.000</td><td>R$ 500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 50.000</td><td>≥ 40.000</td><td>≥ 30.000</td><td>≥ R$ 700</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Sudeste ↔ Nordeste</h3>
+          <div class="route-sub">SSA, REC, FOR, NAT, MCZ, JPA, AJU, SLZ, THE</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 30.000</td><td>≤ 25.000</td><td>≤ 15.000</td><td>≤ R$ 450</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>50.000</td><td>40.000</td><td>30.000</td><td>R$ 750</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>65.000</td><td>55.000</td><td>40.000</td><td>R$ 1.000</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 90.000</td><td>≥ 80.000</td><td>≥ 55.000</td><td>≥ R$ 1.400</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Sudeste ↔ Norte</h3>
+          <div class="route-sub">PMW, BEL, STM, MAO</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 40.000</td><td>≤ 30.000</td><td>≤ 20.000</td><td>≤ R$ 600</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>70.000</td><td>60.000</td><td>40.000</td><td>R$ 1.050</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>85.000</td><td>70.000</td><td>50.000</td><td>R$ 1.300</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 120.000</td><td>≥ 100.000</td><td>≥ 70.000</td><td>≥ R$ 1.800</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Sudeste ↔ Centro-Oeste</h3>
+          <div class="route-sub">BSB, GYN, CGB, CGR</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 15.000</td><td>≤ 10.000</td><td>≤ 10.000</td><td>≤ R$ 250</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>20.000</td><td>20.000</td><td>12.000</td><td>R$ 350</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>35.000</td><td>30.000</td><td>20.000</td><td>R$ 550</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 50.000</td><td>≥ 45.000</td><td>≥ 30.000</td><td>≥ R$ 800</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Nordeste ↔ Fernando de Noronha</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 45.000</td><td>≤ 40.000</td><td>≤ 25.000</td><td>≤ R$ 700</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>55.000</td><td>45.000</td><td>30.000</td><td>R$ 850</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>85.000</td><td>70.000</td><td>50.000</td><td>R$ 1.300</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 120.000</td><td>≥ 105.000</td><td>≥ 75.000</td><td>≥ R$ 1.800</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNACIONAIS -->
+    <section class="section" id="internacionais">
+      <div class="section__head reveal">
+        <span class="kicker">🌍 Rotas internacionais</span>
+        <h2>Termômetro mundial</h2>
+        <p>Valores ida e volta saindo do Brasil (preferencialmente GRU/GIG/REC/FOR).</p>
+      </div>
+
+      <div class="reveal" style="max-width:1000px; margin:0 auto;">
+
+        <div class="route-block">
+          <h3>Brasil ↔ América do Sul (Cone Sul)</h3>
+          <div class="route-sub">Argentina, Chile, Uruguai, Paraguai, Bolívia</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 20.000</td><td>≤ 15.000</td><td>≤ 10.000</td><td>≤ R$ 600</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>45.000</td><td>35.000</td><td>20.000</td><td>R$ 1.000</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>65.000</td><td>55.000</td><td>35.000</td><td>R$ 1.300</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 75.000</td><td>≥ 70.000</td><td>≥ 45.000</td><td>≥ R$ 1.600</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ América do Sul (Andina)</h3>
+          <div class="route-sub">Peru, Colômbia, Equador</div>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 45.000</td><td>≤ 10.000</td><td>≤ R$ 1.000</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>80.000</td><td>45.000</td><td>R$ 1.500</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>115.000</td><td>65.000</td><td>R$ 2.000</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 150.000</td><td>≥ 85.000</td><td>≥ R$ 2.500</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ Caribe + México</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 75.000</td><td>≤ 65.000</td><td>≤ 10.000</td><td>≤ R$ 1.500</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>110.000</td><td>95.000</td><td>45.000</td><td>R$ 2.000</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>130.000</td><td>110.000</td><td>75.000</td><td>R$ 2.300</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 165.000</td><td>≥ 140.000</td><td>≥ 100.000</td><td>≥ R$ 2.800</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ América do Norte (EUA/Canadá)</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 70.000</td><td>≤ 60.000</td><td>≤ 44.000</td><td>≤ R$ 1.600</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>115.000</td><td>95.000</td><td>70.000</td><td>R$ 2.200</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>130.000</td><td>110.000</td><td>80.000</td><td>R$ 2.500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 165.000</td><td>≥ 140.000</td><td>≥ 100.000</td><td>≥ R$ 3.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ Europa</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Avios (Iberia)</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 70.000</td><td>≤ 80.000</td><td>≤ 60.000</td><td>≤ 21.000</td><td>≤ R$ 2.000</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>115.000</td><td>140.000</td><td>100.000</td><td>—</td><td>R$ 3.000</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>130.000</td><td>170.000</td><td>120.000</td><td>43.000</td><td>R$ 3.500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 165.000</td><td>≥ 225.000</td><td>≥ 160.000</td><td>—</td><td>≥ R$ 4.500</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ África</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 115.000</td><td>≤ 95.000</td><td>≤ 70.000</td><td>≤ R$ 2.200</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>200.000</td><td>170.000</td><td>125.000</td><td>R$ 3.500</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>270.000</td><td>225.000</td><td>165.000</td><td>R$ 4.500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 305.000</td><td>≥ 260.000</td><td>≥ 185.000</td><td>≥ R$ 5.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ Ásia</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 165.000</td><td>≤ 140.000</td><td>≤ 100.000</td><td>≤ R$ 3.000</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>265.000</td><td>225.000</td><td>160.000</td><td>R$ 4.500</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>330.000</td><td>280.000</td><td>200.000</td><td>R$ 5.500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 400.000</td><td>≥ 340.000</td><td>≥ 240.000</td><td>≥ R$ 6.500</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="route-block">
+          <h3>Brasil ↔ Oceania (Austrália/Nova Zelândia)</h3>
+          <table class="therm-table">
+            <thead><tr><th>Status</th><th>Smiles</th><th>Azul</th><th>LATAM</th><th>Em dinheiro</th></tr></thead>
+            <tbody>
+              <tr class="good"><td>🟢 Perfeito</td><td>≤ 220.000</td><td>≤ 190.000</td><td>≤ 135.000</td><td>≤ R$ 4.000</td></tr>
+              <tr class="ok"><td>🟡 Bom</td><td>320.000</td><td>275.000</td><td>195.000</td><td>R$ 5.500</td></tr>
+              <tr class="warn"><td>🟠 Limite</td><td>390.000</td><td>330.000</td><td>235.000</td><td>R$ 6.500</td></tr>
+              <tr class="bad"><td>🔴 Péssimo</td><td>≥ 490.000</td><td>≥ 415.000</td><td>≥ 295.000</td><td>≥ R$ 8.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MELHORES ROTAS POR PROGRAMA -->
+    <section class="section section--alt" id="melhores-rotas">
+      <div class="section__head reveal">
+        <span class="kicker">🎯 Melhores rotas por programa</span>
+        <h2>Onde cada programa <span class="grad-text">brilha</span></h2>
+        <p>Resgates com o melhor custo-benefício real, por programa, por destino (valores por trecho).</p>
+      </div>
+
+      <div class="reveal" style="max-width:1100px; margin:0 auto;">
+
+        <h3 style="margin-top:2rem">🇦🇷 América do Sul</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Buenos Aires</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 12.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 30.000 / trecho</li>
+              <li><strong>Azul:</strong> 35.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Santiago do Chile</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 12.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 35.000 / trecho</li>
+              <li><strong>Azul:</strong> 35.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Montevideu</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 15.000 / trecho</li>
+              <li><strong>Azul:</strong> 15.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Lima (Peru)</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 20.000 / trecho ⭐</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Santa Cruz (Bolívia)</h4>
+            <ul>
+              <li><strong>Smiles:</strong> 25.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Bogotá / Cartagena</h4>
+            <ul>
+              <li><strong>LATAM Cartagena:</strong> 27.000 / trecho ⭐</li>
+              <li><strong>Smiles Bogotá:</strong> 50.000 / trecho</li>
+              <li><strong>Smiles Cartagena:</strong> 60.000 / trecho</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🏝️ Caribe</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Cartagena</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 27.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 60.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>San Andres</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 35.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Aruba</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 35.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 50.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Punta Cana</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 35.000 / trecho ⭐</li>
+              <li><strong>Azul:</strong> 64.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Curaçao</h4>
+            <ul>
+              <li><strong>Azul:</strong> 41.000 / trecho</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🇺🇸 Estados Unidos</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Miami</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 28.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 61.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Nova York</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 28.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 61.000 / trecho</li>
+              <li><strong>Azul:</strong> 69.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Orlando</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 25.000 / trecho ⭐</li>
+              <li><strong>Azul:</strong> 60.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Los Angeles</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 28.000 / trecho ⭐</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Dallas</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 28.000 / trecho</li>
+              <li><strong>Smiles:</strong> 61.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Chicago</h4>
+            <ul>
+              <li><strong>Azul:</strong> 68.000 / trecho</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🇪🇺 Europa</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Madrid</h4>
+            <ul>
+              <li><strong>Avios (Iberia):</strong> 16.000 / trecho ⭐⭐</li>
+              <li><strong>LATAM:</strong> 55.000 / trecho</li>
+              <li><strong>Azul:</strong> 60.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Lisboa</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 55.000 / trecho ⭐</li>
+              <li><strong>Azul:</strong> 60.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Paris</h4>
+            <ul>
+              <li><strong>Azul:</strong> 60.000 / trecho</li>
+              <li><strong>Smiles:</strong> 64.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Londres</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 55.000 / trecho ⭐</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Frankfurt</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 55.000 / trecho ⭐</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🦁 África</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Joanesburgo</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 45.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 75.000 / trecho</li>
+            </ul>
+          </div>
+          <div class="best-card">
+            <h4>Cidade do Cabo</h4>
+            <ul>
+              <li><strong>LATAM:</strong> 45.000 / trecho ⭐</li>
+              <li><strong>Smiles:</strong> 75.000 / trecho</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🕌 Oriente Médio</h3>
+        <div class="best-grid">
+          <div class="best-card">
+            <h4>Doha</h4>
+            <ul>
+              <li><strong>Avios (via Iberia):</strong> 35.000 / trecho ⭐⭐</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO USAR -->
+    <section class="section" id="como-usar">
+      <div class="section__head reveal">
+        <span class="kicker">🧮 Como usar essa tabela</span>
+        <h2>Em 3 passos</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">1</div>
+          <div class="timeline__body">
+            <h3>Veja a milhagem da emissão que apareceu</h3>
+            <p>Ex: GRU → MIA por 70.000 milhas LATAM + R$ 380 de taxas.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">2</div>
+          <div class="timeline__body">
+            <h3>Compare com o termômetro</h3>
+            <p>70k LATAM pra EUA = entre "Perfeito" (≤44k) e "Bom" (70k). Tá bom!</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">3</div>
+          <div class="timeline__body">
+            <h3>Calcule o custo real e compare com o dinheiro</h3>
+            <p>70 × R$ 25 (milheiro LATAM) = R$ 1.750 + R$ 380 taxa = <strong>R$ 2.130 total</strong>. Mesma rota em dinheiro: R$ 3.200. Economia: R$ 1.070 → vai!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row reveal" style="margin-top:3rem">
+        <a href="curso.html" class="btn btn--primary">Voltar ao curso →</a>
+        <a href="sites-secretos.html" class="btn btn--ghost">Sites pra buscar</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Home</a>
+        <a href="curso.html">Curso</a>
+        <a href="sites-secretos.html">Secretos</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
