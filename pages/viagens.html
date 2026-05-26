@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Minhas viagens — roteiros, gastos com soma automática, dicas e alternativas." />
+  <title>Viagens — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    /* Sidebar lista de viagens */
+    .vl-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 900px) { .vl-wrap { grid-template-columns: 260px 1fr; } }
+
+    .vl-side { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; backdrop-filter: blur(10px); }
+    .vl-side h3 { margin: 0 0 .85rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-mute); }
+    .vl-trip-list { list-style: none; padding: 0; margin: 0; }
+    .vl-trip { display: flex; gap: .5rem; padding: .55rem .75rem; margin-bottom: .35rem; border-radius: 10px; cursor: pointer; align-items: center; transition: background .15s ease; }
+    .vl-trip:hover { background: rgba(255,255,255,.05); }
+    .vl-trip.is-active { background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.35); }
+    .vl-trip-emoji { font-size: 1.2rem; }
+    .vl-trip-info { flex: 1; min-width: 0; }
+    .vl-trip-titulo { font-size: .9rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .vl-trip-meta { font-size: .72rem; color: var(--text-mute); font-family: var(--font-mono); }
+    .vl-trip-del { background: transparent; border: none; color: var(--text-mute); cursor: pointer; padding: 2px 6px; border-radius: 6px; opacity: 0; transition: opacity .15s; }
+    .vl-trip:hover .vl-trip-del { opacity: 1; }
+    .vl-trip-del:hover { background: rgba(248,113,113,.15); color: #f87171; }
+
+    .vl-side-actions { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-soft); display: flex; flex-direction: column; gap: .5rem; }
+
+    /* Editor principal */
+    .vl-main { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; backdrop-filter: blur(10px); }
+    .vl-empty { text-align: center; padding: 3rem 1rem; color: var(--text-mute); }
+    .vl-empty h2 { color: var(--text); margin-bottom: 1rem; }
+
+    /* Header do trip editor */
+    .vl-trip-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-soft); }
+    .vl-emoji-input { width: 56px; height: 56px; flex-shrink: 0; text-align: center; font-size: 1.6rem; background: rgba(0,0,0,.3); border: 1px solid var(--border-soft); border-radius: 14px; color: var(--text); }
+    .vl-trip-head > div { flex: 1; min-width: 0; }
+    .vl-titulo-input { font-size: 1.6rem; font-weight: 600; background: transparent; border: none; color: var(--text); width: 100%; padding: .25rem 0; border-bottom: 1px dashed transparent; }
+    .vl-titulo-input:focus { outline: none; border-bottom-color: var(--accent); }
+    .vl-meta-row { display: flex; gap: .75rem; margin-top: .5rem; flex-wrap: wrap; }
+    .vl-meta-input { background: rgba(0,0,0,.3); border: 1px solid var(--border-soft); border-radius: 8px; padding: .35rem .65rem; color: var(--text); font-size: .85rem; font-family: var(--font-mono); }
+    .vl-meta-input:focus { outline: none; border-color: var(--accent); }
+
+    /* Seções */
+    .vl-secao { background: rgba(0,0,0,.2); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.25rem; margin-bottom: 1rem; }
+    .vl-secao-head { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .vl-icone-input { width: 40px; text-align: center; font-size: 1.3rem; background: transparent; border: 1px solid var(--border-soft); border-radius: 8px; padding: .25rem; color: var(--text); }
+    .vl-secao-titulo { flex: 1; font-size: 1.05rem; font-weight: 600; background: transparent; border: none; border-bottom: 1px dashed var(--border-soft); color: var(--text); padding: .35rem .25rem; transition: border-color .15s ease; }
+    .vl-secao-titulo:hover { border-bottom-color: var(--text-mute); }
+    .vl-secao-titulo:focus { outline: none; border-bottom-color: var(--accent); }
+    .vl-secao-titulo::placeholder { color: var(--text-mute); font-weight: 400; }
+    .vl-secao-tipo { font-size: .7rem; color: var(--text-mute); padding: .2rem .5rem; background: rgba(255,255,255,.05); border-radius: 6px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .04em; }
+    .vl-btn-x { background: transparent; border: none; color: var(--text-mute); cursor: pointer; padding: 4px 8px; border-radius: 6px; font-size: 1rem; }
+    .vl-btn-x:hover { background: rgba(248,113,113,.15); color: #f87171; }
+
+    /* Itens gastos */
+    .vl-itens { display: flex; flex-direction: column; gap: .35rem; }
+    .vl-item-row { display: grid; grid-template-columns: 1fr 130px auto; gap: .5rem; align-items: center; }
+    .vl-item-row input { background: rgba(0,0,0,.3); border: 1px solid transparent; border-radius: 8px; padding: .5rem .65rem; color: var(--text); font-size: .9rem; }
+    .vl-item-row input:focus { outline: none; border-color: var(--accent); }
+    .vl-item-row input[type="number"] { font-family: var(--font-mono); text-align: right; }
+
+    /* Subtotal */
+    .vl-subtotal { display: flex; justify-content: space-between; align-items: center; margin-top: .85rem; padding-top: .85rem; border-top: 1px dashed var(--border-soft); }
+    .vl-subtotal span { color: var(--text-mute); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+    .vl-subtotal strong { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); }
+
+    /* Adicionar item / seção */
+    .vl-add-btn { background: transparent; border: 1px dashed var(--border-soft); border-radius: 10px; padding: .55rem 1rem; color: var(--text-mute); font-size: .85rem; cursor: pointer; transition: all .15s ease; margin-top: .5rem; }
+    .vl-add-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(124,92,255,.05); }
+
+    .vl-add-secao { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,.15); border-radius: 12px; border: 1px dashed var(--border-soft); }
+    .vl-add-secao span { color: var(--text-mute); font-size: .85rem; align-self: center; margin-right: .5rem; }
+
+    /* Total geral */
+    .vl-total-geral { margin-top: 1.5rem; padding: 1.25rem; background: linear-gradient(135deg, rgba(124,92,255,.15), rgba(0,229,255,.1)); border: 1px solid rgba(124,92,255,.35); border-radius: 14px; display: flex; justify-content: space-between; align-items: center; }
+    .vl-total-geral span { font-size: .85rem; color: var(--text); text-transform: uppercase; letter-spacing: .08em; }
+    .vl-total-geral strong { font-family: var(--font-mono); font-size: 1.5rem; color: var(--text); }
+
+    /* Bullets (lista) */
+    .vl-bullet-row { display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: center; margin-bottom: .35rem; }
+    .vl-bullet-row input { background: rgba(0,0,0,.3); border: 1px solid transparent; border-radius: 8px; padding: .5rem .65rem; color: var(--text); font-size: .9rem; }
+    .vl-bullet-row input:focus { outline: none; border-color: var(--accent); }
+
+    /* Agrupado */
+    .vl-grupo { border: 1px solid var(--border-soft); border-radius: 10px; padding: .85rem; margin-bottom: .65rem; }
+    .vl-grupo-head { display: flex; gap: .5rem; align-items: center; margin-bottom: .5rem; }
+    .vl-grupo-label { flex: 1; background: transparent; border: none; border-bottom: 1px dashed var(--border-soft); color: var(--text); font-size: .9rem; font-weight: 600; padding: .25rem 0; }
+    .vl-grupo-label:focus { outline: none; border-bottom-color: var(--accent); }
+
+    /* Ações topo */
+    .vl-actions-top { display: flex; gap: .5rem; justify-content: flex-end; margin-top: 1rem; flex-wrap: wrap; }
+    .vl-actions-top button { background: rgba(255,255,255,.05); border: 1px solid var(--border-soft); border-radius: 10px; padding: .55rem 1rem; color: var(--text); font-size: .85rem; cursor: pointer; transition: all .15s ease; }
+    .vl-actions-top button:hover { background: rgba(124,92,255,.15); border-color: var(--accent); }
+
+    /* Botões side */
+    .vl-side-actions button { background: rgba(255,255,255,.05); border: 1px solid var(--border-soft); border-radius: 10px; padding: .65rem; color: var(--text); font-size: .85rem; cursor: pointer; transition: all .15s ease; text-align: center; }
+    .vl-side-actions button:hover { background: rgba(124,92,255,.15); border-color: var(--accent); }
+    .vl-side-actions button.primary { background: rgba(124,92,255,.15); border-color: rgba(124,92,255,.4); }
+
+    .vl-status { text-align: center; color: var(--text-mute); font-size: .8rem; padding: .5rem; font-family: var(--font-mono); }
+    .vl-status.ok { color: #34d399; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🧳 Viagens</span>
+      <h1>Minhas <span class="grad-text">viagens</span></h1>
+      <p>Adicione viagens, seções e itens — os subtotais e o total geral somam automaticamente. Tudo fica salvo no seu navegador.</p>
+    </section>
+
+    <section class="section">
+      <div class="vl-wrap">
+        <aside class="vl-side">
+          <h3>Suas viagens</h3>
+          <ul class="vl-trip-list" id="trip-list"></ul>
+          <div class="vl-side-actions">
+            <button class="primary" id="btn-nova">＋ Nova viagem</button>
+          </div>
+          <div class="vl-status" id="status">—</div>
+        </aside>
+        <main class="vl-main" id="main"></main>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+  (function() {
+    const STORAGE_KEY = 'milhas-viagens';
+    const BRL = (n) => (typeof n === 'number' && !isNaN(n))
+      ? n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 })
+      : '—';
+    const uid = () => Math.random().toString(36).slice(2, 9);
+
+    const state = { viagens: [], editingId: null };
+    const elList = document.getElementById('trip-list');
+    const elMain = document.getElementById('main');
+    const elStatus = document.getElementById('status');
+
+    function persist() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ viagens: state.viagens }, null, 2));
+      elStatus.textContent = `Salvo · ${state.viagens.length} viagem${state.viagens.length !== 1 ? 's' : ''}`;
+      elStatus.className = 'vl-status ok';
+    }
+
+    function load() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const data = JSON.parse(raw);
+          state.viagens = data.viagens || [];
+        } catch { state.viagens = []; }
+      }
+      if (state.viagens.length) state.editingId = state.viagens[0].id;
+    }
+
+    function findTrip(id) { return state.viagens.find(v => v.id === id); }
+
+    function calcSubtotal(secao) {
+      if (secao.tipo !== 'gastos') return 0;
+      return (secao.itens || []).reduce((acc, it) => acc + (Number(it.valor) || 0), 0);
+    }
+    function calcTotal(trip) {
+      return (trip.secoes || [])
+        .filter(s => s.tipo === 'gastos')
+        .reduce((acc, s) => acc + calcSubtotal(s), 0);
+    }
+
+    /* ----- mutations ----- */
+    function novaViagem() {
+      const t = { id: uid(), titulo: '', emoji: '✈️', secoes: [] };
+      state.viagens.push(t);
+      state.editingId = t.id;
+      persist(); render();
+    }
+    function deletarViagem(id) {
+      if (!confirm('Apagar essa viagem?')) return;
+      state.viagens = state.viagens.filter(v => v.id !== id);
+      if (state.editingId === id) state.editingId = state.viagens[0]?.id || null;
+      persist(); render();
+    }
+    function addSecao(tripId, tipo) {
+      const t = findTrip(tripId); if (!t) return;
+      const icone = tipo === 'gastos' ? '💵' : (tipo === 'lista' ? '📝' : '🗂️');
+      const base = { id: uid(), tipo, titulo: '', icone };
+      if (tipo === 'gastos') base.itens = [];
+      if (tipo === 'lista') base.itens = [];
+      if (tipo === 'agrupado') base.grupos = [];
+      t.secoes = t.secoes || [];
+      t.secoes.push(base);
+      persist(); render();
+    }
+    function delSecao(tripId, secId) {
+      const t = findTrip(tripId); if (!t) return;
+      t.secoes = t.secoes.filter(s => s.id !== secId);
+      persist(); render();
+    }
+    function addItemGasto(tripId, secId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.itens.push({ id: uid(), nome: '', valor: null });
+      persist(); render();
+    }
+    function delItemGasto(tripId, secId, itemId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.itens = s.itens.filter(i => i.id !== itemId);
+      persist(); render();
+    }
+    function addBullet(tripId, secId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.itens = s.itens || []; s.itens.push('');
+      persist(); render();
+    }
+    function delBullet(tripId, secId, idx) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.itens.splice(idx, 1);
+      persist(); render();
+    }
+    function addGrupo(tripId, secId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.grupos = s.grupos || []; s.grupos.push({ id: uid(), label: 'Novo grupo', itens: [] });
+      persist(); render();
+    }
+    function delGrupo(tripId, secId, grupoId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      s.grupos = s.grupos.filter(g => g.id !== grupoId);
+      persist(); render();
+    }
+    function addGrupoItem(tripId, secId, grupoId) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      const g = s.grupos.find(x => x.id === grupoId);
+      g.itens = g.itens || []; g.itens.push('');
+      persist(); render();
+    }
+    function delGrupoItem(tripId, secId, grupoId, idx) {
+      const t = findTrip(tripId); const s = t.secoes.find(x => x.id === secId);
+      const g = s.grupos.find(x => x.id === grupoId);
+      g.itens.splice(idx, 1);
+      persist(); render();
+    }
+
+    /* ----- field handlers (no re-render, just persist) ----- */
+    function onInput(path, value) {
+      // path: ['trip', id, 'titulo'] | ['secao', tripId, secId, 'titulo'] | etc
+      const trip = findTrip(path[1]);
+      if (!trip) return;
+      if (path[0] === 'trip') {
+        trip[path[2]] = value;
+        updateSidebar(trip);
+      } else if (path[0] === 'secao') {
+        const s = trip.secoes.find(x => x.id === path[2]);
+        s[path[3]] = value;
+      } else if (path[0] === 'item') {
+        const s = trip.secoes.find(x => x.id === path[2]);
+        const it = s.itens.find(i => i.id === path[3]);
+        if (path[4] === 'valor') it.valor = value === '' ? null : Number(value);
+        else it[path[4]] = value;
+        // Re-render only the subtotal/total live
+        updateLiveTotals(trip);
+      } else if (path[0] === 'bullet') {
+        const s = trip.secoes.find(x => x.id === path[2]);
+        s.itens[path[3]] = value;
+      } else if (path[0] === 'grupo') {
+        const s = trip.secoes.find(x => x.id === path[2]);
+        const g = s.grupos.find(x => x.id === path[3]);
+        if (path[4] === 'label') g.label = value;
+      } else if (path[0] === 'grupoItem') {
+        const s = trip.secoes.find(x => x.id === path[2]);
+        const g = s.grupos.find(x => x.id === path[3]);
+        g.itens[path[4]] = value;
+      }
+      persist();
+    }
+
+    function updateSidebar(trip) {
+      const titEl = document.querySelector(`[data-side-titulo="${trip.id}"]`);
+      if (titEl) titEl.textContent = trip.titulo || 'Nova viagem';
+      const emojiEl = document.querySelector(`[data-side-emoji="${trip.id}"]`);
+      if (emojiEl) emojiEl.textContent = trip.emoji || '✈️';
+    }
+
+    function updateLiveTotals(trip) {
+      // Update subtotals
+      (trip.secoes || []).forEach(s => {
+        if (s.tipo === 'gastos') {
+          const el = document.querySelector(`[data-subtotal="${s.id}"]`);
+          if (el) el.textContent = BRL(calcSubtotal(s));
+        }
+      });
+      // Total geral
+      const totalEl = document.querySelector('[data-total-geral]');
+      if (totalEl) totalEl.textContent = BRL(calcTotal(trip));
+    }
+
+    /* ----- render ----- */
+    function escapeAttr(s) { return String(s || '').replace(/"/g, '&quot;'); }
+    function escapeText(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    function renderList() {
+      elList.innerHTML = state.viagens.map(t => `
+        <li class="vl-trip ${t.id === state.editingId ? 'is-active' : ''}" data-trip-select="${t.id}">
+          <span class="vl-trip-emoji" data-side-emoji="${t.id}">${escapeText(t.emoji || '✈️')}</span>
+          <div class="vl-trip-info">
+            <div class="vl-trip-titulo" data-side-titulo="${t.id}">${escapeText(t.titulo || 'Nova viagem')}</div>
+          </div>
+          <button class="vl-trip-del" data-trip-del="${t.id}" title="Apagar">×</button>
+        </li>
+      `).join('') || '<li class="vl-status">Nenhuma ainda.</li>';
+    }
+
+    function renderItemGasto(tripId, secId, it) {
+      return `
+        <div class="vl-item-row">
+          <input type="text" placeholder="Nome do item" value="${escapeAttr(it.nome)}" data-input="item.${tripId}.${secId}.${it.id}.nome">
+          <input type="number" step="0.01" placeholder="Valor" value="${it.valor ?? ''}" data-input="item.${tripId}.${secId}.${it.id}.valor">
+          <button class="vl-btn-x" data-del-item="${tripId}.${secId}.${it.id}" title="Remover">×</button>
+        </div>
+      `;
+    }
+
+    function renderSecao(tripId, s) {
+      let body = '';
+      if (s.tipo === 'gastos') {
+        body = `
+          <div class="vl-itens">
+            ${(s.itens || []).map(it => renderItemGasto(tripId, s.id, it)).join('')}
+          </div>
+          <button class="vl-add-btn" data-add-item="${tripId}.${s.id}">+ adicionar item</button>
+          <div class="vl-subtotal">
+            <span>Subtotal</span>
+            <strong data-subtotal="${s.id}">${BRL(calcSubtotal(s))}</strong>
+          </div>
+        `;
+      } else if (s.tipo === 'lista') {
+        body = `
+          <div class="vl-itens">
+            ${(s.itens || []).map((b, i) => `
+              <div class="vl-bullet-row">
+                <input type="text" placeholder="Item" value="${escapeAttr(b)}" data-input="bullet.${tripId}.${s.id}.${i}">
+                <button class="vl-btn-x" data-del-bullet="${tripId}.${s.id}.${i}" title="Remover">×</button>
+              </div>
+            `).join('')}
+          </div>
+          <button class="vl-add-btn" data-add-bullet="${tripId}.${s.id}">+ adicionar item</button>
+        `;
+      } else if (s.tipo === 'agrupado') {
+        body = `
+          <div>
+            ${(s.grupos || []).map(g => `
+              <div class="vl-grupo">
+                <div class="vl-grupo-head">
+                  <input type="text" class="vl-grupo-label" value="${escapeAttr(g.label)}" data-input="grupo.${tripId}.${s.id}.${g.id}.label">
+                  <button class="vl-btn-x" data-del-grupo="${tripId}.${s.id}.${g.id}" title="Remover grupo">×</button>
+                </div>
+                ${(g.itens || []).map((it, i) => `
+                  <div class="vl-bullet-row">
+                    <input type="text" value="${escapeAttr(it)}" data-input="grupoItem.${tripId}.${s.id}.${g.id}.${i}">
+                    <button class="vl-btn-x" data-del-grupo-item="${tripId}.${s.id}.${g.id}.${i}" title="Remover">×</button>
+                  </div>
+                `).join('')}
+                <button class="vl-add-btn" data-add-grupo-item="${tripId}.${s.id}.${g.id}">+ item nesse grupo</button>
+              </div>
+            `).join('')}
+            <button class="vl-add-btn" data-add-grupo="${tripId}.${s.id}">+ adicionar grupo</button>
+          </div>
+        `;
+      }
+
+      return `
+        <section class="vl-secao">
+          <div class="vl-secao-head">
+            <input class="vl-icone-input" maxlength="2" value="${escapeAttr(s.icone)}" data-input="secao.${tripId}.${s.id}.icone">
+            <input class="vl-secao-titulo" placeholder="Nome da seção (ex: Passeios Chile)" value="${escapeAttr(s.titulo)}" data-input="secao.${tripId}.${s.id}.titulo">
+            <span class="vl-secao-tipo">${escapeText(s.tipo)}</span>
+            <button class="vl-btn-x" data-del-secao="${tripId}.${s.id}" title="Remover seção">×</button>
+          </div>
+          ${body}
+        </section>
+      `;
+    }
+
+    function renderEditor() {
+      const t = findTrip(state.editingId);
+      if (!t) {
+        elMain.innerHTML = `
+          <div class="vl-empty">
+            <h2>Nenhuma viagem ainda</h2>
+            <p>Clique em <strong>＋ Nova viagem</strong> pra criar a primeira. Depois é só adicionar seções de gastos, listas e grupos — os totais somam sozinhos.</p>
+          </div>
+        `;
+        return;
+      }
+      elMain.innerHTML = `
+        <div class="vl-trip-head">
+          <input class="vl-emoji-input" maxlength="2" value="${escapeAttr(t.emoji)}" data-input="trip.${t.id}.emoji">
+          <div>
+            <input class="vl-titulo-input" placeholder="Título da viagem" value="${escapeAttr(t.titulo)}" data-input="trip.${t.id}.titulo">
+          </div>
+        </div>
+
+        ${(t.secoes || []).map(s => renderSecao(t.id, s)).join('')}
+
+        <div class="vl-add-secao">
+          <span>Adicionar seção:</span>
+          <button class="vl-add-btn" data-add-secao="${t.id}.gastos">💵 Gastos (tabela com soma)</button>
+          <button class="vl-add-btn" data-add-secao="${t.id}.lista">📝 Lista (bullets)</button>
+          <button class="vl-add-btn" data-add-secao="${t.id}.agrupado">🗂️ Agrupado (grupos com bullets)</button>
+        </div>
+
+        <div class="vl-total-geral">
+          <span>Total geral (somente gastos)</span>
+          <strong data-total-geral>${BRL(calcTotal(t))}</strong>
+        </div>
+      `;
+    }
+
+    function render() {
+      renderList();
+      renderEditor();
+    }
+
+    /* ----- delegated events ----- */
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (t.dataset.tripDel) { e.stopPropagation(); deletarViagem(t.dataset.tripDel); return; }
+      const sel = t.closest('[data-trip-select]');
+      if (sel) { state.editingId = sel.dataset.tripSelect; render(); return; }
+      if (t.dataset.addSecao) { const [id, tipo] = t.dataset.addSecao.split('.'); addSecao(id, tipo); return; }
+      if (t.dataset.delSecao) { const [id, sid] = t.dataset.delSecao.split('.'); delSecao(id, sid); return; }
+      if (t.dataset.addItem) { const [id, sid] = t.dataset.addItem.split('.'); addItemGasto(id, sid); return; }
+      if (t.dataset.delItem) { const [id, sid, iid] = t.dataset.delItem.split('.'); delItemGasto(id, sid, iid); return; }
+      if (t.dataset.addBullet) { const [id, sid] = t.dataset.addBullet.split('.'); addBullet(id, sid); return; }
+      if (t.dataset.delBullet) { const [id, sid, idx] = t.dataset.delBullet.split('.'); delBullet(id, sid, +idx); return; }
+      if (t.dataset.addGrupo) { const [id, sid] = t.dataset.addGrupo.split('.'); addGrupo(id, sid); return; }
+      if (t.dataset.delGrupo) { const [id, sid, gid] = t.dataset.delGrupo.split('.'); delGrupo(id, sid, gid); return; }
+      if (t.dataset.addGrupoItem) { const [id, sid, gid] = t.dataset.addGrupoItem.split('.'); addGrupoItem(id, sid, gid); return; }
+      if (t.dataset.delGrupoItem) { const [id, sid, gid, idx] = t.dataset.delGrupoItem.split('.'); delGrupoItem(id, sid, gid, +idx); return; }
+    });
+
+    document.addEventListener('input', (e) => {
+      const t = e.target;
+      if (!t.dataset.input) return;
+      const path = t.dataset.input.split('.');
+      onInput(path, t.value);
+    });
+
+    /* ----- side buttons ----- */
+    document.getElementById('btn-nova').addEventListener('click', novaViagem);
+
+    /* ----- boot ----- */
+    load();
+    render();
+    if (state.viagens.length) {
+      elStatus.textContent = `Carregado · ${state.viagens.length} viagem${state.viagens.length !== 1 ? 's' : ''}`;
+      elStatus.className = 'vl-status ok';
+    }
+  })();
+  </script>
+</body>
+</html>

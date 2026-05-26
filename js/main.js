@@ -32,6 +32,17 @@
         });
       });
     }
+
+    // marca a aba ativa pela página atual
+    if (links) {
+      const current = location.pathname.split('/').pop() || 'index.html';
+      links.querySelectorAll('a').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        const target = (href.split('/').pop() || 'index.html').split('#')[0];
+        if (target === current) a.classList.add('is-active');
+      });
+    }
   }
 
   /* ============================================================
