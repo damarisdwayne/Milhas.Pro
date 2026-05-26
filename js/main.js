@@ -102,11 +102,22 @@
     counters.forEach(c => io.observe(c));
   }
 
+  /* ============================================================
+   * PWA: registra o service worker (só em http/https, não em file://)
+   * ============================================================ */
+  function initPWA() {
+    if (!('serviceWorker' in navigator)) return;
+    if (!location.protocol.startsWith('http')) return;
+    globalThis.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+
   /* ============================================================ */
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initScrollReveal();
     initCounters();
-
+    initPWA();
   });
 })();
