@@ -77,8 +77,9 @@
     .vl-add-btn { background: transparent; border: 1px dashed var(--border-soft); border-radius: 10px; padding: .55rem 1rem; color: var(--text-mute); font-size: .85rem; cursor: pointer; transition: all .15s ease; margin-top: .5rem; }
     .vl-add-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(124,92,255,.05); }
 
-    .vl-add-secao { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,.15); border-radius: 12px; border: 1px dashed var(--border-soft); }
-    .vl-add-secao span { color: var(--text-mute); font-size: .85rem; align-self: center; margin-right: .5rem; }
+    .vl-add-secao { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-start; margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,.15); border-radius: 12px; border: 1px dashed var(--border-soft); }
+    .vl-add-secao span { flex-basis: 100%; color: var(--text-mute); font-size: .85rem; margin-bottom: .25rem; }
+    .vl-add-secao .vl-add-btn { margin-top: 0; }
 
     /* Total geral */
     .vl-total-geral { margin-top: 1.5rem; padding: 1.25rem; background: linear-gradient(135deg, rgba(124,92,255,.15), rgba(0,229,255,.1)); border: 1px solid rgba(124,92,255,.35); border-radius: 14px; display: flex; justify-content: space-between; align-items: center; }
