@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+// Scroll reveal — initial hidden state, JS toggles .is-visible
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s $ease-out, transform .7s $ease-out;
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Stagger inside a container with .reveal items
+.cards .reveal,
+.tools .reveal,
+.posts .reveal,
+.programs .reveal {
+  &:nth-child(1) { transition-delay: 0ms; }
+  &:nth-child(2) { transition-delay: 80ms; }
+  &:nth-child(3) { transition-delay: 160ms; }
+  &:nth-child(4) { transition-delay: 240ms; }
+  &:nth-child(5) { transition-delay: 320ms; }
+  &:nth-child(6) { transition-delay: 400ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ticket, .bg-glow, .hero__plane { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}

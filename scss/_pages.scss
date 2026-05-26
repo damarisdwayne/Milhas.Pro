@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+// Page hero (interior pages)
+.page-hero {
+  max-width: $max;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2rem;
+  text-align: center;
+
+  .kicker {
+    display: inline-block;
+    font-family: $font-mono;
+    font-size: .8rem;
+    color: $accent;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: .35rem .8rem;
+    border: 1px solid rgba($accent, .3);
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    background: rgba($accent, .05);
+  }
+
+  h1 { margin-bottom: 1rem; }
+  p  { max-width: 640px; margin: 0 auto; font-size: 1.1rem; }
+}
+
+// Article body (guides, blog posts)
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  h2 {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $border-soft;
+  }
+
+  h3 { font-size: 1.2rem; margin: 1.75rem 0 .75rem; }
+
+  ul, ol { padding-left: 1.25rem; color: $text-dim; }
+  li { margin-bottom: .5rem; }
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 3px solid $accent;
+    background: rgba($accent, .05);
+    border-radius: 0 $radius $radius 0;
+    color: $text;
+    font-style: italic;
+  }
+
+  code {
+    font-family: $font-mono;
+    font-size: .9em;
+    padding: .15rem .4rem;
+    background: rgba($accent, .12);
+    color: $accent;
+    border-radius: 6px;
+  }
+
+  a {
+    color: $accent;
+    border-bottom: 1px solid rgba($accent, .35);
+    transition: border-color $transition;
+    &:hover { border-color: $accent; }
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: $text-dim;
+  font-size: .9rem;
+  margin-bottom: 2rem;
+  transition: color $transition;
+  &:hover { color: $accent; }
+}

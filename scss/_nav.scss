@@ -1,0 +1,119 @@
+@use 'variables' as *;
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  background: rgba(7, 8, 13, .55);
+  border-bottom: 1px solid transparent;
+  transition: border-color $transition, background $transition;
+
+  &.is-scrolled {
+    background: rgba(7, 8, 13, .75);
+    border-bottom-color: $border-soft;
+  }
+
+  &__inner {
+    max-width: $max;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    font-size: 1rem;
+  }
+
+  &__plane {
+    display: inline-block;
+    color: $accent;
+    transform: rotate(-25deg);
+    transition: transform .4s $ease;
+  }
+
+  &__logo:hover &__plane { transform: rotate(0deg) translateX(4px); }
+
+  &__logo-dot { color: $accent; }
+
+  &__links {
+    display: flex;
+    gap: 1.75rem;
+
+    a {
+      font-size: .95rem;
+      color: $text-dim;
+      position: relative;
+      transition: color $transition;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 100%;
+        bottom: -4px;
+        height: 2px;
+        background: $grad;
+        transition: right $transition;
+      }
+      &:hover {
+        color: $text;
+        &::after { right: 0; }
+      }
+    }
+
+    @media (max-width: $bp-md) {
+      position: fixed;
+      inset: 64px 0 auto 0;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(7, 8, 13, .97);
+      backdrop-filter: blur(20px);
+      padding: 1rem 1.5rem 2rem;
+      border-bottom: 1px solid $border-soft;
+      transform: translateY(-120%);
+      transition: transform .4s $ease;
+
+      &.is-open { transform: translateY(0); }
+
+      a {
+        padding: .9rem 0;
+        border-bottom: 1px solid $border-soft;
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: .5rem;
+    flex-direction: column;
+    gap: 5px;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $text;
+      border-radius: 2px;
+      transition: transform .3s $ease, opacity .3s;
+    }
+
+    &.is-open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    @media (max-width: $bp-md) { display: flex; }
+  }
+}
