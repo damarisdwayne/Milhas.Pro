@@ -329,8 +329,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ---------- Cards ---------- */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 1.75rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -347,7 +349,7 @@ button { font-family: inherit; cursor: pointer; }
 .card:hover { transform: translateY(-4px); border-color: rgba(0, 229, 255, .25); }
 .card:hover::before { opacity: 1; }
 .card__icon { font-size: 1.75rem; margin-bottom: 1rem; }
-.card p { margin-bottom: 0; font-size: .95rem; }
+.card p { margin-bottom: 0; font-size: .95rem; flex: 1; }
 .card strong { color: var(--text); }
 
 /* ---------- Timeline ---------- */
