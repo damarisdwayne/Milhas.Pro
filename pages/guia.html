@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tutorial passo a passo de ferramentas de milhas." />
+  <title>Tutorial — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .guia-meta { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .guia-meta span { font-family: var(--font-mono); font-size: .75rem; padding: .25rem .7rem; border-radius: 999px; border: 1px solid var(--border-soft); color: var(--text-dim); }
+    .guia-back { display: inline-block; color: var(--text-mute); font-size: .85rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .guia-back:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="guia-root"></main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/guias.js"></script>
+</body>
+</html>
