@@ -29,13 +29,21 @@
     .prog-item--no { opacity: .65; }
 
     /* Tables */
-    .tbl-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem auto; max-width: 1200px; }
     .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; table-layout: fixed; }
     .tbl--ponte col.col-prog { width: 13%; }
     .tbl--ponte col.col-onde { width: 14%; }
     .tbl--ponte col.col-gerar { width: 40%; }
     .tbl--ponte col.col-cuid { width: 33%; }
     .tbl--ponte td, .tbl--ponte th { word-wrap: break-word; }
+
+    /* Booking options table — pill empilhado acima da descrição */
+    .tbl--booking col.col-prog { width: 22%; }
+    .tbl--booking col.col-milhas { width: 14%; }
+    .tbl--booking col.col-taxa { width: 22%; }
+    .tbl--booking col.col-verd { width: 42%; }
+    .tbl--booking .verdict .pill { display: inline-block; margin-bottom: .4rem; }
+    .tbl--booking .verdict-text { display: block; color: var(--text-dim); font-size: .88rem; line-height: 1.5; }
     .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
     .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
     .tbl tbody tr:hover { background: rgba(255,255,255,.02); }
@@ -46,8 +54,9 @@
     .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
     .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
     .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
-    .callout strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
     .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .callout span strong, .callout p strong { display: inline; font-size: inherit; margin: 0; }
 
     /* Verdict pills */
     .pill { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-family: var(--font-mono); letter-spacing: .03em; }
@@ -103,8 +112,9 @@
         <a href="#resultados">02 · Tela de resultados</a>
         <a href="#detalhe">03 · Detalhe do voo</a>
         <a href="#booking">04 · Booking Options</a>
-        <a href="#ponte">05 · Onde emitir e como gerar milha</a>
-        <a href="#fluxo">06 · Fluxo completo</a>
+        <a href="#hack-latam">05 · Hack da tabela fixa LATAM</a>
+        <a href="#ponte">06 · Onde emitir e como gerar milha</a>
+        <a href="#fluxo">07 · Fluxo completo</a>
       </nav>
     </section>
 
@@ -126,7 +136,29 @@
         Aquelas tags <code>Amex</code>, <code>Cap One</code>, <code>Citi</code>, <code>Chase</code>, <code>Bilt</code>, <code>Rove</code>, <code>Wells Fargo</code> ao lado de cada programa são <strong>cartões americanos</strong> que transferem pontos pra esses programas. Você não tem nenhum deles. <strong>Ignora.</strong> O que importa é só o nome do programa do lado esquerdo.
       </p>
 
-      <h3>A regra de ouro pra escolher</h3>
+      <h3>Antes: Explore ≠ Search</h3>
+      <p>Tem dois modos de busca no Seats.aero, e a maioria mistura os dois. A regra:</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Modo</th><th>O que faz</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Explore</strong></td>
+              <td>Você escolhe <strong>1 programa por vez</strong> e o Seats varre toda disponibilidade que esse programa indexa, por região.</td>
+              <td>Quando você é <strong>flexível com destino</strong> e quer ver "o que tá rolando" naquele programa (ex: "achar qualquer voo de 5ª liberdade saindo do BR").</td>
+            </tr>
+            <tr>
+              <td><strong>Search</strong></td>
+              <td>Você define <strong>origem + destino + datas</strong> e o Seats consulta <strong>vários programas ao mesmo tempo</strong>.</td>
+              <td>Quando você <strong>já sabe a rota</strong> e quer comparar quanto cobra cada programa (ex: "GRU → MAD em julho, qual o programa mais barato?").</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>A regra de ouro pra escolher (no modo Explore)</h3>
       <div class="callout callout--rule reveal">
         <strong>Só clique em programa que você sabe como abastecer do Brasil.</strong>
         <span>Achar disponibilidade num programa que você não consegue gerar milha é frustração pura. Você acha o assento, abre o site, e descobre que precisa de 80.000 milhas United — sem nenhum caminho viável daqui. Foco apenas em programas com porta de entrada BR.</span>
@@ -169,13 +201,6 @@
         <div class="prog-item prog-item--maybe reveal">
           <span class="prog-item__mark">⚠️</span>
           <div class="prog-item__body">
-            <strong>Air Canada Aeroplan</strong>
-            <span>Melhor motor de busca da Star Alliance, taxas baixíssimas. Sem path direto BR — compra direta em promo é a única via prática daqui.</span>
-          </div>
-        </div>
-        <div class="prog-item prog-item--maybe reveal">
-          <span class="prog-item__mark">⚠️</span>
-          <div class="prog-item__body">
             <strong>TAP Miles&Go</strong>
             <span>Voa direto do Brasil pra Lisboa. Faz promo de venda de milhas várias vezes ao ano. Disponibilidade premium meio escassa.</span>
           </div>
@@ -196,20 +221,71 @@
         </div>
       </div>
 
+      <h3>🔍 Use só como motor de busca (não dá pra emitir, mas vale clicar)</h3>
+      <div class="callout callout--rule reveal" style="margin: 0 0 1.25rem">
+        <strong>Programa pra BUSCAR ≠ programa pra EMITIR.</strong>
+        <span>Os 3 programas abaixo você não consegue acumular do Brasil — mas o Explore deles mostra disponibilidade da aliança inteira (Oneworld ou Star) com motor de busca melhor que o dos programas brasileiros. Você usa esses sites pra <strong>descobrir</strong> que existe assento, depois <strong>emite via outro programa</strong> que você consegue alimentar do BR (ex: LATAM Pass tabela fixa, LifeMiles).</span>
+      </div>
+      <div class="prog-grid">
+        <div class="prog-item prog-item--maybe reveal" style="border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05)">
+          <span class="prog-item__mark">🔍</span>
+          <div class="prog-item__body">
+            <strong>American AAdvantage</strong>
+            <span>Melhor motor de busca da Oneworld. Acha voo da Qatar, Iberia, LATAM, British, etc. Emita via <strong>LATAM Pass tabela fixa</strong> (classes X eco e U executiva) ou Iberia/British via Avios. Veja a Seção 05 abaixo.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--maybe reveal" style="border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05)">
+          <span class="prog-item__mark">🔍</span>
+          <div class="prog-item__body">
+            <strong>United MileagePlus</strong>
+            <span>Melhor motor de busca da Star Alliance. Acha voo da Lufthansa, Swiss, TAP, Turkish, Avianca, etc. Emita via <strong>LifeMiles</strong> ou TAP Miles&Go.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--maybe reveal" style="border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05)">
+          <span class="prog-item__mark">🔍</span>
+          <div class="prog-item__body">
+            <strong>Air Canada Aeroplan</strong>
+            <span>Segundo melhor da Star Alliance, com filtros mais finos que o United. Mesma estratégia: usa pra buscar, emite via LifeMiles.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>Programas brasileiros: cuidado com o uso</h3>
+      <div class="callout callout--tip reveal" style="margin: 0 0 1.25rem">
+        <strong>Smiles e TudoAzul têm uso específico no Seats.aero.</strong>
+        <span>Pra voos da própria <strong>GOL ou Azul</strong>, ignore o Seats — vai direto no <a href="https://smiles.com.br" target="_blank" rel="noopener" style="color:var(--accent)">smiles.com.br</a> ou <a href="https://voeazul.com.br/tudoazul" target="_blank" rel="noopener" style="color:var(--accent)">tudoazul</a>, que mostram inventário mais atualizado e em português. <strong>MAS</strong> pra voos de <strong>parceiros internacionais</strong> usando milhas BR (caminho muito mais barato que o programa estrangeiro), o Seats é a melhor ferramenta — escolha o programa BR no Explore.</span>
+      </div>
+      <div class="prog-grid">
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>GOL Smiles</strong> (no Explore, pra parceiros)
+            <span>Use pra achar voos de <strong>American Airlines, Air France/KLM, TAP, Avianca, Aerolíneas, Turkish, Emirates</strong> emitíveis com milhas Smiles via acordos bilaterais. Pra voos GOL próprios, vai no site da Smiles direto.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>TudoAzul</strong> (no Explore, pra parceiros)
+            <span>Use pra achar voos de <strong>United, Copa, Air Canada, Turkish, Emirates, Etihad, Air Europa, TAP</strong> emitíveis com milhas Azul (programa Azul pelo Mundo). Pra voos Azul próprios, vai no site da Azul direto.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>Azul Fidelidade</strong> (Explore pra <em>descoberta</em> doméstica)
+            <span>Caso de uso diferente: quando você <strong>tem milhas Azul e tá flexível com destino doméstico</strong>, use o Explore pra descobrir rotas escondidas baratas que a Azul opera no Brasil. Aparecem voos tipo <strong>Viracopos→Bauru por 4.000 milhas</strong>, Ribeirão→Porto Seguro por 16k, etc. — combinações que você não pesquisaria sozinho. Diferente do uso "pra parceiros" acima.</span>
+          </div>
+        </div>
+      </div>
+
       <h3>Ignora por completo (pelo menos por enquanto)</h3>
       <div class="prog-grid">
         <div class="prog-item prog-item--no reveal">
           <span class="prog-item__mark">❌</span>
           <div class="prog-item__body">
-            <strong>GOL Smiles · Azul Fidelidade</strong>
-            <span>Você não precisa do Seats.aero pra esses. Vai no site da própria cia, que é mais atualizado e gratuito. E o Seats mostra preços bem maiores do que o real em alguns casos.</span>
-          </div>
-        </div>
-        <div class="prog-item prog-item--no reveal">
-          <span class="prog-item__mark">❌</span>
-          <div class="prog-item__body">
-            <strong>American AAdvantage · United · Delta · Alaska</strong>
-            <span>Programas 100% americanos. Sem cartão US, você não acumula. Comprar direto é caro. Esquece até você morar lá ou ter Amex internacional.</span>
+            <strong>Delta SkyMiles · Alaska Mileage Plan</strong>
+            <span>Programas americanos sem porta BR e sem o uso de "motor de busca" — o que aparece neles você consegue ver melhor por AA, United ou Flying Blue. Esquece até você ter Amex US.</span>
           </div>
         </div>
         <div class="prog-item prog-item--no reveal">
@@ -251,9 +327,59 @@
         <li><strong>Last Seen</strong> — quando o Seats viu o assento pela última vez. <strong>Filtre por "Just now" ou "horas atrás"</strong> — qualquer coisa de mais de 1 dia, o assento provavelmente sumiu.</li>
       </ul>
 
+      <h3>O código de cores das células (importante!)</h3>
+      <p>Cada data + cabine tem uma cor. Não é decoração — é informação:</p>
+      <ul style="color:var(--text-dim); line-height:1.8; padding-left:1.2rem;">
+        <li><strong style="color:#34d399">Célula verde</strong> = voo <strong>direto</strong>. Geralmente custa menos milhas e tem mais chance de existir como tarifa award. <strong>Sempre prefira verde.</strong></li>
+        <li><strong style="color:#60a5fa">Célula azul</strong> = voo <strong>com uma ou mais conexões</strong>. Cada trecho consome inventário, então custa mais milhas. Útil quando o direto não tem.</li>
+        <li><strong>"Not Available"</strong> = nem adianta procurar nesse dia. Seats já confirmou que não tem assento award. <strong>Economiza horas</strong> de busca manual.</li>
+      </ul>
+
       <div class="callout callout--warn reveal">
         <strong>O cache do Seats.aero mente.</strong>
         <span>A ferramenta indexa programas em ciclos. O que aparece como "disponível" pode ter sido vendido há horas. <strong>Sempre confirme no site oficial do programa antes de transferir qualquer ponto.</strong></span>
+      </div>
+
+      <div class="callout callout--tip reveal">
+        <strong>💸 Vale pagar o Pro?</strong>
+        <span>O plano <strong>grátis</strong> mostra disponibilidade até <strong>60 dias à frente</strong> com cache mais antigo e alertas limitados. O <strong>Pro custa cerca de US$ 10/mês ou US$ 100/ano</strong> e libera:<br>
+          • Busca ao vivo (sem depender do cache)<br>
+          • <strong>Janela completa de 365 dias</strong> (toda a temporada)<br>
+          • Alertas ilimitados de rotas<br>
+          • Filtro por cabine específica<br>
+          • <strong>Histórico de preço da rota</strong> — você vê se o preço atual está caro, barato ou no padrão histórico, e decide se vale emitir agora ou esperar<br>
+          • Mais programas indexados<br><br>
+          Se você caça executiva 1× por ano, <strong>uma única emissão paga vários meses de assinatura</strong> facilmente. O histórico de preço sozinho já justifica pra quem fica em dúvida na hora de apertar o gatilho.</span>
+      </div>
+
+      <h3>🌐 Multi-city codes: o segredo de quem pesquisa rápido</h3>
+      <p>O Seats.aero criou <strong>códigos agrupadores próprios</strong> de 3 letras que agrupam aeroportos de uma região, país ou companhia aérea inteira. Em vez de digitar GRU, GIG, FOR, BSB, REC um por um, você digita <strong>BRL</strong> e pesquisa o Brasil inteiro de uma vez. <strong>Não é IATA padrão — é específico do Seats.</strong></p>
+
+      <img class="shot reveal" src="../assets/seats-aero-multicity.png" alt="Print do botão Multicity codes do Seats.aero com a lista de códigos agrupadores disponíveis (BRL, EUR, USA, AAH, UAL, etc.)" />
+      <span class="shot-cap">Print: o botão "Multicity codes" da aba Search abre essa lista de agrupadores.</span>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Código</th><th>O que agrupa</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>BRL</code></td><td>Todos aeroportos do Brasil</td><td>Quando você tá flexível na cidade de partida (GRU, GIG, FOR, etc.)</td></tr>
+            <tr><td><code>EUR</code></td><td>Principais cidades da Europa (Amsterdam, Barcelona, Berlim, Paris, Dublin, Frankfurt, Istambul, Londres, Munique, Madrid…)</td><td>"Quero ir pra Europa, tanto faz qual capital"</td></tr>
+            <tr><td><code>USA</code></td><td>Principais aeroportos dos EUA</td><td>EUA com flexibilidade de cidade</td></tr>
+            <tr><td><code>AAH</code></td><td>Hubs da American Airlines (Miami, Dallas, Phoenix, Philly, NY, Chicago)</td><td>Pra emitir voo AA com milhas Smiles via acordo bilateral</td></tr>
+            <tr><td><code>UAL</code></td><td>Hubs da United (Houston, Chicago, Newark, Washington)</td><td>Pra emitir voo United com milhas Azul</td></tr>
+            <tr><td><code>ASI</code></td><td>Principais aeroportos da Ásia</td><td>Tóquio, Singapura, Hong Kong, Bangkok em uma busca</td></tr>
+            <tr><td><code>AUS</code></td><td>Austrália e Nova Zelândia</td><td>Sydney, Melbourne, Auckland numa busca</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="color:var(--text-dim); font-size:.9rem; margin-top:1rem"><strong>Onde achar a lista completa:</strong> dentro do Seats.aero, no campo de busca da aba <strong>Search</strong>, clica no botão <strong>"Multicity codes"</strong>. A lista oficial aparece com todos os agrupadores disponíveis.</p>
+
+      <div class="callout callout--tip reveal">
+        <strong>🗺️ Ferramenta complementar: Flight Connections</strong>
+        <span>Pra descobrir de quais aeroportos brasileiros uma companhia internacional opera (ex: "Air France sai de quais cidades BR?"), use o <a href="https://www.flightconnections.com" target="_blank" rel="noopener" style="color:var(--accent)">flightconnections.com</a>. Filtra por cia aérea e vê o mapa completo de rotas. Salva tempo: sem isso, você acaba pesquisando GRU→Paris quando seu aeroporto é Recife (e a Air France nem opera em REC).</span>
       </div>
     </section>
 
@@ -310,40 +436,66 @@
 
       <h3>O exemplo real (e o que ele te ensina)</h3>
       <div class="tbl-wrap">
-        <table class="tbl">
+        <table class="tbl tbl--booking">
+          <colgroup>
+            <col class="col-prog" />
+            <col class="col-milhas" />
+            <col class="col-taxa" />
+            <col class="col-verd" />
+          </colgroup>
           <thead>
-            <tr><th>Programa</th><th>Milhas</th><th>Taxa</th><th>Veredito</th></tr>
+            <tr>
+              <th>Programa</th>
+              <th>Milhas</th>
+              <th>Taxa</th>
+              <th>Veredito</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Virgin Atlantic</strong></td>
               <td>27.000</td>
               <td><strong>US$ 154,60</strong></td>
-              <td><span class="pill pill--bad">taxa mata</span> menos milhas, mas a taxa altíssima come o desconto</td>
+              <td class="verdict">
+                <span class="pill pill--bad">taxa mata</span>
+                <span class="verdict-text">menos milhas, mas a taxa altíssima come o desconto</span>
+              </td>
             </tr>
             <tr>
               <td><strong>Flying Blue</strong></td>
               <td>30.000</td>
               <td>US$ 12,90</td>
-              <td><span class="pill pill--good">ponto doce</span> milhas baratas + taxa pífia = a melhor escolha</td>
+              <td class="verdict">
+                <span class="pill pill--good">ponto doce</span>
+                <span class="verdict-text">milhas baratas + taxa pífia = a melhor escolha</span>
+              </td>
             </tr>
             <tr>
               <td><strong>Delta SkyMiles</strong></td>
               <td>60.000</td>
               <td>R$ 64,56</td>
-              <td><span class="pill pill--mid">2× mais caro</span> em milhas pelo mesmo assento</td>
+              <td class="verdict">
+                <span class="pill pill--mid">2× mais caro</span>
+                <span class="verdict-text">em milhas pelo mesmo assento</span>
+              </td>
             </tr>
             <tr>
               <td><strong>Korean Air SkyPass</strong></td>
               <td>45.000</td>
               <td>+ fuel surcharge<br>+ ida/volta obrigatória</td>
-              <td><span class="pill pill--bad">armadilha</span> Estimate, não Confirmed; pegadinhas embutidas</td>
+              <td class="verdict">
+                <span class="pill pill--bad">armadilha</span>
+                <span class="verdict-text">Estimate, não Confirmed; pegadinhas embutidas</span>
+              </td>
             </tr>
             <tr>
               <td><strong>GOL Smiles</strong></td>
               <td><strong>140.000</strong></td>
               <td>desconhecido</td>
-              <td><span class="pill pill--bad">5× o preço</span> exatamente o mesmo assento, na pior cotação</td>
+              <td class="verdict">
+                <span class="pill pill--bad">5× o preço</span>
+                <span class="verdict-text">exatamente o mesmo assento, na pior cotação</span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -363,11 +515,82 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 05 — TABELA PONTE                                            -->
+    <!-- 05 — HACK DA TABELA FIXA LATAM                               -->
+    <!-- ============================================================ -->
+    <section class="section" id="hack-latam">
+      <div class="section__head reveal">
+        <span class="kicker">05 · Hack da tabela fixa LATAM</span>
+        <h2>Achou Qatar/Iberia no AA, emite com <span class="grad-text">milhas LATAM</span></h2>
+        <p>Esse é o truque que poucos brasileiros usam. Aproveita o motor de busca da American Airlines pra achar voo de parceiro Oneworld, e emite via LATAM Pass pelo call center usando a tabela fixa — bem mais barato que a tarifa dinâmica.</p>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>O conceito em uma frase.</strong>
+        <span>LATAM Pass tem <strong>tabela fixa</strong> pra parceiros (Qatar, Iberia, British, American, Delta, etc.) com preço travado em milhas. Mas o motor de busca da LATAM <strong>esconde essa disponibilidade</strong>. A solução: usa o Seats.aero + site da American pra <strong>achar</strong> o voo, depois liga na LATAM e <strong>emite</strong> pela tabela fixa.</span>
+      </div>
+
+      <h3>O passo a passo</h3>
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">1</div>
+          <div class="timeline__body">
+            <h3>No Seats.aero, escolhe Explore → American AAdvantage</h3>
+            <p>Origem: South America. Destino: o continente que você quer. AA é o melhor motor de busca da Oneworld inteira — vai te mostrar inventário de Qatar, Iberia, British, LATAM, etc.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">2</div>
+          <div class="timeline__body">
+            <h3>Filtra GRU (ou GIG) e acha um dia com cabine verde</h3>
+            <p>Verde = voo direto. Maior chance de existir como tarifa award nas classes que a LATAM aceita.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">3</div>
+          <div class="timeline__body">
+            <h3>Clica em "Book via American Airlines" e confere a classe tarifária</h3>
+            <p>No site da AA, abre "Details" do voo. Procura a letra da classe tarifária. <strong>Tem que ser <code>X</code> (econômica) ou <code>U</code> (executiva).</strong> Se for outra letra (E, L, N, R, I, O...), a tabela fixa LATAM <strong>não aceita</strong>.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">4</div>
+          <div class="timeline__body">
+            <h3>Anota os dados do voo</h3>
+            <p>Número do voo (ex: QR774), data, horário, origem, destino, classe tarifária (X ou U), cabine.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">5</div>
+          <div class="timeline__body">
+            <h3>Liga no call center da LATAM Pass</h3>
+            <p>Pede emissão pela tabela fixa, parceiro Oneworld, classe X (eco) ou U (executiva). Passa os dados do voo. Eles cobram o valor fixo em milhas + taxas.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">6</div>
+          <div class="timeline__body">
+            <h3>Compara com o custo em AAdvantage antes de fechar</h3>
+            <p>Às vezes emitir direto em AAdvantage (se você tem essas milhas) é mais barato em quantidade — mas milhas AA são bem mais caras de comprar/acumular do BR. Faz a conta de R$/milheiro × quantidade de milhas pra ver qual sai mais barato no seu bolso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout--warn reveal">
+        <strong>A pegadinha das classes tarifárias.</strong>
+        <span>O Seats.aero te mostra que <em>existe</em> assento, mas <strong>não te diz qual classe tarifária é</strong>. Você só descobre clicando em "Book via American Airlines" e abrindo o "Details" do voo. Sem checar a letra (X ou U), você liga na LATAM, descobre que a tarifa não cabe na tabela fixa, e perdeu tempo. <strong>Confere a classe antes de ligar.</strong></span>
+      </div>
+
+      <p style="text-align:center; margin-top:1.5rem">
+        <a href="programas.html#latam" class="btn btn--ghost">Ver mais sobre LATAM Pass →</a>
+      </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 06 — TABELA PONTE                                            -->
     <!-- ============================================================ -->
     <section class="section" id="ponte">
       <div class="section__head reveal">
-        <span class="kicker">05 · Onde emitir e como gerar milha</span>
+        <span class="kicker">06 · Onde emitir e como gerar milha</span>
         <h2>A <span class="grad-text">tabela-ponte</span> que falta na internet brasileira</h2>
         <p>Achou um programa interessante no Seats.aero. E agora? Esta tabela responde: onde você emite, como gera milha do Brasil, e o que cuidar.</p>
       </div>
@@ -461,11 +684,11 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 06 — FLUXO COMPLETO                                          -->
+    <!-- 07 — FLUXO COMPLETO                                          -->
     <!-- ============================================================ -->
     <section class="section section--alt" id="fluxo">
       <div class="section__head reveal">
-        <span class="kicker">06 · Fluxo completo</span>
+        <span class="kicker">07 · Fluxo completo</span>
         <h2>Do <span class="grad-text">"achei no Seats"</span> ao "emiti a passagem"</h2>
         <p>A sequência sagrada. Faça nessa ordem, sempre.</p>
       </div>
