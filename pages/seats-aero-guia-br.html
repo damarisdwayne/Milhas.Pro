@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guia visual brasileiro do Seats.aero: quais programas do Explore valem a pena, onde emitir depois de achar o voo e como mandar pontos do Brasil." />
+  <title>Seats.aero — Guia BR completo · Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    /* Screenshots */
+    .shot { display: block; max-width: 100%; border-radius: 14px; border: 1px solid var(--border-soft); margin: 1.5rem auto; box-shadow: 0 20px 60px -25px rgba(0,0,0,.7); }
+    .shot-cap { display: block; text-align: center; color: var(--text-mute); font-size: .85rem; margin-top: -.75rem; margin-bottom: 2rem; font-style: italic; }
+
+    /* Programs grid (Explore decoder) */
+    .prog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .75rem; margin: 1.5rem 0; }
+    .prog-item { display: flex; gap: .75rem; align-items: flex-start; padding: .85rem 1rem; border: 1px solid var(--border-soft); border-radius: 12px; background: rgba(255,255,255,.02); }
+    .prog-item__mark { font-size: 1.1rem; line-height: 1.3; flex-shrink: 0; }
+    .prog-item__body strong { display: block; color: var(--text); font-size: .95rem; margin-bottom: .15rem; }
+    .prog-item__body span { color: var(--text-dim); font-size: .82rem; line-height: 1.4; }
+    .prog-item--yes { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .prog-item--maybe { border-color: rgba(250,204,21,.3); background: rgba(250,204,21,.04); }
+    .prog-item--no { opacity: .65; }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; table-layout: fixed; }
+    .tbl--ponte col.col-prog { width: 13%; }
+    .tbl--ponte col.col-onde { width: 14%; }
+    .tbl--ponte col.col-gerar { width: 40%; }
+    .tbl--ponte col.col-cuid { width: 33%; }
+    .tbl--ponte td, .tbl--ponte th { word-wrap: break-word; }
+    .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
+    .tbl tbody tr:hover { background: rgba(255,255,255,.02); }
+    .tbl code { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); }
+
+    /* Callouts */
+    .callout { max-width: 920px; margin: 2.5rem auto; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); }
+    .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
+    .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
+    .callout strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+
+    /* Verdict pills */
+    .pill { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-family: var(--font-mono); letter-spacing: .03em; }
+    .pill--good { background: rgba(52,211,153,.15); color: #34d399; border: 1px solid rgba(52,211,153,.35); }
+    .pill--mid { background: rgba(250,204,21,.12); color: #facc15; border: 1px solid rgba(250,204,21,.35); }
+    .pill--bad { background: rgba(239,68,68,.12); color: #f87171; border: 1px solid rgba(239,68,68,.35); }
+
+    .section h3 { margin-top: 2rem; margin-bottom: .5rem; }
+    .section h3:first-of-type { margin-top: 0; }
+    .section p { color: var(--text-dim); line-height: 1.65; }
+
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🔍 Seats.aero · Guia BR</span>
+      <h1>Lendo o Seats.aero como um <span class="grad-text">pro brasileiro</span></h1>
+      <p>
+        Seats.aero é gringo. Os filtros, os botões de cartão, a lista do Explore — tudo foi feito pensando em americano com Amex e Chase. Aqui está a tradução BR que te falta:
+        <strong>quais programas valem clicar, o que cada tela significa, e como sair do "achei" pro "emiti".</strong>
+      </p>
+      <nav class="quick-nav" aria-label="Seções">
+        <a href="#explore">01 · Quais programas escolher</a>
+        <a href="#resultados">02 · Tela de resultados</a>
+        <a href="#detalhe">03 · Detalhe do voo</a>
+        <a href="#booking">04 · Booking Options</a>
+        <a href="#ponte">05 · Onde emitir e como gerar milha</a>
+        <a href="#fluxo">06 · Fluxo completo</a>
+      </nav>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 01 — EXPLORE DECODIFICADO                                    -->
+    <!-- ============================================================ -->
+    <section class="section" id="explore">
+      <div class="section__head reveal">
+        <span class="kicker">01 · A tela do Explore</span>
+        <h2>Quais programas <span class="grad-text">vale a pena</span> escolher</h2>
+        <p>Quando você clica em "Explore" no topo, abre uma lista gigante de programas. A maioria é inútil pra brasileiro. Aqui vai a tradução.</p>
+      </div>
+
+      <img class="shot reveal" src="../assets/seats-aero-1.png" alt="Print do menu Explore do Seats.aero mostrando todos os programas e os badges de cartão Amex, Chase, Citi, Bilt, Rove" />
+      <span class="shot-cap">Print 1: o menu "Explore" do Seats.aero (clicado no topo).</span>
+
+      <h3>Primeiro: ignora os botões coloridos</h3>
+      <p>
+        Aquelas tags <code>Amex</code>, <code>Cap One</code>, <code>Citi</code>, <code>Chase</code>, <code>Bilt</code>, <code>Rove</code>, <code>Wells Fargo</code> ao lado de cada programa são <strong>cartões americanos</strong> que transferem pontos pra esses programas. Você não tem nenhum deles. <strong>Ignora.</strong> O que importa é só o nome do programa do lado esquerdo.
+      </p>
+
+      <h3>A regra de ouro pra escolher</h3>
+      <div class="callout callout--rule reveal">
+        <strong>Só clique em programa que você sabe como abastecer do Brasil.</strong>
+        <span>Achar disponibilidade num programa que você não consegue gerar milha é frustração pura. Você acha o assento, abre o site, e descobre que precisa de 80.000 milhas United — sem nenhum caminho viável daqui. Foco apenas em programas com porta de entrada BR.</span>
+      </div>
+
+      <h3>Os 4 programas que você DEVE filtrar (pro brasileiro)</h3>
+      <div class="prog-grid">
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>Air France/KLM Flying Blue</strong>
+            <span>O mais importante pra Europa. Acumula via Esfera (Santander) e via compra direta com promo 50% off. Taxas baixas. "Promo Rewards" mensais com preços absurdos.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>Avianca LifeMiles</strong>
+            <span>Só compra direta — mas faz promo de até 145% bônus (a melhor do mercado). Sem fuel surcharge. Emite Star Alliance inteira (Lufthansa, United, Avianca, TAP, Turkish).</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>Iberia Plus (Avios)</strong>
+            <span>GRU↔MAD executiva por ~62k Avios é o ponto doce da Europa. Acumula via compra direta em promo de bônus, e ocasionalmente via Esfera/Livelo.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--yes reveal">
+          <span class="prog-item__mark">✅</span>
+          <div class="prog-item__body">
+            <strong>Qatar Privilege Club (Avios)</strong>
+            <span>Qsuite (a melhor executiva do mundo) sai por 70-95k Avios. Compra direta em promo, conta unificada com Iberia/British via Avios.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>Vale ficar de olho (nível 2)</h3>
+      <div class="prog-grid">
+        <div class="prog-item prog-item--maybe reveal">
+          <span class="prog-item__mark">⚠️</span>
+          <div class="prog-item__body">
+            <strong>Air Canada Aeroplan</strong>
+            <span>Melhor motor de busca da Star Alliance, taxas baixíssimas. Sem path direto BR — compra direta em promo é a única via prática daqui.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--maybe reveal">
+          <span class="prog-item__mark">⚠️</span>
+          <div class="prog-item__body">
+            <strong>TAP Miles&Go</strong>
+            <span>Voa direto do Brasil pra Lisboa. Faz promo de venda de milhas várias vezes ao ano. Disponibilidade premium meio escassa.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--maybe reveal">
+          <span class="prog-item__mark">⚠️</span>
+          <div class="prog-item__body">
+            <strong>Virgin Atlantic</strong>
+            <span>Preço em milhas é ótimo, mas <strong>taxas absurdas</strong> em voos parceiros (US$ 150-400). Só vale com cautela. Sem path BR fácil.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--maybe reveal">
+          <span class="prog-item__mark">⚠️</span>
+          <div class="prog-item__body">
+            <strong>Turkish Miles&Smiles</strong>
+            <span>Tarifa fixa generosa, mas atendimento horrível e compra direta cara. Pra resgate eventual.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>Ignora por completo (pelo menos por enquanto)</h3>
+      <div class="prog-grid">
+        <div class="prog-item prog-item--no reveal">
+          <span class="prog-item__mark">❌</span>
+          <div class="prog-item__body">
+            <strong>GOL Smiles · Azul Fidelidade</strong>
+            <span>Você não precisa do Seats.aero pra esses. Vai no site da própria cia, que é mais atualizado e gratuito. E o Seats mostra preços bem maiores do que o real em alguns casos.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--no reveal">
+          <span class="prog-item__mark">❌</span>
+          <div class="prog-item__body">
+            <strong>American AAdvantage · United · Delta · Alaska</strong>
+            <span>Programas 100% americanos. Sem cartão US, você não acumula. Comprar direto é caro. Esquece até você morar lá ou ter Amex internacional.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--no reveal">
+          <span class="prog-item__mark">❌</span>
+          <div class="prog-item__body">
+            <strong>Singapore KrisFlyer · Emirates · Etihad</strong>
+            <span>Programas asiáticos/golfo sem porta de entrada brasileira. Lindos de olhar, impossíveis de emitir daqui.</span>
+          </div>
+        </div>
+        <div class="prog-item prog-item--no reveal">
+          <span class="prog-item__mark">❌</span>
+          <div class="prog-item__body">
+            <strong>Aeromexico · Finnair · SAS · Saudia · Qantas · JetBlue · Virgin Australia · Frontier · Ethiopian</strong>
+            <span>Programas regionais sem path BR. Aparecem na lista só porque o Seats indexa quase tudo. Não perde tempo.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 02 — RESULTADOS                                              -->
+    <!-- ============================================================ -->
+    <section class="section section--alt" id="resultados">
+      <div class="section__head reveal">
+        <span class="kicker">02 · Tela de resultados</span>
+        <h2>Lendo a tabela de <span class="grad-text">datas e preços</span></h2>
+        <p>Depois de escolher um programa (ex: Flying Blue) e duas regiões (ex: South America → Europe), aparece essa tabela.</p>
+      </div>
+
+      <img class="shot reveal" src="../assets/seats-aero-2.png" alt="Print da tela de resultados do Seats.aero filtrada por Flying Blue, South America to Europe, mostrando datas GRU-AMS" />
+      <span class="shot-cap">Print 2: resultados de Flying Blue, South America → Europe.</span>
+
+      <h3>Os filtros que importam</h3>
+      <ul style="color:var(--text-dim); line-height:1.8; padding-left:1.2rem;">
+        <li><strong>60 days</strong> — janela de busca. Aumenta pra 90 ou 180 dias se você é flexível.</li>
+        <li><strong>Cabin</strong> — Economy, Premium, Business, First. Premium award internacional sempre vale a pena pela diferença gritante com o preço em dinheiro.</li>
+        <li><strong>Points</strong> — teto de milhas. Filtra resultado caro.</li>
+        <li><strong>Fees</strong> — teto de taxa em USD. <strong>Filtro mais importante depois de cabine.</strong> Coloca máximo US$ 100 e elimina as armadilhas tipo Virgin Atlantic.</li>
+        <li><strong>Last Seen</strong> — quando o Seats viu o assento pela última vez. <strong>Filtre por "Just now" ou "horas atrás"</strong> — qualquer coisa de mais de 1 dia, o assento provavelmente sumiu.</li>
+      </ul>
+
+      <div class="callout callout--warn reveal">
+        <strong>O cache do Seats.aero mente.</strong>
+        <span>A ferramenta indexa programas em ciclos. O que aparece como "disponível" pode ter sido vendido há horas. <strong>Sempre confirme no site oficial do programa antes de transferir qualquer ponto.</strong></span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 03 — DETALHE DO VOO                                          -->
+    <!-- ============================================================ -->
+    <section class="section" id="detalhe">
+      <div class="section__head reveal">
+        <span class="kicker">03 · Detalhe do voo</span>
+        <h2>Clicou no <span class="grad-text">"ⓘ"</span>: o que cada coisa significa</h2>
+        <p>Ao abrir o detalhe de uma data, aparecem várias opções de voo — direto, com conexão, classes diferentes. Tradução abaixo.</p>
+      </div>
+
+      <img class="shot reveal" src="../assets/seats-aero-3.png" alt="Print do detalhe de voo GRU para Amsterdam mostrando opções diretas KL792 e conexões via CDG com diferentes classes tarifárias" />
+      <span class="shot-cap">Print 3: detalhe de São Paulo → Amsterdam em 5 de julho.</span>
+
+      <h3>Decodificando "21:45 GRU → AMS 14:20 · KL792 · 30k pts · X, 1 seat · Direct"</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Campo</th><th>Significado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>KL792</code></td><td>Número do voo (KL = KLM). Quem opera o avião.</td></tr>
+            <tr><td><code>11h 35m</code></td><td>Duração total. Direto, sem espera.</td></tr>
+            <tr><td><code>30k pts</code></td><td>Custo em milhas Flying Blue. 30.000.</td></tr>
+            <tr><td><code>+ $12.90 USD</code></td><td>Taxa em dinheiro paga junto com as milhas. <strong>Baixíssima.</strong></td></tr>
+            <tr><td><code>X, 1 seat</code></td><td>Classe tarifária "X" (gaveta econômica de prêmio), com <strong>1 assento</strong> disponível. Se quer 2 pessoas, esse voo não serve.</td></tr>
+            <tr><td><code>Direct</code></td><td>Voo direto, sem conexão. Quase sempre mais barato em milhas e melhor.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Por que conexão custa MAIS milhas?</h3>
+      <p>
+        Veja no print: o voo direto KL792 sai por <strong>30k</strong>, mas o voo com conexão via Paris (AF459+AF1140) sai por <strong>68k</strong>. Mesmo destino, mesmo dia. Isso porque conexão consome dois trechos award separados — cada trecho gasta inventário. <strong>Sempre prefira direto se tiver disponível.</strong> Só pega conexão se o direto sumiu ou se você precisa de mais assentos (família).
+      </p>
+
+      <p>As classes tarifárias <code>X, E, L, N, R</code> que aparecem? Cada letra é uma "gaveta" de assento diferente. Não precisa decorar — o Seats já te mostra o preço final em milhas. Só importa saber que classes diferentes = preços diferentes.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 04 — BOOKING OPTIONS (O CORAÇÃO)                             -->
+    <!-- ============================================================ -->
+    <section class="section section--alt" id="booking">
+      <div class="section__head reveal">
+        <span class="kicker">04 · Booking Options · ⭐ O CORAÇÃO DO SITE</span>
+        <h2>O mesmo assento, <span class="grad-text">programas diferentes</span></h2>
+        <p>Clica em <strong>"Booking Options"</strong> dentro de qualquer voo. O Seats te mostra <strong>todos os programas que conseguem emitir aquele mesmo assento</strong> — e cada um cobra diferente. Aqui mora o ouro.</p>
+      </div>
+
+      <img class="shot reveal" src="../assets/seats-aero-4.png" alt="Print mostrando o mesmo voo KL792 GRU-AMS emitido em programas diferentes: Virgin Atlantic 27k, Flying Blue 30k, Delta 60k, Korean 45k, Smiles 140k" />
+      <span class="shot-cap">Print 4: o mesmo assento KL792 do dia 5/jul, programas diferentes.</span>
+
+      <h3>O exemplo real (e o que ele te ensina)</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Programa</th><th>Milhas</th><th>Taxa</th><th>Veredito</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Virgin Atlantic</strong></td>
+              <td>27.000</td>
+              <td><strong>US$ 154,60</strong></td>
+              <td><span class="pill pill--bad">taxa mata</span> menos milhas, mas a taxa altíssima come o desconto</td>
+            </tr>
+            <tr>
+              <td><strong>Flying Blue</strong></td>
+              <td>30.000</td>
+              <td>US$ 12,90</td>
+              <td><span class="pill pill--good">ponto doce</span> milhas baratas + taxa pífia = a melhor escolha</td>
+            </tr>
+            <tr>
+              <td><strong>Delta SkyMiles</strong></td>
+              <td>60.000</td>
+              <td>R$ 64,56</td>
+              <td><span class="pill pill--mid">2× mais caro</span> em milhas pelo mesmo assento</td>
+            </tr>
+            <tr>
+              <td><strong>Korean Air SkyPass</strong></td>
+              <td>45.000</td>
+              <td>+ fuel surcharge<br>+ ida/volta obrigatória</td>
+              <td><span class="pill pill--bad">armadilha</span> Estimate, não Confirmed; pegadinhas embutidas</td>
+            </tr>
+            <tr>
+              <td><strong>GOL Smiles</strong></td>
+              <td><strong>140.000</strong></td>
+              <td>desconhecido</td>
+              <td><span class="pill pill--bad">5× o preço</span> exatamente o mesmo assento, na pior cotação</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>Esse é o jogo inteiro, numa tela.</strong>
+        <span>O mesmo assento, no mesmo avião, no mesmo dia, sai por <strong>30k Flying Blue</strong> ou por <strong>140k Smiles</strong>. Quem entende isso ganha. Quem não entende paga 5× mais sem perceber. Quase ninguém olha essa tela. Você acabou de entender.</span>
+      </div>
+
+      <h3>As 3 perguntas-filtro pra decidir</h3>
+      <ol style="color:var(--text-dim); line-height:1.8; padding-left:1.2rem;">
+        <li><strong>Está marcado "Confirmed" verde?</strong> Se for "Estimate", ignora — pode não existir.</li>
+        <li><strong>A taxa é baixa?</strong> Pra Europa: até US$ 100. Pra América do Sul/EUA: até US$ 50. Taxa alta come o desconto em milhas.</li>
+        <li><strong>Eu consigo gerar essas milhas do Brasil?</strong> Se a resposta é "não faço ideia", esse não é o programa pra você hoje — vai pro próximo da lista.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 05 — TABELA PONTE                                            -->
+    <!-- ============================================================ -->
+    <section class="section" id="ponte">
+      <div class="section__head reveal">
+        <span class="kicker">05 · Onde emitir e como gerar milha</span>
+        <h2>A <span class="grad-text">tabela-ponte</span> que falta na internet brasileira</h2>
+        <p>Achou um programa interessante no Seats.aero. E agora? Esta tabela responde: onde você emite, como gera milha do Brasil, e o que cuidar.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl tbl--ponte">
+          <colgroup>
+            <col class="col-prog" />
+            <col class="col-onde" />
+            <col class="col-gerar" />
+            <col class="col-cuid" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Programa</th>
+              <th>Onde emitir</th>
+              <th>Como gerar milha do Brasil</th>
+              <th>Cuidados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Flying Blue</strong><br><span style="color:var(--text-mute); font-size:.8rem">Air France/KLM</span></td>
+              <td><a href="https://flyingblue.com" target="_blank" rel="noopener" style="color:var(--accent)">flyingblue.com</a></td>
+              <td>• Transferência <strong>Livelo → Flying Blue</strong> (Bradesco/BB, com bônus ocasional)<br>• Transferência <strong>Esfera → Flying Blue</strong> (Santander, com bônus ocasional)<br>• Transferência <strong>Iupp → Flying Blue</strong> (Itaú, esporádica)<br>• Compra direta com <strong>promo 50% off</strong> ou bônus 100% (3-4× por ano)<br>• Voar Air France/KLM/Delta/GOL (parceria Smiles-Flying Blue)</td>
+              <td>Preço dinâmico — pode variar 50k–180k pra mesma rota dependendo do dia. Use Promo Rewards mensais. Espere bônus de transferência de pelo menos 80% antes de mandar pontos — sem bônus, raramente compensa.</td>
+            </tr>
+            <tr>
+              <td><strong>Avianca LifeMiles</strong></td>
+              <td><a href="https://lifemiles.com" target="_blank" rel="noopener" style="color:var(--accent)">lifemiles.com</a></td>
+              <td>• Transferência <strong>Livelo → LifeMiles</strong> (Bradesco/BB, com bônus ocasional)<br>• Transferência <strong>Esfera → LifeMiles</strong> (Santander, com bônus)<br>• <strong>Compra direta em promo</strong> (até 145% bônus — a melhor do mercado)<br>• Voar Avianca/Star Alliance</td>
+              <td>Sem fuel surcharge (melhor da indústria). Em promo de compra, milheiro sai ~R$ 20. Atendimento ruim — emita online. Bônus de transferência costuma ser fraco vs. comprar direto.</td>
+            </tr>
+            <tr>
+              <td><strong>Iberia Plus</strong><br><span style="color:var(--text-mute); font-size:.8rem">Avios</span></td>
+              <td><a href="https://iberia.com" target="_blank" rel="noopener" style="color:var(--accent)">iberia.com</a></td>
+              <td>• Transferência <strong>Livelo → Iberia</strong> (Bradesco/BB, com bônus recorrente)<br>• Transferência <strong>Esfera → Iberia</strong> (Santander, com bônus)<br>• Transferência <strong>Iupp → Iberia</strong> (Itaú, esporádica)<br>• Compra direta com <strong>promo de bônus</strong> (50-100%, várias por ano)<br>• Voar Iberia/LATAM (parceiros Oneworld)</td>
+              <td>GRU↔MAD executiva ~62k Avios é mítico. Taxas €200-300. Conta unificada com British/Qatar via Avios — você pode mover entre os 3. Sempre espere bônus de pelo menos 80% antes de transferir.</td>
+            </tr>
+            <tr>
+              <td><strong>British Airways</strong><br><span style="color:var(--text-mute); font-size:.8rem">Avios</span></td>
+              <td><a href="https://britishairways.com" target="_blank" rel="noopener" style="color:var(--accent)">britishairways.com</a></td>
+              <td>• Transferência <strong>Livelo → British</strong> (Bradesco/BB, bônus ocasional)<br>• Transferência <strong>Esfera → British</strong> (Santander)<br>• Compra direta com promo<br>• <strong>Avios pool</strong>: move livremente entre British ⇄ Iberia ⇄ Qatar</td>
+              <td><strong>Cuidado com taxa do Reino Unido:</strong> qualquer voo que você emite usando Avios e que passa por Londres num avião da própria British vem com £200-£500 de taxa em dinheiro (governo inglês cobra APD + British adiciona surcharge). <strong>O jogo é usar a moeda Avios pra emitir voo de OUTRAS companhias do grupo Oneworld — LATAM, Qatar Airways, American Airlines —</strong> que não passam por Londres e por isso não pegam a taxa inglesa. Você acumula no British via Livelo, depois move pra Iberia ou Qatar pelo pool e emite por lá, fugindo da taxa.</td>
+            </tr>
+            <tr>
+              <td><strong>Qatar Privilege Club</strong><br><span style="color:var(--text-mute); font-size:.8rem">Avios</span></td>
+              <td><a href="https://qatarairways.com" target="_blank" rel="noopener" style="color:var(--accent)">qatarairways.com</a></td>
+              <td>• Transferência <strong>Livelo → Qatar</strong> (Bradesco/BB, esporádica)<br>• Transferência <strong>Esfera → Qatar</strong> (Santander)<br>• <strong>Avios pool</strong>: receber de British ⇄ Iberia ⇄ Qatar (a rota mais usada)<br>• Compra direta em promo</td>
+              <td>Qsuite é o melhor produto premium do mundo. 70-95k GRU→Europa via Doha. Taxas razoáveis (sem APD, ao contrário do British). Muita gente acumula via Iberia/British (Livelo) e move pro Qatar pelo pool quando precisa.</td>
+            </tr>
+            <tr>
+              <td><strong>Aeroplan</strong><br><span style="color:var(--text-mute); font-size:.8rem">Air Canada</span></td>
+              <td><a href="https://aircanada.com" target="_blank" rel="noopener" style="color:var(--accent)">aircanada.com</a></td>
+              <td>• <strong>Sem transferência de bancos BR</strong> (nem Livelo, nem Esfera, nem Iupp)<br>• Compra direta em promo (rara, mas existe — bônus 65-85%)<br>• Voar Air Canada/Star Alliance</td>
+              <td>Excelente buscador da Star Alliance e taxas muito baixas. Difícil de abastecer do Brasil — na prática, use como motor de busca (vê disponibilidade Star) e emite via LifeMiles, que tem o mesmo inventário e caminho BR muito melhor.</td>
+            </tr>
+            <tr>
+              <td><strong>TAP Miles&Go</strong></td>
+              <td><a href="https://flytap.com" target="_blank" rel="noopener" style="color:var(--accent)">flytap.com</a></td>
+              <td>• Transferência <strong>Livelo → TAP</strong> (Bradesco/BB, bônus 50-100% periódico)<br>• Transferência <strong>Esfera → TAP</strong> (Santander, bônus esporádico)<br>• <strong>Compra direta</strong> com promo de bônus (várias por ano)<br>• Voar TAP do Brasil pra Lisboa</td>
+              <td>Disponibilidade premium escassa — busque com muita antecedência. Taxas médias €100-250. Bônus Livelo→TAP é uma das rotas mais regulares do mercado BR.</td>
+            </tr>
+            <tr>
+              <td><strong>Virgin Atlantic</strong><br><span style="color:var(--text-mute); font-size:.8rem">Flying Club</span></td>
+              <td><a href="https://virginatlantic.com" target="_blank" rel="noopener" style="color:var(--accent)">virginatlantic.com</a></td>
+              <td>• <strong>Sem transferência de bancos BR</strong><br>• Compra direta com promo (rara, raramente compensa)<br>• Voar Virgin Atlantic (sem rota BR hoje)</td>
+              <td><strong>Cuidado:</strong> tarifa em milhas baixa atrai, mas <strong>taxas altíssimas</strong> em voos parceiros (US$ 150-400 em SkyTeam, ANA, etc.). Quase sempre arapuca pra brasileiro. Olha o número da taxa antes de qualquer coisa.</td>
+            </tr>
+            <tr>
+              <td><strong>Turkish Miles&Smiles</strong></td>
+              <td><a href="https://miles.turkishairlines.com" target="_blank" rel="noopener" style="color:var(--accent)">miles.turkishairlines.com</a></td>
+              <td>• <strong>Sem transferência de bancos BR</strong><br>• Compra direta (preço não tão competitivo)<br>• Voar Turkish (GRU↔IST direto, gera milha por voo)</td>
+              <td>Tarifa fixa generosa em alguns trechos. Atendimento horrível, emissão muitas vezes só por telefone/chat (site bugado). Pra casos pontuais quando o preço-tabela compensa muito.</td>
+            </tr>
+            <tr>
+              <td><strong>Delta SkyMiles</strong></td>
+              <td><a href="https://delta.com" target="_blank" rel="noopener" style="color:var(--accent)">delta.com</a></td>
+              <td>• <strong>Sem transferência direta de bancos BR</strong> pra Delta<br>• Compra direta (cara, raramente promo significativa)<br>• Voar Delta/LATAM (parceria SkyTeam-LATAM)</td>
+              <td>Programa caro em milhas (cobra 2-3× o preço pelo mesmo assento). Só vale em casos muito específicos quando nenhum outro programa do SkyTeam tem o assento. Pra rotas Delta, prefira <strong>Flying Blue</strong> (mesmo assento, milhas mais baratas).</td>
+            </tr>
+            <tr>
+              <td><strong>Singapore KrisFlyer</strong></td>
+              <td><a href="https://singaporeair.com" target="_blank" rel="noopener" style="color:var(--accent)">singaporeair.com</a></td>
+              <td>• <strong>Sem transferência de bancos BR</strong><br>• Compra direta em promo (raríssima)<br>• Voar Singapore (sem rota BR direta hoje)</td>
+              <td>Programa excelente em produto e taxa, mas praticamente impossível de abastecer do Brasil. Só pra quem tem Amex internacional (US/Canadá) ou viajou muito pela Singapore Airlines. Por hora, ignora.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 06 — FLUXO COMPLETO                                          -->
+    <!-- ============================================================ -->
+    <section class="section section--alt" id="fluxo">
+      <div class="section__head reveal">
+        <span class="kicker">06 · Fluxo completo</span>
+        <h2>Do <span class="grad-text">"achei no Seats"</span> ao "emiti a passagem"</h2>
+        <p>A sequência sagrada. Faça nessa ordem, sempre.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">1</div>
+          <div class="timeline__body">
+            <h3>Acho o assento no Seats.aero</h3>
+            <p>Programa escolhido, rota, janela ampla (30-60 dias), filtro de taxa máxima ativado, Last Seen recente.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">2</div>
+          <div class="timeline__body">
+            <h3>Abro o "Booking Options" e escolho o programa mais barato viável</h3>
+            <p>Aplico os 3 filtros: Confirmed? Taxa OK? Consigo gerar do Brasil? Anoto: programa + milhas + taxa.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">3</div>
+          <div class="timeline__body">
+            <h3>Confirmo no site oficial do programa</h3>
+            <p>Abro o site do programa, faço a mesma busca, verifico que o assento ainda existe. O cache do Seats mente — essa confirmação é obrigatória <strong>antes</strong> de mover qualquer ponto.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">4</div>
+          <div class="timeline__body">
+            <h3>Vejo meu saldo no programa</h3>
+            <p>Faltam milhas? Vou pro passo 5. Já tenho saldo? Pulo pro 7.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">5</div>
+          <div class="timeline__body">
+            <h3>Transfiro ou compro as milhas</h3>
+            <p>Caminho mais comum: <strong>Esfera → Flying Blue</strong>, <strong>Livelo → Smiles/LATAM/Azul</strong>, <strong>compra direta em promo</strong> pra LifeMiles/Iberia/Qatar/TAP. Confiro o bônus de transferência atual antes de apertar o botão.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">6</div>
+          <div class="timeline__body">
+            <h3>Espero a transferência cair</h3>
+            <p>Livelo→Smiles: instantâneo. Esfera→Flying Blue: até 48h. Compra direta: minutos. <strong>Nunca conto com prazos otimistas</strong> — premium award some em horas.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot">7</div>
+          <div class="timeline__body">
+            <h3>Emito IMEDIATAMENTE</h3>
+            <p>Não durmo com assento "guardado". Ele só é seu quando o e-ticket está emitido com seu CPF e número de bilhete. Antes disso, não existe.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>A regra mnemônica que resolve tudo:</strong>
+        <span>O programa que aparece no Seats.aero é <strong>onde você emite</strong>. A companhia aérea é só <strong>quem voa o avião</strong>. Você nunca vai no site da Air France pra usar milhas Flying Blue — você vai no Flying Blue. Decora isso e nunca mais se perde.</span>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem">
+        <a href="sites-secretos.html" class="btn btn--ghost">← Voltar pras ferramentas</a>
+        <a href="estrategias.html" class="btn btn--primary">Ver workflow completo →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
