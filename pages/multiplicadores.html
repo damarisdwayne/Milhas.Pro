@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Engenharia de multiplicadores: como combinar cashback de cartão, multiplicador de shopping de pontos e bônus de transferência pra multiplicar milhas em uma única compra." />
+  <title>Engenharia de multiplicadores — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="favorite-touch-icon" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem auto; max-width: 1200px; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; }
+    .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
+    .tbl code { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); }
+    .callout { max-width: 920px; margin: 2.5rem auto; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); }
+    .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
+    .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .callout span strong, .callout p strong { display: inline; font-size: inherit; margin: 0; }
+    .stack { max-width: 900px; margin: 2rem auto; padding: 1.5rem; border-radius: 14px; background: rgba(0,0,0,.25); border: 1px solid var(--border-soft); font-family: var(--font-mono); font-size: .88rem; line-height: 1.8; }
+    .stack__layer { padding: .5rem 0; border-bottom: 1px dashed var(--border-soft); }
+    .stack__layer:last-child { border-bottom: 0; padding-bottom: 0; }
+    .stack__layer--total { color: #34d399; font-weight: 700; padding-top: 1rem; margin-top: .5rem; border-top: 1px solid var(--accent); }
+    .stack__multiplier { display: inline-block; color: var(--accent); margin: 0 .5rem; }
+    .formula { max-width: 900px; margin: 1.5rem auto; padding: 1.25rem; background: rgba(124,92,255,.06); border: 1px solid rgba(124,92,255,.3); border-radius: 12px; font-family: var(--font-mono); font-size: .92rem; text-align: center; color: var(--text); }
+    .pill { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-family: var(--font-mono); letter-spacing: .03em; }
+    .pill--good { background: rgba(52,211,153,.15); color: #34d399; border: 1px solid rgba(52,211,153,.35); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">⚡ Engenharia avançada</span>
+      <h1>Multiplicadores em <span class="grad-text">camadas</span></h1>
+      <p>
+        A maioria das pessoas usa 1 multiplicador por compra (ou o cashback, ou o shopping, ou o bônus). Mas eles <strong>empilham</strong>. Quando você combina os 3 numa mesma transação, R$ 500 viram 10.000 milhas em vez das 1.500 que seriam o "normal".
+      </p>
+    </section>
+
+    <!-- 01 — AS 3 CAMADAS -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">01 · As 3 camadas</span>
+        <h2>Os <span class="grad-text">3 multiplicadores</span> que ninguém ensina junto</h2>
+        <p>Cada camada multiplica o resultado da anterior. Não é soma — é produto.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Camada</th>
+              <th>O que é</th>
+              <th>Faixa típica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Pontos do shopping</strong></td>
+              <td>Quantidade de pontos por R$ que o portal Livelo/Esfera dá em cada loja parceira.</td>
+              <td>3-30 pontos/R$</td>
+            </tr>
+            <tr>
+              <td><strong>2. Multiplicador de cartão</strong></td>
+              <td>Cartões específicos que pontuam <strong>EXTRA</strong> em compras passando pela Livelo/Esfera (ex: Santander Esfera Black 5×).</td>
+              <td>1× a 5× sobre a camada 1</td>
+            </tr>
+            <tr>
+              <td><strong>3. Bônus de transferência</strong></td>
+              <td>Quando você transfere os pontos acumulados pra Smiles/LATAM/Azul com bônus (80-130%).</td>
+              <td>+30% a +130% sobre o total</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula reveal">
+        <strong>Milhas finais</strong> = (R$ × pts/R$) × multiplicador_cartão × (1 + bônus_transferência)
+      </div>
+    </section>
+
+    <!-- 02 — EXEMPLO REAL -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">02 · Exemplo real</span>
+        <h2>Compra de <span class="grad-text">R$ 500 na Amazon</span></h2>
+        <p>Mesmo gasto. Três versões diferentes do mesmo brasileiro acumulando.</p>
+      </div>
+
+      <h3 style="max-width:900px; margin: 2rem auto 1rem; color: var(--text)">Versão A: o que 90% das pessoas faz</h3>
+      <div class="stack reveal">
+        <div class="stack__layer">Compra <strong>R$ 500</strong> direto no site da Amazon, paga com cartão básico (1 ponto/R$ no banco).</div>
+        <div class="stack__layer">→ <strong>500 pontos Livelo</strong></div>
+        <div class="stack__layer">Transferência Livelo→Smiles em mês qualquer (sem bônus): 1:1</div>
+        <div class="stack__layer stack__layer--total">RESULTADO: 500 milhas Smiles</div>
+      </div>
+
+      <h3 style="max-width:900px; margin: 2.5rem auto 1rem; color: var(--text)">Versão B: 1 camada extra (shopping de pontos)</h3>
+      <div class="stack reveal">
+        <div class="stack__layer">Vai no <strong>shopping Livelo</strong>, clica em "Amazon" no portal, depois compra. Amazon paga 5 pts/R$ pra Livelo.</div>
+        <div class="stack__layer">R$ 500 <span class="stack__multiplier">×</span> 5 pts/R$ = <strong>2.500 pontos Livelo</strong></div>
+        <div class="stack__layer">+ 500 pontos no cartão básico = <strong>3.000 pontos Livelo</strong></div>
+        <div class="stack__layer">Transferência Livelo→Smiles sem bônus: 1:1</div>
+        <div class="stack__layer stack__layer--total">RESULTADO: 3.000 milhas Smiles (6× a versão A)</div>
+      </div>
+
+      <h3 style="max-width:900px; margin: 2.5rem auto 1rem; color: var(--text)">Versão C: 3 camadas empilhadas</h3>
+      <div class="stack reveal">
+        <div class="stack__layer">Mesma compra de R$ 500 via shopping Livelo, Amazon paga 5 pts/R$.</div>
+        <div class="stack__layer">Mas paga com <strong>cartão Santander Free Black</strong> em mês de "5× Livelo" no parceiro Amazon.</div>
+        <div class="stack__layer">R$ 500 <span class="stack__multiplier">×</span> 5 pts/R$ <span class="stack__multiplier">×</span> 5 (multiplicador do cartão) = <strong>12.500 pontos Livelo</strong></div>
+        <div class="stack__layer">Espera bônus Livelo→Smiles 100% (acontece a cada 30-45 dias).</div>
+        <div class="stack__layer">12.500 × 2 (bônus 100%) = <strong>25.000 milhas Smiles</strong></div>
+        <div class="stack__layer stack__layer--total">RESULTADO: 25.000 milhas Smiles (50× a versão A)</div>
+      </div>
+
+      <div class="callout callout--tip reveal">
+        <strong>Mesma compra, mesmo gasto. 50× mais milhas.</strong>
+        <span>A versão C transformou uma compra de R$ 500 em milhas suficientes pra uma passagem GRU↔Buenos Aires econômica (com taxa). A versão A acumulou… 500 milhas. Nada. É a diferença entre quem entende empilhamento e quem só "acumula naturalmente".</span>
+      </div>
+    </section>
+
+    <!-- 03 — CAMADA 1: SHOPPING -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">03 · Camada 1</span>
+        <h2>Shopping de <span class="grad-text">pontos</span></h2>
+        <p>Sempre passe pelo portal Livelo/Esfera antes de comprar online. Hábito de 5 segundos que duplica/triplica acúmulo.</p>
+      </div>
+
+      <h3>Os parceiros mais valiosos (médias típicas)</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Loja</th><th>Livelo</th><th>Esfera</th><th>Categoria forte</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Amazon</td><td>3-6 pts/R$</td><td>3-5 pts/R$</td><td>Eletrônicos, livros</td></tr>
+            <tr><td>Magazine Luiza</td><td>3-8 pts/R$</td><td>3-7 pts/R$</td><td>Eletrônicos, casa</td></tr>
+            <tr><td>Renner</td><td>5-15 pts/R$</td><td>5-12 pts/R$</td><td>Roupa</td></tr>
+            <tr><td>Booking.com</td><td>4-8 pts/R$</td><td>4-6 pts/R$</td><td>Hospedagem</td></tr>
+            <tr><td>iFood (créditos)</td><td>3-5 pts/R$</td><td>5-10 pts/R$</td><td>Alimentação</td></tr>
+            <tr><td>Petlove</td><td>5-15 pts/R$</td><td>4-12 pts/R$</td><td>Pet</td></tr>
+            <tr><td>Drogaria SP</td><td>2-6 pts/R$</td><td>3-5 pts/R$</td><td>Farmácia</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--warn reveal">
+        <strong>Esses números variam toda semana.</strong>
+        <span>O portal roda promoções tipo "5× em parceiro X esta semana". <strong>Sempre confira antes da compra</strong> — uma loja que normalmente paga 3 pts/R$ pode estar pagando 15 pts/R$ por 7 dias. Hábito: abrir Livelo + Esfera lado a lado, ver quem paga mais hoje.</span>
+      </div>
+    </section>
+
+    <!-- 04 — CAMADA 2: CARTÃO -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">04 · Camada 2</span>
+        <h2>Cartão que <span class="grad-text">multiplica</span> shopping</h2>
+        <p>Não é o multiplicador genérico do cartão (1.5 pts/R$ etc). É um multiplicador específico que se aplica POR CIMA dos pontos do shopping.</p>
+      </div>
+
+      <h3>Cartões com multiplicador em parceiros</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Cartão</th><th>Multiplicador típico</th><th>Onde aplica</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Santander Free Black</strong></td>
+              <td>5× em parceiros Esfera selecionados</td>
+              <td>Categoria do mês (rotativa)</td>
+            </tr>
+            <tr>
+              <td><strong>Bradesco Visa Infinite</strong></td>
+              <td>3× em parceiros Livelo selecionados</td>
+              <td>Campanhas mensais</td>
+            </tr>
+            <tr>
+              <td><strong>Itaú Personnalité Black</strong></td>
+              <td>2-3× em parceiros Iupp/Águia</td>
+              <td>Campanhas específicas</td>
+            </tr>
+            <tr>
+              <td><strong>Amex Platinum (BR)</strong></td>
+              <td>5 pts/USD em viagem · 1.5 pts/USD geral</td>
+              <td>Membership Rewards → Aeroplan/Virgin 1:1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>A regra de seleção do cartão:</strong>
+        <span>Não escolha cartão "que dá mais milhas". Escolha cartão que <strong>multiplica o que você já faria de qualquer jeito</strong>. Se você mora em São Paulo, vai no Renner toda semana e gasta R$ 800/mês em comida — o cartão certo é o que multiplica essas 3 categorias específicas, mesmo que tenha anuidade. Anuidade vira economia.</span>
+      </div>
+    </section>
+
+    <!-- 05 — CAMADA 3: BÔNUS DE TRANSFERÊNCIA -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">05 · Camada 3</span>
+        <h2>Bônus de <span class="grad-text">transferência</span></h2>
+        <p>O passo final. Bônus de transferência são programas (Livelo/Esfera) oferecendo +30% a +130% quando você manda pra Smiles, LATAM, Azul ou parceiros.</p>
+      </div>
+
+      <h3>Frequência típica das principais bonificações</h3>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Rota</th><th>Bônus mínimo aceitável</th><th>Frequência</th><th>Onde acompanhar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Livelo → Smiles</td><td>80%</td><td>A cada 30-45 dias</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Livelo → TudoAzul</td><td>80%</td><td>A cada 30-45 dias</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Livelo → LATAM</td><td>30%</td><td>A cada 30-60 dias</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Livelo → Iberia (Avios)</td><td>50%</td><td>2-4× por ano</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Esfera → Smiles</td><td>80%</td><td>A cada 30-45 dias</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Esfera → LATAM</td><td>30%</td><td>A cada 30-45 dias</td><td>Passageiro de Primeira</td></tr>
+            <tr><td>Iupp → Azul/LATAM</td><td>varia</td><td>Esporádica</td><td>Sites de milhas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--warn reveal">
+        <strong>Nunca transfira fora de bônus.</strong>
+        <span>Esfera/Livelo padrão pra Smiles é 1:1. Com bônus 100%, vira 1:2. <strong>Sem bônus, você está literalmente perdendo metade do seu acúmulo.</strong> Espera. Bônus volta sempre.</span>
+      </div>
+    </section>
+
+    <!-- 06 — RITUAL DO MULTIPLICADOR -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">06 · O ritual</span>
+        <h2>O <span class="grad-text">checklist</span> de 4 passos antes de qualquer compra online</h2>
+        <p>Faça isso UMA vez, vira hábito. Depois de 30 dias, vira automático.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">1️⃣</div>
+          <h3>Abra Livelo + Esfera lado a lado</h3>
+          <p>
+            Vê quantos pontos cada um paga pra essa loja HOJE. Não decora — confere na hora. Frequentemente um está pagando 3× mais que o outro.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">2️⃣</div>
+          <h3>Confira multiplicador do cartão</h3>
+          <p>
+            Seu cartão tá em campanha mensal? Confere na área "Programa de Recompensas" do banco. Se a categoria da loja bate, multiplicador entra automaticamente.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">3️⃣</div>
+          <h3>Clique pelo portal e compra</h3>
+          <p>
+            Vai pelo shopping Livelo/Esfera (qual ganhou no passo 1). Login na loja, finaliza pagamento com o cartão certo. Pontos chegam em 30-60 dias.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">4️⃣</div>
+          <h3>Espera o bônus de transferência</h3>
+          <p>
+            Pontos no banco rendem só quando viram milhas em programa aéreo. <strong>Espera bônus 80%+ pra Smiles/Azul, ou 30%+ pra LATAM.</strong> Aí transfere.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>O insight que separa amador de pro:</strong>
+        <span>Multiplicadores são <strong>multiplicativos, não aditivos</strong>. Uma compra "comum" + esses 3 cliques extras = 50× mais milhas. Quem entende isso paga anuidade de cartão premium e ainda sai ganhando. Quem não entende reclama que "milha não compensa".</span>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem">
+        <a href="estrategias.html#comprar" class="btn btn--ghost">← Estratégias de compra</a>
+        <a href="qual-moeda.html" class="btn btn--primary">Qual moeda transferir →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Primeira Classe com milhas: vale a pena gastar 350k em 1 voo ou 3 viagens executivas? Análise honesta dos melhores produtos (Lufthansa A380, Qatar QSuite, ANA First, Emirates) e quando faz sentido." />
+  <title>Primeira Classe com milhas — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem auto; max-width: 1200px; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; }
+    .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
+    .tbl code { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); }
+    .callout { max-width: 920px; margin: 2.5rem auto; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); }
+    .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
+    .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .callout span strong, .callout p strong { display: inline; font-size: inherit; margin: 0; }
+    .product { max-width: 1000px; margin: 2rem auto; padding: 1.75rem; border-radius: 16px; background: rgba(255,255,255,.02); border: 1px solid var(--border-soft); }
+    .product__header { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; margin-bottom: .75rem; }
+    .product__header h3 { margin: 0; color: var(--text); font-size: 1.35rem; }
+    .product__rank { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); letter-spacing: .08em; }
+    .product__body { color: var(--text-dim); line-height: 1.7; font-size: .95rem; }
+    .product__body strong { color: var(--text); }
+    .product__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.25rem 0; padding: 1rem; background: rgba(0,0,0,.25); border-radius: 10px; }
+    .product__stat span { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--text-mute); margin-bottom: .25rem; letter-spacing: .04em; text-transform: uppercase; }
+    .product__stat strong { color: var(--text); font-size: 1rem; }
+    .verdict { display: inline-block; margin-top: 1rem; padding: .55rem 1rem; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+    .verdict--worth { background: rgba(52,211,153,.15); color: #34d399; border: 1px solid rgba(52,211,153,.4); }
+    .verdict--situational { background: rgba(250,204,21,.12); color: #facc15; border: 1px solid rgba(250,204,21,.4); }
+    .verdict--skip { background: rgba(239,68,68,.12); color: #f87171; border: 1px solid rgba(239,68,68,.4); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">👑 Primeira Classe</span>
+      <h1>350k milhas em 1 voo, ou <span class="grad-text">3 executivas</span>?</h1>
+      <p>
+        Pergunta clássica do nível avançado. Primeira Classe parece impossível em milhas — mas é mais acessível do que parece. A pergunta certa não é "consigo emitir?", e sim <strong>"vale a pena gastar essa milhas aqui em vez de em 3 viagens normais?"</strong>
+      </p>
+    </section>
+
+    <!-- 01 — A CONTA -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">01 · A conta que importa</span>
+        <h2>Custo em <span class="grad-text">milhas vs. dinheiro</span></h2>
+        <p>Antes de discutir produto, vamos pôr os números na mesa. Primeira Classe internacional em dinheiro varia de US$ 8.000 a US$ 25.000+ ida e volta.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Rota</th>
+              <th>Cabine</th>
+              <th>Custo em dinheiro</th>
+              <th>Custo em milhas</th>
+              <th>Valor por milheiro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GRU↔Frankfurt</td>
+              <td>Lufthansa First (A380)</td>
+              <td>US$ 12-18k</td>
+              <td>~220k LifeMiles<br>(só com cota, difícil)</td>
+              <td>R$ 250/milheiro</td>
+            </tr>
+            <tr>
+              <td>GRU↔Doha</td>
+              <td>Qatar QSuite First*</td>
+              <td>US$ 8-12k</td>
+              <td>~140k Avios via Qatar/British</td>
+              <td>R$ 280/milheiro</td>
+            </tr>
+            <tr>
+              <td>GRU↔Tóquio</td>
+              <td>ANA First "The Suite"</td>
+              <td>US$ 15-22k</td>
+              <td>~200k Virgin Atlantic</td>
+              <td>R$ 380/milheiro</td>
+            </tr>
+            <tr>
+              <td>GRU↔Dubai</td>
+              <td>Emirates First A380</td>
+              <td>US$ 10-15k</td>
+              <td>~270k Skywards</td>
+              <td>R$ 200/milheiro</td>
+            </tr>
+            <tr>
+              <td>GRU↔Madri</td>
+              <td>Iberia Business (executiva)</td>
+              <td>US$ 3-5k</td>
+              <td>62k Avios</td>
+              <td>R$ 240/milheiro</td>
+            </tr>
+            <tr>
+              <td>GRU↔Madri ×3</td>
+              <td>Executiva (3 viagens)</td>
+              <td>US$ 9-15k total</td>
+              <td>186k Avios total</td>
+              <td>R$ 240/milheiro</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>A matemática brutal:</strong>
+        <span>1 viagem em Primeira Lufthansa First (220k) ≈ 3.5 viagens Madri executiva (62k cada). O <strong>"valor por milheiro" extraído</strong> é PARECIDO em ambos. A diferença não é financeira — é experiencial. <strong>Você está pagando milhas pra ter UMA experiência única VS três viagens muito boas.</strong></span>
+      </div>
+
+      <p style="max-width:900px; margin: 1.5rem auto; color:var(--text-dim); font-size:.88rem; font-style: italic">
+        * Nota: Qatar QSuite é tecnicamente "Business class", mas o produto é superior à First de muitas cias. A Qatar não vende First Class regular saindo do Brasil. Por isso aparece aqui como "Primeira de fato".
+      </p>
+    </section>
+
+    <!-- 02 — OS 5 MELHORES PRODUTOS -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">02 · Os 5 produtos top</span>
+        <h2>As melhores <span class="grad-text">Primeiras do mundo</span> (acessíveis do BR)</h2>
+        <p>Ranking baseado em produto, taxa, acessibilidade e custo em milhas. Não inclui produtos impossíveis pra brasileiro (Singapore Suites — sem path BR pra KrisFlyer).</p>
+      </div>
+
+      <div class="product reveal">
+        <div class="product__header">
+          <span class="product__rank">#1</span>
+          <h3>Lufthansa First Class (Boeing 747-8 ou A380)</h3>
+        </div>
+        <div class="product__body">
+          <p>O padrão-ouro da Primeira tradicional. Cabine fechada com porta, chuveiro no A380 (só no A380), lounge exclusivo em Frankfurt com banheira e jantar à la carte. Champanhe Krug. Cardápio assinado por chef estrelado Michelin.</p>
+          <div class="product__stats">
+            <div class="product__stat"><span>Custo</span><strong>~220k LifeMiles</strong></div>
+            <div class="product__stat"><span>Taxa</span><strong>US$ 100-180</strong></div>
+            <div class="product__stat"><span>Como emitir</span><strong>LifeMiles via Star Alliance</strong></div>
+            <div class="product__stat"><span>Cota</span><strong>~15 dias antes do voo</strong></div>
+          </div>
+          <p><strong>O catch:</strong> Lufthansa First só libera assento award pra Star Alliance <strong>14-15 dias antes do voo</strong>. Antes disso, só pra próprios Miles & More. Estratégia: ter LifeMiles prontas + monitorar Seats.aero diariamente nas 2 semanas anteriores à data desejada.</p>
+          <p><strong>O ritual em terra:</strong> em Frankfurt, lounge exclusivo First atrás de portas trancadas, com Porsche levando você ao avião. É experiência além do voo.</p>
+          <span class="verdict verdict--worth">Vale a pena — se você conseguir o assento</span>
+        </div>
+      </div>
+
+      <div class="product reveal">
+        <div class="product__header">
+          <span class="product__rank">#2</span>
+          <h3>Qatar QSuite (Business+, tecnicamente "Business")</h3>
+        </div>
+        <div class="product__body">
+          <p>Não é Primeira no papel, mas o produto supera várias Primeiras. Suíte fechada com porta, cama-completa, opção de "double bed" pra casais (configurável). Apenas Qatar tem essa configuração no mercado.</p>
+          <div class="product__stats">
+            <div class="product__stat"><span>Custo</span><strong>~140k Qatar Avios (GRU↔Doha+Europa)</strong></div>
+            <div class="product__stat"><span>Taxa</span><strong>US$ 100-200</strong></div>
+            <div class="product__stat"><span>Como emitir</span><strong>Iberia→British→Qatar (ecossistema Avios)</strong></div>
+            <div class="product__stat"><span>Disponibilidade</span><strong>Boa — várias datas mensais</strong></div>
+          </div>
+          <p><strong>O atalho do BR:</strong> brasileiro acumula via Esfera/Livelo → Iberia, depois move pra Qatar via Avios pool. Em ~7 dias de processo, você tem QSuite na mão. É a Primeira mais acessível pra brasileiro hoje.</p>
+          <span class="verdict verdict--worth">A melhor opção pra estreante em Primeira</span>
+        </div>
+      </div>
+
+      <div class="product reveal">
+        <div class="product__header">
+          <span class="product__rank">#3</span>
+          <h3>ANA First "The Suite" (Boeing 777-300ER novo)</h3>
+        </div>
+        <div class="product__body">
+          <p>Lançada em 2019, a "The Suite" é Primeira premium asiática: suíte fechada com porta, TV 43", cama de 2m, lavabo individual e refeição kaiseki em viagens longas. Considerada por muitos a melhor Primeira do mundo hoje.</p>
+          <div class="product__stats">
+            <div class="product__stat"><span>Custo</span><strong>~200k Virgin Atlantic (GRU↔Tokyo via ANA)</strong></div>
+            <div class="product__stat"><span>Taxa</span><strong>US$ 200-300</strong></div>
+            <div class="product__stat"><span>Como emitir</span><strong>Virgin Atlantic Flying Club</strong></div>
+            <div class="product__stat"><span>Disponibilidade</span><strong>Difícil — cota pequena</strong></div>
+          </div>
+          <p><strong>O catch:</strong> ANA libera pouquíssimos assentos First pra parceiros. Você precisa de alerta no Seats.aero + paciência (às vezes 6+ meses esperando). Round-trip obrigatório.</p>
+          <p><strong>Por que vale:</strong> a experiência é única — atendimento japonês de excelência, comida que não tem em outra cabine no mundo, longa duração do voo (12h) permite aproveitar tudo (jantar completo, dormir 8h em cama de verdade, café da manhã).</p>
+          <span class="verdict verdict--worth">Sweet spot da indústria pra quem tem Amex</span>
+        </div>
+      </div>
+
+      <div class="product reveal">
+        <div class="product__header">
+          <span class="product__rank">#4</span>
+          <h3>Emirates First Class (A380)</h3>
+        </div>
+        <div class="product__body">
+          <p>O ícone "Instagram" — chuveiro no avião (sim, chuveiro real), bar lounge no fundo do avião, suíte com porta cheia. Produto teatral, voltado pra fotos e experiência única.</p>
+          <div class="product__stats">
+            <div class="product__stat"><span>Custo</span><strong>~270k Emirates Skywards (GRU↔Dubai)</strong></div>
+            <div class="product__stat"><span>Taxa</span><strong>~US$ 700 (taxas Skywards são altas)</strong></div>
+            <div class="product__stat"><span>Como emitir</span><strong>Skywards (sem path BR fácil) ou via Smiles</strong></div>
+            <div class="product__stat"><span>Disponibilidade</span><strong>Razoável, melhor com antecedência</strong></div>
+          </div>
+          <p><strong>A pegadinha das taxas:</strong> Emirates cobra "carrier-imposed surcharge" alta. Sua passagem "barata em milhas" sai com US$ 700+ de taxa em dinheiro. Faz a conta antes.</p>
+          <p><strong>Quando vale:</strong> se você tá indo pra Dubai/Maldivas mesmo. Pra parar em Dubai e seguir pra outro destino, geralmente Qatar QSuite ou Lufthansa First saem em melhor custo-benefício.</p>
+          <span class="verdict verdict--situational">Experiência única, mas caro e taxa alta</span>
+        </div>
+      </div>
+
+      <div class="product reveal">
+        <div class="product__header">
+          <span class="product__rank">#5</span>
+          <h3>British Airways First (A380 ou 777)</h3>
+        </div>
+        <div class="product__body">
+          <p>Primeira "tradicional inglesa" — clube, comida sofisticada, atendimento formal. Hoje vista como inferior aos asiáticos e ao Qatar, mas ainda boa. A grande pegadinha é a taxa.</p>
+          <div class="product__stats">
+            <div class="product__stat"><span>Custo</span><strong>~180k Avios (GRU↔Londres)</strong></div>
+            <div class="product__stat"><span>Taxa</span><strong>£500-800+ 🚨</strong></div>
+            <div class="product__stat"><span>Como emitir</span><strong>British Avios direto</strong></div>
+            <div class="product__stat"><span>Disponibilidade</span><strong>Boa</strong></div>
+          </div>
+          <p><strong>Por que está em #5 e não em #1:</strong> A taxa britânica (APD + fuel surcharge da BA) chega a £800 em Primeira. Sua "passagem em milhas" custa o equivalente a R$ 5.000+ em taxas. Muitas vezes você poderia voar Qatar QSuite por menos dinheiro real.</p>
+          <span class="verdict verdict--skip">Evita — exceto se você ABSOLUTAMENTE quer voar BA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — QUANDO VALE -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">03 · Quando vale a pena</span>
+        <h2>Os <span class="grad-text">3 cenários</span> em que Primeira faz sentido</h2>
+        <p>Primeira não é sempre a melhor escolha — mesmo pra quem tem milhas. Aqui está quando o "1 viagem Primeira vs 3 executivas" pende pro lado da Primeira.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">🌍</div>
+          <h3>Voo MUITO longo (12h+)</h3>
+          <p>
+            Em voo de 3h, a diferença de Executiva pra Primeira é marginal — você nem aproveita o produto. <strong>Em voo de 14h pra Ásia/Oriente Médio, Primeira justifica</strong>: você dorme 8h numa cama de verdade, acorda descansado, aproveita serviço completo de jantar + café da manhã.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🎂</div>
+          <h3>Ocasião marcante (lua de mel, aposentadoria)</h3>
+          <p>
+            A experiência da Primeira é teatral. Pra ocasião que você quer marcar — aniversário de 40 anos, lua de mel, comemoração — gastar 220k milhas em 1 voo memorável faz mais sentido do que diluir em 3 viagens "comuns".
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💼</div>
+          <h3>Pra dormir antes de evento importante</h3>
+          <p>
+            Vai pra reunião crítica em Tóquio na manhã seguinte? Primeira ANA com cama de 2m e privacidade total faz diferença prática — você desembarca apto a performar. Executiva é boa, Primeira é <strong>operacional</strong> pro contexto.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">📸</div>
+          <h3>Voar Primeira "única na vida"</h3>
+          <p>
+            Você tem milhas, é coisa de uma vez na vida, quer viver a experiência (chuveiro Emirates, suíte Lufthansa, kaiseki ANA). <strong>Sem julgamento.</strong> Faz sentido se você sabe que essa é uma decisão emocional + experiencial.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 — QUANDO NÃO VALE -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">04 · Quando NÃO vale</span>
+        <h2>4 sinais de que <span class="grad-text">é desperdício</span></h2>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">⏱️</div>
+          <h3>Voo curto (até 4h)</h3>
+          <p>
+            Você não tem tempo de aproveitar metade do produto. Executiva resolve com folga, sobra milha pra outra viagem.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">📈</div>
+          <h3>Suas milhas vão se desvalorizar logo</h3>
+          <p>
+            Smiles muda tabela em mês de devaluation: emite executiva LOGO e queima as milhas. Não estoca pra "1 dia voar Primeira" se há risco de tabela subir antes.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🚧</div>
+          <h3>Taxa absurda (BA First, Emirates)</h3>
+          <p>
+            Se a taxa em dinheiro vai passar de R$ 4.000, considere: você poderia <strong>pagar Executiva em cash</strong> com esse mesmo valor pra Europa em promo. Não vira economia, vira gasto disfarçado.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">👨‍👩‍👧</div>
+          <h3>Viajando em família</h3>
+          <p>
+            4 passagens Primeira = 1.4 MILHÃO de milhas. Inviável. Família: prioriza executiva pra todos > Primeira pra um e econômica pros outros (cabines separadas estragam a experiência).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 — A REGRA -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">05 · Veredito honesto</span>
+        <h2>Minha recomendação <span class="grad-text">pessoal</span></h2>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>Pra brasileiro entrando no mundo de milhas:</strong>
+        <span>Faça <strong>3 viagens executivas primeiro</strong>. Isso te ensina o produto, te dá repertório (você passa a saber que Executiva já é uma experiência incrível), e te permite julgar de verdade se quer ir além. Quem nunca voou executiva e gasta tudo em uma Primeira não tem comparação — só sensação. A decisão informada vem depois das 3 executivas.</span>
+      </div>
+
+      <div class="callout callout--tip reveal">
+        <strong>Pra quem já voou executiva 5+ vezes:</strong>
+        <span>Aí faz sentido considerar a Primeira como <strong>experiência específica</strong>. Pra ocasião marcante. Em voo longo. Em produto premium (Lufthansa, Qatar QSuite, ANA). Com a paciência de esperar a cota abrir. Isso vira viagem que você lembra a vida toda.</span>
+      </div>
+
+      <div class="callout callout--warn reveal">
+        <strong>O alerta final:</strong>
+        <span>Primeira Classe vicia. Depois de voar uma vez, você "estranha" Executiva. Pra quem voa 2x/ano, tudo bem. Pra quem voa 10x/ano e fica refém da expectativa, vira armadilha de status. <strong>Equilibre.</strong></span>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem">
+        <a href="programas.html" class="btn btn--ghost">← Ver programas</a>
+        <a href="qual-moeda.html" class="btn btn--primary">Qual moeda transferir →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

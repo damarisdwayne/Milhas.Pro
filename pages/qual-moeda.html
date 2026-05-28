@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Framework de decisão: tenho pontos Livelo/Esfera, qual moeda final transferir? Avios, Flying Blue ou LifeMiles? Comparações práticas por destino e cabine." />
+  <title>Qual moeda transferir quando — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem auto; max-width: 1200px; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; }
+    .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
+    .tbl tbody tr:hover { background: rgba(255,255,255,.02); }
+    .tbl code { font-family: var(--font-mono); font-size: .82rem; color: var(--accent); }
+    .callout { max-width: 920px; margin: 2.5rem auto; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); }
+    .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
+    .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .callout span strong, .callout p strong { display: inline; font-size: inherit; margin: 0; }
+    .decision-tree { max-width: 900px; margin: 2rem auto; padding: 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(0,0,0,.2); font-family: var(--font-mono); font-size: .88rem; line-height: 1.8; color: var(--text-dim); white-space: pre-wrap; }
+    .decision-tree strong { color: var(--text); }
+    .decision-tree .branch { color: var(--accent); }
+    .pill { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .72rem; font-family: var(--font-mono); letter-spacing: .03em; }
+    .pill--good { background: rgba(52,211,153,.15); color: #34d399; border: 1px solid rgba(52,211,153,.35); }
+    .pill--mid { background: rgba(250,204,21,.12); color: #facc15; border: 1px solid rgba(250,204,21,.35); }
+    .pill--bad { background: rgba(239,68,68,.12); color: #f87171; border: 1px solid rgba(239,68,68,.35); }
+    .scenario { max-width: 900px; margin: 1.5rem auto; padding: 1.5rem; border-radius: 14px; background: rgba(124,92,255,.04); border: 1px solid rgba(124,92,255,.25); }
+    .scenario h3 { margin: 0 0 .75rem; color: var(--text); }
+    .scenario__answer { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-soft); }
+    .scenario__answer strong { color: #34d399; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🧭 Framework de decisão</span>
+      <h1>Tenho 200k Livelo. <span class="grad-text">Qual moeda transferir?</span></h1>
+      <p>
+        Você junta pontos no banco (Livelo, Esfera). Quando vai emitir, precisa decidir: virar Avios? Flying Blue? Smiles? LifeMiles? Aqui está o framework — sem decoreba — que resolve isso pra qualquer destino.
+      </p>
+    </section>
+
+    <!-- 01 — A PERGUNTA ERRADA -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">01 · A pergunta errada</span>
+        <h2>"Qual programa é <span class="grad-text">o melhor</span>?"</h2>
+        <p>Essa pergunta não tem resposta. Programa não tem ranking absoluto — tem <strong>uso situacional</strong>. O melhor programa pra Paris executiva é diferente do melhor pra Tóquio em primeira.</p>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>A pergunta certa:</strong>
+        <span>"Pra <strong>esse destino específico</strong>, em <strong>essa cabine específica</strong>, qual programa cobra menos milhas + taxa em reais convertidos, considerando como eu acumulo do BR?" — essa é a única pergunta que importa.</span>
+      </div>
+    </section>
+
+    <!-- 02 — A FÓRMULA -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">02 · A fórmula</span>
+        <h2>Como <span class="grad-text">comparar de verdade</span></h2>
+        <p>Pra cada programa-candidato pra esse resgate, você calcula 3 números e compara.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Variável</th><th>O que é</th><th>Onde achar</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Milhas necessárias</strong></td>
+              <td>Quantas milhas o programa cobra pra essa rota+cabine</td>
+              <td>Seats.aero (Booking Options) ou site oficial do programa</td>
+            </tr>
+            <tr>
+              <td><strong>2. Taxa em dinheiro</strong></td>
+              <td>Quanto você paga em USD/EUR/BRL além das milhas</td>
+              <td>Mesma tela do Seats.aero ou simulação no site oficial</td>
+            </tr>
+            <tr>
+              <td><strong>3. Custo do seu milheiro no programa</strong></td>
+              <td>Quanto custa pra você gerar 1.000 milhas naquele programa, do BR</td>
+              <td>Calculadora simples (próxima seção)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="max-width:900px; margin: 2.5rem auto 1rem">A fórmula final</h3>
+      <div class="decision-tree reveal">
+<strong>Custo real da passagem = (Milhas ÷ 1000) × Custo do seu milheiro + Taxa em R$</strong>
+
+Exemplo Paris executiva:
+
+<span class="branch">Opção A — Iberia Avios:</span>
+  62.000 Avios × R$ 25/milheiro = R$ 1.550
+  Taxa €250 ≈ R$ 1.500
+  <strong>TOTAL: R$ 3.050</strong>
+
+<span class="branch">Opção B — Flying Blue:</span>
+  70.000 milhas × R$ 22/milheiro = R$ 1.540
+  Taxa US$ 45 ≈ R$ 240
+  <strong>TOTAL: R$ 1.780</strong>
+
+<span class="branch">Opção C — LifeMiles:</span>
+  78.000 milhas × R$ 16/milheiro (em promo 145%) = R$ 1.248
+  Taxa US$ 100 ≈ R$ 530
+  <strong>TOTAL: R$ 1.778</strong>
+
+→ <strong>B e C empatam</strong>. Decisão fina: cia preferida + cadastro pronto.</div>
+    </section>
+
+    <!-- 03 — CUSTO DO MILHEIRO NO BR -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">03 · Custo do milheiro</span>
+        <h2>Quanto <span class="grad-text">vale</span> seu milheiro em cada programa</h2>
+        <p>Esse é o número que muda tudo. Mesma quantidade de milhas em programas diferentes tem custo DE AQUISIÇÃO totalmente diferente pra quem mora no Brasil.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Programa</th>
+              <th>Caminho mais barato BR</th>
+              <th>Custo médio do milheiro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Smiles</strong></td>
+              <td>Livelo bônus 100% → Smiles</td>
+              <td>R$ 14-18</td>
+            </tr>
+            <tr>
+              <td><strong>TudoAzul</strong></td>
+              <td>Livelo bônus 100% → Azul</td>
+              <td>R$ 14-18</td>
+            </tr>
+            <tr>
+              <td><strong>LATAM Pass</strong></td>
+              <td>Esfera ou Livelo, bônus 30%+</td>
+              <td>R$ 18-25</td>
+            </tr>
+            <tr>
+              <td><strong>Iberia/British/Qatar (Avios)</strong></td>
+              <td>Livelo/Esfera → Iberia, com bônus 50%+ (proporção 2 pts = 1 Avios)</td>
+              <td>R$ 22-30</td>
+            </tr>
+            <tr>
+              <td><strong>Flying Blue</strong></td>
+              <td>Compra direta com promo 50% off OU Livelo/Esfera em bônus</td>
+              <td>R$ 20-28</td>
+            </tr>
+            <tr>
+              <td><strong>LifeMiles</strong></td>
+              <td><strong>Compra direta em promo 100-145% bônus</strong></td>
+              <td>R$ 13-17 (em promo); R$ 30+ fora de promo</td>
+            </tr>
+            <tr>
+              <td><strong>TAP Miles&Go</strong></td>
+              <td>Livelo com bônus 100%</td>
+              <td>R$ 18-25</td>
+            </tr>
+            <tr>
+              <td><strong>AAdvantage</strong></td>
+              <td>Cartão Santander AAdvantage (acúmulo lento, sem outra via prática)</td>
+              <td>R$ 30-45</td>
+            </tr>
+            <tr>
+              <td><strong>Aeroplan</strong></td>
+              <td>Amex Membership Rewards 1:1</td>
+              <td>R$ 25-35</td>
+            </tr>
+            <tr>
+              <td><strong>Virgin Atlantic</strong></td>
+              <td>Amex Membership Rewards 1:1</td>
+              <td>R$ 25-35</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--warn reveal">
+        <strong>Esses números variam com bônus do momento.</strong>
+        <span>Smiles em mês de Livelo 100% bônus: R$ 14/milheiro. Smiles em mês sem bônus: R$ 22+. <strong>Sempre cheque o custo real ANTES de transferir.</strong> Sites como Passageiro de Primeira atualizam preços de milheiro semanalmente.</span>
+      </div>
+    </section>
+
+    <!-- 04 — FRAMEWORK POR DESTINO -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">04 · Framework por destino</span>
+        <h2>Qual moeda pra <span class="grad-text">cada destino</span></h2>
+        <p>A escolha do programa varia com destino e cabine. Aqui está o cheat sheet que resolve 90% dos casos.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Cabine</th>
+              <th>1ª escolha</th>
+              <th>Backup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>América do Sul</td>
+              <td>Econômica</td>
+              <td>Smiles ou TudoAzul (rota curta, milheiro barato)</td>
+              <td>LATAM Pass</td>
+            </tr>
+            <tr>
+              <td>Buenos Aires</td>
+              <td>Executiva 5ª liberdade</td>
+              <td><a href="quinta-liberdade.html" style="color:var(--accent)">TudoAzul (Turkish/Emirates)</a></td>
+              <td>LifeMiles</td>
+            </tr>
+            <tr>
+              <td>Europa (Madri)</td>
+              <td>Executiva</td>
+              <td><strong>Iberia Avios</strong> (62k + €250)</td>
+              <td>Flying Blue (com Promo Reward)</td>
+            </tr>
+            <tr>
+              <td>Europa (Paris/Amsterdam)</td>
+              <td>Executiva</td>
+              <td><strong>Flying Blue</strong> (Promo Reward 50% off)</td>
+              <td>LifeMiles (via Lufthansa/SWISS)</td>
+            </tr>
+            <tr>
+              <td>Europa (Lisboa)</td>
+              <td>Executiva</td>
+              <td><strong>TAP Miles&Go</strong> (120k tabela fixa) com stopover grátis</td>
+              <td>Smiles via TAP parceira</td>
+            </tr>
+            <tr>
+              <td>Europa (qualquer)</td>
+              <td>Econômica</td>
+              <td>Smiles via Air France/KLM (FOR→CDG, GIG→AMS)</td>
+              <td>Flying Blue</td>
+            </tr>
+            <tr>
+              <td>EUA (Nova York/Miami)</td>
+              <td>Executiva</td>
+              <td><strong>Aeroplan</strong> (35-55k + taxa baixa) via United/Air Canada</td>
+              <td>LifeMiles via United</td>
+            </tr>
+            <tr>
+              <td>EUA</td>
+              <td>Econômica</td>
+              <td>TudoAzul via United (Interline)</td>
+              <td>Smiles via American (bilateral)</td>
+            </tr>
+            <tr>
+              <td>Tóquio</td>
+              <td>Executiva</td>
+              <td><strong>Virgin Atlantic</strong> via ANA (95k round-trip — sweet spot lendário)</td>
+              <td>Aeroplan via ANA (mais caro mas taxa baixa)</td>
+            </tr>
+            <tr>
+              <td>Ásia (geral)</td>
+              <td>Executiva</td>
+              <td><strong>LifeMiles</strong> (95-110k em promo de compra)</td>
+              <td>Aeroplan via Singapore/Lufthansa</td>
+            </tr>
+            <tr>
+              <td>Oriente Médio (Doha)</td>
+              <td>Executiva Qsuite</td>
+              <td><strong>Qatar Avios</strong> via ecossistema Iberia→British→Qatar</td>
+              <td>AAdvantage (tabela fixa)</td>
+            </tr>
+            <tr>
+              <td>África Austral</td>
+              <td>Executiva</td>
+              <td>Aeroplan via Ethiopian/Turkish</td>
+              <td>LifeMiles via South African</td>
+            </tr>
+            <tr>
+              <td>Doméstico Brasil</td>
+              <td>Econômica</td>
+              <td>Smiles, LATAM ou Azul (programa da própria cia que voa)</td>
+              <td>AAdvantage (7.5k pra trecho GOL)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 — CENÁRIOS REAIS -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="kicker">05 · Cenários reais</span>
+        <h2>3 casos <span class="grad-text">resolvidos passo a passo</span></h2>
+      </div>
+
+      <div class="scenario reveal">
+        <h3>Cenário 1: 200k Livelo, quer Paris executiva em outubro</h3>
+        <p style="color:var(--text-dim)">
+          Candidatos: Iberia Avios, Flying Blue, LifeMiles. Faz a conta:
+        </p>
+        <ul style="color:var(--text-dim); line-height:1.7; padding-left:1.2rem">
+          <li><strong>Iberia Avios:</strong> Livelo→Iberia em proporção 2:1 com bônus 80% = 200k Livelo viram ~90k Avios. Paris exec custa ~62k + €250 (~R$ 1.500). <strong>Sobra:</strong> 28k Avios pra próxima.</li>
+          <li><strong>Flying Blue:</strong> Livelo→FB proporção 3.5:1 sem bônus = ~57k milhas. <strong>Não dá</strong> — precisa de ~70k. Precisaria comprar mais.</li>
+          <li><strong>LifeMiles:</strong> não tem rota Livelo→LifeMiles direta nesse momento. Precisaria comprar em promo (~78k × R$ 16 = R$ 1.250 em USD).</li>
+        </ul>
+        <div class="scenario__answer">
+          <strong>Decisão: vai de Iberia Avios.</strong> Custo total: ~R$ 2.500 da transferência Livelo + R$ 1.500 taxa = R$ 4.000. Passagem cash custaria R$ 18-25k. Iberia ganha por usar o saldo Livelo direto, sem precisar comprar nada.
+        </div>
+      </div>
+
+      <div class="scenario reveal">
+        <h3>Cenário 2: 80k Esfera + 50k Livelo, quer Tóquio executiva</h3>
+        <p style="color:var(--text-dim)">
+          Tóquio executiva: Virgin Atlantic via ANA é o sweet spot (95k round-trip). Mas Virgin não tem rota Livelo/Esfera direta — só via Amex MR.
+        </p>
+        <ul style="color:var(--text-dim); line-height:1.7; padding-left:1.2rem">
+          <li><strong>Sem cartão Amex:</strong> não dá pra usar o sweet spot Virgin/ANA. Tem que ir pra LifeMiles ou Aeroplan.</li>
+          <li><strong>LifeMiles:</strong> compra direta 100k em promo 145% ≈ R$ 1.700. Voo GRU→Tóquio exec via Lufthansa: ~110k. <strong>Cabe</strong>.</li>
+          <li><strong>Aeroplan:</strong> não dá pra acumular fácil sem MR. Descartado.</li>
+        </ul>
+        <div class="scenario__answer">
+          <strong>Decisão: compra LifeMiles em promo + reserva Saldo Livelo/Esfera pra próximo objetivo.</strong> Aprende a lição: pra Ásia, vale ter cartão Amex no futuro pra acessar Virgin/ANA.
+        </div>
+      </div>
+
+      <div class="scenario reveal">
+        <h3>Cenário 3: 120k Livelo, quer 4 passagens BR↔Argentina pra família</h3>
+        <p style="color:var(--text-dim)">
+          GRU↔EZE econômica, 4 passageiros. Rota curta, programa BR vai resolver.
+        </p>
+        <ul style="color:var(--text-dim); line-height:1.7; padding-left:1.2rem">
+          <li><strong>Smiles:</strong> ~25k milhas/passagem × 4 = 100k Smiles. Livelo→Smiles com bônus 100%: 50k Livelo viram 100k Smiles. <strong>Sobra 70k Livelo.</strong></li>
+          <li><strong>TudoAzul:</strong> Similar. ~25k × 4 = 100k. Mesma matemática.</li>
+          <li><strong>Smiles Conta Família:</strong> milhas dos membros caem no ADM, facilita o resgate de 4 passagens.</li>
+        </ul>
+        <div class="scenario__answer">
+          <strong>Decisão: Livelo→Smiles em bônus 100%, usa Conta Família pro resgate de 4 passagens.</strong> 70k Livelo restantes ficam pro próximo objetivo (talvez upgrade pra executiva numa das pernas).
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — REGRA DE OURO -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">06 · Regra de ouro</span>
+        <h2>Quando <span class="grad-text">NÃO transferir</span></h2>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">⏰</div>
+          <h3>Bônus abaixo de 80% (Smiles/Azul)</h3>
+          <p>
+            Livelo→Smiles padrão é 1:1. Com bônus 80%, vira 1:1.8. Sem isso, você está literalmente queimando dinheiro. <strong>Espera.</strong>
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🎯</div>
+          <h3>Sem assento confirmado</h3>
+          <p>
+            Nunca transfira pra Iberia/Avios/LifeMiles "pra estar pronto". Programa estrangeiro pode desvalorizar a qualquer momento. <strong>Transfere SÓ quando o assento tá lá.</strong>
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>Custo do milheiro acima do "preço justo"</h3>
+          <p>
+            Se Smiles tá saindo R$ 28/milheiro (em vez dos R$ 14-18 normais), espera. Bônus voltam em 30-45 dias. <strong>Não compre fora de janela boa.</strong>
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🚫</div>
+          <h3>Pra emitir só ida sem necessidade</h3>
+          <p>
+            Vários programas (Iberia, Smiles) cobram mais por trecho separado vs ida+volta. Se o destino tem volta possível, prefere round-trip — mesmo se vai usar só ida (cancelamento do volta é simples).
+          </p>
+        </article>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>A regra que resume tudo:</strong>
+        <span>Você não acumula em programa final. Você acumula em <strong>moeda neutra (Livelo, Esfera, Amex MR)</strong> e transfere <strong>na hora certa, pro programa certo, pra emissão específica</strong>. Quem pula essa etapa pratica a alquimia de transformar milha em prejuízo.</span>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem">
+        <a href="estrategias.html" class="btn btn--ghost">← Ver estratégias gerais</a>
+        <a href="roadmap.html" class="btn btn--primary">Ver Roadmap 12 meses →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

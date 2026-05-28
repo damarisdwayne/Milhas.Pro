@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Roadmap de 12 meses: plano de ação concreto pra acumular milhas e emitir passagens executivas. Três versões — iniciante, intermediário e avançado." />
+  <title>Roadmap de 12 meses — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .level-tabs { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin: 2rem auto 0; max-width: 900px; }
+    .level-tab { padding: .75rem 1.5rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .9rem; font-weight: 500; text-decoration: none; transition: all .2s ease; }
+    .level-tab:hover, .level-tab.active { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.12); }
+    .month-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 2rem auto; }
+    .month { padding: 1.25rem 1.4rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.02); position: relative; }
+    .month__num { font-family: var(--font-mono); font-size: .72rem; color: var(--text-mute); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
+    .month__title { font-size: 1rem; margin: 0 0 .65rem; color: var(--text); }
+    .month__body { color: var(--text-dim); font-size: .88rem; line-height: 1.55; margin: 0; }
+    .month__body strong { color: var(--text); }
+    .month--milestone { border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.06); }
+    .month--milestone .month__num { color: #34d399; }
+    .month--decision { border-color: rgba(250,204,21,.4); background: rgba(250,204,21,.04); }
+    .month--decision .month__num { color: #facc15; }
+    .callout { max-width: 920px; margin: 2.5rem auto; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid var(--border-soft); }
+    .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
+    .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .level-intro { max-width: 900px; margin: 2rem auto 1rem; padding: 1.25rem 1.5rem; border-radius: 14px; background: rgba(0,229,255,.04); border: 1px solid rgba(0,229,255,.25); }
+    .level-intro h3 { margin: 0 0 .5rem; color: var(--text); }
+    .level-intro p { color: var(--text-dim); margin: 0; line-height: 1.6; font-size: .95rem; }
+    .level-intro__meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: .75rem; font-family: var(--font-mono); font-size: .8rem; color: var(--text-mute); }
+    .level-intro__meta strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🗺 Roadmap</span>
+      <h1>Seus próximos <span class="grad-text">12 meses</span> em milhas</h1>
+      <p>
+        Teoria sem plano não vira passagem. Aqui está o plano de ação concreto, mês a mês, em 3 versões: iniciante (saindo do zero), intermediário (já tem cartão e Livelo) e avançado (quer executiva pra Europa cada trimestre).
+      </p>
+
+      <nav class="level-tabs" aria-label="Níveis">
+        <a href="#iniciante" class="level-tab">🌱 Iniciante</a>
+        <a href="#intermediario" class="level-tab">🚀 Intermediário</a>
+        <a href="#avancado" class="level-tab">💎 Avançado</a>
+      </nav>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INICIANTE                                                    -->
+    <!-- ============================================================ -->
+    <section class="section" id="iniciante">
+      <div class="section__head reveal">
+        <span class="kicker">🌱 Roadmap 1</span>
+        <h2>Iniciante — saindo <span class="grad-text">do zero</span></h2>
+        <p>Você nunca emitiu passagem com milha. Tem cartão de crédito básico (qualquer banco). Quer fazer a 1ª viagem internacional com milhas, em econômica, daqui a 1 ano.</p>
+      </div>
+
+      <div class="level-intro reveal">
+        <h3>O objetivo dos 12 meses</h3>
+        <p><strong>1 passagem GRU↔Buenos Aires (ou GRU↔Santiago) em econômica</strong> usando milhas Smiles ou TudoAzul. Custo total: cerca de R$ 800-1.200 em vez de R$ 2.500-4.000 da passagem em dinheiro.</p>
+        <div class="level-intro__meta">
+          <div>Meta: <strong>~40k milhas</strong></div>
+          <div>Investimento: <strong>R$ 0 extra</strong> (acúmulo orgânico)</div>
+          <div>Programas: <strong>Smiles ou TudoAzul</strong></div>
+        </div>
+      </div>
+
+      <div class="month-grid">
+        <div class="month reveal">
+          <div class="month__num">Mês 1</div>
+          <h3 class="month__title">Cadastros fundamentais</h3>
+          <p class="month__body">Crie conta grátis: <strong>Smiles, TudoAzul, LATAM Pass, Livelo</strong>. Vincula sua Livelo ao banco do seu cartão (Bradesco/BB → Livelo; Santander → Esfera). Lê <a href="programas.html" style="color:var(--accent)">programas BR</a>.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 2</div>
+          <h3 class="month__title">Mapeia o gasto mensal</h3>
+          <p class="month__body">Identifica onde seu cartão pontua mais: supermercado, farmácia, gasolina. Move <strong>todos os gastos pra o cartão que pontua</strong>. Meta: 3k-5k pontos Livelo/mês.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 3</div>
+          <h3 class="month__title">Compras estratégicas no shopping de pontos</h3>
+          <p class="month__body">Antes de comprar online (Amazon, Magalu, Renner), passe pelo <strong>shopping Livelo/Esfera</strong>. Mesma compra rende 3-15× mais pontos. Hábito que multiplica acúmulo.</p>
+        </div>
+        <div class="month reveal month--decision">
+          <div class="month__num">Mês 4 · Decisão</div>
+          <h3 class="month__title">Bônus Livelo→Smiles 80%+?</h3>
+          <p class="month__body">Veja em <a href="https://passageirodeprimeira.com" target="_blank" rel="noopener" style="color:var(--accent)">Passageiro de Primeira</a>. Se <strong>SIM (80% ou mais)</strong>: transfere. Se <strong>NÃO</strong>: espera mais 1 mês. Nunca transfere abaixo de 80%.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 5-6</div>
+          <h3 class="month__title">Continua acumulando + estuda</h3>
+          <p class="month__body">Lê o <a href="seats-aero-guia-br.html" style="color:var(--accent)">guia do Seats.aero</a>. Faz buscas de teste em rotas que te interessam, sem comprar ainda. Acumula familiaridade.</p>
+        </div>
+        <div class="month reveal month--decision">
+          <div class="month__num">Mês 7 · Decisão</div>
+          <h3 class="month__title">2ª janela de bônus 80%+</h3>
+          <p class="month__body">Se já transferiu no mês 4 e tem milhas Smiles, pula. Se não, segunda chance. <strong>O objetivo é estar com ~35k Smiles até o mês 8.</strong></p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 8-9</div>
+          <h3 class="month__title">Caça o assento no Seats.aero</h3>
+          <p class="month__body">Crie alerta no <strong>Seats.aero (grátis)</strong> pra GRU↔EZE ou GRU↔SCL em econômica via Smiles. Janela: 60-90 dias à frente. Confirma no site da Smiles antes de emitir.</p>
+        </div>
+        <div class="month reveal month--milestone">
+          <div class="month__num">Mês 10 · Marco</div>
+          <h3 class="month__title">EMITE A PASSAGEM</h3>
+          <p class="month__body"><strong>~30-40k milhas Smiles + R$ 80-150 de taxa</strong>. Voo pra Argentina ou Chile. Primeira passagem emitida com milha. Marco psicológico enorme.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 11-12</div>
+          <h3 class="month__title">Viaja + começa o próximo ciclo</h3>
+          <p class="month__body">Faz a viagem. Já volta acumulando pra o próximo objetivo — agora você sabe o caminho. Próximo nível: <strong>1 passagem executiva pra Europa em 18 meses</strong> (vai pro roadmap intermediário).</p>
+        </div>
+      </div>
+
+      <div class="callout callout--tip reveal">
+        <strong>Por que esse roadmap funciona pra iniciante:</strong>
+        <span>Sem comprar milhas, sem cartão premium, sem mexer em programa estrangeiro. Só usa <strong>o gasto que você já tem</strong>, redirecionado pelo cartão certo, mais o hábito de bônus de transferência. A passagem pra América do Sul é o melhor 1º resgate — custa pouca milha, taxa baixa, voo curto pra testar tudo.</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INTERMEDIÁRIO                                                -->
+    <!-- ============================================================ -->
+    <section class="section section--alt" id="intermediario">
+      <div class="section__head reveal">
+        <span class="kicker">🚀 Roadmap 2</span>
+        <h2>Intermediário — <span class="grad-text">primeira executiva</span> pra Europa</h2>
+        <p>Você já tem cartão decente (Mastercard Black, Visa Infinite ou Amex), entende Livelo/Esfera, já emitiu 1-2 passagens econômicas. Quer voar executiva pra Europa daqui a 1 ano.</p>
+      </div>
+
+      <div class="level-intro reveal">
+        <h3>O objetivo dos 12 meses</h3>
+        <p><strong>1 passagem executiva GRU↔Madri (ou Paris/Lisboa)</strong>, ida e volta. Custo: cerca de R$ 2.500-4.000 em vez de R$ 18-30 mil em dinheiro. Vai usar o <strong>hack do Avios</strong> ou <strong>Flying Blue + Promo Reward</strong>.</p>
+        <div class="level-intro__meta">
+          <div>Meta: <strong>~90-130k Avios</strong> ou <strong>~120k Flying Blue</strong></div>
+          <div>Investimento: <strong>R$ 1.500-3.000</strong> em compra direta de milhas (oportunístico)</div>
+          <div>Programas-alvo: <strong>Iberia/Avios ou Flying Blue</strong></div>
+        </div>
+      </div>
+
+      <div class="month-grid">
+        <div class="month reveal">
+          <div class="month__num">Mês 1</div>
+          <h3 class="month__title">Cadastros estrangeiros + sincronização</h3>
+          <p class="month__body">Cria conta na <strong>Iberia Plus</strong>, <strong>British Avios</strong>, <strong>Qatar Privilege Club</strong> e <strong>Flying Blue</strong>. <strong>Dados idênticos</strong> nos 3 Avios (nome, email, data nasc) — é pré-requisito do pool Avios.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 2</div>
+          <h3 class="month__title">Maximiza o cartão</h3>
+          <p class="month__body">Confirma que seu cartão pontua pra Livelo OU Esfera. Se tiver os dois (Bradesco + Santander), separa os gastos por categoria pra maximizar. Meta: 8k-15k pontos/mês.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 3</div>
+          <h3 class="month__title">Estuda o ecossistema Avios</h3>
+          <p class="month__body">Lê <a href="estrategias.html#avios-bridge" style="color:var(--accent)">"Hack do Avios"</a> em estratégias. Entende: Livelo→Iberia, Iberia→British→Qatar é o caminho. Faz a primeira transferência ATIVADORA (mínimo 1.000 Avios via Esfera→Iberia) pra cadastros ficarem "vivos".</p>
+        </div>
+        <div class="month reveal month--decision">
+          <div class="month__num">Mês 4 · Decisão</div>
+          <h3 class="month__title">Bônus Livelo→Iberia ou Promo Reward Flying Blue?</h3>
+          <p class="month__body">Se Iberia tá com bônus 50%+ E você quer Madri/Lisboa: transfere agora. Se Flying Blue tá com Promo Reward pra Paris/Amsterdam: prefere FB. <strong>Não os dois</strong> — escolhe um caminho.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 5-7</div>
+          <h3 class="month__title">Acumula massa crítica</h3>
+          <p class="month__body">Continua gerando Livelo/Esfera. Se faltar muita milha, considere <strong>compra direta em promo</strong> (Iberia 50% bônus ou Flying Blue 50% off). Compre só com a passagem-alvo definida.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 8</div>
+          <h3 class="month__title">Configura alertas no Seats.aero</h3>
+          <p class="month__body">Cria alerta pro destino-alvo, executiva, janela de 60-90 dias depois. <strong>Investe no Pro mensal</strong> (US$ 10) — você vai usar todos os dias agora.</p>
+        </div>
+        <div class="month reveal month--decision">
+          <div class="month__num">Mês 9 · Decisão</div>
+          <h3 class="month__title">Achei assento, transfiro?</h3>
+          <p class="month__body">Confirma no site oficial do programa. Se está lá: transfere SÓ a quantidade exata + 5k de buffer. <strong>Não transfere antes</strong> — milhas paradas em programa estrangeiro são risco.</p>
+        </div>
+        <div class="month reveal month--milestone">
+          <div class="month__num">Mês 10 · Marco</div>
+          <h3 class="month__title">EMITE EXECUTIVA</h3>
+          <p class="month__body"><strong>~95k Avios + €250 OU 120k Flying Blue + US$ 45</strong>. Voo executiva pra Europa. Passagem que custaria R$ 18-30 mil sai por R$ 2.500-4.000 efetivos. Marco financeiro.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 11-12</div>
+          <h3 class="month__title">Viagem + próximo objetivo</h3>
+          <p class="month__body">Faz a viagem. Já planeja o próximo: <strong>2 passagens executivas/ano</strong>? Pula pro roadmap avançado.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>O erro fatal do intermediário:</strong>
+        <span>Transferir milhas pra programa estrangeiro <strong>antes</strong> de ter o assento confirmado. Você fica refém: se o assento sumir, suas milhas estão presas num programa que vai desvalorizar. <strong>Regra de ouro:</strong> só transfere quando o assento tá lá no site oficial, e emite no mesmo dia.</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- AVANÇADO                                                     -->
+    <!-- ============================================================ -->
+    <section class="section" id="avancado">
+      <div class="section__head reveal">
+        <span class="kicker">💎 Roadmap 3</span>
+        <h2>Avançado — <span class="grad-text">executiva todo trimestre</span></h2>
+        <p>Você domina os 5 essenciais, tem múltiplos cartões otimizados, entende o ecossistema Avios. Quer voar executiva 3-4× por ano: Europa, EUA, Ásia.</p>
+      </div>
+
+      <div class="level-intro reveal">
+        <h3>O objetivo dos 12 meses</h3>
+        <p><strong>4 passagens executivas</strong>: Europa (Q1), EUA (Q2), Ásia (Q3) e folga + 5ª liberdade (Q4). Mistura programas: Iberia/Qatar, LifeMiles (Ásia), Aeroplan (EUA), Smiles (5ª liberdade).</p>
+        <div class="level-intro__meta">
+          <div>Meta: <strong>~400k milhas distribuídas em 5 programas</strong></div>
+          <div>Investimento: <strong>R$ 6-12 mil/ano</strong> (cartão anuidade + compras de bônus)</div>
+          <div>Skill: <strong>arbitragem entre programas</strong></div>
+        </div>
+      </div>
+
+      <div class="month-grid">
+        <div class="month reveal">
+          <div class="month__num">Mês 1</div>
+          <h3 class="month__title">Inventário e calendário anual</h3>
+          <p class="month__body">Mapeia saldo de cada programa no <strong>AwardWallet</strong>. Define os 4 destinos do ano por trimestre. Calendário de janelas de emissão (Aeroplan abre 331 dias antes, LifeMiles 330).</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 2 · Q1</div>
+          <h3 class="month__title">Caça Europa (Iberia/Qatar)</h3>
+          <p class="month__body">Alerta Seats.aero pra GRU→MAD/CDG/AMS executiva, 6 meses à frente. Cruza com bônus Livelo→Iberia. <strong>Emite a 1ª passagem</strong>.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 3-4</div>
+          <h3 class="month__title">Otimiza Membership Rewards</h3>
+          <p class="month__body">Acumula MR (Amex Platinum) pra Aeroplan e Virgin. Aproveita bônus de transferência Amex→Aeroplan se aparecer (30-40%).</p>
+        </div>
+        <div class="month reveal month--milestone">
+          <div class="month__num">Mês 5 · Q2</div>
+          <h3 class="month__title">EUA via Aeroplan</h3>
+          <p class="month__body">Compra de milha Aeroplan em promo (rara mas existe), ou transfere MR. <strong>2ª passagem</strong>: GRU↔EUA executiva via Star Alliance.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 6</div>
+          <h3 class="month__title">Espera bônus LifeMiles 140%+</h3>
+          <p class="month__body">Bônus de compra LifeMiles roda 2-3× por ano. Quando der 100%+, <strong>compra direto</strong> 100k+ milhas — sai a R$ 13-17/milheiro. É a forma mais barata de voar Star em executiva.</p>
+        </div>
+        <div class="month reveal month--milestone">
+          <div class="month__num">Mês 7 · Q3</div>
+          <h3 class="month__title">Ásia via LifeMiles</h3>
+          <p class="month__body"><strong>3ª passagem</strong>: Tóquio ou Singapura via Lufthansa/ANA/Singapore. ~95-110k LifeMiles + USD 100. Voo de US$ 8-12 mil sai por R$ 3-5 mil.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 8-9</div>
+          <h3 class="month__title">Refaz colchão de milhas BR</h3>
+          <p class="month__body">Volta a focar em Smiles/Azul/Livelo pra reabastecer. Acompanha bônus de transferência sem pressão — agora a próxima emissão é Q4.</p>
+        </div>
+        <div class="month reveal month--decision">
+          <div class="month__num">Mês 10 · Decisão</div>
+          <h3 class="month__title">Q4: 5ª liberdade ou Primeira Classe?</h3>
+          <p class="month__body">Opção A: <a href="quinta-liberdade.html" style="color:var(--accent)">5ª liberdade</a> (GRU↔EZE em Turkish executiva) — luxo barato pra escapada curta. Opção B: emissão Primeira (Lufthansa A380, Qatar QSuite) — alto custo, experiência única.</p>
+        </div>
+        <div class="month reveal month--milestone">
+          <div class="month__num">Mês 11 · Q4</div>
+          <h3 class="month__title">4ª passagem do ano</h3>
+          <p class="month__body">Emite a escolha do mês 10. Fecha o ano com 4 viagens executivas, 200-300k milhas usadas, R$ 50-100k de "valor de mercado" das passagens.</p>
+        </div>
+        <div class="month reveal">
+          <div class="month__num">Mês 12</div>
+          <h3 class="month__title">Revisão e plano do próximo ano</h3>
+          <p class="month__body">Saldo atual em cada programa? Quais bônus funcionaram melhor? Quais cartões valeram anuidade? <strong>Ajusta a estratégia</strong> pro próximo ciclo.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--rule reveal">
+        <strong>O segredo do nível avançado:</strong>
+        <span>Você não acumula em UM programa — você acumula em <strong>moedas neutras</strong> (Livelo, Esfera, Membership Rewards). Só transfere pro programa específico <strong>quando o assento aparece</strong>. Isso te dá flexibilidade pra emitir Qatar hoje, Aeroplan amanhã, LifeMiles depois — sem ficar refém da desvalorização de um programa só.</span>
+      </div>
+    </section>
+
+    <!-- FECHAMENTO -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">🎯 Regras universais</span>
+        <h2>O que vale pra <span class="grad-text">qualquer roadmap</span></h2>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">📅</div>
+          <h3>Mês 1 é sempre cadastro</h3>
+          <p>Programa novo não nasce com saldo, mas pode ter regra de "conta ativa há X meses". Cadastre logo, deixe maturar.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🔔</div>
+          <h3>Alerta primeiro, transferência depois</h3>
+          <p>Alertas no Seats.aero são grátis ou US$ 10/mês. Ativar alertas <strong>antes</strong> de transferir milhas é a regra que separa amador de pro.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">⚡</div>
+          <h3>Bônus de transferência tem janela</h3>
+          <p>Livelo→Smiles 100% rola a cada 30-45 dias. Se perdeu, volta em 1-1,5 mês. <strong>Não compre fora de bônus</strong> — é como vender dólar abaixo do PTAX.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🎯</div>
+          <h3>1 destino-alvo por trimestre</h3>
+          <p>Não tenta caçar tudo. Define 1 destino, 1 cabine, 1 janela de datas. Sua atenção é finita; a do mercado é infinita.</p>
+        </article>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem">
+        <a href="estrategias.html" class="btn btn--ghost">← Ver estratégias gerais</a>
+        <a href="seats-aero-guia-br.html" class="btn btn--primary">Aprender Seats.aero →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

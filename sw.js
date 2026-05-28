@@ -1,6 +1,6 @@
 // Service worker — network-first pra HTML, cache-first pra assets
 // Bump CACHE quando quiser forçar invalidação em todos os usuários.
-const CACHE = 'milhas-pro-v2';
+const CACHE = 'milhas-pro-v3';
 
 const PRECACHE = [
   '/',
@@ -18,7 +18,11 @@ const PRECACHE = [
   '/pages/viagens.html',
   '/pages/guia.html',
   '/pages/seats-aero-guia-br.html',
-  '/pages/quinta-liberdade.html'
+  '/pages/quinta-liberdade.html',
+  '/pages/roadmap.html',
+  '/pages/qual-moeda.html',
+  '/pages/multiplicadores.html',
+  '/pages/primeira-classe.html'
 ];
 
 self.addEventListener('install', (e) => {

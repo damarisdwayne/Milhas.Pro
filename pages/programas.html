@@ -14,9 +14,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
   <link rel="apple-touch-icon" href="../assets/icon-192.png" />
   <style>
-    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1rem auto 0; max-width: 900px; }
     .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
     .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+    .quick-nav--top a { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.06); color: #34d399; }
+    .quick-nav--top a:hover { background: rgba(52,211,153,.15); border-color: #34d399; }
+    .quick-nav__label { display: block; text-align: center; color: var(--text-mute); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; margin: 1.5rem 0 .25rem; font-family: var(--font-mono); }
     .msg-box { background: rgba(0,0,0,.35); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.5rem; font-family: var(--font-mono); font-size: .85rem; line-height: 1.7; white-space: pre-wrap; color: var(--text-dim); margin: 1rem 0; }
     .msg-box strong { color: var(--accent); font-weight: 600; }
     .pill { display: inline-block; padding: .2rem .6rem; border-radius: 999px; background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.4); font-size: .72rem; font-family: var(--font-mono); letter-spacing: .04em; color: var(--text); margin-right: .35rem; }
@@ -26,6 +29,10 @@
     .prog-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
     .prog-header .kicker { margin-bottom: 0; }
     .prog-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .85rem; border-radius: 999px; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .04em; }
+    .group-divider { max-width: 1100px; margin: 2rem auto; padding: 2rem 1.5rem; text-align: center; border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+    .group-divider .kicker { color: var(--accent); font-size: .82rem; margin-bottom: .5rem; display: block; font-family: var(--font-mono); letter-spacing: .08em; }
+    .group-divider h2 { margin: 0 0 .5rem; }
+    .group-divider p { color: var(--text-dim); margin: 0; font-size: .95rem; max-width: 720px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
@@ -58,21 +65,36 @@
     <section class="page-hero">
       <span class="kicker">🎫 Programas</span>
       <h1>Os programas de milhas, <span class="grad-text">a fundo</span></h1>
-      <p>Cada programa tem suas forças, parceiros e truques. Aqui você encontra tudo sobre cada um — do básico ao avançado, sem precisar pular entre páginas.</p>
-      <nav class="quick-nav">
+      <p>11 programas mapeados. Os <strong>5 essenciais</strong> resolvem 90% das suas viagens — domine eles primeiro. Os <strong>6 complementares</strong> são pra otimizações específicas (executiva pra Ásia, sweet spots premium, situações de nicho).</p>
+
+      <span class="quick-nav__label">🇧🇷 Comece por aqui (5 essenciais)</span>
+      <nav class="quick-nav quick-nav--top">
         <a href="#smiles">Smiles</a>
-        <a href="#tudoazul">TudoAzul</a>
         <a href="#latam">LATAM Pass</a>
-        <a href="#aa">AAdvantage</a>
-        <a href="#tap">TAP</a>
-        <a href="#iberia">Iberia / Avios</a>
+        <a href="#tudoazul">TudoAzul</a>
         <a href="#flyingblue">Flying Blue</a>
-        <a href="#suma">Air Europa</a>
-        <a href="#aeroplan">Aeroplan</a>
+        <a href="#iberia">Iberia / Avios</a>
+      </nav>
+
+      <span class="quick-nav__label">🔺 Complementares (depois de dominar os 5)</span>
+      <nav class="quick-nav">
+        <a href="#tap">TAP</a>
+        <a href="#aa">AAdvantage</a>
         <a href="#lifemiles">LifeMiles</a>
+        <a href="#aeroplan">Aeroplan</a>
+        <a href="#suma">Air Europa SUMA</a>
         <a href="#virgin">Virgin Atlantic</a>
       </nav>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- COMECE POR AQUI — 5 ESSENCIAIS                              -->
+    <!-- ============================================================ -->
+    <div class="group-divider reveal">
+      <span class="kicker">🇧🇷 Comece por aqui</span>
+      <h2>Os <span class="grad-text">5 essenciais</span></h2>
+      <p>Os 3 programas brasileiros (Smiles, LATAM, TudoAzul) são porta de entrada — você provavelmente já tem saldo neles via Livelo/cartão. Flying Blue e Iberia são os 2 estrangeiros mais acessíveis pro brasileiro: transferência fácil de banco BR + sweet spots pra Europa.</p>
+    </div>
 
     <!-- SMILES -->
     <section class="section" id="smiles">
@@ -166,103 +188,8 @@
       </div>
     </section>
 
-    <!-- TUDOAZUL -->
-    <section class="section section--alt" id="tudoazul">
-      <div class="section__head reveal">
-        <div class="prog-header" style="justify-content:center">
-          <span class="kicker">🔵 TudoAzul</span>
-          <span class="prog-badge" style="background:rgba(0,153,255,.15); border:1px solid rgba(0,153,255,.4); color:#33aaff">Azul · acordos próprios</span>
-        </div>
-        <h2>TudoAzul — flexibilidade máxima e parceiros únicos</h2>
-        <p>Forte em doméstico e nos parceiros menos óbvios (United, Air Europa, TAP). Pontos resgatam até carro e ingressos.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card__icon">🤝</div>
-          <h3>Parceiros</h3>
-          <p>
-            <strong>United · Air Europa · TAP · Avianca · Copa · JetBlue · Turkish · Aerolíneas · Air France · KLM</strong>.<br><br>
-            Emissão: site/app TudoAzul ou via <strong>Interline</strong> pra parceiros. Central: <strong>4003 1118</strong> (alguns parceiros só por telefone).
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🧩</div>
-          <h3>Truques de busca</h3>
-          <p>
-            ✔ <strong>Quebrar escala</strong>: buscar trechos separados frequentemente cai até 50%<br>
-            ✔ <strong>Seat Spy</strong> pra United<br>
-            ✔ <strong>Interline</strong> pros parceiros: prefira <strong>ida e volta</strong> (90% das vezes mais barato)<br>
-            ✔ Achou voo X/I/O na United? Provável no Interline também
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🗺️</div>
-          <h3>Rotas valiosas</h3>
-          <p>
-            • <strong>EZE → IAH</strong> (Buenos Aires → Houston via United)<br>
-            • <strong>MVD → PUJ</strong> (Montevideu → Punta Cana)<br>
-            • Voos AZUL pra EUA e Portugal em pontos próprios
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">💎</div>
-          <h3>Parceiros que emitem Award</h3>
-          <p>
-            <strong>Star Alliance (X/I/O):</strong><br>
-            COPA · TAP · United · Air Canada · Turkish · Aeromexico · Singapore · SAS · TAAG · South African<br><br>
-            <strong>Outros:</strong> British, Royal Air Maroc.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">💠</div>
-          <h3>Categorias Safira × Diamante</h3>
-          <p>
-            <strong>Safira:</strong> Clube 10 mil pontos.<br>
-            <strong>Diamante:</strong> Clube 20 mil OU 20k pontos qualificáveis no ano, OU Status Match (10k qualificáveis em 6 meses).<br><br>
-            Só Diamante <strong>qualificável</strong> dá cortesia acompanhante.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">❄️</div>
-          <h3>Tarifa Congelada</h3>
-          <p>
-            Encontrou tarifa boa mas falta milha? Congele por <strong>72h</strong>:<br>
-            • Doméstico: <strong>R$ 30/passageiro</strong> (até 7 dias antes)<br>
-            • Internacional: <strong>R$ 75/passageiro</strong> (até 30 dias antes)<br><br>
-            ⚠️ Taxa <strong>não-reembolsável</strong> e <strong>não conta</strong> como parte do pagamento.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">👫</div>
-          <h3>Companion Pass (Itaú Azul)</h3>
-          <p>
-            Titular do cartão Itaú Azul ganha <strong>2 upgrades de cabine/ano</strong> — pode usar pro acompanhante. Flexível: 2 ida, 2 volta, ou ida+volta titular.<br><br>
-            Requisito: <strong>50.000 pontos no cartão</strong> nos últimos 12 meses.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🆓</div>
-          <h3>Azul Free (transferência grátis)</h3>
-          <p>
-            <strong>Clube Azul:</strong> 2 transferências grátis/ano até 50k pontos (ambos clube 6+ meses).<br><br>
-            <strong>Cadastro gratuito:</strong> 1 envio/ano até 50k pontos pra clientes do Clube com 6+ meses.<br><br>
-            ⚠️ Não geram qualificáveis.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">💼</div>
-          <h3>Pontos pra além de voo</h3>
-          <p>
-            Resgate em <strong>hospedagem</strong>, <strong>ingressos</strong> (Disney etc) e <strong>aluguel de carro</strong>.<br><br>
-            <strong>Milheiro Azul em carros = R$ 14</strong>: melhor uso quando o destino não tem boa rota award.
-          </p>
-        </article>
-      </div>
-    </section>
-
     <!-- LATAM PASS -->
-    <section class="section" id="latam">
+    <section class="section section--alt" id="latam">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
           <span class="kicker">🔴 LATAM Pass</span>
@@ -378,65 +305,232 @@ Bebês: 0</div>
       </div>
     </section>
 
-    <!-- AADVANTAGE -->
-    <section class="section section--alt" id="aa">
+    <!-- TUDOAZUL -->
+    <section class="section" id="tudoazul">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
-          <span class="kicker">🇺🇸 AAdvantage</span>
-          <span class="prog-badge" style="background:rgba(14,122,254,.15); border:1px solid rgba(14,122,254,.4); color:#5ca8ff">American Airlines · oneworld + GOL</span>
+          <span class="kicker">🔵 TudoAzul</span>
+          <span class="prog-badge" style="background:rgba(0,153,255,.15); border:1px solid rgba(0,153,255,.4); color:#33aaff">Azul · acordos próprios</span>
         </div>
-        <h2>AAdvantage — milhas que valem mais do que aparentam</h2>
-        <p>Conversão direta engana. Em tabela fixa, milhas AA rendem muito mais que parecem.</p>
+        <h2>TudoAzul — flexibilidade máxima e parceiros únicos</h2>
+        <p>Forte em doméstico e nos parceiros menos óbvios (United, Air Europa, TAP). Pontos resgatam até carro e ingressos.</p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
-          <div class="card__icon">💳</div>
-          <h3>Como acumular</h3>
-          <p>
-            <strong>Cartão Santander AAdvantage</strong> (melhor opção no Brasil).<br><br>
-            Transferências da <strong>Esfera</strong> — apenas em promoções raras.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⚖️</div>
-          <h3>Equivalência</h3>
-          <p>
-            1.000 milhas AA ≈ <strong>3.300 LATAM</strong><br>
-            1.000 milhas AA ≈ <strong>5.000 Smiles/Azul</strong><br><br>
-            <strong>Conclusão:</strong> milha AA pesa muito mais que parece no câmbio direto.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">📋</div>
-          <h3>Tabela fixa</h3>
-          <p>
-            <strong>Doméstico Brasil:</strong> 7.500 milhas/trecho<br><br>
-            <strong>Internacional</strong> vale a pena pra: <strong>América do Sul, Ásia, Oriente Médio</strong>, eventualmente EUA.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🎯</div>
-          <h3>Rotas vantajosas</h3>
-          <p>
-            • Voos domésticos da AA operados pela <strong>GOL</strong><br>
-            • <strong>THE → EZE</strong> (Teresina → Buenos Aires) — joia rara<br><br>
-            Consulte <strong>Flight Connections</strong> pra mapear rotas GOL.
-          </p>
-        </article>
-        <article class="card reveal">
           <div class="card__icon">🤝</div>
-          <h3>Parceiros principais</h3>
+          <h3>Parceiros</h3>
           <p>
-            <strong>oneworld inteiro</strong> (Qatar, BA, Iberia, Cathay, JAL, Qantas, Finnair) + <strong>GOL</strong>, Etihad, Alaska, JetBlue.<br><br>
-            Emissão pela maioria via <strong>aa.com</strong>; rotas escondidas pelo call center.
+            <strong>United · Air Europa · TAP · Avianca · Copa · JetBlue · Turkish · Aerolíneas · Air France · KLM</strong>.<br><br>
+            Emissão: site/app TudoAzul ou via <strong>Interline</strong> pra parceiros. Central: <strong>4003 1118</strong> (alguns parceiros só por telefone).
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🧩</div>
+          <h3>Truques de busca</h3>
+          <p>
+            ✔ <strong>Quebrar escala</strong>: buscar trechos separados frequentemente cai até 50%<br>
+            ✔ <strong>Seat Spy</strong> pra United<br>
+            ✔ <strong>Interline</strong> pros parceiros: prefira <strong>ida e volta</strong> (90% das vezes mais barato)<br>
+            ✔ Achou voo X/I/O na United? Provável no Interline também
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🗺️</div>
+          <h3>Rotas valiosas</h3>
+          <p>
+            • <strong>EZE → IAH</strong> (Buenos Aires → Houston via United)<br>
+            • <strong>MVD → PUJ</strong> (Montevideu → Punta Cana)<br>
+            • Voos AZUL pra EUA e Portugal em pontos próprios
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💎</div>
+          <h3>Parceiros que emitem Award</h3>
+          <p>
+            <strong>Star Alliance (X/I/O):</strong><br>
+            COPA · TAP · United · Air Canada · Turkish · Aeromexico · Singapore · SAS · TAAG · South African<br><br>
+            <strong>Outros:</strong> British, Royal Air Maroc.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💠</div>
+          <h3>Categorias Safira × Diamante</h3>
+          <p>
+            <strong>Safira:</strong> Clube 10 mil pontos.<br>
+            <strong>Diamante:</strong> Clube 20 mil OU 20k pontos qualificáveis no ano, OU Status Match (10k qualificáveis em 6 meses).<br><br>
+            Só Diamante <strong>qualificável</strong> dá cortesia acompanhante.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">❄️</div>
+          <h3>Tarifa Congelada</h3>
+          <p>
+            Encontrou tarifa boa mas falta milha? Congele por <strong>72h</strong>:<br>
+            • Doméstico: <strong>R$ 30/passageiro</strong> (até 7 dias antes)<br>
+            • Internacional: <strong>R$ 75/passageiro</strong> (até 30 dias antes)<br><br>
+            ⚠️ Taxa <strong>não-reembolsável</strong> e <strong>não conta</strong> como parte do pagamento.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">👫</div>
+          <h3>Companion Pass (Itaú Azul)</h3>
+          <p>
+            Titular do cartão Itaú Azul ganha <strong>2 upgrades de cabine/ano</strong> — pode usar pro acompanhante. Flexível: 2 ida, 2 volta, ou ida+volta titular.<br><br>
+            Requisito: <strong>50.000 pontos no cartão</strong> nos últimos 12 meses.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🆓</div>
+          <h3>Azul Free (transferência grátis)</h3>
+          <p>
+            <strong>Clube Azul:</strong> 2 transferências grátis/ano até 50k pontos (ambos clube 6+ meses).<br><br>
+            <strong>Cadastro gratuito:</strong> 1 envio/ano até 50k pontos pra clientes do Clube com 6+ meses.<br><br>
+            ⚠️ Não geram qualificáveis.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💼</div>
+          <h3>Pontos pra além de voo</h3>
+          <p>
+            Resgate em <strong>hospedagem</strong>, <strong>ingressos</strong> (Disney etc) e <strong>aluguel de carro</strong>.<br><br>
+            <strong>Milheiro Azul em carros = R$ 14</strong>: melhor uso quando o destino não tem boa rota award.
           </p>
         </article>
       </div>
     </section>
 
+    <!-- FLYING BLUE -->
+    <section class="section section--alt" id="flyingblue">
+      <div class="section__head reveal">
+        <div class="prog-header" style="justify-content:center">
+          <span class="kicker">🔷 Flying Blue</span>
+          <span class="prog-badge" style="background:rgba(0,114,206,.15); border:1px solid rgba(0,114,206,.4); color:#4aa3e0">Air France-KLM · SkyTeam</span>
+        </div>
+        <h2>Flying Blue — as Promo Rewards que derrubam o preço pra Europa</h2>
+        <p>O programa da Air France-KLM. Toda mês ele desconta milhas de destinos selecionados — às vezes Europa em executiva por uma fração do normal.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">🔥</div>
+          <h3>Promo Rewards (o destaque)</h3>
+          <p>
+            Toda mês a Flying Blue solta uma lista de destinos com <strong>25% a 50% menos milhas</strong>, válida por um período curto.<br><br>
+            É aqui que aparecem as "promoções absurdas" pra Europa — vale checar a página de Promo Rewards no começo de cada mês.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">⚙️</div>
+          <h3>Como funciona o preço</h3>
+          <p>
+            Não tem tabela fixa — o preço é <strong>dinâmico</strong> (varia com a demanda do voo).<br><br>
+            Por isso a estratégia é justamente caçar as Promo Rewards e datas de baixa demanda, onde o resgate fica barato.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💳</div>
+          <h3>Como acumular no Brasil</h3>
+          <p>
+            <strong>Livelo e Esfera → Flying Blue:</strong> 3,5 pontos = 1 ponto Flying Blue (nos dois). Razão ruim no padrão — só vale com <strong>bônus de transferência</strong> ativo (espere a promo).<br><br>
+            <strong>Compra direta de milhas</strong> — a Flying Blue roda bônus de compra com frequência; casar isso com uma Promo Reward é o combo ideal.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🗺️</div>
+          <h3>Forte em</h3>
+          <p>
+            Voos da <strong>Air France</strong> (hub Paris/CDG) e <strong>KLM</strong> (hub Amsterdam/AMS), além de parceiros <strong>SkyTeam</strong>.<br><br>
+            Melhor uso: executiva pra Europa quando bate uma Promo Reward + bônus de compra.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- IBERIA -->
+    <section class="section" id="iberia">
+      <div class="section__head reveal">
+        <div class="prog-header" style="justify-content:center">
+          <span class="kicker">🇪🇸 Iberia Plus (Avios)</span>
+          <span class="prog-badge" style="background:rgba(229,178,82,.15); border:1px solid rgba(229,178,82,.4); color:#ffd166">Iberia · oneworld</span>
+        </div>
+        <h2>Iberia — sistema por distância, ouro pra Europa em executiva</h2>
+        <p>Iberia não cobra por região — cobra por <strong>quilometragem</strong>. Quem entende isso emite executiva pra Europa por uma fração do esperado.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">📏</div>
+          <h3>Tabela por distância (baixa temporada)</h3>
+          <p>
+            <strong>Banda 1</strong> (0–650 mi): 4.500 turística / 9.000 business<br>
+            <strong>Banda 3</strong> (1.151–2.000): 10k / 20k<br>
+            <strong>Banda 5</strong> (3.001–4.000): 17k / 34k<br>
+            <strong>Banda 6</strong> (4.001–5.500): <strong>21.250 turística / 42.500 business</strong> ← SP–Madri<br>
+            <strong>Banda 9</strong> (7.000+): 42.500 / 85.000
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">📅</div>
+          <h3>Alta × Baixa temporada</h3>
+          <p>
+            Voos da própria Iberia, British Airways, Vueling, LEVEL têm <strong>2 tabelas</strong>: alta e baixa. Calendário oficial marca os dias em vermelho.<br><br>
+            <strong>Parceiros</strong> (LATAM, Avianca, Qatar) usam tabela única — sem alta/baixa.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🔁</div>
+          <h3>Iberia ↔ British ↔ Qatar</h3>
+          <p>
+            Todos usam <strong>Avios</strong>. Transferência entre os 3 é online, imediata, sem deságio.<br><br>
+            Requisito: cadastro nos 3 com <strong>dados idênticos por 3+ meses</strong>.<br><br>
+            Caminho pra Qatar: <strong>Iberia → British → Qatar</strong> (não vai direto).
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🎯</div>
+          <h3>Regras de emissão</h3>
+          <p>
+            <strong>One-way (só ida):</strong> apenas voos da Iberia ou British.<br>
+            <strong>Parceiros</strong> (LATAM, Qatar etc): exige <strong>round-trip</strong> (ida e volta).<br><br>
+            Acúmulo no Brasil: <strong>Esfera e Livelo</strong> — 2 pontos = 1 Avios.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">⚙️</div>
+          <h3>Setup do site</h3>
+          <p>
+            Em <strong>iberia.com</strong>:<br>
+            1. Mude país pra <strong>EUA</strong> ou <strong>Espanha</strong><br>
+            2. Pesquise GRU → MAD pra "destravar" opções<br>
+            3. Depois consulte outras rotas
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🌐</div>
+          <h3>Hack Iberia + Seats.aero</h3>
+          <p>
+            Pra emissão de LATAM Premium Business via Iberia:<br>
+            1. <strong>Seats.aero</strong> → selecione "Alaska Mileage Plan"<br>
+            2. Ache LATAM Premium Business barato<br>
+            3. Cruze datas no site da Iberia<br>
+            4. Emita por <strong>~6.000 Avios</strong> (= 18.000 milhas LATAM)
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- COMPLEMENTARES                                              -->
+    <!-- ============================================================ -->
+    <div class="group-divider reveal" style="border-color: rgba(124,92,255,.3); background: rgba(124,92,255,.04)">
+      <span class="kicker">🔺 Complementares</span>
+      <h2>Depois de dominar os <span class="grad-text">5 essenciais</span></h2>
+      <p>Programas pra otimizações específicas: TAP (stopover grátis em Lisboa), AAdvantage (premium oneworld), LifeMiles (Star Alliance em promo de compra), Aeroplan (taxas baixas Star), SUMA (sweet spot Espanha/Portugal) e Virgin Atlantic (ANA Tóquio executiva por 95k). Cada um resolve um caso de uso específico.</p>
+    </div>
+
     <!-- TAP -->
-    <section class="section" id="tap">
+    <section class="section section--alt" id="tap">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
           <span class="kicker">🇵🇹 TAP Miles&Go</span>
@@ -516,177 +610,128 @@ Bebês: 0</div>
       </div>
     </section>
 
-    <!-- IBERIA -->
-    <section class="section section--alt" id="iberia">
+    <!-- AADVANTAGE -->
+    <section class="section" id="aa">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
-          <span class="kicker">🇪🇸 Iberia Plus (Avios)</span>
-          <span class="prog-badge" style="background:rgba(229,178,82,.15); border:1px solid rgba(229,178,82,.4); color:#ffd166">Iberia · oneworld</span>
+          <span class="kicker">🇺🇸 AAdvantage</span>
+          <span class="prog-badge" style="background:rgba(14,122,254,.15); border:1px solid rgba(14,122,254,.4); color:#5ca8ff">American Airlines · oneworld + GOL</span>
         </div>
-        <h2>Iberia — sistema por distância, ouro pra Europa em executiva</h2>
-        <p>Iberia não cobra por região — cobra por <strong>quilometragem</strong>. Quem entende isso emite executiva pra Europa por uma fração do esperado.</p>
+        <h2>AAdvantage — milhas que valem mais do que aparentam</h2>
+        <p>Conversão direta engana. Em tabela fixa, milhas AA rendem muito mais que parecem.</p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
-          <div class="card__icon">📏</div>
-          <h3>Tabela por distância (baixa temporada)</h3>
+          <div class="card__icon">💳</div>
+          <h3>Como acumular</h3>
           <p>
-            <strong>Banda 1</strong> (0–650 mi): 4.500 turística / 9.000 business<br>
-            <strong>Banda 3</strong> (1.151–2.000): 10k / 20k<br>
-            <strong>Banda 5</strong> (3.001–4.000): 17k / 34k<br>
-            <strong>Banda 6</strong> (4.001–5.500): <strong>21.250 turística / 42.500 business</strong> ← SP–Madri<br>
-            <strong>Banda 9</strong> (7.000+): 42.500 / 85.000
+            <strong>Cartão Santander AAdvantage</strong> (melhor opção no Brasil).<br><br>
+            Transferências da <strong>Esfera</strong> — apenas em promoções raras.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">📅</div>
-          <h3>Alta × Baixa temporada</h3>
+          <div class="card__icon">⚖️</div>
+          <h3>Equivalência</h3>
           <p>
-            Voos da própria Iberia, British Airways, Vueling, LEVEL têm <strong>2 tabelas</strong>: alta e baixa. Calendário oficial marca os dias em vermelho.<br><br>
-            <strong>Parceiros</strong> (LATAM, Avianca, Qatar) usam tabela única — sem alta/baixa.
+            1.000 milhas AA ≈ <strong>3.300 LATAM</strong><br>
+            1.000 milhas AA ≈ <strong>5.000 Smiles/Azul</strong><br><br>
+            <strong>Conclusão:</strong> milha AA pesa muito mais que parece no câmbio direto.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">🔁</div>
-          <h3>Iberia ↔ British ↔ Qatar</h3>
+          <div class="card__icon">📋</div>
+          <h3>Tabela fixa</h3>
           <p>
-            Todos usam <strong>Avios</strong>. Transferência entre os 3 é online, imediata, sem deságio.<br><br>
-            Requisito: cadastro nos 3 com <strong>dados idênticos por 3+ meses</strong>.<br><br>
-            Caminho pra Qatar: <strong>Iberia → British → Qatar</strong> (não vai direto).
+            <strong>Doméstico Brasil:</strong> 7.500 milhas/trecho<br><br>
+            <strong>Internacional</strong> vale a pena pra: <strong>América do Sul, Ásia, Oriente Médio</strong>, eventualmente EUA.
           </p>
         </article>
         <article class="card reveal">
           <div class="card__icon">🎯</div>
-          <h3>Regras de emissão</h3>
+          <h3>Rotas vantajosas</h3>
           <p>
-            <strong>One-way (só ida):</strong> apenas voos da Iberia ou British.<br>
-            <strong>Parceiros</strong> (LATAM, Qatar etc): exige <strong>round-trip</strong> (ida e volta).<br><br>
-            Acúmulo no Brasil: <strong>Esfera e Livelo</strong> — 2 pontos = 1 Avios.
+            • Voos domésticos da AA operados pela <strong>GOL</strong><br>
+            • <strong>THE → EZE</strong> (Teresina → Buenos Aires) — joia rara<br><br>
+            Consulte <strong>Flight Connections</strong> pra mapear rotas GOL.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">⚙️</div>
-          <h3>Setup do site</h3>
+          <div class="card__icon">🤝</div>
+          <h3>Parceiros principais</h3>
           <p>
-            Em <strong>iberia.com</strong>:<br>
-            1. Mude país pra <strong>EUA</strong> ou <strong>Espanha</strong><br>
-            2. Pesquise GRU → MAD pra "destravar" opções<br>
-            3. Depois consulte outras rotas
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🌐</div>
-          <h3>Hack Iberia + Seats.aero</h3>
-          <p>
-            Pra emissão de LATAM Premium Business via Iberia:<br>
-            1. <strong>Seats.aero</strong> → selecione "Alaska Mileage Plan"<br>
-            2. Ache LATAM Premium Business barato<br>
-            3. Cruze datas no site da Iberia<br>
-            4. Emita por <strong>~6.000 Avios</strong> (= 18.000 milhas LATAM)
+            <strong>oneworld inteiro</strong> (Qatar, BA, Iberia, Cathay, JAL, Qantas, Finnair) + <strong>GOL</strong>, Etihad, Alaska, JetBlue.<br><br>
+            Emissão pela maioria via <strong>aa.com</strong>; rotas escondidas pelo call center.
           </p>
         </article>
       </div>
     </section>
 
-    <!-- FLYING BLUE -->
-    <section class="section" id="flyingblue">
+    <!-- LIFEMILES -->
+    <section class="section section--alt" id="lifemiles">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
-          <span class="kicker">🔷 Flying Blue</span>
-          <span class="prog-badge" style="background:rgba(0,114,206,.15); border:1px solid rgba(0,114,206,.4); color:#4aa3e0">Air France-KLM · SkyTeam</span>
+          <span class="kicker">🇨🇴 LifeMiles</span>
+          <span class="prog-badge" style="background:rgba(216,28,49,.15); border:1px solid rgba(216,28,49,.4); color:#ff7a8a">Avianca · Star Alliance</span>
         </div>
-        <h2>Flying Blue — as Promo Rewards que derrubam o preço pra Europa</h2>
-        <p>O programa da Air France-KLM. Toda mês ele desconta milhas de destinos selecionados — às vezes Europa em executiva por uma fração do normal.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card__icon">🔥</div>
-          <h3>Promo Rewards (o destaque)</h3>
-          <p>
-            Toda mês a Flying Blue solta uma lista de destinos com <strong>25% a 50% menos milhas</strong>, válida por um período curto.<br><br>
-            É aqui que aparecem as "promoções absurdas" pra Europa — vale checar a página de Promo Rewards no começo de cada mês.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⚙️</div>
-          <h3>Como funciona o preço</h3>
-          <p>
-            Não tem tabela fixa — o preço é <strong>dinâmico</strong> (varia com a demanda do voo).<br><br>
-            Por isso a estratégia é justamente caçar as Promo Rewards e datas de baixa demanda, onde o resgate fica barato.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">💳</div>
-          <h3>Como acumular no Brasil</h3>
-          <p>
-            <strong>Livelo e Esfera → Flying Blue:</strong> 3,5 pontos = 1 ponto Flying Blue (nos dois). Razão ruim no padrão — só vale com <strong>bônus de transferência</strong> ativo (espere a promo).<br><br>
-            <strong>Compra direta de milhas</strong> — a Flying Blue roda bônus de compra com frequência; casar isso com uma Promo Reward é o combo ideal.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🗺️</div>
-          <h3>Forte em</h3>
-          <p>
-            Voos da <strong>Air France</strong> (hub Paris/CDG) e <strong>KLM</strong> (hub Amsterdam/AMS), além de parceiros <strong>SkyTeam</strong>.<br><br>
-            Melhor uso: executiva pra Europa quando bate uma Promo Reward + bônus de compra.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- AIR EUROPA SUMA -->
-    <section class="section section--alt" id="suma">
-      <div class="section__head reveal">
-        <div class="prog-header" style="justify-content:center">
-          <span class="kicker">✈️ Air Europa SUMA</span>
-          <span class="prog-badge" style="background:rgba(0,212,168,.15); border:1px solid rgba(0,212,168,.4); color:#33e6c0">Air Europa · SkyTeam + bilaterais</span>
-        </div>
-        <h2>SUMA — subestimado, mas ouro pra Espanha e Portugal</h2>
-        <p>Programa pouco falado, mas tem promos brutais e parceiros valiosos pra executiva.</p>
+        <h2>LifeMiles — Star Alliance com promo de compra agressiva</h2>
+        <p>Programa da Avianca. Tabela competitiva, mas o forte mesmo é a <strong>compra direta de milhas com bônus de 100-145%</strong> várias vezes ao ano — quando rola, é o jeito mais barato de voar executiva pela Star.</p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
           <div class="card__icon">🛒</div>
-          <h3>Aquisição de pontos</h3>
+          <h3>Estratégia principal: comprar em promo</h3>
           <p>
-            Comprar direto no site. Normal: <strong>~15€/milheiro</strong>.<br><br>
-            Promoções: <strong>35-50% off</strong> a cada 3-4 meses — é o momento de comprar.
+            LifeMiles solta bônus de <strong>100% a 145%</strong> sobre compra de milhas em ciclos curtos.<br><br>
+            Custo em promo: <strong>~USD 13–17/milheiro</strong> — comparável a Smiles em bom dia.<br><br>
+            Acompanhe o site e o Passageiro de Primeira.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">🌍</div>
-          <h3>Onde vale a pena</h3>
+          <div class="card__icon">📏</div>
+          <h3>Tabela de regiões</h3>
           <p>
-            <strong>Espanha e Portugal</strong> — destino imbatível.<br><br>
-            Brasil = <strong>"América 1"</strong> na classificação geográfica do programa.
+            <strong>América do Sul → Europa</strong> (executiva): 78.000 LifeMiles.<br>
+            <strong>América do Sul → América do Norte</strong> (executiva): 63.000.<br>
+            <strong>América do Sul → Ásia</strong> (executiva): 90.000–100.000.<br><br>
+            <strong>Taxas:</strong> entre as mais baixas do mundo — geralmente USD 50–100 mesmo em executiva.
           </p>
         </article>
         <article class="card reveal">
           <div class="card__icon">🤝</div>
-          <h3>Parceiros Award fortes</h3>
+          <h3>Parceiros úteis</h3>
           <p>
-            <strong>GOL</strong> e <strong>Etihad</strong>:<br>
-            • Econômica: <strong>25.000 pontos</strong><br>
-            • Executiva: <strong>50.000 pontos</strong>
+            Toda Star Alliance: <strong>Lufthansa, SWISS, ANA, Singapore, Turkish, United, TAP, Avianca</strong>.<br><br>
+            Forte pra emitir Turkish e Singapore em executiva — dois resgates premium difíceis em outros programas.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">🎯</div>
-          <h3>Técnica "Miles & Cash"</h3>
+          <div class="card__icon">💳</div>
+          <h3>Como acumular sem comprar</h3>
           <p>
-            Use o botão <strong>Miles & Cash</strong> pra navegar o calendário rapidamente.<br><br>
-            Regra: <strong>tarifa baixa em dinheiro = tarifa baixa em SUMA</strong>.<br><br>
-            ⚠️ Tarifas Premium não têm reembolso.
+            <strong>Cartão Avianca LifeMiles</strong> (alguns bancos brasileiros emitem).<br><br>
+            <strong>Membership Rewards (Amex)</strong> → LifeMiles 1:1 em alguns mercados.<br><br>
+            Mas a verdade é que a maioria compra direto, esperando a promo.
           </p>
         </article>
-      </div>
-
-      <div class="cta-row reveal" style="margin-top:3rem">
-        <a href="termometro.html" class="btn btn--primary">Ver termômetro →</a>
-        <a href="estrategias.html" class="btn btn--ghost">Ver estratégias gerais</a>
+        <article class="card reveal">
+          <div class="card__icon">🔍</div>
+          <h3>Busca</h3>
+          <p>
+            Site oficial mostra a maioria dos parceiros.<br><br>
+            <strong>Seats.aero → LifeMiles</strong> no Explore = mapa de oportunidades Star Alliance pelo preço LifeMiles.
+          </p>
+        </article>
+        <article class="card reveal" style="border-color:rgba(248,113,113,.3)">
+          <div class="card__icon">⚠️</div>
+          <h3>Pegadinhas</h3>
+          <p>
+            • Site/app são <strong>instáveis</strong> — às vezes você liga na central.<br>
+            • Não emite Lufthansa em <strong>primeira classe</strong> (cota travada).<br>
+            • Mudanças de regra acontecem sem aviso — emita rápido.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -756,69 +801,50 @@ Bebês: 0</div>
       </div>
     </section>
 
-    <!-- LIFEMILES -->
-    <section class="section section--alt" id="lifemiles">
+    <!-- AIR EUROPA SUMA -->
+    <section class="section section--alt" id="suma">
       <div class="section__head reveal">
         <div class="prog-header" style="justify-content:center">
-          <span class="kicker">🇨🇴 LifeMiles</span>
-          <span class="prog-badge" style="background:rgba(216,28,49,.15); border:1px solid rgba(216,28,49,.4); color:#ff7a8a">Avianca · Star Alliance</span>
+          <span class="kicker">✈️ Air Europa SUMA</span>
+          <span class="prog-badge" style="background:rgba(0,212,168,.15); border:1px solid rgba(0,212,168,.4); color:#33e6c0">Air Europa · SkyTeam + bilaterais</span>
         </div>
-        <h2>LifeMiles — Star Alliance com promo de compra agressiva</h2>
-        <p>Programa da Avianca. Tabela competitiva, mas o forte mesmo é a <strong>compra direta de milhas com bônus de 100-145%</strong> várias vezes ao ano — quando rola, é o jeito mais barato de voar executiva pela Star.</p>
+        <h2>SUMA — subestimado, mas ouro pra Espanha e Portugal</h2>
+        <p>Programa pouco falado, mas tem promos brutais e parceiros valiosos pra executiva.</p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
           <div class="card__icon">🛒</div>
-          <h3>Estratégia principal: comprar em promo</h3>
+          <h3>Aquisição de pontos</h3>
           <p>
-            LifeMiles solta bônus de <strong>100% a 145%</strong> sobre compra de milhas em ciclos curtos.<br><br>
-            Custo em promo: <strong>~USD 13–17/milheiro</strong> — comparável a Smiles em bom dia.<br><br>
-            Acompanhe o site e o Passageiro de Primeira.
+            Comprar direto no site. Normal: <strong>~15€/milheiro</strong>.<br><br>
+            Promoções: <strong>35-50% off</strong> a cada 3-4 meses — é o momento de comprar.
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">📏</div>
-          <h3>Tabela de regiões</h3>
+          <div class="card__icon">🌍</div>
+          <h3>Onde vale a pena</h3>
           <p>
-            <strong>América do Sul → Europa</strong> (executiva): 78.000 LifeMiles.<br>
-            <strong>América do Sul → América do Norte</strong> (executiva): 63.000.<br>
-            <strong>América do Sul → Ásia</strong> (executiva): 90.000–100.000.<br><br>
-            <strong>Taxas:</strong> entre as mais baixas do mundo — geralmente USD 50–100 mesmo em executiva.
+            <strong>Espanha e Portugal</strong> — destino imbatível.<br><br>
+            Brasil = <strong>"América 1"</strong> na classificação geográfica do programa.
           </p>
         </article>
         <article class="card reveal">
           <div class="card__icon">🤝</div>
-          <h3>Parceiros úteis</h3>
+          <h3>Parceiros Award fortes</h3>
           <p>
-            Toda Star Alliance: <strong>Lufthansa, SWISS, ANA, Singapore, Turkish, United, TAP, Avianca</strong>.<br><br>
-            Forte pra emitir Turkish e Singapore em executiva — dois resgates premium difíceis em outros programas.
+            <strong>GOL</strong> e <strong>Etihad</strong>:<br>
+            • Econômica: <strong>25.000 pontos</strong><br>
+            • Executiva: <strong>50.000 pontos</strong>
           </p>
         </article>
         <article class="card reveal">
-          <div class="card__icon">💳</div>
-          <h3>Como acumular sem comprar</h3>
+          <div class="card__icon">🎯</div>
+          <h3>Técnica "Miles & Cash"</h3>
           <p>
-            <strong>Cartão Avianca LifeMiles</strong> (alguns bancos brasileiros emitem).<br><br>
-            <strong>Membership Rewards (Amex)</strong> → LifeMiles 1:1 em alguns mercados.<br><br>
-            Mas a verdade é que a maioria compra direto, esperando a promo.
-          </p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🔍</div>
-          <h3>Busca</h3>
-          <p>
-            Site oficial mostra a maioria dos parceiros.<br><br>
-            <strong>Seats.aero → LifeMiles</strong> no Explore = mapa de oportunidades Star Alliance pelo preço LifeMiles.
-          </p>
-        </article>
-        <article class="card reveal" style="border-color:rgba(248,113,113,.3)">
-          <div class="card__icon">⚠️</div>
-          <h3>Pegadinhas</h3>
-          <p>
-            • Site/app são <strong>instáveis</strong> — às vezes você liga na central.<br>
-            • Não emite Lufthansa em <strong>primeira classe</strong> (cota travada).<br>
-            • Mudanças de regra acontecem sem aviso — emita rápido.
+            Use o botão <strong>Miles & Cash</strong> pra navegar o calendário rapidamente.<br><br>
+            Regra: <strong>tarifa baixa em dinheiro = tarifa baixa em SUMA</strong>.<br><br>
+            ⚠️ Tarifas Premium não têm reembolso.
           </p>
         </article>
       </div>
