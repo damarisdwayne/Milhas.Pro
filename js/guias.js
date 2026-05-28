@@ -5,20 +5,89 @@
 const GUIAS = {
   'seats-aero': {
     nome: 'Seats.aero', cat: 'Busca de award', badge: 'Freemium', url: 'https://seats.aero', idioma: 'Em inglês',
-    oque: 'Cada programa mostra só a própria disponibilidade. O Seats.aero junta <strong>dezenas de programas numa busca só</strong> e te diz onde tem assento award — em segundos.',
+    oque: 'Cada programa mostra só a própria disponibilidade. O Seats.aero junta <strong>dezenas de programas numa busca só</strong> e te diz onde tem assento award — em segundos. É a ferramenta central do workflow profissional.',
     passos: [
-      { t: 'Crie uma conta grátis', d: 'A versão grátis já mostra disponibilidade (com dados em cache e limite de buscas). A Pro libera busca ao vivo e alertas.' },
-      { t: 'Abra a busca de disponibilidade', d: 'Preencha origem, destino, período e cabine.' },
-      { t: 'Origem e destino', d: 'Use códigos IATA (ex: GRU → CDG). Dá pra buscar por região/aeroportos próximos pra ampliar.' },
-      { t: 'Intervalo de datas amplo', d: 'Não fixe um dia só — use 30 a 60 dias. Disponibilidade award é escassa.' },
-      { t: 'Filtre cabine e programa', d: 'Econômica/Executiva/Primeira, e por programa (Smiles, United pra Azul, Air France/KLM).' },
-      { t: 'Leia o resultado', d: 'Mostra datas com assento, quantos lugares e qual programa cobra quanto. Clique pra ver detalhes do voo.' },
-      { t: 'Confirme na cia e emita', d: 'Confirme no site do programa que o assento existe e emita na hora — award some em horas.' }
+      { t: 'Crie uma conta grátis', d: 'A versão grátis já mostra disponibilidade (com dados em cache e limite de buscas). A Pro libera busca ao vivo, alertas ilimitados e mais programas.' },
+      { t: 'Decida: Search ou Explore?', d: '<strong>Search</strong> = você já sabe a rota (ex: GRU → MAD ±7 dias). <strong>Explore</strong> = você é flexível e quer descobrir oportunidades por região.<br><br><strong>Iniciante:</strong> ignore o Explore por enquanto. Use só Search com rotas que te interessam (GRU → CDG, GRU → JFK) e observe quais programas aparecem repetidamente. Em 1-2 semanas você internaliza qual programa domina cada nicho — aí o Explore passa a fazer sentido.' },
+      { t: 'SEARCH — rota específica', d: 'Use quando tem destino e datas em mente. Preenche origem, destino, janela (recomendo 30–60 dias) e cabine. Aceita códigos IATA (GRU, CDG) ou nome do aeroporto. Resultado: lista de datas com assento award + qual programa cobra quanto.' },
+      { t: 'EXPLORE — radar por região', d: 'Use quando você está flexível. Escolhe <strong>continente de origem + continente de destino + cabine + UM programa de milhas</strong>. Ele varre TUDO que aquele programa consegue emitir entre as duas regiões. Vira um mapa de oportunidades.' },
+      { t: 'Qual programa colocar no Explore?', d: 'Esse é o passo que trava 90% das pessoas. Veja na próxima caixa (dicas) a recomendação por perfil — mas a regra geral é: comece pelos programas que você consegue acumular fácil no Brasil (Iberia/Avios, Flying Blue) e os que cobram barato (Aeroplan, LifeMiles, AAdvantage).' },
+      { t: 'Compare a MESMA rota em 3 programas', d: 'O mesmo voo da Lufthansa pode custar <strong>55k via LifeMiles</strong>, <strong>70k via Aeroplan</strong> e <strong>110k via United</strong>. Mesmo assento. Sempre cruze 2–3 programas antes de decidir onde emitir.' },
+      { t: 'Filtre e leia o resultado', d: 'Filtros úteis: cabine, classe (Saver/Standard), cias, duração máxima, número de paradas. O resultado mostra a data, o operador (quem voa) e o programa emissor (onde você gasta milhas) — esses dois quase sempre são diferentes.' },
+      { t: 'Confirme no site do programa', d: 'Antes de transferir qualquer ponto, abre o site do programa emissor e cruza a data. O cache do seats.aero pode mostrar assento que já sumiu, ou esconder assento que existe.' },
+      { t: 'Configure ALERTAS pra rotas-alvo', d: 'Esse é o recurso mais subutilizado da ferramenta. Crie alerta com rota + cabine + teto de milhas + janela. Quando aparecer assento batendo o filtro, ele te avisa por email/push. Premium award some em horas — sem alerta você depende de sorte.' },
+      { t: 'Transfira pontos e EMITE NA HORA', d: 'Sequência sagrada: achou no seats.aero → confirmou no programa → transferiu Livelo/Esfera → emitiu. Não dorme com o assento "guardado" — ele não existe até estar no seu nome.' }
     ],
     dicas: [
-      { i: '🔔', t: 'Alertas (Pro)', d: 'Crie alerta pra uma rota/cabine e seja avisado quando abrir assento.' },
-      { i: '🗺️', t: 'Portas de entrada', d: 'Busque o continente (várias capitais) e complete com low-cost. Mais opções de award.' },
-      { i: '✅', t: 'Confirme na fonte', d: 'É o radar, não a emissão. O dado pode estar em cache — confirme no programa.' }
+      { i: '🎯', t: 'Programas top pra brasileiros (Explore)', d: '<strong>Iberia / Avios</strong> (Esfera + Livelo transferem; ótimo pra Europa e pro hack LATAM). <strong>Flying Blue</strong> (SkyTeam, Promo Rewards). <strong>Aeroplan</strong> (Star Alliance inteira, taxas baixas). <strong>LifeMiles</strong> (Star Alliance, promo de compra agressiva). <strong>AAdvantage</strong> (Qatar Qsuite barata, oneworld).' },
+      { i: '🇧🇷', t: 'Achou no seats.aero — mas consegue emitir?', d: 'Encontrar disponibilidade NÃO garante emissão. Existem 3 camadas: (1) o assento existe, (2) qual programa emite, e (3) <strong>você consegue chegar nesse programa pelo Brasil</strong>. A camada 3 é onde a maioria trava — programas como Virgin Atlantic, United e Alaska são quase inacessíveis daqui. Veja a <a href="estrategias.html#estrategia-br" style="color:var(--accent)">tabela de acessibilidade BR completa →</a>' },
+      { i: '🧭', t: 'O grande conceito: operadora ≠ emissora', d: 'A cia que voa NÃO precisa ser onde você emite. Voo da Lufthansa pode ser emitido em TAP, Smiles, Azul, Aeroplan, LifeMiles, United — cada um cobra diferente. O seats.aero existe pra te mostrar isso. Estude esse conceito em <a href="estrategias.html#aliancas" style="color:var(--accent)">Estratégias → Alianças</a>.' },
+      { i: '🚫', t: 'NÃO cobre LATAM Pass', d: 'O seats.aero não indexa LATAM Pass diretamente. Pra emitir voos LATAM com Avios, selecione <strong>Alaska Mileage Plan</strong> nele (mostra LATAM Premium Business barato) e cruze datas no site da Iberia — o famoso <a href="programas.html#iberia" style="color:var(--accent)">hack Iberia</a>. Pra LATAM Pass puro, use <strong>AwardFares</strong> ou <strong>PointsYeah</strong>.' },
+      { i: '⚠️', t: 'O cache mente — sempre confirme', d: 'A ferramenta indexa parceiros em ciclos. O que ela mostra pode já não existir mais, ou existir e não aparecer ainda. Regra de ouro: <strong>achou → confirma no programa → SÓ ENTÃO transfere</strong>. Pontos transferidos não voltam.' },
+      { i: '🔒', t: 'Pontos parados desvalorizam', d: 'Livelo/Esfera = cofre seguro (vencem em 2 anos mas você renova; razão muda com bônus). Programa aéreo = pontos congelados. Se a tabela sobe ou o programa desvaloriza, você perde. Por isso nunca transfere ANTES de ter assento na mão.' },
+      { i: '🗺️', t: 'Pense em continente, não cidade', d: 'No Explore, "Europe" abre todas as capitais. Combine com voo low-cost intra-continente (Ryanair, Vueling) pra chegar ao destino final. Ver <a href="estrategias.html#portas" style="color:var(--accent)">Portas de entrada</a>.' },
+      { i: '📅', t: 'Janela ampla é mandatório', d: 'Datas rígidas matam 90% das chances. Sempre busque com 30–60 dias de flexibilidade. Award não funciona com "quero exatamente dia X".' },
+      { i: '💸', t: 'Vale a pena pagar Pro?', d: 'Grátis: dados em cache, alertas limitados. Pro: busca ao vivo, alertas ilimitados, mais programas indexados. Se você caça executiva 1x por ano, uma emissão paga vários meses de assinatura.' }
+    ]
+  },
+  'pointsyeah': {
+    nome: 'PointsYeah', cat: 'Busca de award', badge: 'Freemium', url: 'https://pointsyeah.com', idioma: 'Em inglês',
+    oque: 'Motor de busca award concorrente direto do seats.aero. Captura disponibilidade que o outro perde — vale como <strong>segunda fonte</strong> antes de transferir pontos.',
+    passos: [
+      { t: 'Crie conta grátis', d: 'Plano grátis libera buscas básicas; pago expande alertas e programas.' },
+      { t: 'Preencha rota e cabine', d: 'Origem, destino, janela de datas e classe (econômica/executiva/primeira).' },
+      { t: 'Compare com seats.aero', d: 'Use os dois lado a lado. Quando ambos mostram disponibilidade, a confiança aumenta.' },
+      { t: 'Filtre por programa', d: 'Cobre programas que o seats.aero não cobre bem (inclusive alguns latino-americanos).' },
+      { t: 'Confirme no site do programa', d: 'Mesma regra: achou aqui → confirma na cia → só então transfere.' }
+    ],
+    dicas: [
+      { i: '🔁', t: 'Segunda fonte é regra', d: 'Antes de transferir pontos, cheque seats.aero E PointsYeah. Se os dois mostram, é mais seguro.' },
+      { i: '🇧🇷', t: 'Cobre mais coisa BR', d: 'Tem indexação melhor pra alguns programas relevantes pro Brasil que o seats.aero ignora.' }
+    ]
+  },
+  'awardfares': {
+    nome: 'AwardFares', cat: 'Busca de award', badge: 'Freemium', url: 'https://awardfares.com', idioma: 'Em inglês',
+    oque: 'Cobre o <strong>gap mais doloroso</strong> do seats.aero: pesquisa disponibilidade direta em <strong>LATAM Pass, Smiles, Flying Blue</strong> e outros. Essencial pra brasileiro.',
+    passos: [
+      { t: 'Crie conta', d: 'Grátis pra começar; planos pagos liberam mais buscas e alertas.' },
+      { t: 'Selecione o programa', d: 'A grande sacada: tem LATAM Pass como filtro. Também Smiles, Flying Blue, Avios e dezenas de outros.' },
+      { t: 'Preencha rota + datas amplas', d: 'Origem, destino, janela. Igual aos outros, sem janela ampla não vale a pena.' },
+      { t: 'Veja a tabela por dia', d: 'Mostra um calendário com o custo em milhas e taxas dia a dia — ótimo pra achar dia mais barato.' },
+      { t: 'Confirme e emita', d: 'Cruze no site oficial e emita.' }
+    ],
+    dicas: [
+      { i: '🔴', t: 'A ferramenta pra LATAM Pass', d: 'Se você usa LATAM, AwardFares é tão essencial quanto seats.aero é pros parceiros internacionais.' },
+      { i: '📊', t: 'Calendário é o forte', d: 'A visão de calendário com preço dia a dia é melhor que a do seats.aero pra programas BR.' }
+    ]
+  },
+  'roame': {
+    nome: 'Roame', cat: 'Busca de award', badge: 'Freemium', url: 'https://roame.travel', idioma: 'Em inglês',
+    oque: 'Motor de award search com <strong>filtro forte por aliança</strong> e cabine. Complementa seats.aero e PointsYeah pra ter uma terceira leitura.',
+    passos: [
+      { t: 'Crie conta', d: 'Plano grátis com limitações; pago libera alertas e mais.' },
+      { t: 'Busque por rota ou aliança', d: 'Você pode filtrar tipo "tudo que Star Alliance tem disponível entre América do Sul e Europa".' },
+      { t: 'Combine com Explore do seats.aero', d: 'Roame é forte na visão por aliança; seats.aero na visão por programa. Os dois juntos cobrem mais.' },
+      { t: 'Confirme antes de emitir', d: 'Mesma regra sagrada — site oficial sempre.' }
+    ],
+    dicas: [
+      { i: '🤝', t: 'Visão por aliança', d: 'Quando você quer "qualquer Star Alliance" sem se importar com qual cia, Roame entrega isso rápido.' },
+      { i: '🔁', t: 'Terceira fonte', d: 'Cruzar 3 motores (seats.aero + PointsYeah + Roame) eleva muito a confiabilidade antes de transferir.' }
+    ]
+  },
+  'awardwallet': {
+    nome: 'AwardWallet', cat: 'Gestão de saldos', badge: 'Freemium', url: 'https://awardwallet.com', idioma: 'Em inglês',
+    oque: 'Agrega <strong>saldos de TODOS</strong> seus programas de milhas/pontos num lugar só. Te avisa quando milha vai vencer. Indispensável pra quem joga em 5+ programas.',
+    passos: [
+      { t: 'Crie conta', d: 'Grátis com a maioria dos programas. Plano Plus libera os programas "premium" (alguns aéreos que travam scraping).' },
+      { t: 'Conecte seus programas', d: 'Adicione logins de Smiles, LATAM, Azul, TAP, Iberia, Flying Blue, Livelo, Esfera etc. Ele puxa o saldo automaticamente.' },
+      { t: 'Veja tudo num painel', d: 'Total de pontos por programa, histórico de mudanças, datas de expiração.' },
+      { t: 'Ative os alertas de vencimento', d: 'Te avisa X dias antes de uma milha vencer — você renova ou usa a tempo.' },
+      { t: 'Use o calculador de valor', d: 'Ele estima o valor em dinheiro do seu portfólio de pontos. Bom pra dimensionar o "patrimônio".' }
+    ],
+    dicas: [
+      { i: '⏰', t: 'Evita milhas vencendo', d: 'O alerta de expiração já vale a ferramenta sozinho. Milha vencida é dinheiro perdido.' },
+      { i: '🔐', t: 'Segurança dos logins', d: 'Use senha forte e 2FA na conta do AwardWallet — você tá centralizando muitos logins.' },
+      { i: '🇧🇷', t: 'Programas BR', d: 'Suporta Smiles, LATAM, Azul, Livelo, Esfera. Cobertura BR melhorou bastante nos últimos anos.' }
     ]
   },
   'google-flights': {
