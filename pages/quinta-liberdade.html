@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
   <link rel="apple-touch-icon" href="../assets/icon-192.png" />
   <style>
-    .tbl-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .tbl-wrap { overflow-x: auto; margin: 1.5rem auto; max-width: 1200px; }
     .tbl { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 640px; }
     .tbl th, .tbl td { padding: .7rem .85rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
     .tbl th { color: var(--text-dim); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 600; background: rgba(255,255,255,.02); }
@@ -24,8 +24,9 @@
     .callout--tip { border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.05); }
     .callout--warn { border-color: rgba(250,204,21,.35); background: rgba(250,204,21,.04); }
     .callout--rule { border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.06); }
-    .callout strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
+    .callout > strong { display: block; margin-bottom: .4rem; color: var(--text); font-size: 1rem; }
     .callout span, .callout p { color: var(--text-dim); font-size: .94rem; line-height: 1.6; }
+    .callout span strong, .callout p strong { display: inline; font-size: inherit; margin: 0; }
     .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
     .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
     .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
@@ -257,7 +258,7 @@
 
       <div class="callout callout--warn reveal">
         <strong>Regra mnemônica final:</strong>
-        <span>Quinta liberdade é <strong>luxo barato</strong>, não <strong>opção principal</strong>. Use quando o horário e a frequência casam com sua viagem. Pra voo crítico ou data inflexível, prefere o voo doméstico mesmo — vale a tranquilidade.</span>
+        <span>Quinta liberdade é <strong>luxo barato</strong>, não <strong>opção principal</strong>. Use quando o horário e a frequência casam com sua viagem. Pra voo crítico ou data inflexível, prefira o voo doméstico mesmo — vale a tranquilidade.</span>
       </div>
 
       <div class="cta-row">
