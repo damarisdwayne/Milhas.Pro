@@ -261,6 +261,27 @@ const GUIAS = {
       { i: '🇺🇸', t: 'American em promo', d: 'Transferência Esfera → AAdvantage rola só em promoções raras — fique de olho.' }
     ]
   },
+  'nu-viagens': {
+    nome: 'Nu Viagens', cat: 'Reserva e acúmulo', badge: 'Grátis (exige Ultravioleta)', url: 'https://nubank.com.br/ultravioleta/nu-viagens',
+    oque: 'É a plataforma de viagens do <strong>Nubank</strong>, dentro do próprio app — exclusiva pra quem tem o cartão <strong>Ultravioleta</strong>. O grande atrativo pra hospedagem: reservas de hotel rendem <strong>9 pontos por dólar (ou 5% de cashback)</strong>, contra ~2,2 pts/US$ (ou 1,25%) de uma compra comum. Você ainda parcela em até 8x sem juros e ganha seguro viagem, eSIM e proteção de preço de brinde.',
+    passos: [
+      { t: 'Tenha o cartão Ultravioleta', d: 'O Nu Viagens NÃO aparece pra qualquer conta Nubank — é benefício exclusivo do Ultravioleta (o cartão black, com anuidade isentável conforme o gasto mensal). Sem ele, pule esta ferramenta.' },
+      { t: 'Decida: pontos OU cashback', d: 'Essa escolha é uma configuração da conta e vale pra tudo. <strong>Pra quem joga o jogo das milhas, pontos quase sempre ganham</strong>: 9 pts/US$ no Nu Viagens viram passagem com valor por ponto bem maior que os 5% de cashback. Cashback só compensa se você não pretende usar os pontos.' },
+      { t: 'Abra o Nu Viagens no app', d: 'No app do Nubank, vá em Nu Viagens → Hotéis. Tudo é resolvido ali dentro, sem site externo nem outro login.' },
+      { t: 'Busque a hospedagem', d: 'Informe a cidade e as datas de check-in e check-out. Ele lista as ofertas com preço e localização.' },
+      { t: 'Escolha o quarto e a política de cancelamento', d: 'Abra o hotel, confira as fotos e — importante — a <strong>política de cancelamento</strong>. Prefira tarifa com cancelamento grátis quando a diferença de preço for pequena; viagem muda.' },
+      { t: 'Pague via NuPay e parcele', d: 'O pagamento usa o NuPay no limite do Ultravioleta. Dá pra <strong>parcelar em até 8x sem juros</strong> — vale pra hotéis e voos.' },
+      { t: 'Confira o acúmulo turbinado', d: 'A compra acumula <strong>9 pontos por dólar gasto ou 5% de cashback</strong>. Como é calculado em dólar, hospedagem internacional rende especialmente bem.' },
+      { t: 'Aproveite os benefícios que vêm junto', d: 'Seguro viagem grátis em passagens internacionais, proteção contra variação de preço (alerta do melhor momento de compra com reembolso automático de até R$ 500) e eSIM de viagem com 10GB válido por 365 dias em 150+ países.' }
+    ],
+    dicas: [
+      { i: '🚀', t: 'Acúmulo 4x maior', d: 'Compra normal rende a partir de 2,2 pts/US$ (1,25%). Voo e hotel no Nu Viagens rendem <strong>9 pts/US$ (5%)</strong>. Concentre as reservas de viagem aqui — a diferença é enorme.' },
+      { i: '🗓️', t: 'Black Friday turbinada', d: 'Em campanhas sazonais o acúmulo já subiu pra 14 pts/US$ ou 8% de cashback. Se a viagem não é urgente, vale segurar a reserva pra essas janelas.' },
+      { i: '♾️', t: 'Pontos Ultravioleta não vencem', d: 'Enquanto a conta estiver ativa, os pontos não expiram — dá pra acumular com calma até ter o resgate certo, sem a pressão de vencimento dos programas aéreos.' },
+      { i: '⚖️', t: 'Compare antes de fechar', d: 'O acúmulo é ótimo, mas confira o preço-base do quarto em Google Hotéis / Booking / Hi Chee. Não adianta 5% de volta num quarto 15% mais caro que em outro site.' },
+      { i: '💳', t: 'A anuidade é o filtro', d: 'Só compensa se você já tem (ou vai ter) o Ultravioleta. A anuidade é isentável conforme o gasto, então faça a conta com o seu perfil de uso antes.' }
+    ]
+  },
   'pagol': {
     nome: 'Pagol', cat: 'Compra de milhas', badge: 'Pago', url: 'https://www.pagol.com.br',
     oque: 'Plataforma pra <strong>comprar milhas Smiles</strong> com condições/parcelamento melhores que a compra direta no programa.',
