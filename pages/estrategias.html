@@ -19,7 +19,12 @@
     .prog-table th { color: var(--text-dim); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
     .prog-table tbody tr:hover { background: rgba(255,255,255,.02); }
     .callout-tip { max-width: 900px; margin: 2rem auto 0; padding: 1.25rem 1.5rem; border: 1px solid rgba(52,211,153,.3); border-radius: 14px; background: rgba(52,211,153,.04); }
-    .callout-tip strong { display: block; margin-bottom: .5rem; color: var(--text); }
+    .callout-tip > strong { display: block; margin-bottom: .6rem; color: var(--text); font-size: 1rem; }
+    .callout-tip span strong { color: var(--text); }
+    .callout-list { margin: .85rem 0 0; padding-left: 0; list-style: none; counter-reset: cl; display: grid; gap: .6rem; }
+    .callout-list li { position: relative; padding-left: 2rem; color: var(--text-dim); font-size: .92rem; line-height: 1.55; counter-increment: cl; }
+    .callout-list li::before { content: counter(cl); position: absolute; left: 0; top: .05rem; width: 1.4rem; height: 1.4rem; display: grid; place-items: center; border-radius: 50%; background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.4); color: var(--text); font-size: .75rem; font-weight: 600; font-family: var(--font-mono); }
+    .callout-list li strong { color: var(--text); }
     .callout-tip span { color: var(--text-dim); font-size: .92rem; line-height: 1.6; }
     .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
     .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
@@ -154,23 +159,29 @@
             <tr>
               <td><strong>American Airlines</strong><br><span style="color:var(--text-mute); font-size:.8rem">aa.com</span></td>
               <td>OneWorld</td>
-              <td>Qatar, Iberia, British, Finnair, Malaysia, Cathay, JAL, Qantas</td>
+              <td>Qatar (inclui Qsuite), British, Iberia, Finnair, Qantas, Cathay, Malaysia</td>
               <td><strong>LATAM Pass</strong> (tabela fixa, classes X/U) · <strong>Avios</strong> (Iberia/British) · Smiles (bilateral)</td>
             </tr>
             <tr>
               <td><strong>United Airlines</strong><br><span style="color:var(--text-mute); font-size:.8rem">united.com</span></td>
               <td>Star Alliance</td>
               <td>TAP, Copa, Air Canada, Lufthansa, SWISS, Turkish, Avianca, Singapore</td>
-              <td><strong>Azul</strong> (parceiros bilaterais) · <strong>LifeMiles</strong> · TAP Miles&amp;Go · Aeroplan</td>
+              <td><strong>Azul pelo Mundo</strong> <span style="color:var(--text-mute); font-size:.82rem">(United/TAP/Turkish/Air Canada/Copa = award)</span> · <strong>LifeMiles</strong> · TAP Miles&amp;Go</td>
             </tr>
             <tr>
-              <td><strong>Virgin Atlantic</strong><br><span style="color:var(--text-mute); font-size:.8rem">virginatlantic.com</span></td>
-              <td>SkyTeam <span style="color:var(--text-mute); font-size:.8rem">(membro desde 2023)</span></td>
-              <td>KLM, Air France, Delta, Korean Air, ITA Airways, Kenya Airways</td>
-              <td><strong>Smiles</strong> (AF/KLM/Delta) · Flying Blue</td>
+              <td>
+                <strong>Air France / KLM</strong><br><span style="color:var(--text-mute); font-size:.8rem">flyingblue.com</span><br>
+                <strong>Virgin Atlantic</strong><br><span style="color:var(--text-mute); font-size:.8rem">virginatlantic.com</span>
+              </td>
+              <td>SkyTeam</td>
+              <td>KLM, Air France, Delta, Aeroméxico, Korean Air, Saudia</td>
+              <td><strong>Smiles</strong> (AF/KLM/Aeroméxico) · Flying Blue</td>
             </tr>
           </tbody>
         </table>
+        <p style="color:var(--text-mute); font-size:.82rem; margin:.6rem .2rem 0; line-height:1.5">
+          Notas de precisão (jun/2026): no <strong>aa.com</strong>, JAL e Royal Air Maroc costumam ser só por telefone — não confie na busca online deles. Pra <strong>SkyTeam</strong>, o melhor buscador grátis é o site da Air France/KLM (Flying Blue) e o <strong>Delta.com</strong>; a <strong>Virgin Atlantic</strong> entrou na SkyTeam em 2023 mas é buscador fraco (poucos parceiros online). A <strong>Smiles não emite mais Delta</strong> (parceria encerrada em 2021) — Delta você emite via Flying Blue.
+        </p>
       </div>
 
       <div class="cards" style="margin-top:1rem">
@@ -178,8 +189,8 @@
           <div class="card__icon">🔎</div>
           <h3>Por que usar o site da cia, e não o programa BR</h3>
           <p>
-            O motor de busca dos programas brasileiros (LATAM, Smiles, Azul) <strong>esconde boa parte da disponibilidade de parceiro</strong> — mostra pouco ou cobra dinâmico.<br><br>
-            Os sites de AA, United e Virgin foram feitos pra varrer a aliança inteira e <strong>são grátis, sem precisar ter milhas lá</strong>. Você só usa pra <em>enxergar</em> o assento. A emissão acontece depois, no programa BR (muitas vezes via call center).
+            O motor de busca dos programas BR mostra pouco de parceiro: a <strong>LATAM praticamente esconde</strong> (tabela fixa só por telefone); <strong>Smiles e o portal Azul pelo Mundo</strong> até têm os parceiros, mas a busca é limitada e não acha tudo.<br><br>
+            Os sites de AA, United e Air France/KLM varrem a aliança inteira e <strong>são grátis, sem precisar ter milhas lá</strong>. Você usa pra <em>enxergar</em> o assento. A emissão acontece depois, no programa BR — por telefone (LATAM) ou online (Smiles / Azul pelo Mundo).
           </p>
         </article>
         <article class="card reveal" style="border-color:rgba(52,211,153,.3)">
@@ -200,6 +211,102 @@
             <strong>A lição:</strong> a ferramenta acha o assento; quem decide <em>onde procurar</em> é você, sabendo o tipo de preço (award × tabela fixa × dinâmico) e a aliança. Sem essa lógica, a assinatura paga não serve pra nada.
           </p>
         </article>
+      </div>
+
+      <div class="callout-tip reveal" style="border-color:rgba(250,204,21,.35); background:rgba(250,204,21,.05)">
+        <strong>⚠️ A confusão nº 1: descobrir ≠ emitir.</strong>
+        <span>
+          Você <strong>descobre</strong> o assento no site da cia (AA / United / Air France-KLM). O jeito de <strong>emitir</strong> muda por programa:<br><br>
+          • <strong>LATAM Pass</strong> — parceiro quase não aparece no site; sai por <strong>telefone</strong> (tabela fixa). É aqui que mais gente desiste achando que "não tem".<br>
+          • <strong>Smiles</strong> e <strong>Azul pelo Mundo</strong> — emitem boa parte <strong>online</strong>, mas a busca deles é limitada e não acha tudo. Por isso vale achar o assento primeiro no site da cia e depois localizar na emissão.<br><br>
+          A regra de ouro: <strong>não desista só porque o app do programa BR não mostrou.</strong> O assento existe — a cia te mostrou.
+        </span>
+      </div>
+
+      <div class="callout-tip reveal" style="border-color:rgba(124,92,255,.35); background:rgba(124,92,255,.05)">
+        <strong>🤔 Por que é tão difícil achar award de parceiro nos programas BR?</strong>
+        <span>Não é uma "conspiração" — é mistura de limitação técnica com interesse comercial. São 4 motivos:</span>
+        <ol class="callout-list">
+          <li><strong>Técnico.</strong> O site consulta em tempo real só o estoque <strong>próprio</strong>. O award da parceira mora no sistema da outra cia (GDS) — e em alguns casos a consulta só existe na <strong>ferramenta interna do atendente</strong>, não no site público.</li>
+          <li><strong>Produto de call center (caso LATAM).</strong> A <strong>tabela fixa</strong> de parceiro nunca foi colocada no site — é, por design, um produto de telefone. O site só mostra a tarifa <strong>dinâmica</strong> da própria LATAM.</li>
+          <li><strong>Comercial.</strong> Resgate de parceiro <strong>custa caro pra eles</strong> — emitir um voo da Qatar com milhas LATAM faz a LATAM pagar a Qatar pelo assento. Te empurrar pro voo próprio não tem esse custo. Logo, pouco incentivo pra facilitar.</li>
+          <li><strong>Busca limitada (Smiles/Azul).</strong> Smiles e o portal <strong>Azul pelo Mundo</strong> até emitem parceiro <strong>online</strong>, mas mostram só parte do estoque e dependem de <strong>acordos bilaterais</strong> — por isso o site da cia (AA / United / Flying Blue) costuma achar mais assento.</li>
+        </ol>
+        <span style="display:block; margin-top:.9rem">Por isso o método funciona: <strong>o assento existe</strong> (a cia te mostrou) — você só precisa emitir pelo <strong>canal certo</strong>.</span>
+      </div>
+
+      <div class="section__head reveal" style="margin-top:3rem">
+        <span class="kicker">📞 Emissão por telefone / chat</span>
+        <h2>Como emitir <span class="grad-text">quando o site não mostra</span></h2>
+        <p>Isso vale <strong>principalmente pra LATAM Pass</strong> — onde o parceiro só sai por telefone. Smiles e Azul emitem boa parte online, mas o passo a passo abaixo serve pra qualquer emissão assistida. Nunca emitiu por telefone? É mais simples do que parece.</p>
+      </div>
+
+      <div class="reveal" style="max-width:1200px; margin:0 auto; overflow-x:auto;">
+        <table class="prog-table">
+          <thead>
+            <tr><th>Programa</th><th>Canal pra emitir parceiro</th><th>Como abrir</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>LATAM Pass</strong></td><td><strong>Telefone</strong> (call center) · WhatsApp oficial</td><td>Logado no site, vá em "Fale com a gente" pra pegar o número/WhatsApp atual. A tabela fixa de parceiro <strong>não aparece no site</strong> — só por telefone.</td></tr>
+            <tr><td><strong>Smiles</strong></td><td>Site / app (online) · Telefone (exceções)</td><td>A maioria (Air France, KLM, Aeroméxico, Qatar, TAP, Avianca) emite <strong>no próprio site</strong>. <strong>Etihad</strong> é só por telefone. <em>Delta não é mais parceira (desde 2021).</em></td></tr>
+            <tr><td><strong>Azul (pelo Mundo)</strong></td><td>Site (portal Azul pelo Mundo)</td><td>Emite parceiro <strong>online</strong> pelo portal. United, TAP, Turkish, Air Canada e Copa saem em <strong>tarifa award</strong>; os demais em tarifa comercial (mais cara).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-tip reveal" style="margin-top:1.5rem">
+        <strong>✅ Antes de ligar: deixe TUDO pronto na mão.</strong>
+        <span>Atendimento por milhas costuma ter fila — não ligue "pra perguntar". Tenha em mãos:</span>
+        <ol class="callout-list">
+          <li>As milhas já <strong>dentro do programa</strong> — a transferência do Livelo/Esfera já caiu. Nunca ligue contando emitir antes de cair.</li>
+          <li>Os <strong>dados do voo</strong> anotados — nº do voo, data, origem/destino, cabine e a <strong>classe tarifária</strong> (na LATAM, tem que ser X ou U).</li>
+          <li>Os <strong>dados de cada passageiro</strong> — nome completo como no documento, CPF e data de nascimento.</li>
+          <li>Um <strong>cartão</strong> pra pagar as taxas (a parte em dinheiro da passagem).</li>
+        </ol>
+      </div>
+
+      <div class="cards" style="margin-top:2.5rem">
+        <article class="card reveal">
+          <div class="card__icon">1️⃣</div>
+          <h3>Identifique-se e diga o que quer</h3>
+          <p>
+            Liga / abre o chat, passa CPF + nº do programa. Frase direta:<br><br>
+            <em>"Quero emitir uma passagem com milhas em <strong>voo de parceiro</strong>. Já sei o voo, vou te passar os dados."</em><br><br>
+            Na LATAM, complemente: <em>"é pela <strong>tabela fixa</strong>, parceiro Oneworld, classe X (eco) ou U (executiva)."</em> Isso evita que te cobrem a tarifa dinâmica, bem mais cara.
+          </p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">2️⃣</div>
+          <h3>Dite os dados do voo</h3>
+          <p>
+            Passa exatamente o que anotou: <strong>nº do voo</strong> (ex: QR774), data, origem → destino, horário, cabine e classe tarifária.<br><br>
+            O atendente busca no sistema interno e confirma se acha. Como ele enxerga o que o site esconde, o assento que você viu na AA/United/Virgin <strong>vai aparecer pra ele.</strong>
+          </p>
+        </article>
+        <article class="card reveal" style="border-color:rgba(248,113,113,.35)">
+          <div class="card__icon">🔁</div>
+          <h3>Se disser "não tem", desliga e liga de novo</h3>
+          <p>
+            Técnica conhecida como <strong>HUCA</strong> (<em>hang up, call again</em>). Nem todo atendente busca igual — um diz "não tem", o próximo acha.<br><br>
+            Se você <strong>viu o assento</strong> no site da cia, ele existe. Agradeça, desligue e tente outro atendente antes de desistir.
+          </p>
+        </article>
+        <article class="card reveal" style="border-color:rgba(52,211,153,.3)">
+          <div class="card__icon">3️⃣</div>
+          <h3>Confirme custo, pague a taxa e guarde o localizador</h3>
+          <p>
+            Ele informa <strong>milhas + taxas</strong>. Confere se as milhas batem com o esperado e autoriza.<br><br>
+            Pague as taxas no cartão, anote o <strong>localizador (código de 6 letras/números)</strong> e confirme que o bilhete foi <strong>emitido</strong> (não só reservado).<br><br>
+            Depois, abra o site da <strong>cia que opera o voo</strong>, coloque o localizador e veja a reserva ativa. Aí sim acabou.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout-tip reveal" style="border-color:rgba(248,113,113,.3); background:rgba(248,113,113,.05)">
+        <strong>🚨 A ordem é sagrada — não inverta.</strong>
+        <span>
+          <strong>Descobriu</strong> o assento (site da cia) → <strong>transferiu</strong> as milhas e <strong>esperou cair</strong> → <strong>emitiu</strong> (telefone/chat) na mesma sessão. Assento award some em horas. Nunca transfira "pra deixar pronto" sem assento na mão, e nunca desligue achando que o assento fica guardado — <strong>ele só é seu depois de emitido no seu nome.</strong>
+        </span>
       </div>
     </section>
 

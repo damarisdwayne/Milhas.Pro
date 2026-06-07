@@ -60,6 +60,24 @@ const GUIAS = {
       { i: '📊', t: 'Calendário é o forte', d: 'A visão de calendário com preço dia a dia é melhor que a do seats.aero pra programas BR.' }
     ]
   },
+  'awardtool': {
+    nome: 'AwardTool', cat: 'Busca de award', badge: 'Freemium', url: 'https://www.awardtool.com', idioma: 'Em inglês',
+    oque: 'Buscador de award que <strong>cobre cias que o seats.aero não mostra</strong> — em especial <strong>TAP Miles&amp;Go, British Avios, Avianca LifeMiles e Asia Miles (Cathay)</strong>. O grande diferencial é buscar <strong>até 32 datas/aeroportos ao vivo</strong> de uma vez. É a melhor "segunda fonte" pra cruzar com o seats.aero.',
+    passos: [
+      { t: 'Crie conta (free ou PRO)', d: 'O plano grátis já busca, mas com limite de buscas/alertas e janela curta. O <strong>PRO (~US$ 10/mês)</strong> libera as 32 buscas simultâneas ao vivo, alertas por SMS e refresh prioritário. Confira o preço atual no site — o anual varia conforme promoção.' },
+      { t: 'Monte a busca flexível', d: 'A força do AwardTool: você combina <strong>vários aeroportos + várias datas numa busca só</strong> (ex: GRU/GIG/CGH → toda a Europa, 30 dias). Escolha a cabine.' },
+      { t: 'Use o filtro de % de cabine premium', d: 'Filtro que poucos têm: mostra só voos com X% do trecho em executiva/primeira — ótimo pra evitar award "executiva" que na real é econômica em metade do caminho.' },
+      { t: 'Leia o resultado por programa', d: 'A matriz mostra o custo em milhas por programa e cabine. Clique no "i" do voo pra ver aeronave, conexões e em qual programa emitir.' },
+      { t: 'Cruze SEMPRE com o seats.aero', d: 'O ganho real é a complementaridade: rode a mesma rota nos dois. O que um perde, o outro costuma achar. Só então confirme no site do programa e emita.' },
+      { t: 'Configure alertas', d: 'Crie alerta com rota + cabine + teto de milhas. No PRO chega por SMS. Premium award some rápido — alerta evita depender de sorte.' }
+    ],
+    dicas: [
+      { i: '🤝', t: 'Complementa o seats.aero, não substitui', d: 'AwardTool mostra <strong>TAP, British Avios, LifeMiles, Asia Miles</strong> que o seats.aero não tem. Mas o seats.aero cobre <strong>Ethiopian, Frontier, Saudia</strong> que o AwardTool não tem. Não existe "a melhor" — use os dois.' },
+      { i: '🇧🇷', t: 'Pro brasileiro: bom pra Smiles e Azul', d: 'Cobre <strong>Smiles</strong> e <strong>Azul</strong>, e os parceiros internacionais que você emite daqui (LifeMiles, TAP, Flying Blue). <strong>NÃO cobre LATAM Pass</strong> — pra isso, use o <a href="sites-secretos.html">AwardFares</a>.' },
+      { i: '🏨', t: 'Bônus: busca award de hotel', d: 'Diferente do seats.aero, também busca diária de hotel com pontos (Hilton, Hyatt, IHG, Marriott).' },
+      { i: '⚖️', t: 'Onde perde pro seats.aero', d: 'O seats.aero ainda é mais forte na busca em cache/"discovery" e oferece alertas ilimitados. Resenhas costumam colocar o AwardTool um degrau abaixo no geral — por isso ele brilha como 2ª fonte, não como única.' }
+    ]
+  },
   'roame': {
     nome: 'Roame', cat: 'Busca de award', badge: 'Freemium', url: 'https://roame.travel', idioma: 'Em inglês',
     oque: 'Motor de award search com <strong>filtro forte por aliança</strong> e cabine. Complementa seats.aero e PointsYeah pra ter uma terceira leitura.',
