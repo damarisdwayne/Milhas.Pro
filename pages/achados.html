@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Achados de milhas: rotas e voos que valem a pena — diretos raros, sweet spots e trechos baratos pra emitir com pontos." />
+  <title>Achados — rotas que valem a pena · Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .rotas { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; max-width: 1200px; margin: 0 auto; }
+    .rota { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(10px); transition: transform .2s ease, border-color .2s ease; }
+    .rota:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .rota__route { display: flex; align-items: center; gap: .55rem; font-size: 1.35rem; font-weight: 700; color: var(--text); }
+    .rota__route .arr { color: var(--accent); }
+    .rota__city { color: var(--text-mute); font-size: .85rem; margin-top: .2rem; }
+    .rota__badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: .95rem 0; }
+    .rota__badge { font-size: .72rem; font-family: var(--font-mono); padding: .25rem .6rem; border-radius: 999px; border: 1px solid var(--border-soft); color: var(--text-dim); }
+    .rota__badge--direct { color: #34d399; border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.08); }
+    .rota__emit { font-size: .9rem; color: var(--text-dim); margin: .4rem 0 0; }
+    .rota__emit strong { color: var(--text); }
+    .rota__note { font-size: .88rem; color: var(--text-dim); line-height: 1.55; border-top: 1px solid var(--border-soft); padding-top: .85rem; margin-top: .9rem; }
+    .rota__note strong { color: var(--text); }
+    .rota--add { border-style: dashed; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--text-mute); min-height: 180px; }
+    .rota--add .plus { font-size: 1.8rem; margin-bottom: .5rem; opacity: .6; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="achados.html">Achados</a>
+        <a href="viagens.html">Viagens</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">✨ Achados</span>
+      <h1>Rotas que <span class="grad-text">valem a pena</span></h1>
+      <p>Coleção dos trechos bons que vão aparecendo: <strong>diretos raros, sweet spots e voos baratos</strong> pra emitir com pontos. Quando achar uma joia, ela entra aqui pra você não esquecer.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="rotas">
+
+        <div class="rota reveal">
+          <div class="rota__route">VCP <span class="arr">→</span> BRC</div>
+          <div class="rota__city">Campinas (Viracopos) → Bariloche · Argentina 🇦🇷</div>
+          <div class="rota__badges">
+            <span class="rota__badge">Azul</span>
+            <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            <span class="rota__badge">Sazonal</span>
+          </div>
+          <p class="rota__emit">Emite com <strong>pontos TudoAzul</strong> (app Azul / Azul pelo Mundo).</p>
+          <p class="rota__note">Voo <strong>direto</strong> pro coração da Patagônia — sem ter que conectar por Buenos Aires ou Santiago. Forte na <strong>temporada de neve (jun–set)</strong> e no verão. Direto pra Bariloche saindo do Brasil é raro, por isso vale ficar de olho e emitir cedo.</p>
+        </div>
+
+        <div class="rota rota--add reveal">
+          <div class="plus">＋</div>
+          <div>Achou um trecho bom?<br>Me manda que eu adiciono aqui.</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
