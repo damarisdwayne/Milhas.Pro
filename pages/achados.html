@@ -32,12 +32,10 @@
     .rota-filter[data-filter="azul"]   { color: #7cc6ff; }
     .rota-filter[data-filter="smiles"] { color: #ffc078; }
     .rota-filter[data-filter="virgin"] { color: #ff9b9b; }
-    .rota-filter[data-filter="aa"]     { color: #d6dce6; }
     .rota-filter[data-filter="latam"].active  { background: rgba(255,107,157,.18); border-color: rgba(255,107,157,.7); color: #ffd0e0; }
     .rota-filter[data-filter="azul"].active   { background: rgba(51,170,255,.18);  border-color: rgba(51,170,255,.7);  color: #bfe2ff; }
     .rota-filter[data-filter="smiles"].active { background: rgba(255,158,44,.18);  border-color: rgba(255,158,44,.7);  color: #ffd9a8; }
     .rota-filter[data-filter="virgin"].active { background: rgba(255,91,91,.18);   border-color: rgba(255,91,91,.7);   color: #ffc4c4; }
-    .rota-filter[data-filter="aa"].active     { background: rgba(195,202,214,.16); border-color: rgba(195,202,214,.6);  color: #eef1f5; }
 
     /* Grupos por região */
     .rota-group { max-width: 1200px; margin: 0 auto 2.75rem; }
@@ -71,7 +69,6 @@
     .rota__prog--azul   { background: rgba(51,170,255,.14);  border-color: rgba(51,170,255,.45);  color: #7cc6ff; }
     .rota__prog--smiles { background: rgba(255,158,44,.14);  border-color: rgba(255,158,44,.5);   color: #ffc078; }
     .rota__prog--virgin { background: rgba(255,91,91,.14);   border-color: rgba(255,91,91,.45);   color: #ff9b9b; }
-    .rota__prog--aa     { background: rgba(195,202,214,.12); border-color: rgba(195,202,214,.4);  color: #d6dce6; }
   </style>
 </head>
 <body>
@@ -119,7 +116,6 @@
         <button class="rota-filter" data-filter="azul">Azul / TudoAzul</button>
         <button class="rota-filter" data-filter="smiles">Smiles</button>
         <button class="rota-filter" data-filter="virgin">Virgin Atlantic</button>
-        <button class="rota-filter" data-filter="aa">AAdvantage</button>
       </div>
 
       <p class="rota-empty" id="rotaEmpty" hidden>Nenhum achado pra essa busca ainda. Achou um voo bom pra esse destino? Me manda que eu adiciono. 😉</p>
@@ -141,34 +137,6 @@
               <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
               <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
               <div><dt>Buscar</dt><dd>App Azul / Azul pelo Mundo</dd></div>
-            </dl>
-          </div>
-
-          <div class="rota" data-cia="aa">
-            <div class="rota__route">THE <span class="arr">→</span> EZE</div>
-            <div class="rota__city">Teresina → Buenos Aires · Argentina 🇦🇷</div>
-            <div class="rota__badges">
-              <span class="rota__badge rota__badge--star">★ Joia rara</span>
-            </div>
-            <dl class="rota__meta">
-              <div><dt>Opera</dt><dd><strong>GOL</strong> (parceira oneworld)</dd></div>
-              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--aa">AAdvantage</span></dd></div>
-              <div><dt>Ter milhas</dt><dd>Difícil no BR · cartão Santander AAdvantage · Esfera em promo</dd></div>
-              <div><dt>Buscar</dt><dd>aa.com / call center · Flight Connections</dd></div>
-            </dl>
-          </div>
-
-          <div class="rota" data-cia="aa">
-            <div class="rota__route">Doméstico <span class="arr">↺</span> BR</div>
-            <div class="rota__city">Voos domésticos no Brasil operados pela GOL</div>
-            <div class="rota__badges">
-              <span class="rota__badge">Doméstico</span>
-            </div>
-            <dl class="rota__meta">
-              <div><dt>Opera</dt><dd><strong>GOL</strong></dd></div>
-              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--aa">AAdvantage</span></dd></div>
-              <div><dt>Ter milhas</dt><dd>Difícil no BR · cartão Santander AAdvantage · Esfera em promo</dd></div>
-              <div><dt>Buscar</dt><dd>Escondido no site — emite pelo call center da American</dd></div>
             </dl>
           </div>
 
@@ -194,17 +162,17 @@
             </dl>
           </div>
 
-          <div class="rota" data-cia="azul">
-            <div class="rota__route">VCP <span class="arr">→</span> MCO</div>
-            <div class="rota__city">Campinas → Orlando · EUA 🇺🇸</div>
+          <div class="rota" data-cia="azul latam">
+            <div class="rota__route">SP <span class="arr">→</span> MCO</div>
+            <div class="rota__city">São Paulo → Orlando · EUA 🇺🇸</div>
             <div class="rota__badges">
-              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+              <span class="rota__badge rota__badge--direct">✈ Direto (VCP e GRU)</span>
             </div>
             <dl class="rota__meta">
-              <div><dt>Opera</dt><dd><strong>Azul</strong> (metal próprio)</dd></div>
-              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
-              <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
-              <div><dt>Buscar</dt><dd>App / site da Azul</dd></div>
+              <div><dt>Opera</dt><dd><strong>Azul</strong> (VCP direto) · <strong>LATAM</strong> (GRU direto)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span><span class="rota__prog rota__prog--latam">LATAM Pass</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo → TudoAzul ou LATAM Pass (com bônus)</dd></div>
+              <div><dt>Buscar</dt><dd>Azul (VCP) e LATAM (GRU) direto no app de cada programa</dd></div>
             </dl>
           </div>
 
@@ -219,6 +187,79 @@
               <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
               <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra direta</dd></div>
               <div><dt>Buscar</dt><dd>Site Smiles (monte a conexão por Bogotá)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="smiles">
+            <div class="rota__route">GRU <span class="arr">→</span> AUA</div>
+            <div class="rota__city">São Paulo → Aruba 🇦🇼</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto (GOL, sazonal)</span>
+              <span class="rota__badge">Caribe</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>GOL</strong> (direto desde 2024) · Avianca (via Bogotá) · Copa (via Panamá)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra</dd></div>
+              <div><dt>Buscar</dt><dd>Site Smiles (GOL direto ou Avianca via Bogotá)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="smiles">
+            <div class="rota__route">Brasil <span class="arr">→</span> ADZ</div>
+            <div class="rota__city">via Bogotá ou Panamá → San Andrés · Colômbia 🇨🇴</div>
+            <div class="rota__badges">
+              <span class="rota__badge">Caribe</span>
+              <span class="rota__badge">Conexão</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Avianca</strong> (via Bogotá) ou <strong>Copa</strong> (via Panamá)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra</dd></div>
+              <div><dt>Buscar</dt><dd>Site Smiles (busca o destino San Andrés direto)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="smiles latam">
+            <div class="rota__route">GRU <span class="arr">→</span> MEX</div>
+            <div class="rota__city">São Paulo → Cidade do México 🇲🇽</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Aeroméxico</strong> e <strong>LATAM</strong> (ambas direto)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span><span class="rota__prog rota__prog--latam">LATAM Pass</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo → Smiles ou LATAM Pass · (Avios/Iberia tb emite a LATAM, ~25k)</dd></div>
+              <div><dt>Buscar</dt><dd>Smiles (voo Aeroméxico) · app LATAM (voo próprio)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="latam">
+            <div class="rota__route">GRU <span class="arr">→</span> CUN</div>
+            <div class="rota__city">São Paulo → Cancún · México 🇲🇽</div>
+            <div class="rota__badges">
+              <span class="rota__badge">Conexão</span>
+              <span class="rota__badge">Caribe</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>LATAM</strong> (1 conexão — não há direto de SP)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--latam">LATAM Pass</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo → LATAM Pass (com bônus)</dd></div>
+              <div><dt>Buscar</dt><dd>App/site LATAM · de Brasília tem GOL direto BSB-CUN (Smiles, sazonal jun–mar)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="azul">
+            <div class="rota__route">GRU <span class="arr">→</span> YYZ</div>
+            <div class="rota__city">São Paulo → Toronto · Canadá 🇨🇦</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Air Canada</strong> (direto GRU-YYZ)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo → TudoAzul (com bônus). Emita a <strong>ida</strong>: saindo do BR não tem taxa de combustível</dd></div>
+              <div><dt>Buscar</dt><dd>Portal Azul pelo Mundo (até 72h antes) · united.com pra ver o assento Air Canada</dd></div>
             </dl>
           </div>
 
@@ -281,7 +322,7 @@
             <dl class="rota__meta">
               <div><dt>Opera</dt><dd><strong>Delta</strong></dd></div>
               <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--virgin">Virgin Atlantic</span></dd></div>
-              <div><dt>Ter milhas</dt><dd>Amex Membership Rewards → Virgin (1:1)</dd></div>
+              <div><dt>Ter milhas</dt><dd>Sem transferência direta no BR — <strong>compre pontos Virgin</strong> (bônus até 70%) ou Livelo → IHG → Virgin</dd></div>
               <div><dt>Buscar</dt><dd>Site da Virgin / Delta.com</dd></div>
             </dl>
           </div>
@@ -325,7 +366,7 @@
             <dl class="rota__meta">
               <div><dt>Opera</dt><dd><strong>ANA</strong></dd></div>
               <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--virgin">Virgin Atlantic</span></dd></div>
-              <div><dt>Ter milhas</dt><dd>Amex Membership Rewards → Virgin (1:1) · ~95k ida/volta</dd></div>
+              <div><dt>Ter milhas</dt><dd>Sem transferência direta no BR — <strong>compre pontos Virgin</strong> (bônus até 70%) ou Livelo → IHG → Virgin · ~95k ida/volta</dd></div>
               <div><dt>Buscar</dt><dd>seats.aero confirma o assento · <strong>ANA só emite por telefone</strong></dd></div>
             </dl>
           </div>
