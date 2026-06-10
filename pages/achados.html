@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Achados de milhas: rotas e voos que valem a pena — diretos raros, sweet spots e trechos baratos pra emitir com pontos." />
+  <meta name="description" content="Achados de milhas: rotas que valem a pena, agrupadas por região — quem opera, quais programas emitem, como ter as milhas e onde buscar." />
   <title>Achados — rotas que valem a pena · Milhas.pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -14,21 +14,64 @@
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
   <link rel="apple-touch-icon" href="../assets/icon-192.png" />
   <style>
-    .rotas { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; max-width: 1200px; margin: 0 auto; }
-    .rota { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(10px); transition: transform .2s ease, border-color .2s ease; }
+    /* Busca */
+    .rota-search-wrap { max-width: 560px; margin: 0 auto 1.1rem; }
+    .rota-search { width: 100%; padding: .8rem 1.15rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.04); color: var(--text); font-size: .95rem; font-family: inherit; box-sizing: border-box; }
+    .rota-search:focus { outline: none; border-color: var(--accent); background: rgba(124,92,255,.06); }
+    .rota-search::placeholder { color: var(--text-mute); }
+    .rota-empty { text-align: center; color: var(--text-mute); max-width: 600px; margin: 1.5rem auto 0; }
+
+    /* Filtros */
+    .rota-filters { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; max-width: 900px; margin: 0 auto 2.5rem; }
+    .rota-filter { padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; cursor: pointer; transition: all .2s ease; font-family: inherit; }
+    .rota-filter:hover { color: var(--text); border-color: var(--accent); }
+    .rota-filter.active { color: var(--text); background: rgba(124,92,255,.18); border-color: var(--accent); }
+    .rota-filter .count { opacity: .55; font-size: .78rem; margin-left: .25rem; }
+    /* cor por programa (mesma paleta das pílulas de Emite) */
+    .rota-filter[data-filter="latam"]  { color: #ff9bc0; }
+    .rota-filter[data-filter="azul"]   { color: #7cc6ff; }
+    .rota-filter[data-filter="smiles"] { color: #ffc078; }
+    .rota-filter[data-filter="virgin"] { color: #ff9b9b; }
+    .rota-filter[data-filter="aa"]     { color: #d6dce6; }
+    .rota-filter[data-filter="latam"].active  { background: rgba(255,107,157,.18); border-color: rgba(255,107,157,.7); color: #ffd0e0; }
+    .rota-filter[data-filter="azul"].active   { background: rgba(51,170,255,.18);  border-color: rgba(51,170,255,.7);  color: #bfe2ff; }
+    .rota-filter[data-filter="smiles"].active { background: rgba(255,158,44,.18);  border-color: rgba(255,158,44,.7);  color: #ffd9a8; }
+    .rota-filter[data-filter="virgin"].active { background: rgba(255,91,91,.18);   border-color: rgba(255,91,91,.7);   color: #ffc4c4; }
+    .rota-filter[data-filter="aa"].active     { background: rgba(195,202,214,.16); border-color: rgba(195,202,214,.6);  color: #eef1f5; }
+
+    /* Grupos por região */
+    .rota-group { max-width: 1200px; margin: 0 auto 2.75rem; }
+    .rota-group[hidden] { display: none; }
+    .rota-group__title { font-size: 1.15rem; margin: 0 0 1.1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--border-soft); color: var(--text); display: flex; align-items: center; gap: .5rem; }
+
+    /* Grid + card */
+    .rotas { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.25rem; }
+    .rota { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem; backdrop-filter: blur(10px); transition: transform .2s ease, border-color .2s ease; }
     .rota:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .rota__route { display: flex; align-items: center; gap: .55rem; font-size: 1.35rem; font-weight: 700; color: var(--text); }
+    .rota[hidden] { display: none; }
+    .rota__route { display: flex; align-items: center; gap: .55rem; font-size: 1.3rem; font-weight: 700; color: var(--text); }
     .rota__route .arr { color: var(--accent); }
     .rota__city { color: var(--text-mute); font-size: .85rem; margin-top: .2rem; }
-    .rota__badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: .95rem 0; }
-    .rota__badge { font-size: .72rem; font-family: var(--font-mono); padding: .25rem .6rem; border-radius: 999px; border: 1px solid var(--border-soft); color: var(--text-dim); }
+    .rota__badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: .8rem 0 0; }
+    .rota__badge { font-size: .72rem; font-family: var(--font-mono); padding: .22rem .55rem; border-radius: 999px; border: 1px solid var(--border-soft); color: var(--text-dim); }
     .rota__badge--direct { color: #34d399; border-color: rgba(52,211,153,.4); background: rgba(52,211,153,.08); }
-    .rota__emit { font-size: .9rem; color: var(--text-dim); margin: .4rem 0 0; }
-    .rota__emit strong { color: var(--text); }
-    .rota__note { font-size: .88rem; color: var(--text-dim); line-height: 1.55; border-top: 1px solid var(--border-soft); padding-top: .85rem; margin-top: .9rem; }
-    .rota__note strong { color: var(--text); }
-    .rota--add { border-style: dashed; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--text-mute); min-height: 180px; }
-    .rota--add .plus { font-size: 1.8rem; margin-bottom: .5rem; opacity: .6; }
+    .rota__badge--star { color: #facc15; border-color: rgba(250,204,21,.4); background: rgba(250,204,21,.08); }
+
+    /* Meta compacta: rótulo + valor */
+    .rota__meta { display: grid; gap: .5rem; margin: 1rem 0 0; padding-top: .9rem; border-top: 1px solid var(--border-soft); }
+    .rota__meta > div { display: grid; grid-template-columns: 80px 1fr; gap: .6rem; align-items: baseline; }
+    .rota__meta dt { font-size: .68rem; text-transform: uppercase; letter-spacing: .04em; color: var(--text-mute); font-family: var(--font-mono); padding-top: .12rem; }
+    .rota__meta dd { margin: 0; font-size: .85rem; color: var(--text-dim); line-height: 1.4; }
+    .rota__meta dd strong { color: var(--text); }
+
+    /* Pílulas de programa (emite) — escalam pra quantos programas forem */
+    .rota__progs { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .rota__prog { font-size: .74rem; font-weight: 600; padding: .2rem .55rem; border-radius: 8px; background: rgba(124,92,255,.14); border: 1px solid rgba(124,92,255,.4); color: #cdbcff; }
+    .rota__prog--latam  { background: rgba(255,107,157,.14); border-color: rgba(255,107,157,.45); color: #ff9bc0; }
+    .rota__prog--azul   { background: rgba(51,170,255,.14);  border-color: rgba(51,170,255,.45);  color: #7cc6ff; }
+    .rota__prog--smiles { background: rgba(255,158,44,.14);  border-color: rgba(255,158,44,.5);   color: #ffc078; }
+    .rota__prog--virgin { background: rgba(255,91,91,.14);   border-color: rgba(255,91,91,.45);   color: #ff9b9b; }
+    .rota__prog--aa     { background: rgba(195,202,214,.12); border-color: rgba(195,202,214,.4);  color: #d6dce6; }
   </style>
 </head>
 <body>
@@ -50,7 +93,7 @@
         <a href="hospedagem.html">Hospedagem</a>
         <a href="sites-secretos.html">Ferramentas</a>
         <a href="achados.html">Achados</a>
-        <a href="viagens.html">Viagens</a>
+        <!-- oculto: <a href="viagens.html">Viagens</a> -->
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
         <span></span><span></span><span></span>
@@ -62,30 +105,234 @@
     <section class="page-hero">
       <span class="kicker">✨ Achados</span>
       <h1>Rotas que <span class="grad-text">valem a pena</span></h1>
-      <p>Coleção dos trechos bons que vão aparecendo: <strong>diretos raros, sweet spots e voos baratos</strong> pra emitir com pontos. Quando achar uma joia, ela entra aqui pra você não esquecer.</p>
+      <p>Trechos bons agrupados por <strong>região de destino</strong>. Em cada card: quem <strong>opera</strong> o voo, <strong>quais programas emitem</strong> (as pílulas), <strong>como conseguir</strong> as milhas no Brasil e <strong>onde buscar</strong> a disponibilidade.</p>
     </section>
 
     <section class="section" style="padding-top:0">
-      <div class="rotas">
-
-        <div class="rota reveal">
-          <div class="rota__route">VCP <span class="arr">→</span> BRC</div>
-          <div class="rota__city">Campinas (Viracopos) → Bariloche · Argentina 🇦🇷</div>
-          <div class="rota__badges">
-            <span class="rota__badge">Azul</span>
-            <span class="rota__badge rota__badge--direct">✈ Direto</span>
-            <span class="rota__badge">Sazonal</span>
-          </div>
-          <p class="rota__emit">Emite com <strong>pontos TudoAzul</strong> (app Azul / Azul pelo Mundo).</p>
-          <p class="rota__note">Voo <strong>direto</strong> pro coração da Patagônia — sem ter que conectar por Buenos Aires ou Santiago. Forte na <strong>temporada de neve (jun–set)</strong> e no verão. Direto pra Bariloche saindo do Brasil é raro, por isso vale ficar de olho e emitir cedo.</p>
-        </div>
-
-        <div class="rota rota--add reveal">
-          <div class="plus">＋</div>
-          <div>Achou um trecho bom?<br>Me manda que eu adiciono aqui.</div>
-        </div>
-
+      <div class="rota-search-wrap reveal">
+        <input type="search" id="rotaSearch" class="rota-search" placeholder="🔍 Buscar destino, cidade ou cia… (ex: Toronto, Tóquio, Azul)" aria-label="Buscar achados" />
       </div>
+
+      <div class="rota-filters reveal" id="rotaFilters">
+        <button class="rota-filter active" data-filter="all">Todas</button>
+        <button class="rota-filter" data-filter="latam">LATAM Pass</button>
+        <button class="rota-filter" data-filter="azul">Azul / TudoAzul</button>
+        <button class="rota-filter" data-filter="smiles">Smiles</button>
+        <button class="rota-filter" data-filter="virgin">Virgin Atlantic</button>
+        <button class="rota-filter" data-filter="aa">AAdvantage</button>
+      </div>
+
+      <p class="rota-empty" id="rotaEmpty" hidden>Nenhum achado pra essa busca ainda. Achou um voo bom pra esse destino? Me manda que eu adiciono. 😉</p>
+
+      <!-- ===================== AMÉRICA DO SUL ===================== -->
+      <div class="rota-group reveal" data-region="sul">
+        <h3 class="rota-group__title">🌎 América do Sul</h3>
+        <div class="rotas">
+
+          <div class="rota" data-cia="azul">
+            <div class="rota__route">VCP <span class="arr">→</span> BRC</div>
+            <div class="rota__city">Campinas → Bariloche · Argentina 🇦🇷</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+              <span class="rota__badge">Sazonal (neve jun–set)</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Azul</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
+              <div><dt>Buscar</dt><dd>App Azul / Azul pelo Mundo</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="aa">
+            <div class="rota__route">THE <span class="arr">→</span> EZE</div>
+            <div class="rota__city">Teresina → Buenos Aires · Argentina 🇦🇷</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--star">★ Joia rara</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>GOL</strong> (parceira oneworld)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--aa">AAdvantage</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Difícil no BR · cartão Santander AAdvantage · Esfera em promo</dd></div>
+              <div><dt>Buscar</dt><dd>aa.com / call center · Flight Connections</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="aa">
+            <div class="rota__route">Doméstico <span class="arr">↺</span> BR</div>
+            <div class="rota__city">Voos domésticos no Brasil operados pela GOL</div>
+            <div class="rota__badges">
+              <span class="rota__badge">Doméstico</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>GOL</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--aa">AAdvantage</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Difícil no BR · cartão Santander AAdvantage · Esfera em promo</dd></div>
+              <div><dt>Buscar</dt><dd>Escondido no site — emite pelo call center da American</dd></div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== AMÉRICA DO NORTE & CARIBE ===================== -->
+      <div class="rota-group reveal" data-region="norte">
+        <h3 class="rota-group__title">🌎 América do Norte &amp; Caribe</h3>
+        <div class="rotas">
+
+          <div class="rota" data-cia="azul">
+            <div class="rota__route">EZE <span class="arr">→</span> IAH</div>
+            <div class="rota__city">Buenos Aires → Houston · EUA 🇺🇸</div>
+            <div class="rota__badges">
+              <span class="rota__badge">Star Alliance</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>United</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
+              <div><dt>Buscar</dt><dd>united.com (mostra a Star inteira de graça)</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="azul">
+            <div class="rota__route">VCP <span class="arr">→</span> MCO</div>
+            <div class="rota__city">Campinas → Orlando · EUA 🇺🇸</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Azul</strong> (metal próprio)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
+              <div><dt>Buscar</dt><dd>App / site da Azul</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="smiles">
+            <div class="rota__route">Brasil <span class="arr">→</span> CUR</div>
+            <div class="rota__city">via Bogotá (BOG) → Curaçao 🇨🇼</div>
+            <div class="rota__badges">
+              <span class="rota__badge">Caribe</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Avianca</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra direta</dd></div>
+              <div><dt>Buscar</dt><dd>Site Smiles (monte a conexão por Bogotá)</dd></div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== EUROPA ===================== -->
+      <div class="rota-group reveal" data-region="europa">
+        <h3 class="rota-group__title">🌍 Europa</h3>
+        <div class="rotas">
+
+          <div class="rota" data-cia="smiles">
+            <div class="rota__route">FOR <span class="arr">→</span> CDG</div>
+            <div class="rota__city">Fortaleza → Paris · França 🇫🇷</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Air France</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra</dd></div>
+              <div><dt>Buscar</dt><dd>Seat Spy (executiva AF) · site Smiles</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="smiles">
+            <div class="rota__route">GIG <span class="arr">→</span> AMS</div>
+            <div class="rota__city">Rio de Janeiro → Amsterdam · Holanda 🇳🇱</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>KLM</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (bônus 80%+) · Pagol · compra</dd></div>
+              <div><dt>Buscar</dt><dd>Seat Spy (executiva KLM) · site Smiles</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="azul">
+            <div class="rota__route">VCP <span class="arr">→</span> LIS</div>
+            <div class="rota__city">Campinas → Lisboa · Portugal 🇵🇹</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Azul</strong> (metal próprio)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--azul">TudoAzul</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo (com bônus) · Clube Azul · compra</dd></div>
+              <div><dt>Buscar</dt><dd>App / site da Azul</dd></div>
+            </dl>
+          </div>
+
+          <div class="rota" data-cia="virgin">
+            <div class="rota__route">EUA <span class="arr">→</span> Europa</div>
+            <div class="rota__city">Delta One (executiva) transatlântica</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--star">★ Sweet spot</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>Delta</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--virgin">Virgin Atlantic</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Amex Membership Rewards → Virgin (1:1)</dd></div>
+              <div><dt>Buscar</dt><dd>Site da Virgin / Delta.com</dd></div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== ÁFRICA ===================== -->
+      <div class="rota-group reveal" data-region="africa">
+        <h3 class="rota-group__title">🌍 África</h3>
+        <div class="rotas">
+
+          <div class="rota" data-cia="latam smiles">
+            <div class="rota__route">GRU <span class="arr">→</span> JNB</div>
+            <div class="rota__city">São Paulo → Joanesburgo · África do Sul 🇿🇦</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--direct">✈ Direto (~8h30)</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>LATAM</strong> e <strong>South African</strong> (ambas nonstop)</dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--latam">LATAM Pass</span><span class="rota__prog rota__prog--smiles">Smiles</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Livelo → LATAM Pass ou Smiles (com bônus) · Smiles tb via Pagol</dd></div>
+              <div><dt>Buscar</dt><dd>LATAM Pass: voo próprio (~44k econ, dinâmico) · Smiles: voo da South African</dd></div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===================== ÁSIA ===================== -->
+      <div class="rota-group reveal" data-region="asia">
+        <h3 class="rota-group__title">🌏 Ásia</h3>
+        <div class="rotas">
+
+          <div class="rota" data-cia="virgin">
+            <div class="rota__route">GRU <span class="arr">→</span> HND</div>
+            <div class="rota__city">São Paulo → Tóquio · Japão 🇯🇵 · executiva</div>
+            <div class="rota__badges">
+              <span class="rota__badge rota__badge--star">★ Sweet spot lendário</span>
+            </div>
+            <dl class="rota__meta">
+              <div><dt>Opera</dt><dd><strong>ANA</strong></dd></div>
+              <div><dt>Emite</dt><dd class="rota__progs"><span class="rota__prog rota__prog--virgin">Virgin Atlantic</span></dd></div>
+              <div><dt>Ter milhas</dt><dd>Amex Membership Rewards → Virgin (1:1) · ~95k ida/volta</dd></div>
+              <div><dt>Buscar</dt><dd>seats.aero confirma o assento · <strong>ANA só emite por telefone</strong></dd></div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+
     </section>
   </main>
 
@@ -108,5 +355,52 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    (function () {
+      const filters = [...document.querySelectorAll('.rota-filter')];
+      const cards = [...document.querySelectorAll('.rota[data-cia]')];
+      const groups = [...document.querySelectorAll('.rota-group[data-region]')];
+      const search = document.getElementById('rotaSearch');
+      const empty = document.getElementById('rotaEmpty');
+      const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const ciasOf = c => c.dataset.cia.split(' ');
+      let prog = 'all';
+
+      // contador por programa nos chips (uma rota pode contar em mais de um)
+      filters.forEach(btn => {
+        const f = btn.dataset.filter;
+        const n = f === 'all' ? cards.length : cards.filter(c => ciasOf(c).includes(f)).length;
+        const s = document.createElement('span');
+        s.className = 'count';
+        s.textContent = n;
+        btn.appendChild(s);
+      });
+
+      function apply() {
+        const q = norm(search.value.trim());
+        let visible = 0;
+        cards.forEach(c => {
+          const okProg = prog === 'all' || ciasOf(c).includes(prog);
+          const okText = !q || norm(c.textContent).includes(q);
+          const show = okProg && okText;
+          c.hidden = !show;
+          if (show) visible++;
+        });
+        // esconde a região que ficou sem nenhum card visível
+        groups.forEach(g => {
+          g.hidden = ![...g.querySelectorAll('.rota[data-cia]')].some(c => !c.hidden);
+        });
+        empty.hidden = visible > 0;
+      }
+
+      filters.forEach(btn => btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        prog = btn.dataset.filter;
+        apply();
+      }));
+      search.addEventListener('input', apply);
+    })();
+  </script>
 </body>
 </html>
