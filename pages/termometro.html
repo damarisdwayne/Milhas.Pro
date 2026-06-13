@@ -32,6 +32,31 @@
     .best-card li { padding: .35rem 0; border-bottom: 1px dashed var(--border-soft); }
     .best-card li:last-child { border-bottom: none; }
     .best-card li strong { color: var(--text); }
+    .calc { max-width: 720px; margin: 0 auto; background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 16px; padding: 1.5rem; }
+    .calc__form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 560px) { .calc__form { grid-template-columns: 1fr; } }
+    .calc__field { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; color: var(--text-dim); }
+    .calc__field span { display: flex; flex-direction: column; gap: .15rem; }
+    .calc__field small { color: var(--text-mute); font-size: .72rem; font-weight: 400; }
+    .calc__field input { margin-top: auto; font-family: var(--font-mono); font-size: 1rem; padding: .6rem .75rem; border-radius: 10px; border: 1px solid var(--border-soft); background: rgba(0,0,0,.25); color: var(--text); width: 100%; }
+    .calc__field input:focus { outline: none; border-color: var(--accent); }
+    .calc__btn { width: 100%; margin-top: 1.25rem; padding: .85rem 1rem; border-radius: 10px; border: none; background: var(--accent); color: #07080d; font-family: var(--font-mono); font-size: .95rem; font-weight: 700; letter-spacing: .03em; cursor: pointer; transition: filter .15s, transform .1s; }
+    .calc__btn:hover { filter: brightness(1.1); }
+    .calc__btn:active { transform: translateY(1px); }
+    .calc__result { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-soft); }
+    .calc__verdict { font-size: 1.1rem; font-weight: 700; padding: .6rem 1rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; }
+    .calc__verdict.is-good { background: rgba(52,211,153,.12); border: 1px solid rgba(52,211,153,.4); color: #34d399; }
+    .calc__verdict.is-bad { background: rgba(248,113,113,.12); border: 1px solid rgba(248,113,113,.4); color: #f87171; }
+    .calc__verdict.is-ok { background: rgba(250,204,21,.12); border: 1px solid rgba(250,204,21,.4); color: #facc15; }
+    .calc__headline { text-align: center; color: var(--text-dim); margin: 0 0 1rem; }
+    .calc__totals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .calc__totals div { text-align: center; background: rgba(0,0,0,.2); border: 1px solid var(--border-soft); border-radius: 10px; padding: .85rem; }
+    .calc__totals span { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); margin-bottom: .25rem; }
+    .calc__totals strong { font-family: var(--font-mono); font-size: 1.15rem; color: var(--text); }
+    .calc__note { text-align: center; font-size: .9rem; color: var(--text-dim); margin: 0; }
+    .calc__learn { text-align: center; font-size: .82rem; color: var(--text-mute); margin: 1rem 0 0; }
+    .calc__learn a { color: var(--accent); }
+    .calc__empty { text-align: center; color: var(--text-mute); font-size: .9rem; margin-top: 1.25rem; }
   </style>
 </head>
 <body>
@@ -95,6 +120,50 @@
         <p style="text-align:center; color:var(--text-dim); font-size:.9rem">
           <strong>Cálculo do custo real:</strong> (milhas ÷ 1.000) × R$ do milheiro + taxas de embarque.
         </p>
+      </div>
+    </section>
+
+    <!-- CALCULADORA: EMITIR OU PAGAR -->
+    <section class="section section--alt" id="calculadora">
+      <div class="section__head reveal">
+        <span class="kicker">🧮 Calculadora</span>
+        <h2>Vale a pena <span class="grad-text">emitir ou pagar</span>?</h2>
+        <p>Preencha os campos e descubra na hora se compensa usar milhas ou pagar em dinheiro na mesma passagem.</p>
+      </div>
+
+      <div class="calc reveal">
+        <div class="calc__form">
+          <label class="calc__field">
+            <span>Milhas necessárias</span>
+            <input type="number" id="calcMilhas" inputmode="numeric" min="0" placeholder="ex: 191483" />
+          </label>
+          <label class="calc__field">
+            <span>Taxas a pagar junto (R$)</span>
+            <input type="number" id="calcTaxas" inputmode="decimal" min="0" placeholder="ex: 2250" />
+          </label>
+          <label class="calc__field">
+            <span>Preço em dinheiro da mesma passagem (R$)</span>
+            <input type="number" id="calcDinheiro" inputmode="decimal" min="0" placeholder="ex: 6000" />
+          </label>
+          <label class="calc__field">
+            <span>Quanto te custa o milheiro (R$/1.000)</span>
+            <input type="number" id="calcCusto" inputmode="decimal" min="0" placeholder="ex: 25" />
+          </label>
+        </div>
+
+        <button type="button" class="calc__btn" id="calcBtn">Calcular</button>
+
+        <p class="calc__learn">Quer entender a conta por trás? Veja a régua de valor da milha no <a href="curso-completo.html#m1">Módulo 1 do Curso Completo</a>.</p>
+
+        <div class="calc__result" id="calcResult" hidden>
+          <div class="calc__verdict" id="calcVerdict"></div>
+          <p class="calc__headline" id="calcHeadline"></p>
+          <div class="calc__totals">
+            <div><span>Custo via milhas</span><strong id="calcTotMilhas">—</strong></div>
+            <div><span>Em dinheiro</span><strong id="calcTotDinheiro">—</strong></div>
+          </div>
+          <p class="calc__note" id="calcNote"></p>
+        </div>
       </div>
     </section>
 
@@ -579,5 +648,58 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+  (function () {
+    const $ = id => document.getElementById(id);
+    const fmtBRL = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 });
+    const inputs = ['calcMilhas', 'calcTaxas', 'calcDinheiro', 'calcCusto'].map($);
+    if (inputs.some(el => !el)) return;
+    const num = el => { const v = Number.parseFloat(String(el.value).replace(',', '.')); return Number.isFinite(v) ? v : Number.NaN; };
+
+    function calc() {
+      const milhas = num($('calcMilhas'));
+      const taxas = num($('calcTaxas')) || 0;
+      const dinheiro = num($('calcDinheiro'));
+      const custo = num($('calcCusto'));
+      const result = $('calcResult');
+
+      // !(x > 0) em vez de x <= 0 de propósito: pega NaN (campo vazio/inválido) também
+      if (!(milhas > 0) || !(dinheiro > 0) || !(custo >= 0)) {
+        result.hidden = true; return;
+      }
+      result.hidden = false;
+
+      const milheiroEmissao = (dinheiro - taxas) / milhas * 1000; // R$ que cada milheiro "rende" nessa emissão
+      const totalMilhas = (milhas / 1000) * custo + taxas;          // custo real de emitir
+      const economia = dinheiro - totalMilhas;                      // >0 => emitir compensa
+      const margem = dinheiro * 0.02;                               // zona de empate (~2%)
+
+      $('calcTotMilhas').textContent = fmtBRL(totalMilhas);
+      $('calcTotDinheiro').textContent = fmtBRL(dinheiro);
+      $('calcHeadline').innerHTML = `Nesta emissão, cada milheiro rende <strong>${fmtBRL(milheiroEmissao)}</strong>.`;
+
+      const verdict = $('calcVerdict'), note = $('calcNote');
+      if (economia > margem) {
+        verdict.textContent = '✅ Emitir com milhas compensa';
+        verdict.className = 'calc__verdict is-good';
+        note.innerHTML = `Usando milhas você economiza <strong>${fmtBRL(economia)}</strong> frente ao dinheiro.`;
+      } else if (economia < -margem) {
+        verdict.textContent = '❌ Pague em dinheiro';
+        verdict.className = 'calc__verdict is-bad';
+        note.innerHTML = `Emitir com milhas sai <strong>${fmtBRL(-economia)}</strong> mais caro — guarde as milhas pra um resgate de mais valor (ex: executiva).`;
+      } else {
+        verdict.textContent = '➖ Tanto faz';
+        verdict.className = 'calc__verdict is-ok';
+        note.innerHTML = `As duas opções custam quase o mesmo. Decida pelo que prefere preservar: o dinheiro ou as milhas.`;
+      }
+
+      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    const btn = $('calcBtn');
+    if (btn) btn.addEventListener('click', calc);
+    inputs.forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') calc(); }));
+  })();
+  </script>
 </body>
 </html>
