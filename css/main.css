@@ -417,7 +417,9 @@ button { font-family: inherit; cursor: pointer; }
 .program__list strong { color: var(--text); }
 
 /* ---------- Tools ---------- */
-.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .tools { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .tools { grid-template-columns: 1fr; } }
 .tool {
   display: block; padding: 1.5rem;
   border: 1px solid var(--border);

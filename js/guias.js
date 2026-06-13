@@ -368,6 +368,23 @@ const GUIAS = {
       { i: '⭐', t: 'Vale o resgate?', d: 'Use os reviews pra não gastar 200k milhas numa cabine medíocre.' },
       { i: '🇺🇸', t: 'Foco EUA, em inglês', d: 'Conteúdo global com viés americano — mas os reviews são universais.' }
     ]
+  },
+  'claude-chrome': {
+    nome: 'Claude for Chrome', cat: 'Assistente de IA (dinheiro)', badge: 'Exige plano pago', url: 'https://claude.com/claude-for-chrome', idioma: 'Funciona em pt-BR',
+    oque: 'Extensão de navegador da Anthropic que deixa o Claude <strong>ler e navegar sites por você</strong> num painel lateral. Dá pra pedir pra ele varrer Google Flights, Booking e outros e montar uma <strong>tabela comparativa de passagem + hospedagem em dinheiro</strong> dentro de uma janela de datas. <em>Não é ferramenta de milhas</em> — é pra quando o melhor caminho é tarifa paga, ou pra comparar com o custo em milhas antes de decidir.',
+    prompt: 'Quero viajar para [DESTINO].\nPosso viajar entre [DATA INICIAL] e [DATA FINAL].\nTenho flexibilidade de [X DIAS].\n\nPesquise passagens e hospedagens dentro desse período e encontre as combinações mais econômicas. Compare diferentes datas, valores e opções de hospedagem.\n\nNo final, me mostre:\n- A opção mais barata\n- A melhor relação custo-benefício\n- Outras alternativas interessantes\n\nOrganize tudo numa tabela simples para facilitar a comparação.',
+    passos: [
+      { t: 'Confirme que você tem plano pago do Claude', d: 'A extensão está em <strong>beta e só funciona em planos pagos</strong> (Pro, Max, Team ou Enterprise). No plano grátis não dá. Funciona só no <strong>Google Chrome no desktop</strong> — não roda em celular nem em outros navegadores.' },
+      { t: 'Instale a extensão', d: 'Acesse <strong>claude.com/claude-for-chrome</strong>, adicione pelo Chrome Web Store, faça login na sua conta Claude e conceda as permissões. Fixe o ícone na barra pra acesso rápido.' },
+      { t: 'Abra os sites de viagem', d: 'Abra normalmente o Google Flights, Booking, Airbnb, Decolar etc. Depois abra o painel do Claude na lateral.' },
+      { t: 'Cole o prompt', d: 'Use o modelo da caixa de dicas abaixo, trocando destino, datas e flexibilidade. Quanto mais ampla a janela, melhores as combinações que ele acha.' },
+      { t: 'CONFIRA tudo no site antes de comprar', d: 'O recurso é beta e o Claude pode errar, ler preço desatualizado ou não completar a varredura. <strong>Sempre reabra o resultado no site oficial e confirme valor, datas e regras antes de pagar.</strong> Nunca compre direto pela sugestão sem checar.' }
+    ],
+    dicas: [
+      { i: '📅', t: 'Flexibilidade é o que mais economiza', d: 'Em vez de "quero ir nos dias X e Y", peça <strong>"posso viajar dentro desse intervalo"</strong>. Poucos dias de diferença mudam muito o preço, e o Claude tem mais opções pra comparar.' },
+      { i: '⚠️', t: 'É beta — e tem risco de segurança', d: 'A própria Anthropic alerta que deixar a IA agir em sites tem risco (ex: prompt injection por páginas maliciosas). Use em sites de viagem conhecidos e <strong>nunca</strong> deixe ele preencher pagamento ou dados sensíveis sozinho.' },
+      { i: '💰', t: 'Pra dinheiro, não pra milha', d: 'Essa ferramenta acha tarifa paga barata. Antes de comprar, vale cruzar com o custo em milhas da mesma rota — às vezes a milha ganha, às vezes não. É mais uma fonte, não substitui a busca award.' }
+    ]
   }
 };
 
@@ -398,6 +415,16 @@ const GUIAS = {
       <div class="timeline__body"><h3>${p.t}</h3><p>${p.d}</p></div>
     </div>`).join('');
 
+  const promptBlock = g.prompt ? `
+      <div class="section__head reveal" style="margin:3rem 0 1.5rem; text-align:left; max-width:none">
+        <span class="kicker">Prompt</span>
+        <h2>Copia e cola no Claude</h2>
+      </div>
+      <div class="prompt-card reveal">
+        <button class="prompt-card__copy" type="button">📋 Copiar</button>
+        <pre class="prompt-card__text"></pre>
+      </div>` : '';
+
   const dicas = g.dicas.map(d => `
     <article class="card reveal">
       <div class="card__icon">${d.i}</div>
@@ -422,6 +449,8 @@ const GUIAS = {
       </div>
       <div class="timeline">${passos}</div>
 
+      ${promptBlock}
+
       <div class="section__head reveal" style="margin:3rem 0 1.5rem; text-align:left; max-width:none">
         <span class="kicker">Dicas</span>
         <h2>Pra extrair o máximo</h2>
@@ -434,6 +463,24 @@ const GUIAS = {
       </div>
     </section>
   `;
+
+  // preenche o prompt como texto puro (preserva quebras de linha, evita HTML) e liga o botão copiar
+  if (g.prompt) {
+    const pre = root.querySelector('.prompt-card__text');
+    const btn = root.querySelector('.prompt-card__copy');
+    if (pre) pre.textContent = g.prompt;
+    if (btn) {
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(g.prompt).then(() => {
+          btn.textContent = '✅ Copiado!';
+          setTimeout(() => { btn.textContent = '📋 Copiar'; }, 2000);
+        }).catch(() => {
+          btn.textContent = '❌ Copie manualmente';
+          setTimeout(() => { btn.textContent = '📋 Copiar'; }, 2000);
+        });
+      });
+    }
+  }
 
   // dispara o scroll-reveal pros elementos recém-inseridos
   if (window.MilhasPro && typeof window.MilhasPro.refreshReveal === 'function') {
