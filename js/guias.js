@@ -115,13 +115,13 @@ const GUIAS = {
       { t: 'Abra e preencha a rota', d: 'Origem e destino, ida e volta ou só ida.' },
       { t: 'Calendário de preços', d: 'Ao clicar nas datas, mostra o preço de cada dia. Flexibilidade economiza muito.' },
       { t: 'Gráfico de preços', d: 'Mostra a tendência e diz se o preço atual está alto, típico ou baixo.' },
-      { t: 'Mapa "explorar"', d: 'Deixe o destino em branco e abra o mapa pra ver preços de vários lugares.' },
+      { t: 'Mapa "explorar"', d: 'Deixe o destino em branco e abra o mapa pra ver preços de vários lugares — é o jeito de <strong>achar portas e coringas</strong> baratos a partir da sua cidade.' },
       { t: 'Acompanhar preço', d: 'Ligue o acompanhamento — o Google te avisa por email quando subir/cair.' },
       { t: 'Multi-cidade', d: 'Monte rotas com escala estratégica (porta de entrada + low-cost).' },
       { t: 'Compare com milhas', d: 'Anote o preço e compare com milhas × milheiro + taxas no termômetro.' }
     ],
     dicas: [
-      { i: '🗺️', t: 'Mapa explorar', d: 'Jeito mais rápido de achar o destino internacional mais barato num mês inteiro.' },
+      { i: '🗺️', t: 'Mapa explorar = caça-coringa', d: 'Jeito mais rápido de achar o destino internacional mais barato num mês inteiro — sua porta/coringa pra montar o resto do roteiro.' },
       { i: '🔔', t: 'Acompanhe várias rotas', d: 'O email do Google vira seu radar de promoção em dinheiro.' },
       { i: '⚖️', t: 'Dinheiro nem sempre perde', d: 'Em rotas curtas/nacionais o dinheiro costuma ganhar da milha.' }
     ]
