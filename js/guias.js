@@ -385,6 +385,65 @@ const GUIAS = {
       { i: '⚠️', t: 'É beta — e tem risco de segurança', d: 'A própria Anthropic alerta que deixar a IA agir em sites tem risco (ex: prompt injection por páginas maliciosas). Use em sites de viagem conhecidos e <strong>nunca</strong> deixe ele preencher pagamento ou dados sensíveis sozinho.' },
       { i: '💰', t: 'Pra dinheiro, não pra milha', d: 'Essa ferramenta acha tarifa paga barata. Antes de comprar, vale cruzar com o custo em milhas da mesma rota — às vezes a milha ganha, às vezes não. É mais uma fonte, não substitui a busca award.' }
     ]
+  },
+  'skyscanner': {
+    nome: 'Skyscanner', cat: 'Busca em dinheiro', badge: 'Grátis', url: 'https://www.skyscanner.com.br', idioma: 'Em português',
+    oque: 'O jeito nº1 de <strong>descobrir um destino barato</strong> a partir da sua cidade. Com o destino <strong>"Em todo o lado"</strong>, ele lista os países e cidades mais baratos pra onde dá pra ir — base pra achar uma porta ou um coringa.',
+    passos: [
+      { t: 'Preencha a origem', d: 'Seu aeroporto (ex: GRU, ou CNF). Se for usar uma porta europeia depois, repita a busca a partir dela também.' },
+      { t: 'No destino, escolha "Em todo o lado"', d: 'Apague o que estiver no campo "Para" e selecione <strong>"Em todo o lado"</strong>. No app, às vezes a opção aparece sozinha quando o campo fica vazio.' },
+      { t: 'Use datas flexíveis', d: 'Escolha <strong>"Mês inteiro"</strong> e marque <strong>"o mês mais barato"</strong> (ou "datas flexíveis"). Quanto mais flexível, melhores as combinações — é aqui que o coringa aparece.' },
+      { t: 'Leia a lista por país', d: 'O resultado vem com os <strong>países ordenados do mais barato pro mais caro</strong>. Clique num país pra abrir as cidades dele, e numa cidade pra ver as datas mais baratas.' },
+      { t: 'Cruze com o FlightConnections', d: 'Achou um destino barato? Confira no <strong>FlightConnections</strong> se ele é bem conectado por low-cost — aí é um bom coringa/porta.' }
+    ],
+    dicas: [
+      { i: '📅', t: 'Flexibilidade destrava preço', d: 'Mês inteiro + "mais barato" mostra muito mais que datas fixas. Comece sempre flexível e só depois trave as datas.' },
+      { i: '🚪', t: 'Repita de portas diferentes', d: 'Busque do Brasil, mas também a partir de uma porta europeia (Lisboa/Madri) pra achar o salto low-cost mais barato dentro do continente.' },
+      { i: '🔔', t: 'Crie alerta de preço', d: 'Achou uma rota-alvo? Ative o alerta — o Skyscanner avisa quando o preço cai.' }
+    ]
+  },
+  'flightconnections': {
+    nome: 'FlightConnections', cat: 'Mapa de rotas', badge: 'Grátis', url: 'https://www.flightconnections.com', idioma: 'Em inglês',
+    oque: 'Mapa das <strong>rotas diretas</strong> de qualquer aeroporto do mundo. Serve pra responder "o quão hub é essa cidade?" — quanto mais linhas saindo, melhor ela funciona como <strong>porta ou coringa</strong>.',
+    passos: [
+      { t: 'Digite o aeroporto', d: 'Coloque a cidade/aeroporto que você está avaliando (ex: Nápoles, Budapeste). O mapa desenha todas as rotas diretas que saem dali.' },
+      { t: 'Olhe a quantidade de linhas', d: 'Muitas linhas = aeroporto muito conectado = bom coringa. Poucas linhas = mau coringa (vai te prender ou sair caro).' },
+      { t: 'Filtre por companhia', d: 'Dá pra filtrar por cia — selecione as <strong>low-cost</strong> (Ryanair, easyJet, Wizz, Vueling) pra ver só o que interessa pra emendar barato.' },
+      { t: 'Valide a porta de saída', d: 'Antes de decidir por onde sair de uma viagem, confira aqui se a cidade conecta direto e barato pro próximo trecho.' }
+    ],
+    dicas: [
+      { i: '🃏', t: 'É o teste do coringa', d: 'Cruze com o Skyscanner: bem conectado (FlightConnections) + barato (Skyscanner) = bom coringa. Faltou um dos dois, evita depender dele.' },
+      { i: '🗺️', t: 'Pensa em malha, não em cidade', d: 'Um aeroporto pequeno mas com muita low-cost vale mais como base do que uma capital com poucas rotas diretas.' }
+    ]
+  },
+  'kiwi-nomad': {
+    nome: 'Kiwi.com (Nomad)', cat: 'Roteiro multi-parada', badge: 'Grátis', url: 'https://www.kiwi.com/en/nomad/', idioma: 'PT/EN',
+    oque: 'O modo <strong>Nomad</strong> monta o "miolo" do roteiro pra você: informa as cidades que quer visitar e ele acha a <strong>melhor ordem e combinação de voos</strong> pra sair mais barato.',
+    passos: [
+      { t: 'Abra o modo Nomad', d: 'No buscador da Kiwi, troque o modo de busca pra <strong>Nomad</strong> (multi-parada).' },
+      { t: 'Adicione cada cidade SEPARADA', d: '⚠️ Aqui mora a pegadinha: adicione <strong>cada destino como uma parada própria</strong> (Roma, Paris, Atenas). Se jogar várias cidades numa caixa só, ele entende "qualquer uma dessas" e vai só pra uma.' },
+      { t: 'Defina as noites em cada uma', d: 'Use <strong>faixa flexível</strong> (ex: 3–5 noites) em vez de data fixa. Quanto mais flexível, mais barato ele monta.' },
+      { t: 'Janela total + buscar', d: 'Período de partida + duração total da viagem. Ele devolve vários roteiros com a ordem das cidades, datas e preço — ordene por mais barato.' },
+      { t: 'Confira cada trecho antes de fechar', d: 'Veja se tem <strong>self-transfer</strong> ("por sua conta") ou <strong>troca de aeroporto/cidade</strong> (ex: chega em Beauvais, volta de CDG). Esses detalhes cansam e dão risco de bagagem.' }
+    ],
+    dicas: [
+      { i: '🧩', t: 'Cidades separadas, não numa caixa', d: 'Esse é o erro mais comum. Uma parada por cidade = roteiro de verdade; tudo numa caixa = "vá pra mais barata".' },
+      { i: '⚠️', t: 'Cuidado com self-transfer', d: 'A garantia Kiwi cobre conexões perdidas, mas repegue/recheck de bagagem e troca de aeroporto são por sua conta. Leia as regras de cada trecho.' },
+      { i: '🧮', t: 'Cruze com o termômetro', d: 'Compare o total com a régua "em dinheiro" do Termômetro. Se o preço estourar a faixa da região, segura ou ajusta o roteiro.' }
+    ]
+  },
+  'rome2rio': {
+    nome: 'Rome2Rio', cat: 'Trechos terrestres', badge: 'Grátis', url: 'https://www.rome2rio.com', idioma: 'Em inglês',
+    oque: 'Mostra <strong>como ir de A até B</strong> por voo, trem, ônibus ou carro, com tempo e custo estimados. Essencial pros <strong>trechos terrestres do miolo</strong> (ex: Milão → Dolomitas, Roma → Florença).',
+    passos: [
+      { t: 'Digite origem e destino', d: 'Pode ser cidade, aeroporto ou até um ponto turístico. Ele monta todas as formas de chegar.' },
+      { t: 'Compare os modos', d: 'Voo, trem, ônibus, carro e combinações — cada um com <strong>tempo e custo estimados</strong>. Bom pra decidir se vale voar ou ir de trem num trecho.' },
+      { t: 'Use pro miolo terrestre', d: 'No corredor de cidades (ex: Roma → Florença → Veneza), o trem costuma ganhar do avião; pro campo (Toscana, Dolomitas), o carro brilha.' }
+    ],
+    dicas: [
+      { i: '🚆', t: 'Trem vs voo na Europa', d: 'Em distâncias curtas o trem de alta velocidade quase sempre vence o avião (sem ir pro aeroporto / sem despachar).' },
+      { i: '⚠️', t: 'São estimativas', d: 'Preços e horários são aproximados — confirme no site oficial da ferrovia/ônibus/cia antes de fechar.' }
+    ]
   }
 };
 
