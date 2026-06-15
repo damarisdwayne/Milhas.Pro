@@ -458,6 +458,7 @@ const GUIAS = {
     ],
     dicas: [
       { i: '🆕', t: 'Novo, mas confiável', d: 'Lançado em 2025 e avaliado por fontes sérias do setor (Upgraded Points, AwardWallet, Frequent Miler). Não é hype vazio — mas, por ser novo, comece com uma reserva pequena pra testar.' },
+      { i: '🇺🇸', t: 'Exige número americano', d: 'O cadastro pede um <strong>número de telefone dos EUA</strong>. Use um <strong>número virtual estável que você controla</strong> (Hushed ou Burner pagos, ou um eSIM pré-pago americano) — <strong>não</strong> um número descartável/público, senão você perde o SMS de login (2FA) e o acesso às milhas. Antes de depender disso, teste se o código chega no número virtual (alguns serviços bloqueiam VoIP).' },
       { i: '⚖️', t: 'Compare o preço da diária', d: 'Portais de pontos às vezes cobram um pouco mais caro na diária. Cheque o mesmo hotel no Google Hotéis: só vale se o preço estiver competitivo + as milhas compensarem a diferença.' },
       { i: '💵', t: 'É em dólar', d: 'Pagamento em dólar incide IOF/câmbio. Use um cartão bom pra compra internacional e considere isso no custo final.' }
     ]
