@@ -163,6 +163,7 @@ const GUIAS = {
   'ita-matrix': {
     nome: 'ITA Matrix', cat: 'Busca avançada', badge: 'Grátis', url: 'https://matrix.itasoftware.com', idioma: 'Em inglês',
     oque: 'O motor de busca por trás do Google Flights, com <strong>filtros avançados</strong> que o Google esconde. Não vende passagem — você acha aqui e emite em outro lugar.',
+    img: '../assets/ita-search.png', imgCap: 'Tela de busca do ITA Matrix: origem, vários destinos, Routing Codes e moeda/cidade nos controles avançados.',
     passos: [
       { t: 'Abra o Matrix', d: 'Não precisa de login pra buscar.' },
       { t: 'Origem e destino', d: 'Aceita múltiplos aeroportos separados por vírgula (ex: GRU, VCP, GIG).' },
@@ -444,6 +445,22 @@ const GUIAS = {
       { i: '🚆', t: 'Trem vs voo na Europa', d: 'Em distâncias curtas o trem de alta velocidade quase sempre vence o avião (sem ir pro aeroporto / sem despachar).' },
       { i: '⚠️', t: 'São estimativas', d: 'Preços e horários são aproximados — confirme no site oficial da ferrovia/ônibus/cia antes de fechar.' }
     ]
+  },
+  'rove-miles': {
+    nome: 'Rove Miles', cat: 'Acúmulo de milhas', badge: 'Grátis', url: 'https://www.rovemiles.com', idioma: 'Em inglês',
+    oque: 'Plataforma de reserva de <strong>hotel</strong> (e compras) que rende <strong>milhas próprias transferíveis 1:1</strong> pra vários programas aéreos. A graça é o acúmulo alto em hotel — <strong>10 a 25 milhas por dólar</strong> (às vezes mais) — uma forma de gerar milha que o brasileiro quase não tem.',
+    passos: [
+      { t: 'Crie a conta (grátis)', d: 'Cadastro grátis, sem precisar de cartão específico. Rola bônus de boas-vindas de vez em quando.' },
+      { t: 'Busque o hotel na plataforma', d: 'Pesquise a hospedagem que você quer dentro do Rove. O preço é cobrado em <strong>dólar</strong>.' },
+      { t: 'Veja quantas milhas rende', d: 'Cada hotel mostra o multiplicador (10–25×/US$, às vezes maior). É aí que mora o valor — não no preço da diária em si.' },
+      { t: 'Reserve e acumule', d: 'Fecha a reserva e as Rove Miles caem na conta após a estadia.' },
+      { t: 'Transfira quando tiver resgate em mente', d: 'Transfere 1:1 pro programa aéreo (Star/oneworld/SkyTeam, via parceiros). Só transfira quando já tem a emissão em vista — milha parada desvaloriza.' }
+    ],
+    dicas: [
+      { i: '🆕', t: 'Novo, mas confiável', d: 'Lançado em 2025 e avaliado por fontes sérias do setor (Upgraded Points, AwardWallet, Frequent Miler). Não é hype vazio — mas, por ser novo, comece com uma reserva pequena pra testar.' },
+      { i: '⚖️', t: 'Compare o preço da diária', d: 'Portais de pontos às vezes cobram um pouco mais caro na diária. Cheque o mesmo hotel no Google Hotéis: só vale se o preço estiver competitivo + as milhas compensarem a diferença.' },
+      { i: '💵', t: 'É em dólar', d: 'Pagamento em dólar incide IOF/câmbio. Use um cartão bom pra compra internacional e considere isso no custo final.' }
+    ]
   }
 };
 
@@ -484,6 +501,10 @@ const GUIAS = {
         <pre class="prompt-card__text"></pre>
       </div>` : '';
 
+  const imgBlock = g.img ? `
+      <img class="guia-shot reveal" src="${g.img}" alt="${g.imgCap || ('Print do ' + g.nome)}" />
+      ${g.imgCap ? `<span class="guia-shot-cap">${g.imgCap}</span>` : ''}` : '';
+
   const dicas = g.dicas.map(d => `
     <article class="card reveal">
       <div class="card__icon">${d.i}</div>
@@ -507,6 +528,8 @@ const GUIAS = {
         <h2>Como usar na prática</h2>
       </div>
       <div class="timeline">${passos}</div>
+
+      ${imgBlock}
 
       ${promptBlock}
 
