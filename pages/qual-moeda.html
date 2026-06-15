@@ -38,6 +38,9 @@
     .scenario h3 { margin: 0 0 .75rem; color: var(--text); }
     .scenario__answer { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-soft); }
     .scenario__answer strong { color: #34d399; }
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
   </style>
 </head>
 <body>
@@ -74,6 +77,14 @@
       <p>
         Você junta pontos no banco (Livelo, Esfera). Quando vai emitir, precisa decidir: virar Avios? Flying Blue? Smiles? LifeMiles? Aqui está o framework — sem decoreba — que resolve isso pra qualquer destino.
       </p>
+      <nav class="quick-nav reveal" aria-label="Navegação rápida">
+        <a href="#formula">🧮 A fórmula</a>
+        <a href="#milheiro">💰 Custo do milheiro</a>
+        <a href="#destinos">🎯 Por destino</a>
+        <a href="#casos">📂 Casos reais</a>
+        <a href="#comprar-gringo">🌎 Comprar gringo</a>
+        <a href="#nao-transferir">🚫 Quando NÃO transferir</a>
+      </nav>
     </section>
 
     <!-- 01 — A PERGUNTA ERRADA -->
@@ -91,7 +102,7 @@
     </section>
 
     <!-- 02 — A FÓRMULA -->
-    <section class="section section--alt">
+    <section class="section section--alt" id="formula">
       <div class="section__head reveal">
         <span class="kicker">02 · A fórmula</span>
         <h2>Como <span class="grad-text">comparar de verdade</span></h2>
@@ -158,7 +169,7 @@ Exemplo Paris executiva:
     </section>
 
     <!-- 03 — CUSTO DO MILHEIRO NO BR -->
-    <section class="section">
+    <section class="section" id="milheiro">
       <div class="section__head reveal">
         <span class="kicker">03 · Custo do milheiro</span>
         <h2>Quanto <span class="grad-text">vale</span> seu milheiro em cada programa</h2>
@@ -236,7 +247,7 @@ Exemplo Paris executiva:
     </section>
 
     <!-- 04 — FRAMEWORK POR DESTINO -->
-    <section class="section section--alt">
+    <section class="section section--alt" id="destinos">
       <div class="section__head reveal">
         <span class="kicker">04 · Framework por destino</span>
         <h2>Qual moeda pra <span class="grad-text">cada destino</span></h2>
@@ -338,7 +349,7 @@ Exemplo Paris executiva:
     </section>
 
     <!-- 05 — CENÁRIOS REAIS -->
-    <section class="section">
+    <section class="section" id="casos">
       <div class="section__head reveal">
         <span class="kicker">05 · Cenários reais</span>
         <h2>3 casos <span class="grad-text">resolvidos passo a passo</span></h2>
@@ -390,10 +401,72 @@ Exemplo Paris executiva:
       </div>
     </section>
 
-    <!-- 06 — REGRA DE OURO -->
-    <section class="section section--alt">
+    <!-- 06 — COMPRAR EM PROGRAMA GRINGO -->
+    <section class="section" id="comprar-gringo">
       <div class="section__head reveal">
-        <span class="kicker">06 · Regra de ouro</span>
+        <span class="kicker">06 · Comprar gringo</span>
+        <h2>Comprar pontos em <span class="grad-text">programa gringo</span>: quando vale</h2>
+        <p>Programa nacional (LATAM Pass, Azul / Azul pelo Mundo, Smiles) é <strong>sempre a 1ª opção</strong> — é mais barato gerar valor neles (cartão, gastos do dia a dia, bônus de transferência). Mas quando o nacional trava, <strong>comprar pontos direto num programa estrangeiro — em promo</strong> — costuma ser o melhor caminho. Muitos têm <strong>tabela fixa</strong> (preço previsível, independente da data).</p>
+      </div>
+
+      <div class="callout callout--tip reveal">
+        <strong>✅ Faz sentido comprar gringo quando bate os 5:</strong>
+        <span>
+          <strong>1.</strong> O programa é <strong>parceiro real</strong> da cia que opera a sua rota (cheque no <a href="seats-aero-guia-br.html" style="color:var(--accent)">Seats.aero</a>).<br>
+          <strong>2.</strong> No nacional tá <strong>caro, lotado ou a cia não emite</strong>.<br>
+          <strong>3.</strong> Tem <strong>promo de compra de pontos</strong> (bônus ou desconto) rolando.<br>
+          <strong>4.</strong> O total <strong>bate o preço em dinheiro</strong> — rode na <a href="termometro.html#calculadora" style="color:var(--accent)">calculadora "emitir ou pagar?"</a> antes de abrir a carteira.<br>
+          <strong>5.</strong> Olho na <strong>taxa de combustível (YQ)</strong>: prefira programas que <strong>não repassam</strong> (ex: SUMA, LifeMiles) — senão a taxa come a economia.
+        </span>
+      </div>
+
+      <div class="callout reveal">
+        <strong>Exemplo: SUMA (Air Europa)</strong>
+        <span>Tabela fixa Brasil ↔ Espanha/Portugal: <strong>25k milhas (econômica) / 50k (executiva) por trecho</strong>, dê a data que der. Em promo de compra (rola até ~50% de bônus), a executiva sai por uma fração do preço em dinheiro — e a SUMA <strong>não repassa YQ</strong>.</span>
+      </div>
+
+      <div class="decision-tree reveal">
+<strong>A conta (executiva, em promo de 50% bônus → milheiro ~€10):</strong>
+
+<span class="branch">Comprando os pontos na SUMA:</span>
+  50.000 milhas × €10/milheiro = €500
+  €500 × R$ 5,57 (câmbio) ≈ R$ 2.785
+  + R$ 172 de taxa de embarque (fixa, em real)
+  <strong>= R$ 2.957 a passagem</strong>
+
+<span class="branch">Mesma executiva em dinheiro:</span>
+  <strong>~R$ 13.327</strong>
+
+→ <strong>Economia de ~78%</strong> — só por saber que a SUMA emite essa rota e surfar a promo de compra.
+<span style="color:var(--text-mute); font-size:.85rem">⚠️ Valores de exemplo (Salvador → Porto). Câmbio, % de bônus e preço em dinheiro mudam — refaça sempre na <a href="termometro.html#calculadora" style="color:var(--accent)">calculadora</a>.</span></div>
+
+      <div class="callout callout--tip reveal">
+        <strong>Nem sempre precisa comprar: transferir também funciona</strong>
+        <span>Pra programas que recebem transferência da <strong>Livelo/Esfera</strong>, juntar os pontos no banco (organicamente, no cartão) e transferir costuma ser <strong>ainda mais acessível</strong> que comprar — e ainda rola <strong>bônus de transferência</strong> 2–3×/ano. O caso clássico é <strong>Esfera → Iberia</strong> na razão 2:1, que é o que essa página inteira ensina.</span>
+      </div>
+
+      <div class="decision-tree reveal">
+<strong>Exemplo: Qatar Qsuite GRU → Doha (executiva), via Iberia</strong>
+
+  70.000 Avios (tabela do Iberia)
+  = 140.000 Esfera (na razão 2:1, sem bônus — pior caso)
+  140.000 × R$ 35/milheiro ≈ R$ 4.900
+  + taxas (~R$ 400)
+  <strong>≈ R$ 5.300</strong> — fração da executiva em dinheiro (sai fácil 3–5× mais)
+
+→ Com <span class="branch">bônus de transferência Esfera→Iberia (~30%)</span> + Esfera em promo, cai pra <strong>~R$ 3.800</strong>.
+<span style="color:var(--text-mute); font-size:.85rem">⚠️ Avios e razão de transferência mudam — confirme antes de transferir (pontos transferidos não voltam).</span></div>
+
+      <div class="callout callout--rule reveal">
+        <strong>Regra de ouro:</strong>
+        <span>Nacional primeiro; gringo quando o nacional trava. E <strong>sempre</strong> compare com o preço em dinheiro — comprar gringo só vale se ganhar essa conta.</span>
+      </div>
+    </section>
+
+    <!-- 07 — REGRA DE OURO -->
+    <section class="section section--alt" id="nao-transferir">
+      <div class="section__head reveal">
+        <span class="kicker">07 · Regra de ouro</span>
         <h2>Quando <span class="grad-text">NÃO transferir</span></h2>
       </div>
 
