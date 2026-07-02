@@ -70,6 +70,9 @@
         ['Hospedagem', P + 'hospedagem.html'],
         ['Tax Free', P + 'tax-free.html'],
       ]},
+      { title: 'Se der ruim', links: [
+        ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
+      ]},
     ];
 
     const current = location.pathname.split('/').pop() || 'index.html';

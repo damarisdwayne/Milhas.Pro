@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Deu ruim na viagem? O que fazer e quais são seus direitos: mala extraviada ou danificada, obrigaram a despachar a mala de mão, voo atrasado ou cancelado, conexão perdida e overbooking. Baseado na Resolução 400 da ANAC e na Convenção de Montreal." />
+  <title>Deu ruim na viagem — seus direitos — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    /* passo a passo numerado */
+    .steps { max-width: 900px; margin: 1.25rem auto 0; padding-left: 0; list-style: none; counter-reset: st; display: grid; gap: .7rem; }
+    .steps li { position: relative; padding: .1rem 0 .1rem 2.4rem; color: var(--text-dim); font-size: .95rem; line-height: 1.6; counter-increment: st; }
+    .steps li::before { content: counter(st); position: absolute; left: 0; top: 0; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; border-radius: 50%; background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.4); color: var(--text); font-size: .8rem; font-weight: 600; font-family: var(--font-mono); }
+    .steps li strong { color: var(--text); }
+
+    /* callouts */
+    .box { max-width: 900px; margin: 1.5rem auto 0; padding: 1.15rem 1.4rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); }
+    .box > strong { display: block; margin-bottom: .55rem; color: var(--text); font-size: 1rem; }
+    .box span, .box p { color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+    .box--warn { border-color: rgba(255,92,160,.35); background: rgba(255,92,160,.06); }
+    .box--tip  { border-color: rgba(0,212,168,.32); background: rgba(0,212,168,.05); }
+    .box--info { border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05); }
+
+    /* linha do tempo da assistência material */
+    .timeline { max-width: 720px; margin: 1.5rem auto 0; display: grid; gap: .75rem; }
+    .timeline__row { display: flex; align-items: flex-start; gap: 1rem; padding: .9rem 1.1rem; border-radius: 12px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); }
+    .timeline__t { flex-shrink: 0; font-family: var(--font-mono); font-weight: 600; font-size: .9rem; color: var(--accent); min-width: 3.5rem; }
+    .timeline__d { color: var(--text-dim); font-size: .92rem; line-height: 1.55; }
+    .timeline__d strong { color: var(--text); }
+
+    /* badge de valor / DES */
+    .des { display: inline-block; font-family: var(--font-mono); font-size: .8rem; font-weight: 600; padding: .15rem .5rem; border-radius: 6px; background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.35); color: var(--text); white-space: nowrap; }
+
+    .prog-table { width: 100%; border-collapse: collapse; margin: 1rem 0 0; font-size: .9rem; }
+    .prog-table th, .prog-table td { padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .prog-table th { color: var(--text-dim); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+    .prog-table tbody tr:hover { background: rgba(255,255,255,.02); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="achados.html">Achados</a>
+        <!-- oculto: <a href="viagens.html">Viagens</a> -->
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🆘 Deu ruim na viagem</span>
+      <h1>Quando algo <span class="grad-text">sai do plano</span></h1>
+      <p>Mala sumiu, conexão atrasou e você perdeu o voo, a companhia quer despachar sua mala de mão à força, negaram seu embarque. Aqui está <strong>o que fazer na hora</strong> e <strong>quais são seus direitos</strong> — com base na <strong>Resolução 400 da ANAC</strong> (voos que saem, chegam ou fazem escala no Brasil) e na <strong>Convenção de Montreal</strong> (trechos internacionais).</p>
+
+      <div class="box box--warn" style="margin-top:1.5rem; text-align:left">
+        <strong>⚠️ Leia isto primeiro</strong>
+        <span>Este guia é informativo e resume as regras vigentes em <strong>julho/2026</strong> — não é aconselhamento jurídico. Regras de aviação mudam: a própria <strong>ANAC abriu consulta pública para revisar a Resolução 400</strong>, e uma das propostas em discussão é <strong>restringir a assistência aos casos causados pela própria companhia</strong>. Antes de exigir um direito, confirme o texto atual no site da ANAC (<strong>gov.br/anac</strong>) ou pela central <strong>163</strong>. Onde eu não tenho certeza do número exato, deixei isso claro.</span>
+      </div>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#bagagem-extraviou">🧳 Mala extraviou</a>
+        <a href="#bagagem-danificada">💥 Mala danificada/violada</a>
+        <a href="#mala-de-mao">🎒 Querem despachar minha mala de mão</a>
+        <a href="#atraso-cancelamento">⏱️ Voo atrasou/cancelou</a>
+        <a href="#conexao-perdida">🔗 Perdi a conexão</a>
+        <a href="#overbooking">🚫 Negaram meu embarque</a>
+        <a href="#internacional">🌍 Voo internacional</a>
+        <a href="#emergencia-exterior">🆘 Emergência no exterior</a>
+        <a href="#como-reclamar">📣 Como reclamar</a>
+      </nav>
+    </section>
+
+    <!-- ============ MALA EXTRAVIOU ============ -->
+    <section class="section" id="bagagem-extraviou">
+      <div class="section__head reveal">
+        <span class="kicker">🧳 Bagagem extraviada</span>
+        <h2>Minha mala não chegou na esteira</h2>
+        <p>Extravio quase sempre é temporário — a mala foi para outro voo e chega depois. O importante é <strong>registrar antes de sair do aeroporto</strong>, porque é o registro que garante seus direitos.</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li><strong>Não saia da área de desembarque sem registrar.</strong> Procure o balcão da companhia (ou do agente de bagagem) e abra o <strong>RIB — Relatório de Irregularidade de Bagagem</strong> (às vezes chamado de PIR). Guarde o número do protocolo.</li>
+        <li><strong>Tenha em mãos</strong> o comprovante da etiqueta de despacho (aquele adesivo colado no cartão de embarque) e o cartão de embarque.</li>
+        <li><strong>Anote como te avisarão</strong> quando a mala for localizada e confirme o endereço de entrega — a companhia deve entregar a bagagem onde você estiver, sem custo.</li>
+        <li><strong>Guarde todos os recibos</strong> das compras de emergência (roupa, higiene, carregador). Você vai precisar deles para o ressarcimento.</li>
+      </ol>
+
+      <div class="box box--info">
+        <strong>⏳ Prazos que a companhia tem para te devolver a mala</strong>
+        <span>
+          <strong>Voo doméstico:</strong> até <strong>7 dias</strong>.<br>
+          <strong>Voo internacional:</strong> até <strong>21 dias</strong>.<br><br>
+          Se não localizarem nesse prazo, a mala é considerada <strong>extraviada em definitivo</strong> e a companhia deve <strong>indenizar</strong>. O pagamento deve sair em <strong>até 7 dias</strong> após você preencher o formulário de indenização.
+        </span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>💸 E enquanto a mala não chega? (itens de primeira necessidade)</strong>
+        <span>Se você está <strong>fora da sua cidade de domicílio</strong>, a companhia deve <strong>ressarcir gastos com itens de primeira necessidade</strong> (roupa, higiene) enquanto estiver sem a bagagem. A forma e os limites são definidos pela empresa — por isso <strong>guarde as notas</strong> e evite exageros que não sejam reembolsáveis. Se você está na sua própria cidade, esse ressarcimento em geral não se aplica (você tem suas coisas em casa).</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>🛡️ Blindagem: declare valor e não despache o que importa</strong>
+        <span>Itens caros, eletrônicos, remédios, documentos e joias <strong>vão na bagagem de mão</strong> — nunca na despachada. Para objetos de valor que precisem ir no porão, existe a <strong>Declaração Especial de Valor</strong>: você declara o valor antes do embarque (pagando uma taxa) e, em caso de extravio, a indenização é calculada sobre esse valor.</span>
+      </div>
+    </section>
+
+    <!-- ============ MALA DANIFICADA ============ -->
+    <section class="section section--alt" id="bagagem-danificada">
+      <div class="section__head reveal">
+        <span class="kicker">💥 Bagagem danificada ou violada</span>
+        <h2>Minha mala chegou quebrada, amassada ou aberta</h2>
+        <p>Rodinha arrancada, fecho arrombado, itens faltando. Aqui o prazo é curto e o momento certo de reclamar é <strong>ainda no aeroporto</strong>.</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li><strong>Reclame na hora, preferencialmente na sala de desembarque</strong>, antes de deixar o aeroporto. Abra o registro por escrito (RIB) com a companhia.</li>
+        <li><strong>Fotografe tudo</strong>: o dano na mala, o cadeado violado e o conteúdo. Se faltam itens, liste-os.</li>
+        <li><strong>Se não deu para registrar na hora</strong>, você ainda tem prazo — mas corra.</li>
+      </ol>
+
+      <div class="box box--info">
+        <strong>⏳ Prazo para reclamar dano</strong>
+        <span>
+          <strong>Dano à bagagem:</strong> até <strong>7 dias</strong> após receber a mala.<br>
+          <strong>Atraso na entrega</strong> (voo internacional): até <strong>21 dias</strong> a contar da data em que a bagagem foi entregue.<br><br>
+          A companhia deve <strong>consertar, substituir ou indenizar</strong>, conforme a comprovação do dano.
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ MALA DE MÃO ============ -->
+    <section class="section" id="mala-de-mao">
+      <div class="section__head reveal">
+        <span class="kicker">🎒 Bagagem de mão no portão</span>
+        <h2>Querem me obrigar a despachar a mala de mão</h2>
+        <p>Cena clássica no embarque: "o compartimento está cheio, vamos despachar a sua". Você tem direitos aqui — mas eles têm limite.</p>
+      </div>
+
+      <div class="box box--info">
+        <strong>📏 O que a regra garante</strong>
+        <span>
+          Você tem direito a <strong>até 10 kg de bagagem de mão sem custo</strong>, mais <strong>um item pessoal</strong> (bolsa/mochila pequena) embaixo do assento. As <strong>dimensões (altura × largura × comprimento)</strong> são definidas por cada companhia no contrato de transporte — confira as da sua antes de viajar.
+        </span>
+      </div>
+
+      <div class="box box--warn">
+        <strong>⚠️ Quando eles PODEM obrigar o despacho</strong>
+        <span>A companhia pode exigir despachar sua mala de mão no porão <strong>quando o compartimento de cabine estiver cheio</strong> ou <strong>por questão de segurança/capacidade</strong> — e a definição de "cheio" é responsabilidade dela. Nesses casos, <strong>você não pode recusar</strong>. O que ela <strong>não pode</strong> é te <strong>cobrar</strong> por esse despacho obrigatório: se sua mala está dentro das regras, o despacho no portão é <strong>gratuito</strong>. Cobrar aí é prática abusiva.</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>✅ Se for obrigado a despachar, proteja-se</strong>
+        <ol class="steps" style="margin-top:.5rem">
+          <li><strong>Tire os itens de valor</strong> (eletrônicos, documentos, remédios, carregador, bateria) e leve com você na cabine.</li>
+          <li><strong>Peça a etiqueta de despacho</strong> e guarde o comprovante — confirme que <strong>não haverá cobrança</strong>.</li>
+          <li><strong>Peça a pesagem e o comprovante</strong> se disserem que passou do peso — assim fica registrado que estava dentro dos 10 kg.</li>
+          <li><strong>Peça a justificativa do despacho</strong> (compartimento cheio / segurança). Se claramente havia espaço na cabine, <strong>registre em vídeo</strong> discretamente — é sua prova de que a exigência foi indevida.</li>
+          <li><strong>Peça o preenchimento da Declaração de Valor</strong> se houver algo caro que não dá para tirar — em caso de perda, a indenização considera o valor declarado.</li>
+          <li><strong>Fotografe a mala</strong> (estado e conteúdo) antes de entregar.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ATRASO / CANCELAMENTO ============ -->
+    <section class="section section--alt" id="atraso-cancelamento">
+      <div class="section__head reveal">
+        <span class="kicker">⏱️ Atraso e cancelamento</span>
+        <h2>Meu voo atrasou ou foi cancelado</h2>
+        <p>Duas coisas funcionam em paralelo: a <strong>assistência material</strong> (comida, hotel, comunicação) que cresce conforme o tempo de espera, e as <strong>opções de reacomodação/reembolso</strong> quando o atraso é grande.</p>
+      </div>
+
+      <h3 style="text-align:center; margin-top:1rem; color:var(--text)">Assistência material — pelo tempo de espera</h3>
+      <p style="text-align:center; max-width:720px; margin:.4rem auto 0; color:var(--text-mute); font-size:.9rem">Vale independentemente do motivo do atraso, enquanto você estiver no aeroporto (ou no avião com as portas abertas). Aplica-se a passageiros no Brasil.</p>
+      <div class="timeline reveal">
+        <div class="timeline__row"><span class="timeline__t">+1 h</span><span class="timeline__d"><strong>Comunicação</strong> — internet, telefone, meios para você avisar quem precisa.</span></div>
+        <div class="timeline__row"><span class="timeline__t">+2 h</span><span class="timeline__d"><strong>Alimentação</strong> — voucher, refeição ou lanche compatível com o horário.</span></div>
+        <div class="timeline__row"><span class="timeline__t">+4 h</span><span class="timeline__d"><strong>Hospedagem + transporte</strong> de ida e volta ao hotel, quando for preciso pernoitar. Se você está na sua própria cidade, a empresa pode cobrir só o transporte até sua casa e de volta.</span></div>
+      </div>
+
+      <div class="box box--info" style="margin-top:2rem">
+        <strong>🔀 Atraso acima de 4 h, cancelamento ou alteração pela companhia: as 3 opções</strong>
+        <span>
+          Nessas situações a empresa é <strong>obrigada a te oferecer, à sua escolha</strong>:
+          <ol class="steps" style="margin-top:.6rem">
+            <li><strong>Reacomodação</strong> — em voo próprio ou de outra companhia, no serviço equivalente, na <strong>primeira oportunidade</strong>; ou em voo da mesma empresa em <strong>data e horário de sua conveniência</strong>.</li>
+            <li><strong>Reembolso integral</strong> — incluindo a tarifa de embarque.</li>
+            <li><strong>Transporte alternativo</strong> — por outro meio (ex.: ônibus), quando fizer sentido.</li>
+          </ol>
+        </span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>📅 Mudaram meu voo com antecedência — e agora?</strong>
+        <span>A companhia pode alterar o voo, mas deve <strong>avisar com pelo menos 72 horas</strong> de antecedência. Se avisar com <strong>menos de 72 h</strong>, ou se a alteração resultar em atraso na chegada superior a <strong>30 minutos (voos domésticos)</strong> ou <strong>1 hora (voos internacionais)</strong>, você pode escolher entre <strong>reacomodação</strong> ou <strong>reembolso integral</strong>.</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>⏲️ Se escolher reembolso</strong>
+        <span>O reembolso deve ser feito em <strong>até 7 dias</strong> a contar do seu pedido, <strong>no mesmo meio de pagamento</strong> usado na compra (se pagou com milhas/pontos, elas voltam; se pagou no cartão, estorna no cartão).</span>
+      </div>
+    </section>
+
+    <!-- ============ CONEXÃO PERDIDA ============ -->
+    <section class="section" id="conexao-perdida">
+      <div class="section__head reveal">
+        <span class="kicker">🔗 Conexão perdida</span>
+        <h2>Atrasou o primeiro voo e perdi a conexão</h2>
+        <p>A regra de ouro: <strong>quem comprou tudo num bilhete só responde pelo todo</strong>. Se a conexão faz parte da mesma reserva, a companhia tem que resolver.</p>
+      </div>
+
+      <div class="box box--info">
+        <strong>🎫 Bilhete único (a conexão está na mesma reserva)</strong>
+        <span>Se você perdeu o voo seguinte por <strong>atraso do trecho anterior da mesma passagem</strong>, isso conta como <strong>falha no transporte</strong> — a companhia deve <strong>reacomodar você sem custo</strong> no próximo voo disponível e prestar a <strong>assistência material</strong> (comida, hotel, transporte) enquanto você espera, seguindo a mesma escala de horas da seção acima.</span>
+      </div>
+
+      <div class="box box--warn">
+        <strong>⚠️ Cuidado com bilhetes separados ("self-connection")</strong>
+        <span>Se você <strong>comprou dois bilhetes separados</strong> (ex.: uma passagem de milhas até um hub + outra passagem de outra companhia dali em diante) e o primeiro atrasou, a segunda companhia <strong>não tem obrigação</strong> com o atraso da primeira — cada bilhete é um contrato independente. Por isso, ao montar viagem em trechos separados, deixe <strong>folga generosa entre as conexões</strong> e, de preferência, mala só de mão. Veja as <a href="como-chegar.html" style="color:var(--accent)">receitas de como chegar</a> e as <a href="estrategias.html#open-jaw" style="color:var(--accent)">notas de open-jaw/stopover</a>.</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>🛂 Não perca a conexão por causa da imigração</strong>
+        <span>Em conexões internacionais, confirme se você <strong>precisa passar pela imigração e reclamar a bagagem</strong> no ponto de conexão (varia por país e por acordo entre companhias). Isso come tempo — some à sua folga.</span>
+      </div>
+    </section>
+
+    <!-- ============ OVERBOOKING ============ -->
+    <section class="section section--alt" id="overbooking">
+      <div class="section__head reveal">
+        <span class="kicker">🚫 Preterição / overbooking</span>
+        <h2>Negaram meu embarque mesmo com tudo certo</h2>
+        <p>Chama-se <strong>preterição</strong> quando você chega no horário, com tudo em ordem, e mesmo assim não embarca — por overbooking (venderam mais assentos que a capacidade), troca por aeronave menor ou necessidade de voar mais leve.</p>
+      </div>
+
+      <div class="box box--info">
+        <strong>🙋 Primeiro, eles procuram voluntários</strong>
+        <span>Antes de negar embarque a alguém à força, a companhia deve <strong>procurar voluntários</strong> que aceitem embarcar em outro voo em troca de vantagens (dinheiro, passagens, milhas, diárias) — <strong>negociadas livremente com você</strong>. Se aceitar, pode ser pedido que você assine um recibo. <strong>Você não é obrigado a ser voluntário</strong> — só aceite se a compensação valer a pena.</span>
+      </div>
+
+      <div class="box box--warn">
+        <strong>💰 Se a preterição for imposta (você não se voluntariou)</strong>
+        <span>
+          A companhia deve pagar <strong>compensação financeira imediata</strong>, além de oferecer reacomodação/reembolso e prestar assistência material. Valores mínimos definidos pela ANAC:
+          <table class="prog-table">
+            <thead><tr><th>Tipo de voo</th><th>Compensação mínima</th></tr></thead>
+            <tbody>
+              <tr><td>Doméstico</td><td><span class="des">250 DES</span> &nbsp;<span style="color:var(--text-mute)">≈ alguns milhares de reais*</span></td></tr>
+              <tr><td>Internacional</td><td><span class="des">500 DES</span> &nbsp;<span style="color:var(--text-mute)">≈ o dobro do doméstico*</span></td></tr>
+            </tbody>
+          </table>
+          <span style="display:block; margin-top:.6rem; color:var(--text-mute); font-size:.85rem">* DES = Direito Especial de Saque, unidade do FMI convertida pelo câmbio do dia (cotação no Banco Central). Não cravo o valor em reais porque oscila — 250 DES giram na casa de ~R$ 1.800 e 500 DES ~R$ 3.600, mas <strong>confirme a cotação atual</strong>. Isso é o mínimo administrativo; danos maiores podem ser cobrados à parte na Justiça.</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ INTERNACIONAL ============ -->
+    <section class="section" id="internacional">
+      <div class="section__head reveal">
+        <span class="kicker">🌍 Voos internacionais</span>
+        <h2>O que muda quando o voo cruza a fronteira</h2>
+        <p>Em trecho internacional entram em cena a <strong>Convenção de Montreal</strong> (Decreto 5.910/2006) e o <strong>Código de Defesa do Consumidor</strong>, além da Resolução 400.</p>
+      </div>
+
+      <div class="box box--info">
+        <strong>💼 Teto de indenização por bagagem</strong>
+        <span>
+          <strong>Voo doméstico:</strong> aplica-se o <strong>CDC</strong> — reparação integral, <strong>sem teto fixado em lei</strong>; o valor é arbitrado caso a caso (inclusive na Justiça).<br><br>
+          <strong>Voo internacional:</strong> a <strong>Convenção de Montreal impõe um teto</strong> de responsabilidade por bagagem, na casa de <strong>~1.100 a 1.300 DES por passageiro</strong> (algo em torno de dezenas de milhares de reais). <strong>Não fixo o número exato aqui</strong> porque a OACI reajusta esse valor periodicamente e as fontes divergem — confirme o valor vigente antes de usá-lo como referência.
+        </span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>⚖️ Dano moral não fica preso ao teto</strong>
+        <span>O STF e o STJ já decidiram que o teto da Convenção de Montreal limita os <strong>danos materiais</strong>, mas <strong>não</strong> os <strong>danos morais</strong> — esses seguem o CDC e são arbitrados pelo juiz. Ou seja: o teto de Montreal não é o limite total do que você pode buscar.</span>
+      </div>
+
+      <div class="box box--info">
+        <strong>⏳ Prazo para ir à Justiça</strong>
+        <span>
+          <strong>Voo internacional:</strong> <strong>2 anos</strong> (Convenção de Montreal), contados da chegada — ou da data prevista de chegada.<br>
+          <strong>Voo doméstico:</strong> em geral <strong>5 anos</strong> (CDC).
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ EMERGÊNCIA NO EXTERIOR ============ -->
+    <section class="section section--alt" id="emergencia-exterior">
+      <div class="section__head reveal">
+        <span class="kicker">🆘 Emergência de verdade no exterior</span>
+        <h2>Plantão Consular do Itamaraty</h2>
+        <p>Isso não é sobre voo atrasado — é sobre <strong>risco à vida, segurança ou dignidade</strong> de um brasileiro fora do país. Para esses casos existe um plantão consular que funciona <strong>fora do horário comercial</strong>. Salve o contato <strong>antes de viajar</strong>: numa emergência real não sobra tempo para pesquisar.</p>
+      </div>
+
+      <div class="box box--warn">
+        <strong>☎️ Como acionar</strong>
+        <span>
+          <strong>Fora do horário comercial / emergências:</strong> Plantão Consular por telefone ou WhatsApp — <strong>+55 (61) 98260-0610</strong>.<br>
+          <strong>Em horário comercial:</strong> fale direto com o <strong>consulado ou embaixada do Brasil</strong> mais próximo de onde a pessoa está, ou escreva para a Divisão de Assistência Consular: <strong>dac@itamaraty.gov.br</strong>.<br><br>
+          <span style="color:var(--text-mute); font-size:.85rem">⚠️ Esse número já mudou no passado. <strong>Confirme o vigente</strong> no Portal Consular do Itamaraty (gov.br/mre → Portal Consular) antes de contar com ele.</span>
+        </span>
+      </div>
+
+      <div class="box box--info">
+        <strong>🚨 O que conta como emergência (aciona o plantão)</strong>
+        <span>Situações que exigem ação imediata: <strong>detenção ou prisão</strong>, <strong>acidente ou hospitalização</strong>, <strong>falecimento</strong>, <strong>violência ou maus-tratos</strong>, <strong>desaparecimento</strong>, <strong>tráfico de pessoas</strong>, <strong>catástrofes naturais e conflitos armados</strong>, <strong>inadmissão ou deportação</strong>.</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>✅ O que o consulado faz — e o que NÃO faz</strong>
+        <span>
+          <strong>Faz (gratuitamente):</strong> emite passaporte de emergência / documento de viagem para você voltar, orienta e acompanha em caso de prisão ou hospitalização, ajuda a localizar a pessoa, emite certidões, faz a ponte com autoridades e família.<br><br>
+          <strong>Não faz:</strong> não paga advogado, conta de hospital, hotel ou passagem de volta; não tira ninguém da prisão nem interfere na Justiça local (no exterior você responde às <strong>leis do país</strong>); e não funciona como agência de viagens. Perda de voo, dúvida de bagagem ou renovação comum de passaporte <strong>não são emergência</strong> — resolvem-se em horário normal.
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ COMO RECLAMAR ============ -->
+    <section class="section" id="como-reclamar">
+      <div class="section__head reveal">
+        <span class="kicker">📣 Como fazer valer seus direitos</span>
+        <h2>Reclamou e não resolveram? Escalone assim</h2>
+        <p>Sempre na ordem: primeiro a companhia (com protocolo), depois os órgãos. Quanto mais provas você juntou no aeroporto, mais fácil.</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li><strong>Registre com a companhia primeiro</strong> — presencialmente ou pelo SAC/app — e <strong>guarde o número do protocolo</strong>. Muitos casos resolvem aqui.</li>
+        <li><strong>consumidor.gov.br</strong> — plataforma oficial e gratuita; as empresas costumam responder em poucos dias e o índice de solução é alto.</li>
+        <li><strong>ANAC</strong> — central <strong>163</strong> (todos os dias, 8h–20h) ou canal de reclamação no site <strong>gov.br/anac</strong>. A ANAC fiscaliza a companhia (não paga sua indenização, mas registra e pressiona).</li>
+        <li><strong>Procon</strong> — órgão de defesa do consumidor do seu estado/cidade.</li>
+        <li><strong>Juizado Especial Cível (JEC)</strong> — para causas de até <strong>20 salários mínimos você pode entrar sem advogado</strong>. É o caminho para danos morais e valores acima do mínimo administrativo.</li>
+      </ol>
+
+      <div class="box box--tip">
+        <strong>📸 Checklist de provas — junte sempre</strong>
+        <span>Cartão de embarque, comprovante de etiqueta de bagagem, número do RIB/protocolo, <strong>fotos</strong> (mala, painel de voo mostrando o atraso, avisos da companhia), <strong>prints</strong> de e-mails/mensagens da empresa e <strong>todas as notas fiscais</strong> de gastos extras. Sem prova, o direito existe mas fica difícil de cobrar.</span>
+      </div>
+
+      <div class="box box--warn">
+        <strong>🤖 Uma última lembrança</strong>
+        <span>As regras e valores acima refletem o que estava vigente em <strong>julho/2026</strong> e a <strong>Resolução 400 está em revisão</strong>. Antes de bater o pé num direito específico, <strong>confirme o texto atual</strong> em gov.br/anac. Este guia orienta — não substitui a consulta oficial nem um advogado.</span>
+      </div>
+    </section>
+
+    <!-- ============ RELACIONADOS ============ -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">🧭 Continue por aqui</span>
+        <h2>Antes de viajar, capriche no planejamento</h2>
+      </div>
+      <div class="cards">
+        <a class="card reveal" href="como-chegar.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🗺️</div>
+          <h3>Receitas — como chegar</h3>
+          <p>Como montar a viagem trecho a trecho — e onde deixar folga nas conexões pra não cair na armadilha do bilhete separado.</p>
+        </a>
+        <a class="card reveal" href="estrategias.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🛠</div>
+          <h3>Estratégias</h3>
+          <p>Manual operacional do brasileiro: emissão, hacks e as notas de open-jaw e stopover.</p>
+        </a>
+        <a class="card reveal" href="hospedagem.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🏨</div>
+          <h3>Hospedagem</h3>
+          <p>Onde ficar usando pontos — útil também quando um imprevisto te obriga a pernoitar.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
