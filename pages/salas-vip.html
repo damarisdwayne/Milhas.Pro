@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="O benefício de sala VIP do seu cartão também vale como crédito em restaurantes do aeroporto. Entenda Priority Pass, DragonPass, Visa Airport Companion, LoungeKey e Mastercard — e como usar o crédito para comer sem pagar (ou quase)." />
+  <title>Salas VIP & crédito em restaurantes — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    .steps { max-width: 900px; margin: 1.25rem auto 0; padding-left: 0; list-style: none; counter-reset: st; display: grid; gap: .7rem; }
+    .steps li { position: relative; padding: .1rem 0 .1rem 2.4rem; color: var(--text-dim); font-size: .95rem; line-height: 1.6; counter-increment: st; }
+    .steps li::before { content: counter(st); position: absolute; left: 0; top: 0; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; border-radius: 50%; background: rgba(124,92,255,.15); border: 1px solid rgba(124,92,255,.4); color: var(--text); font-size: .8rem; font-weight: 600; font-family: var(--font-mono); }
+    .steps li strong { color: var(--text); }
+
+    .box { max-width: 900px; margin: 1.5rem auto 0; padding: 1.15rem 1.4rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); }
+    .box > strong { display: block; margin-bottom: .55rem; color: var(--text); font-size: 1rem; }
+    .box span, .box p { color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+    .box--warn { border-color: rgba(255,92,160,.35); background: rgba(255,92,160,.06); }
+    .box--tip  { border-color: rgba(0,212,168,.32); background: rgba(0,212,168,.05); }
+    .box--info { border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05); }
+
+    .prog-table { width: 100%; border-collapse: collapse; margin: 1rem 0 0; font-size: .9rem; }
+    .prog-table th, .prog-table td { padding: .6rem .8rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .prog-table th { color: var(--text-dim); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+    .prog-table tbody tr:hover { background: rgba(255,255,255,.02); }
+    .table-wrap { max-width: 900px; margin: 1rem auto 0; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="achados.html">Achados</a>
+        <!-- oculto: <a href="viagens.html">Viagens</a> -->
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🛋️ No aeroporto</span>
+      <h1>Salas VIP — e o <span class="grad-text">crédito escondido</span> pra comer no aeroporto</h1>
+      <p>A maioria usa o benefício do cartão <strong>só pra entrar na sala VIP</strong> — e perde o melhor. O mesmo acesso (Priority Pass, DragonPass e afins) vale como <strong>crédito em restaurantes parceiros</strong> dentro do aeroporto: você pede, apresenta o QR Code do app e o valor é abatido da conta. Ótimo quando a sala VIP está lotada ou você quer comer de verdade.</p>
+
+      <div class="box box--warn" style="margin-top:1.5rem; text-align:left">
+        <strong>⚠️ Antes de tudo: isso muda rápido</strong>
+        <span>Quais cartões dão acesso, quantas visitas por ano, os valores do crédito e a lista de salas/restaurantes <strong>mudam com frequência</strong> — variam por banco, bandeira e categoria do cartão. Os números aqui são referência de <strong>julho/2026</strong>. Antes de contar com o benefício, <strong>confirme no app do seu programa e com o emissor do cartão</strong>.</span>
+      </div>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#hack">🍔 O crédito em restaurantes</a>
+        <a href="#programas">🎟️ Os programas</a>
+        <a href="#como-usar">✅ Como usar no restaurante</a>
+        <a href="#pegadinhas">⚠️ Pegadinhas</a>
+        <a href="#exemplos">📍 Exemplos no Brasil</a>
+      </nav>
+    </section>
+
+    <!-- ============ O HACK ============ -->
+    <section class="section" id="hack">
+      <div class="section__head reveal">
+        <span class="kicker">🍔 O que quase ninguém usa</span>
+        <h2>Seu acesso não precisa virar sala VIP</h2>
+        <p>Programas como Priority Pass, DragonPass, LoungeKey e Visa Airport Companion não dão só entrada em lounge — eles também oferecem um <strong>crédito de consumo em restaurantes parceiros</strong> do aeroporto. Funciona como um vale: você come e o valor sai da conta.</p>
+      </div>
+
+      <div class="box box--tip">
+        <strong>💡 Por que isso é bom</strong>
+        <span>
+          <ul style="margin:.3rem 0 0; padding-left:1.2rem; line-height:1.7">
+            <li>Sala VIP <strong>lotada ou longe do portão</strong>? Come num restaurante perto e usa o mesmo benefício.</li>
+            <li>Muita gente prefere um <strong>hambúrguer, um japonês ou um chopp</strong> a um bufê de lounge.</li>
+            <li>O crédito costuma dar pra <strong>uma refeição completa</strong> — e se passar, você só paga a diferença.</li>
+          </ul>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ OS PROGRAMAS ============ -->
+    <section class="section section--alt" id="programas">
+      <div class="section__head reveal">
+        <span class="kicker">🎟️ Quem é quem</span>
+        <h2>Os programas de acesso — e como o brasileiro pega</h2>
+        <p>O acesso não vem do aeroporto: vem do <strong>seu cartão de crédito</strong>. Cada bandeira/banco usa um desses programas. Você não escolhe o programa — ele vem embutido no cartão que você já tem (ou quer ter).</p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="prog-table">
+          <thead><tr><th>Programa</th><th>Como o brasileiro costuma ter</th><th>Crédito em restaurante*</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Visa Airport Companion</strong><br><span style="color:var(--text-mute); font-size:.85rem">roda sobre o DragonPass</span></td>
+              <td>Cartões <strong>Visa Infinite</strong> dão acesso a sala VIP. Platinum/Signature acessam a plataforma e ofertas, mas geralmente <strong>sem entrada grátis no lounge</strong>.</td>
+              <td>~US$ 32</td>
+            </tr>
+            <tr>
+              <td><strong>Priority Pass</strong></td>
+              <td>Vem em vários cartões de alta renda (bancos/fintechs). Uns dão <strong>acessos ilimitados</strong>, outros um número por ano.</td>
+              <td>~US$ 28 (= o valor de uma visita)</td>
+            </tr>
+            <tr>
+              <td><strong>LoungeKey</strong></td>
+              <td>Comum em cartões Mastercard/Visa de alto padrão. Além de salas e restaurantes, tem extras como <strong>cabines de sono (Siesta Box)</strong> em alguns aeroportos.</td>
+              <td>Crédito de consumo (valor varia)</td>
+            </tr>
+            <tr>
+              <td><strong>Mastercard</strong><br><span style="color:var(--text-mute); font-size:.85rem">Airport Experiences / LoungeKey</span></td>
+              <td>No Brasil o acesso costuma ser gerenciado pelo <strong>app do banco emissor</strong> do cartão.</td>
+              <td>Crédito de consumo (valor varia)</td>
+            </tr>
+            <tr>
+              <td><strong>DragonPass</strong></td>
+              <td>Programa próprio, também presente em cartões e em planos avulsos.</td>
+              <td>Crédito de consumo (valor varia)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center; max-width:720px; margin:.7rem auto 0; color:var(--text-mute); font-size:.85rem">* Valores aproximados de julho/2026, em dólar, por pessoa e por visita — confirme no app. Não listo cartão por cartão de propósito: isso muda direto, e o certo é checar no site/app do <strong>seu</strong> emissor.</p>
+
+      <div class="box box--info">
+        <strong>💎 Curiosidade: Visa Infinite Lounge em Guarulhos</strong>
+        <span>A Visa abriu uma <strong>sala VIP exclusiva pra clientes Visa Infinite</strong> no <strong>Terminal 3 do Aeroporto de Guarulhos (GRU)</strong>, aberta 24h. Acesso pelo app Visa Airport Companion, com o QR Code na aba de associação.</span>
+      </div>
+    </section>
+
+    <!-- ============ COMO USAR ============ -->
+    <section class="section" id="como-usar">
+      <div class="section__head reveal">
+        <span class="kicker">✅ Passo a passo</span>
+        <h2>Como usar o crédito no restaurante</h2>
+        <p>O processo é rápido e quase igual em todos os programas. O segredo é <strong>avisar antes de pedir</strong>.</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li><strong>Cadastre o cartão no app</strong> (Priority Pass, Visa Airport Companion etc.) <strong>antes de viajar</strong> — sem isso, não gera o QR Code na hora.</li>
+        <li><strong>No app, escolha o aeroporto</strong> e veja a aba de restaurantes (Dining) — ali aparecem os parceiros, terminal e o valor do crédito.</li>
+        <li><strong>Avise o garçom</strong> que vai usar o benefício do programa <em>antes de fazer o pedido</em>. Ele confirma se o restaurante participa.</li>
+        <li><strong>Apresente o QR Code</strong> gerado no app (alguns aceitam o cartão físico). O valor do crédito é abatido da conta.</li>
+        <li><strong>Passou do crédito?</strong> Você paga só a diferença, direto no caixa. <strong>Ficou abaixo?</strong> Não há reembolso do saldo — então peça perto do limite.</li>
+      </ol>
+    </section>
+
+    <!-- ============ PEGADINHAS ============ -->
+    <section class="section section--alt" id="pegadinhas">
+      <div class="section__head reveal">
+        <span class="kicker">⚠️ Leia antes de sair pedindo</span>
+        <h2>As pegadinhas que ninguém conta</h2>
+      </div>
+
+      <div class="box box--warn">
+        <strong>🎫 Usar o crédito no restaurante CONSOME uma visita</strong>
+        <span>No Priority Pass (e semelhantes), comer no restaurante <strong>gasta um dos seus acessos</strong> — exatamente como se você tivesse entrado numa sala VIP. Não é um extra em cima do lounge: é uma <strong>alternativa</strong> ao lounge. Se seu cartão tem visitas limitadas por ano, faça a conta.</span>
+      </div>
+
+      <div class="box box--info">
+        <strong>👥 Vale por pessoa — mas cada um gasta uma visita</strong>
+        <span>Se você está acompanhado, o acompanhante também pode ganhar o crédito — só que <strong>usando outra visita</strong> do plano (ou do direito de acompanhante, se o seu cartão oferece). Cada pessoa recebe o próprio crédito. Cartões com acompanhante pago cobram à parte.</span>
+      </div>
+
+      <div class="box box--tip">
+        <strong>📋 Checklist rápido</strong>
+        <span>
+          <ul style="margin:.3rem 0 0; padding-left:1.2rem; line-height:1.7">
+            <li>Cadastrou o cartão no app <strong>antes</strong> de chegar ao aeroporto?</li>
+            <li>Sabe <strong>quantas visitas/ano</strong> seu cartão dá (e quantas já usou)?</li>
+            <li>Conferiu no app se há <strong>restaurante parceiro no seu terminal</strong> (o benefício costuma ser por terminal)?</li>
+            <li>Confirmou o <strong>valor atual</strong> do crédito? (muda por programa e aeroporto)</li>
+          </ul>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ EXEMPLOS ============ -->
+    <section class="section" id="exemplos">
+      <div class="section__head reveal">
+        <span class="kicker">📍 Pra dar régua</span>
+        <h2>Exemplos de parceiros no Brasil</h2>
+        <p>Só pra você ter ideia do tipo de lugar — <strong>a lista muda o tempo todo</strong>, então sempre confira no app do seu programa, no dia, pelo terminal onde você está.</p>
+      </div>
+
+      <div class="box box--info">
+        <strong>🍽️ Alguns parceiros já vistos (exemplos, não é lista oficial)</strong>
+        <span>
+          <strong>Guarulhos (GRU), Terminal 3:</strong> hambúrguer, chopp Heineken e até japonês (ex.: General Prime Steak &amp; Burger, Living Heineken, opções de comida japonesa).<br>
+          <strong>Outros aeroportos:</strong> casas de vinho/gastrobares e o Living Heineken aparecem em várias praças; alguns têm cabines de sono (Siesta Box) via LoungeKey.<br><br>
+          <span style="color:var(--text-mute); font-size:.85rem">Não cravo nomes/terminais fixos aqui porque parcerias entram e saem. O que vale é abrir o <strong>app</strong>, selecionar o aeroporto e olhar a aba de restaurantes na hora.</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ RELACIONADOS ============ -->
+    <section class="section section--alt">
+      <div class="section__head reveal">
+        <span class="kicker">🧭 Continue por aqui</span>
+        <h2>Outras formas de viajar melhor gastando menos</h2>
+      </div>
+      <div class="cards">
+        <a class="card reveal" href="primeira-classe.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🥂</div>
+          <h3>Primeira classe</h3>
+          <p>As cabines premium que valem a pena queimar milhas — e os rituais em terra (lounges exclusivos de First).</p>
+        </a>
+        <a class="card reveal" href="hospedagem.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🏨</div>
+          <h3>Hospedagem</h3>
+          <p>Onde ficar usando pontos — o outro lado do jogo de viajar de graça.</p>
+        </a>
+        <a class="card reveal" href="imprevistos.html" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🆘</div>
+          <h3>Deu ruim na viagem</h3>
+          <p>Mala sumiu, voo atrasou, negaram embarque? Seus direitos e o que fazer na hora.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

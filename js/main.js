@@ -70,7 +70,8 @@
         ['Hospedagem', P + 'hospedagem.html'],
         ['Tax Free', P + 'tax-free.html'],
       ]},
-      { title: 'Se der ruim', links: [
+      { title: 'Na viagem', links: [
+        ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},
     ];
