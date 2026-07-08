@@ -13,6 +13,11 @@
   <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
   <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+  </style>
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
@@ -46,6 +51,15 @@
       <span class="kicker">🏨 Hospedagem</span>
       <h1>Hospedagem com <span class="grad-text">desconto duplo</span></h1>
       <p>Passagem barata + hospedagem cara = você perdeu metade da economia. A mesma lógica de milhas aplica em hotel — e tem combos que te dão ainda Avios pra próxima viagem.</p>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#onde-pesquisar">🔎 Onde pesquisar</a>
+        <a href="#gift-cards">🎁 Gift cards</a>
+        <a href="#british-airbnb">🇬🇧 British + Airbnb</a>
+        <a href="#programas-hotel">⭐ Programas de fidelidade</a>
+        <a href="#hospedagem-gratis">🛋️ Hospedagem de graça</a>
+        <a href="#checklist">📋 Checklist</a>
+      </nav>
     </section>
 
     <!-- ONDE PESQUISAR -->
@@ -88,6 +102,11 @@
           <p>Acha o mesmo hotel em outros sites por preço menor. Cole o link do hotel e ele compara.</p>
         </article>
         <article class="card reveal">
+          <div class="card__icon">🧩</div>
+          <h3>Directo (extensão)</h3>
+          <p>Enquanto você olha um hotel no <strong>Booking, Airbnb ou Expedia</strong>, a extensão avisa se dá pra reservar <strong>mais barato direto com o hotel</strong> — economia que pode chegar a ~25%. Grátis, roda no Chrome, Edge, Brave e Opera.</p>
+        </article>
+        <article class="card reveal">
           <div class="card__icon">💸</div>
           <h3>Top Cashback</h3>
           <p>Extensão de cashback. Ative antes de finalizar a reserva pra ganhar de volta parte do valor automaticamente.</p>
@@ -107,6 +126,11 @@
           <h3>ALL (Accor) via Azul</h3>
           <p>Mesmo sem voar Azul: junte milhas Azul baratas (Livelo→Azul com bônus) e, <strong>quando a Accor faz promo</strong> (fator reduzido + bônus), transfira pro <strong>ALL — Accor</strong> e pague hotel no mundo todo (1.000 pontos ALL = €20). <span style="color:var(--text-mute); font-size:.85rem">⚠️ Só vale na promo — no fator normal (10:1) fica raso.</span></p>
         </article>
+        <a class="card reveal" href="https://www.resortvacationstogo.com" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:block">
+          <div class="card__icon">🏝️</div>
+          <h3>Resort Vacations To Go</h3>
+          <p>Busca de <strong>resorts e all-inclusive com desconto</strong> — útil pra achar preço de referência em destinos de praia. <span style="color:var(--text-mute); font-size:.85rem">⚠️ Agência americana: tarifas em US$ e pacotes pensados pro mercado dos EUA — use mais pra pesquisar do que pra fechar daqui.</span></p>
+        </a>
       </div>
     </section>
 
