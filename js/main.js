@@ -69,6 +69,7 @@
         ['Primeira classe', P + 'primeira-classe.html'],
         ['Hospedagem', P + 'hospedagem.html'],
         ['Sonhos (lugares p/ visitar)', P + 'sonhos.html'],
+        ['Lojas (moda praia & viagem)', P + 'lojas.html'],
         ['Tax Free', P + 'tax-free.html'],
       ]},
       { title: 'Na viagem', links: [

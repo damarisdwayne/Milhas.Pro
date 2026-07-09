@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lojas de moda praia e lifestyle de viagem que eu curto — biquíni, saída de praia e peças pra deixar a mala pronta pro destino." />
+  <title>Lojas — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    /* Cards de loja */
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+    .shop-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; backdrop-filter: blur(10px); display: flex; flex-direction: column; transition: transform .2s ease, border-color .2s ease; }
+    .shop-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .shop-banner { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3.4rem; background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(0,229,255,.18)); border-bottom: 1px solid var(--border-soft); }
+    .shop-body { padding: 1.25rem 1.35rem 1.4rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+    .shop-tag { align-self: flex-start; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; font-family: var(--font-mono); color: var(--accent); background: rgba(124,92,255,.12); border: 1px solid rgba(124,92,255,.3); padding: .18rem .55rem; border-radius: 6px; }
+    .shop-card h3 { margin: .15rem 0 0; font-size: 1.2rem; }
+    .shop-loc { display: flex; align-items: center; gap: .35rem; color: var(--text-mute); font-size: .9rem; font-family: var(--font-mono); }
+    .shop-why { color: var(--text-dim); font-size: .92rem; line-height: 1.55; margin: 0; }
+    .shop-why strong { color: var(--text); }
+    .shop-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: .4rem; }
+    .shop-links a { display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; font-weight: 500; padding: .45rem .85rem; border-radius: 999px; text-decoration: none; border: 1px solid var(--border-soft); color: var(--text-dim); transition: all .2s ease; }
+    .shop-links a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+    .shop-links a.is-primary { color: var(--text); border-color: rgba(124,92,255,.4); background: rgba(124,92,255,.14); }
+
+    .shop-cta { text-align: center; max-width: 640px; margin: 2.5rem auto 0; color: var(--text-mute); font-size: .92rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+        <a href="achados.html">Achados</a>
+        <a href="sonhos.html">Sonhos</a>
+        <a href="lojas.html">Lojas</a>
+        <!-- oculto: <a href="viagens.html">Viagens</a> -->
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🛍️ Lojas</span>
+      <h1>Pra deixar a <span class="grad-text">mala pronta</span></h1>
+      <p>Lojas de moda praia e lifestyle de viagem que eu curto — biquíni, saída de praia, peças que combinam com destino de sol. Curadoria minha; vou marcando conforme descubro.</p>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#moda-praia">👙 Moda praia</a>
+      </nav>
+    </section>
+
+    <!-- ============ MODA PRAIA ============ -->
+    <section class="section" id="moda-praia">
+      <div class="section__head reveal">
+        <span class="kicker">👙 01 · Moda praia</span>
+        <h2>Biquíni & saída de praia</h2>
+        <p>Marcas de beachwear pra chegar no destino com a mala certa — do Caribe a Fernando de Noronha.</p>
+      </div>
+
+      <div class="shop-grid">
+        <article class="shop-card reveal">
+          <div class="shop-banner">👙</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Estampa autoral</span>
+            <h3>Zillê Rio</h3>
+            <div class="shop-loc">📍 Ipanema · Rio de Janeiro · RJ</div>
+            <p class="shop-why">Marca carioca de moda praia com <strong>estampas desenhadas à mão em aquarela</strong> pela própria fundadora (a Lu). Tem biquínis em vários cortes, maiôs e <strong>saídas de praia</strong> (kimonos, lenços, kaftans, crochê), além de linha casual e fitness — com <strong>proteção UV +50</strong>. Loja física em Ipanema (Rua Visconde de Pirajá 550, loja 212) e venda online pra todo o Brasil.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.zillerio.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/zille.rio/" target="_blank" rel="noopener">📷 @zille.rio</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="shop-cta">👉 Achou uma loja boa de moda praia ou de viagem? Me manda o <strong>nome + @ ou site</strong> que eu confiro e adiciono o card aqui.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
