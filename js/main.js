@@ -68,6 +68,7 @@
         ['Quinta liberdade', P + 'quinta-liberdade.html'],
         ['Primeira classe', P + 'primeira-classe.html'],
         ['Hospedagem', P + 'hospedagem.html'],
+        ['Sonhos (lugares p/ visitar)', P + 'sonhos.html'],
         ['Tax Free', P + 'tax-free.html'],
       ]},
       { title: 'Na viagem', links: [

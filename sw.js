@@ -1,6 +1,6 @@
 // Service worker — network-first pra HTML, cache-first pra assets
 // Bump CACHE quando quiser forçar invalidação em todos os usuários.
-const CACHE = 'milhas-pro-v5';
+const CACHE = 'milhas-pro-v6';
 
 const PRECACHE = [
   '/',
