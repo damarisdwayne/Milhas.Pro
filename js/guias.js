@@ -433,6 +433,22 @@ const GUIAS = {
       { i: '🧮', t: 'Cruze com o termômetro', d: 'Compare o total com a régua "em dinheiro" do Termômetro. Se o preço estourar a faixa da região, segura ou ajusta o roteiro.' }
     ]
   },
+  'tryp': {
+    nome: 'Tryp.com', cat: 'Roteiro multi-parada', badge: 'Reserva paga', url: 'https://www.tryp.com', idioma: 'PT/EN',
+    oque: 'Planejador com <strong>IA</strong> que combina <strong>voo, trem, ônibus e ferry</strong> (mais hotel) e monta o roteiro multi-cidade mais barato pra você — parecido com o <strong>Nomad do Kiwi</strong>. Serve pra ter ideia de miolo, sobretudo dentro da Europa. É <strong>passagem paga</strong> (não milhas) e a reserva sai por uma agência — então o cuidado no checkout é redobrado.',
+    passos: [
+      { t: 'Escolha ida-e-volta ou multi-cidade', d: 'No buscador, use a opção <strong>multi-cidade</strong> pra montar roteiro com várias paradas (é onde ele brilha, tipo Nomad).' },
+      { t: 'Informe origem, destinos e datas', d: 'Coloque as cidades que quer e a janela de datas. <strong>Datas flexíveis</strong> destravam combinações mais baratas.' },
+      { t: 'Deixe a IA montar e ordene por preço', d: 'Ele devolve várias viagens já combinadas (voo + trem + ônibus), cada uma com uma <strong>pontuação</strong> de preço/horário/localização. Ordene pelo mais barato.' },
+      { t: 'Abra o pacote e confira cada trecho', d: 'Veja os <strong>modos de transporte</strong>, conexões, horários e regras de bagagem de cada perna antes de decidir — igual você faria no Kiwi.' },
+      { t: '⚠️ Releia o preço final antes de pagar', d: 'No checkout, <strong>confirme o valor total e as regras de reembolso/flexibilidade</strong>. Há relatos de preço reajustado logo após a reserva — se subir, não confirme.' }
+    ],
+    dicas: [
+      { i: '⚠️', t: 'Preço pode mudar pós-reserva', d: 'A queixa mais comum: reajuste de tarifa depois de reservar e reembolso difícil. Confirme o total no ato do pagamento e guarde print de tudo.' },
+      { i: '🌍', t: 'Melhor pra Europa', d: 'Combina bem trem + ônibus + voo dentro do continente. Saindo do Brasil, compare com Kiwi/Skyscanner antes — o encaixe dele é mais forte no miolo europeu.' },
+      { i: '🧮', t: 'É dinheiro, não milha', d: 'Cruze o total com a régua "em dinheiro" do Termômetro. Serve pra montar/inspirar o miolo pago, não substitui a emissão em milhas.' }
+    ]
+  },
   'rome2rio': {
     nome: 'Rome2Rio', cat: 'Trechos terrestres', badge: 'Grátis', url: 'https://www.rome2rio.com', idioma: 'Em inglês',
     oque: 'Mostra <strong>como ir de A até B</strong> por voo, trem, ônibus ou carro, com tempo e custo estimados. Essencial pros <strong>trechos terrestres do miolo</strong> (ex: Milão → Dolomitas, Roma → Florença).',
