@@ -22,7 +22,9 @@
     .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
     .shop-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; backdrop-filter: blur(10px); display: flex; flex-direction: column; transition: transform .2s ease, border-color .2s ease; }
     .shop-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .shop-banner { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3.4rem; background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(0,229,255,.18)); border-bottom: 1px solid var(--border-soft); }
+    .shop-banner { position: relative; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3.4rem; background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(0,229,255,.18)); border-bottom: 1px solid var(--border-soft); overflow: hidden; }
+    .shop-banner--photo { height: 260px; }
+    .shop-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .shop-body { padding: 1.25rem 1.35rem 1.4rem; display: flex; flex-direction: column; gap: .55rem; flex: 1; }
     .shop-tag { align-self: flex-start; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; font-family: var(--font-mono); color: var(--accent); background: rgba(124,92,255,.12); border: 1px solid rgba(124,92,255,.3); padding: .18rem .55rem; border-radius: 6px; }
     .shop-card h3 { margin: .15rem 0 0; font-size: 1.2rem; }
@@ -74,6 +76,7 @@
 
       <nav class="quick-nav" aria-label="Seções da página">
         <a href="#moda-praia">👙 Moda praia</a>
+        <a href="#achadinhos">👒 Achadinhos avulsos</a>
       </nav>
     </section>
 
@@ -110,6 +113,140 @@
             <div class="shop-links">
               <a class="is-primary" href="https://www.goboldoficial.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
               <a href="https://www.instagram.com/goboldoficial/" target="_blank" rel="noopener">📷 @goboldoficial</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">🌴</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Estampa & crochê</span>
+            <h3>Lilo Beachwear</h3>
+            <div class="shop-loc">📍 Belo Horizonte · MG</div>
+            <p class="shop-why">Marca mineira de moda praia com biquínis em vários cortes e nomes (Pipa, Noronha, Cannes…), maiôs e uma linha forte de <strong>saída de praia</strong> — vestidos, pareôs, cangas, chemises e peças em <strong>crochê</strong>. Tem também acessórios (chapéu, óculos, bolsa de palha). Loja física em BH e venda online pra todo o Brasil.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://lilobeachwear.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/lilobeachwear/" target="_blank" rel="noopener">📷 @lilobeachwear</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">👙</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Estampa autoral</span>
+            <h3>Madge</h3>
+            <div class="shop-loc">📍 Americana · SP</div>
+            <p class="shop-why">Marca de moda praia com <strong>estampas autorais</strong> em impressão digital e <strong>fabricação própria</strong> em Americana (SP). Além de biquínis e maiôs, tem uma linha versátil — bodies, <strong>saídas de praia</strong>, vestidos, saias e conjuntos — que vai da praia pro dia a dia. Venda online pra todo o Brasil.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.madge.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/lojamadge/" target="_blank" rel="noopener">📷 @lojamadge</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">🩱</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Modelagem</span>
+            <h3>Squat</h3>
+            <div class="shop-loc">📍 Belo Horizonte · MG</div>
+            <p class="shop-why">Marca mineira de moda praia com biquínis de <strong>modelagem</strong> caprichada, maiôs, <strong>saídas de praia</strong>, peças em crochê e acessórios (bolsas, lenços). Loja física em BH e venda online pra todo o Brasil — <strong>frete grátis acima de R$700</strong>.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.squatbrand.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/squat_brand/" target="_blank" rel="noopener">📷 @squat_brand</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">🏄‍♀️</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Água & esporte</span>
+            <h3>Khlun Beach Soul</h3>
+            <div class="shop-loc">📍 Fortaleza · CE</div>
+            <p class="shop-why">Marca cearense com pegada de <strong>esportes de água</strong> (kite, surf): além de biquínis e maiôs, tem <strong>wetsuits</strong>, peças com <strong>proteção UV +50</strong> e linha sportwear. Boa pra quem vai pra destino de vento/mar. Venda online pra todo o Brasil.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://khlun.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/khlun.beachsoul/" target="_blank" rel="noopener">📷 @khlun.beachsoul</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">🌴</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Praia & casual</span>
+            <h3>Salga</h3>
+            <div class="shop-loc">🌐 Online · Brasil</div>
+            <p class="shop-why">Moda praia com forte lado <strong>casual</strong>: biquínis (top, calcinha, body), mais blusas, shorts, vestidos, peças em <strong>crochê</strong>, acessórios e até <strong>Havaianas customizadas</strong>. Pra montar o look de praia e de passeio. Venda online — <strong>frete grátis acima de R$299</strong>.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.salgabrand.com.br/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/salgabrand__/" target="_blank" rel="noopener">📷 @salgabrand__</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner">♻️</div>
+          <div class="shop-body">
+            <span class="shop-tag">Beachwear · Slow fashion</span>
+            <h3>Paipo Bikini</h3>
+            <div class="shop-loc">🌐 Online · Brasil</div>
+            <p class="shop-why">Marca de biquíni com proposta <strong>sustentável / slow fashion</strong>: peças <strong>handmade</strong> e versáteis, pensadas pra usar tanto na praia quanto no dia a dia. Venda online e showroom com hora marcada.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://paipobikini.com/" target="_blank" rel="noopener">🛒 Loja online</a>
+              <a href="https://www.instagram.com/paipobikini/" target="_blank" rel="noopener">📷 @paipobikini</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ACHADINHOS AVULSOS ============ -->
+    <section class="section" id="achadinhos">
+      <div class="section__head reveal">
+        <span class="kicker">👒 02 · Achadinhos avulsos</span>
+        <h2>Peças pra completar o look</h2>
+        <p>Não são marcas — são <strong>peças específicas</strong> que garimpei e curti pra fechar o visual de praia (saída, chapéu…). Link direto pro produto. <span style="color:var(--text-mute)">Preço e disponibilidade mudam no site da loja; confira na hora.</span></p>
+      </div>
+
+      <div class="shop-grid">
+        <article class="shop-card reveal">
+          <div class="shop-banner shop-banner--photo">🧶<img src="https://static.riachuelo.com.br/RCHLO/16160568002/portrait/2a5564013b1fab1ecd17700ce6fc90bcd24ce8bb.jpg?imwidth=600" alt="Calça reta de crochê bege da Riachuelo" loading="lazy" onerror="this.remove()" /></div>
+          <div class="shop-body">
+            <span class="shop-tag">Riachuelo · Saída de praia</span>
+            <h3>Calça reta de crochê</h3>
+            <div class="shop-loc">🛒 Riachuelo · bege</div>
+            <p class="shop-why">Calça reta de <strong>crochê</strong> bege pra usar como <strong>saída de praia</strong> por cima do biquíni — combina com as marcas de beachwear da seção de cima.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.riachuelo.com.br/saida-de-praia-calca-reta-de-croche-bege-16160568_sku_sku" target="_blank" rel="noopener">🛒 Ver produto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner shop-banner--photo">👒<img src="https://static.riachuelo.com.br/RCHLO/16026284001/portrait/c17d0287de2e621a5b6f50f625b8c13010319a0e.jpg?imwidth=600" alt="Chapéu feminino de palha com detalhe contrastante da Riachuelo" loading="lazy" onerror="this.remove()" /></div>
+          <div class="shop-body">
+            <span class="shop-tag">Riachuelo · Acessório</span>
+            <h3>Chapéu de palha</h3>
+            <div class="shop-loc">🛒 Riachuelo · bege</div>
+            <p class="shop-why">Chapéu feminino de <strong>palha</strong> com detalhe contrastante — acessório clássico pra praia e pra proteger do sol no destino.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.riachuelo.com.br/chapeu-feminino-de-palha-detalhe-contrastante-bege-accessori-16026284001_sku_sku" target="_blank" rel="noopener">🛒 Ver produto</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card reveal">
+          <div class="shop-banner shop-banner--photo">👖<img src="../assets/salga-calca-tule-falesias.webp" alt="Calça de tule falésias com estampa de poá da Salga Brand" loading="lazy" onerror="this.remove()" /></div>
+          <div class="shop-body">
+            <span class="shop-tag">Salga · Calça de tule</span>
+            <h3>Calça de tule falésias</h3>
+            <div class="shop-loc">🛒 Salga Brand</div>
+            <p class="shop-why">Calça de <strong>tule</strong> com estampa exclusiva de <strong>poá</strong> e elástico na cintura — peça leve pra usar como <strong>saída de praia</strong> ou no passeio. Da <a href="https://www.instagram.com/salgabrand__/" target="_blank" rel="noopener" style="color:var(--accent)">Salga</a>, que também está na seção de cima.</p>
+            <div class="shop-links">
+              <a class="is-primary" href="https://www.salgabrand.com.br/produtos/calca-de-tule-falesias-q6s6v/" target="_blank" rel="noopener">🛒 Ver produto</a>
             </div>
           </div>
         </article>
