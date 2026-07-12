@@ -34,6 +34,14 @@
     .tool-table td strong { color: var(--text); }
     .tool-table tbody tr:hover { background: rgba(255,255,255,.02); }
     .rule-box { margin: 0; padding: 1.1rem 1.35rem; background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 14px; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
+    .combos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 1rem; }
+    @media (max-width: 900px) { .combos { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .combos { grid-template-columns: 1fr; } }
+    .combo-group { background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.1rem 1.2rem; }
+    .combo-group h4 { margin: 0 0 .7rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); font-weight: 600; }
+    .combo-group ul { margin: 0; padding: 0; list-style: none; }
+    .combo-group li { font-size: .88rem; color: var(--text); padding: .4rem 0; border-top: 1px solid var(--border-soft); line-height: 1.5; }
+    .combo-group li:first-child { border-top: none; padding-top: 0; }
   </style>
 </head>
 <body>
@@ -154,6 +162,102 @@
 
       <div class="cta-row reveal" style="margin:1.75rem 0 1rem">
         <a href="sites-secretos.html#roteiro" class="btn btn--primary">🔎 Ver essas ferramentas</a>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🌍 Pare de fazer uma viagem por país</span>
+        <h2>Países que <span class="grad-text">já vêm em combo</span></h2>
+        <p>Vizinhos que dá pra emendar num roteiro só — usa como ponto de partida pro <strong>miolo</strong> e aplica a receita de sempre: entra por uma porta barata, circula em low cost, sai por outra. <span style="color:var(--text-mute)">Aqui é inspiração de <strong>proximidade geográfica</strong>, não promessa de rota/preço — cheque cada trecho nas ferramentas.</span></p>
+      </div>
+
+      <div class="combos reveal">
+        <div class="combo-group">
+          <h4>🌏 Sudeste Asiático</h4>
+          <ul>
+            <li>🇹🇭 Tailândia · 🇰🇭 Camboja · 🇱🇦 Laos · 🇻🇳 Vietnã</li>
+            <li>🇲🇾 Malásia · 🇸🇬 Singapura</li>
+            <li>🇸🇬 Singapura · 🇮🇩 Indonésia · 🇹🇱 Timor-Leste</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🏔️ Sul &amp; Central da Ásia</h4>
+          <ul>
+            <li>🇮🇳 Índia · 🇱🇰 Sri Lanka</li>
+            <li>🇳🇵 Nepal · 🇧🇹 Butão · 🇧🇩 Bangladesh</li>
+            <li>🇺🇿 Uzbequistão · 🇰🇬 Quirguistão</li>
+            <li>🇰🇿 Cazaquistão · 🇲🇳 Mongólia</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🌸 Leste Asiático</h4>
+          <ul>
+            <li>🇵🇭 Filipinas · 🇹🇼 Taiwan</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🕌 Oriente Médio</h4>
+          <ul>
+            <li>🇦🇪 Emirados Árabes · 🇴🇲 Omã</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🦁 África</h4>
+          <ul>
+            <li>🇰🇪 Quênia · 🇹🇿 Tanzânia · 🇹🇿 Zanzibar</li>
+            <li>🇺🇬 Uganda · 🇷🇼 Ruanda · 🇧🇮 Burundi</li>
+            <li>🇿🇼 Zimbábue · 🇿🇲 Zâmbia · 🇧🇼 Botsuana</li>
+            <li>🇿🇦 África do Sul · 🇳🇦 Namíbia</li>
+            <li>🇸🇨 Seychelles · 🇲🇬 Madagascar</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🏛️ Europa Central</h4>
+          <ul>
+            <li>🇩🇪 Alemanha · 🇦🇹 Áustria · 🇨🇭 Suíça</li>
+            <li>🇨🇿 Rep. Tcheca · 🇦🇹 Áustria · 🇭🇺 Hungria</li>
+            <li>🇵🇱 Polônia · 🇸🇰 Eslováquia · 🇭🇺 Hungria</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🌷 Benelux &amp; Ocidental</h4>
+          <ul>
+            <li>🇫🇷 França · 🇧🇪 Bélgica · 🇳🇱 Holanda · 🇱🇺 Luxemburgo</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>❄️ Nórdicos &amp; Atlântico Norte</h4>
+          <ul>
+            <li>🇳🇴 Noruega · 🇸🇪 Suécia · 🇫🇮 Finlândia</li>
+            <li>🇩🇰 Dinamarca · 🇸🇪 Suécia · 🇳🇴 Noruega</li>
+            <li>🇮🇸 Islândia · 🇬🇱 Groenlândia · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🌊 Bálcãs</h4>
+          <ul>
+            <li>🇭🇷 Croácia · 🇲🇪 Montenegro · 🇧🇦 Bósnia e Herz.</li>
+            <li>🇦🇱 Albânia · 🇽🇰 Kosovo · 🇲🇰 Macedônia do Norte</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🌅 Mediterrâneo Ocidental</h4>
+          <ul>
+            <li>🇪🇸 Espanha · 🇲🇦 Marrocos · 🇬🇮 Gibraltar</li>
+          </ul>
+        </div>
+        <div class="combo-group">
+          <h4>🌎 Américas</h4>
+          <ul>
+            <li>🇵🇪 Peru · 🇧🇴 Bolívia · 🇦🇷 Argentina</li>
+            <li>🇦🇷 Argentina · 🇨🇱 Chile</li>
+            <li>🇨🇷 Costa Rica · 🇵🇦 Panamá</li>
+            <li>🇬🇹 Guatemala · 🇧🇿 Belize · 🇲🇽 México</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="method-note reveal" style="max-width:none; margin:0 0 1rem">
+        💡 Combo não é itinerário fechado: alguns vizinhos são baratos e conectados (bom miolo), outros só têm voo caro/sazonal — <strong>teste cada trecho no Skyscanner/FlightConnections</strong> antes de fechar, igual às regras lá de cima.
       </div>
 
       <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
