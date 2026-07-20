@@ -107,23 +107,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav__logo:hover .nav__plane { transform: rotate(0deg) translateX(4px); }
 .nav__logo-dot { color: var(--accent); }
-.nav__links { display: none; }   /* nav completa fica no drawer (☰); topo só com logo + ☰ */
-.nav__links a {
-  font-size: .95rem; color: var(--text-dim);
-  position: relative; transition: color var(--transition);
-}
-.nav__links a::after {
-  content: ''; position: absolute;
-  left: 0; right: 100%; bottom: -4px;
-  height: 2px; background: var(--grad);
-  transition: right var(--transition);
-}
-.nav__links a:hover { color: var(--text); }
-.nav__links a:hover::after { right: 0; }
-.nav__links a.is-active { color: var(--text); }
-.nav__links a.is-active::after { right: 0; }
-.nav__toggle {
-  display: none; background: none; border: none;
+.nav__toggle {                           /* botão ☰ sempre visível (abre o drawer) */
+  display: flex; background: none; border: none;
   padding: .5rem; flex-direction: column; gap: 5px;
 }
 .nav__toggle span {
@@ -135,22 +120,6 @@ button { font-family: inherit; cursor: pointer; }
 .nav__toggle.is-open span:nth-child(2) { opacity: 0; }
 .nav__toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 860px) {
-  .nav__links {
-    position: fixed; inset: 64px 0 auto 0;
-    flex-direction: column; gap: 0;
-    background: rgba(7, 8, 13, .97);
-    backdrop-filter: blur(20px);
-    padding: 1rem 1.5rem 2rem;
-    border-bottom: 1px solid var(--border-soft);
-    transform: translateY(-120%);
-    transition: transform .4s var(--ease);
-  }
-  .nav__links.is-open { transform: translateY(0); }
-  .nav__links a { padding: .9rem 0; border-bottom: 1px solid var(--border-soft); }
-  .nav__links a::after { display: none; }
-  .nav__toggle { display: flex; }
-}
 
 /* ---------- Layout ---------- */
 .section {
@@ -621,8 +590,6 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
  * DRAWER — menu lateral completo (gerado via JS em todas as páginas)
  * ============================================================ */
-.nav__toggle { display: flex; }            /* botão ☰ sempre visível (abre o drawer) */
-
 .drawer-overlay {
   position: fixed; inset: 0; z-index: 90;
   background: rgba(0,0,0,.55); backdrop-filter: blur(2px);

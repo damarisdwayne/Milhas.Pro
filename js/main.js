@@ -8,8 +8,7 @@
    * NAV: blur ao rolar + toggle mobile
    * ============================================================ */
   function initNav() {
-    const nav      = document.getElementById('nav');
-    const links    = document.getElementById('navLinks');
+    const nav = document.getElementById('nav');
     if (!nav) return;
 
     const onScroll = () => {
@@ -18,18 +17,7 @@
     globalThis.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // (o botão ☰ agora abre o drawer lateral — ver initDrawer)
-
-    // marca a aba ativa pela página atual
-    if (links) {
-      const current = location.pathname.split('/').pop() || 'index.html';
-      links.querySelectorAll('a').forEach(a => {
-        const href = a.getAttribute('href');
-        if (!href || href.startsWith('#')) return;
-        const target = (href.split('/').pop() || 'index.html').split('#')[0];
-        if (target === current) a.classList.add('is-active');
-      });
-    }
+    // (o botão ☰ abre o drawer lateral — ver initDrawer)
   }
 
   /* ============================================================
@@ -70,6 +58,7 @@
         ['Hospedagem', P + 'hospedagem.html'],
         ['Sonhos (lugares p/ visitar)', P + 'sonhos.html'],
         ['Lojas (moda praia & viagem)', P + 'lojas.html'],
+        ['Cruzeiros', P + 'cruzeiros.html'],
         ['Tax Free', P + 'tax-free.html'],
       ]},
       { title: 'Na viagem', links: [

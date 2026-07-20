@@ -45,54 +45,8 @@
 
   &__logo-dot { color: $accent; }
 
-  &__links {
+  &__toggle {                 // botão ☰ sempre visível (abre o drawer lateral)
     display: flex;
-    gap: 1.75rem;
-
-    a {
-      font-size: .95rem;
-      color: $text-dim;
-      position: relative;
-      transition: color $transition;
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0; right: 100%;
-        bottom: -4px;
-        height: 2px;
-        background: $grad;
-        transition: right $transition;
-      }
-      &:hover {
-        color: $text;
-        &::after { right: 0; }
-      }
-    }
-
-    @media (max-width: $bp-md) {
-      position: fixed;
-      inset: 64px 0 auto 0;
-      flex-direction: column;
-      gap: 0;
-      background: rgba(7, 8, 13, .97);
-      backdrop-filter: blur(20px);
-      padding: 1rem 1.5rem 2rem;
-      border-bottom: 1px solid $border-soft;
-      transform: translateY(-120%);
-      transition: transform .4s $ease;
-
-      &.is-open { transform: translateY(0); }
-
-      a {
-        padding: .9rem 0;
-        border-bottom: 1px solid $border-soft;
-      }
-    }
-  }
-
-  &__toggle {
-    display: none;
     background: none;
     border: none;
     padding: .5rem;
@@ -113,7 +67,5 @@
       span:nth-child(2) { opacity: 0; }
       span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     }
-
-    @media (max-width: $bp-md) { display: flex; }
   }
 }
