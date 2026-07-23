@@ -64,6 +64,9 @@
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},
+      { title: 'Pessoal', links: [
+        ['Saúde (exames & check-up)', P + 'saude.html'],
+      ]},
     ];
 
     const current = location.pathname.split('/').pop() || 'index.html';

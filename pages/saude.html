@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meu espaço de saúde: os exames de sangue que costumo pedir (com o que cada um significa), registro de resultados e dicas." />
+  <title>Saúde — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    /* Aviso */
+    .health-note { max-width: 780px; margin: 1.5rem auto 0; padding: .9rem 1.15rem; border: 1px solid rgba(250,204,21,.3); border-radius: 12px; background: rgba(250,204,21,.05); color: var(--text-dim); font-size: .88rem; line-height: 1.55; }
+
+    /* Lista de exames — formato "formulário de pedido" */
+    .exam-sheet { max-width: 800px; margin: 0 auto; }
+    .exam-toolbar { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: flex-end; margin-bottom: 1.5rem; }
+    .exam-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .8rem; font-weight: 500; cursor: pointer; transition: all .2s ease; font-family: inherit; }
+    .exam-btn:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+    .exam-btn.is-on { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.14); }
+    .exam-cat { display: flex; align-items: center; gap: .7rem; font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin: 1.6rem 0 .5rem; }
+    .exam-cat:first-of-type { margin-top: 0; }
+    .exam-cat::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+    .exam-checklist { list-style: none; margin: 0; padding: 0; }
+    .exam-row { padding: .4rem .55rem; border-radius: 7px; transition: background .15s ease; }
+    .exam-row:hover { background: rgba(255,255,255,.035); }
+    .exam-row .name { display: flex; align-items: baseline; gap: .5rem; font-size: .95rem; color: var(--text); }
+    .exam-row .name::before { content: '☐'; color: var(--accent); font-size: 1rem; line-height: 1; }
+    .exam-row .abbr { font-family: var(--font-mono); font-size: .66rem; color: var(--text-mute); }
+    .exam-desc { margin: .25rem 0 0 1.5rem; font-size: .82rem; line-height: 1.5; color: var(--text-mute); display: none; }
+    .exam-sheet.show-desc .exam-desc { display: block; }
+    @media print { .exam-toolbar, .quick-nav, .nav, .footer, .health-note, .bg-grid, .bg-glow { display: none !important; } }
+
+    /* Dicas */
+    .tip-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; max-width: 820px; margin: 0 auto; }
+    .tip-card { border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); backdrop-filter: blur(10px); padding: 1.2rem 1.3rem; }
+    .tip-card h3 { margin: 0 0 .6rem; font-size: 1.05rem; }
+    .tip-card p { margin: 0 0 .6rem; font-size: .9rem; line-height: 1.6; color: var(--text-dim); }
+    .tip-card ul { margin: .2rem 0 .7rem; padding-left: 1.2rem; color: var(--text-dim); font-size: .88rem; line-height: 1.6; }
+
+    /* Placeholder */
+    .results-empty { border: 1px dashed var(--border); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; color: var(--text-mute); font-size: .92rem; line-height: 1.6; max-width: 720px; margin: 0 auto; }
+
+    /* Blocos de resultado */
+    .result-block { max-width: 820px; margin: 0 auto 2.5rem; }
+    .result-head { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; margin-bottom: .9rem; }
+    .result-head h3 { margin: 0; font-size: 1.1rem; }
+    .result-date { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); }
+    .result-src { font-size: .78rem; color: var(--text-mute); }
+    .pdf-link { display: inline-flex; align-items: center; gap: .3rem; padding: .28rem .7rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .76rem; font-weight: 500; text-decoration: none; transition: all .2s ease; }
+    .pdf-link:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+    /* Acordeão de coleta */
+    .result-accordion { max-width: 820px; margin: 0 auto 1rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); overflow: hidden; }
+    .result-accordion > summary { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; padding: 1rem 1.2rem; cursor: pointer; list-style: none; }
+    .result-accordion > summary::-webkit-details-marker { display: none; }
+    .result-accordion > summary .acc-title { font-weight: 600; font-size: 1.05rem; }
+    .result-accordion > summary .summary-pdf { margin-left: auto; }
+    .result-accordion > summary::after { content: '▸'; color: var(--accent); font-size: 1.1rem; transition: transform .2s ease; }
+    .result-accordion[open] > summary::after { transform: rotate(90deg); }
+    .result-accordion > summary:hover { background: rgba(255,255,255,.03); }
+    .acc-body { padding: 1.2rem; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); }
+    table.rtable { width: 100%; border-collapse: collapse; font-size: .88rem; min-width: 420px; }
+    table.rtable th { text-align: left; font-family: var(--font-mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-mute); font-weight: 500; padding: .6rem .9rem; border-bottom: 1px solid var(--border); }
+    table.rtable td { padding: .55rem .9rem; border-bottom: 1px solid var(--border-soft); vertical-align: baseline; }
+    table.rtable tr:last-child td { border-bottom: none; }
+    table.rtable .cat td { background: rgba(124,92,255,.06); font-family: var(--font-mono); font-size: .64rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); padding: .4rem .9rem; }
+    table.rtable .exam { color: var(--text); }
+    table.rtable .val { font-family: var(--font-mono); font-weight: 600; color: var(--text); white-space: nowrap; }
+    table.rtable .ref { color: var(--text-mute); font-size: .8rem; white-space: nowrap; }
+    .result-foot { font-size: .82rem; color: var(--text-mute); line-height: 1.55; margin: .8rem .2rem 0; }
+    @media (max-width: 560px) { table.rtable .ref { white-space: normal; } }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🩺 Saúde</span>
+      <h1>Meu <span class="grad-text">check-up</span></h1>
+      <p>Meu cantinho de saúde: os exames de sangue que costumo pedir (com o que cada um significa pra eu não esquecer), o registro dos resultados e dicas que vou juntando.</p>
+
+      <div class="health-note">⚠️ <strong>Registro pessoal, não é recomendação médica.</strong> As descrições explicam pra que serve cada exame — a interpretação dos resultados e o que pedir é sempre com o seu médico.</div>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#exames">🩸 Exames de sangue</a>
+        <a href="#cardiacos">🫀 Exames cardíacos</a>
+        <a href="#resultados">📄 Resultados de sangue</a>
+        <a href="#composicao">📏 Composição corporal</a>
+        <a href="#dicas">💡 Dicas</a>
+      </nav>
+    </section>
+
+    <!-- ============ EXAMES DE SANGUE ============ -->
+    <section class="section" id="exames">
+      <div class="section__head reveal">
+        <span class="kicker">🩸 01 · Exames de sangue</span>
+        <h2>Minha lista pro clínico</h2>
+        <p>A lista que mostro no consultório quando vou pedir exame de sangue. Toque em <strong>Descrições</strong> se quiser lembrar o que cada um significa.</p>
+      </div>
+
+      <div class="exam-sheet reveal" id="examSheet">
+        <div class="exam-toolbar">
+          <button type="button" class="exam-btn" id="descToggle" aria-pressed="false">ℹ️ Descrições</button>
+          <button type="button" class="exam-btn" id="copyBtn">📋 Copiar lista</button>
+        </div>
+
+        <div class="exam-cat">Hemograma</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Hemograma completo</div><div class="exam-desc">Conta e avalia glóbulos vermelhos, brancos e plaquetas. Rastreia anemia, infecção e alterações do sangue.</div></li>
+        </ul>
+
+        <div class="exam-cat">Rim</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Ureia e creatinina</div><div class="exam-desc">Avaliam a função dos rins. A creatinina serve pra estimar a taxa de filtração dos rins (TFG).</div></li>
+        </ul>
+
+        <div class="exam-cat">Eletrólitos</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Sódio <span class="abbr">Na</span></div><div class="exam-desc">Principal eletrólito do sangue. Ligado a hidratação, pressão arterial e função dos rins.</div></li>
+          <li class="exam-row"><div class="name">Potássio <span class="abbr">K</span></div><div class="exam-desc">Eletrólito essencial pra função dos músculos e do coração (ritmo cardíaco).</div></li>
+        </ul>
+
+        <div class="exam-cat">Ferro</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Perfil de ferro <span class="abbr">ferro · ferritina · saturação</span></div><div class="exam-desc">Estoque e disponibilidade de ferro no corpo. Ferritina baixa indica falta de ferro; alta pode ser inflamação ou sobrecarga.</div></li>
+        </ul>
+
+        <div class="exam-cat">Açúcar &amp; metabolismo</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Glicemia em jejum</div><div class="exam-desc">Nível de açúcar (glicose) no sangue em jejum. Foto do momento.</div></li>
+          <li class="exam-row"><div class="name">Hemoglobina glicada <span class="abbr">HbA1c</span></div><div class="exam-desc">Média da glicose dos últimos ~2 a 3 meses. Mostra a tendência, não só o dia da coleta.</div></li>
+          <li class="exam-row"><div class="name">HOMA-IR</div><div class="exam-desc">Índice de resistência à insulina (calculado da glicose e da insulina em jejum). Pode sinalizar tendência ao diabetes antes de a glicemia se alterar.</div></li>
+        </ul>
+
+        <div class="exam-cat">Lipídios &amp; coração</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Lipidograma completo</div><div class="exam-desc">Perfil de gorduras no sangue: colesterol total, HDL, LDL, VLDL e triglicérides — tudo num exame só.</div></li>
+          <li class="exam-row"><div class="name">Apolipoproteína B <span class="abbr">ApoB</span></div><div class="exam-desc">Conta o número de partículas que podem se depositar e formar placa nas artérias (aterogênicas). Marcador de risco cardiovascular mais preciso que olhar só o LDL.</div></li>
+          <li class="exam-row"><div class="name">Lipoproteína(a) <span class="abbr">Lp(a)</span></div><div class="exam-desc">Fator de risco cardiovascular quase todo genético. Costuma-se medir ao menos uma vez na vida.</div></li>
+          <li class="exam-row"><div class="name">PCR ultrassensível <span class="abbr">hs-CRP</span></div><div class="exam-desc">Mede inflamação de baixo grau no sangue. Entra aqui porque a inflamação crônica participa da formação de placa nas artérias, então funciona como marcador de risco cardiovascular. ⚠️ Não mede diretamente "entupimento" — quem mostra isso são os exames de imagem do coração (ex.: escore de cálcio).</div></li>
+        </ul>
+
+        <div class="exam-cat">Fígado &amp; proteína</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Fosfatase alcalina</div><div class="exam-desc">Enzima ligada a fígado, vias biliares e ossos. Alterações ajudam a apontar onde investigar.</div></li>
+          <li class="exam-row"><div class="name">Albumina</div><div class="exam-desc">Principal proteína do sangue. Reflete estado nutricional e função do fígado.</div></li>
+        </ul>
+
+        <div class="exam-cat">Vitaminas &amp; minerais</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Vitamina D <span class="abbr">25-OH</span></div><div class="exam-desc">Nível de vitamina D no corpo. Importante pra ossos, imunidade e humor.</div></li>
+          <li class="exam-row"><div class="name">Vitamina B12</div><div class="exam-desc">Essencial pros nervos e pra formação do sangue. Falta é comum em dieta vegetariana/vegana.</div></li>
+          <li class="exam-row"><div class="name">Zinco e cálcio</div><div class="exam-desc">Minerais importantes pra imunidade, enzimas (zinco) e ossos/músculos (cálcio).</div></li>
+        </ul>
+
+        <div class="exam-cat">Hormônios</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">TSH + T4 livre</div><div class="exam-desc">Avaliam a tireoide. O TSH é o rastreio principal; o T4 livre é o hormônio em si. Costumam ser pedidos juntos.</div></li>
+          <li class="exam-row"><div class="name">Testosterona total e livre</div><div class="exam-desc">Hormônio androgênico. A fração livre é a que está ativa no corpo.</div></li>
+          <li class="exam-row"><div class="name">Cortisol</div><div class="exam-desc">Hormônio do estresse. Varia muito com o horário — normalmente coletado de manhã (pico matinal).</div></li>
+        </ul>
+
+        <div class="exam-cat">Sorologias · ISTs e hepatites</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Sorologia HIV</div><div class="exam-desc">Detecta infecção pelo HIV.</div></li>
+          <li class="exam-row"><div class="name">Sorologia sífilis <span class="abbr">VDRL</span></div><div class="exam-desc">Rastreia sífilis (VDRL e/ou teste treponêmico).</div></li>
+          <li class="exam-row"><div class="name">HBsAg <span class="abbr">Hepatite B</span></div><div class="exam-desc">Antígeno de superfície da hepatite B. Positivo indica infecção ativa.</div></li>
+          <li class="exam-row"><div class="name">Anti-HCV <span class="abbr">Hepatite C</span></div><div class="exam-desc">Anticorpo contra a hepatite C. Rastreia contato/infecção pelo vírus.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ RESULTADOS ============ -->
+    <!-- ============ EXAMES CARDÍACOS ============ -->
+    <section class="section section--alt" id="cardiacos">
+      <div class="section__head reveal">
+        <span class="kicker">🫀 02 · Exames cardíacos</span>
+        <h2>Com o cardiologista</h2>
+        <p>Exames de imagem do coração — <strong>não são de sangue</strong>. Ficam pra pedir na consulta com cardiologista.</p>
+      </div>
+
+      <div class="exam-sheet show-desc reveal">
+        <div class="exam-cat">Coração · imagem</div>
+        <ul class="exam-checklist">
+          <li class="exam-row"><div class="name">Escore de cálcio</div><div class="exam-desc">Tomografia rápida (sem contraste) que mede o cálcio depositado nas artérias do coração. Quanto mais cálcio, mais placa — ajuda a estimar o risco cardiovascular.</div></li>
+          <li class="exam-row"><div class="name">Angiotomografia das coronárias <span class="abbr">angio-TC</span></div><div class="exam-desc">Tomografia com contraste que mostra as artérias do coração por dentro — enxerga estreitamento/obstrução. Não invasiva.</div></li>
+          <li class="exam-row"><div class="name">Coronariografia <span class="abbr">cateterismo</span></div><div class="exam-desc">Exame invasivo: um cateter injeta contraste direto nas coronárias e filma o fluxo. Padrão-ouro pra confirmar (e às vezes já tratar) obstruções. Feito em hospital.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ RESULTADOS DE SANGUE ============ -->
+    <section class="section" id="resultados">
+      <div class="section__head reveal">
+        <span class="kicker">🩸 03 · Resultados de sangue</span>
+        <h2>Meu histórico de sangue</h2>
+        <p>Cada coleta fica recolhida — clique pra abrir. Valores com a faixa de referência do próprio laudo.</p>
+      </div>
+
+      <!-- SANGUE -->
+      <details class="result-accordion reveal">
+        <summary>
+          <span class="acc-title">🩸 Sangue</span>
+          <span class="result-date">📅 Coleta 25/02/2026</span>
+          <span class="result-src">· Hermes Pardini</span>
+          <a class="pdf-link summary-pdf" href="../assets/exames/sangue-fev-2026.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">📄 PDF</a>
+        </summary>
+        <div class="acc-body">
+        <div class="table-wrap">
+          <table class="rtable">
+            <thead><tr><th>Exame</th><th>Resultado</th><th>Referência</th></tr></thead>
+            <tbody>
+              <tr class="cat"><td colspan="3">Sangue &amp; inflamação</td></tr>
+              <tr><td class="exam">Hemoglobina</td><td class="val">13,4 g/dL</td><td class="ref">12,0–16,0</td></tr>
+              <tr><td class="exam">Hematócrito</td><td class="val">36,8 %</td><td class="ref">36,0–46,0</td></tr>
+              <tr><td class="exam">Leucócitos</td><td class="val">6.340 /mm³</td><td class="ref">4.000–11.000</td></tr>
+              <tr><td class="exam">Plaquetas</td><td class="val">286.000 /mm³</td><td class="ref">150.000–450.000</td></tr>
+
+              <tr class="cat"><td colspan="3">Rim</td></tr>
+              <tr><td class="exam">Creatinina</td><td class="val">0,76 mg/dL</td><td class="ref">0,40–1,00 · TFG &gt;90</td></tr>
+              <tr><td class="exam">Ureia</td><td class="val">28,5 mg/dL</td><td class="ref">19,0–49,0</td></tr>
+
+              <tr class="cat"><td colspan="3">Ferro</td></tr>
+              <tr><td class="exam">Ferro sérico</td><td class="val">138 mcg/dL</td><td class="ref">50–170</td></tr>
+              <tr><td class="exam">Ferritina</td><td class="val">78,4 ng/mL</td><td class="ref">10,0–271,0</td></tr>
+
+              <tr class="cat"><td colspan="3">Açúcar &amp; metabolismo</td></tr>
+              <tr><td class="exam">Glicose em jejum</td><td class="val">79 mg/dL</td><td class="ref">60–99</td></tr>
+              <tr><td class="exam">Hemoglobina glicada (HbA1c)</td><td class="val">5,0 %</td><td class="ref">&lt; 5,7</td></tr>
+              <tr><td class="exam">Insulina basal</td><td class="val">3,2 µUI/mL</td><td class="ref">3,0–25,0</td></tr>
+              <tr><td class="exam">HOMA-IR <span class="ref">(calculado)</span></td><td class="val">0,62</td><td class="ref">glicose × insulina ÷ 405</td></tr>
+
+              <tr class="cat"><td colspan="3">Lipídios &amp; coração</td></tr>
+              <tr><td class="exam">Colesterol total</td><td class="val">177 mg/dL</td><td class="ref">&lt; 190</td></tr>
+              <tr><td class="exam">Colesterol HDL</td><td class="val">59 mg/dL</td><td class="ref">&gt; 40</td></tr>
+              <tr><td class="exam">Triglicérides</td><td class="val">61 mg/dL</td><td class="ref">&lt; 150</td></tr>
+
+              <tr class="cat"><td colspan="3">Vitaminas &amp; minerais</td></tr>
+              <tr><td class="exam">Vitamina D (25-OH)</td><td class="val">31,5 ng/mL</td><td class="ref">ideal 30–60</td></tr>
+              <tr><td class="exam">Vitamina B12</td><td class="val">556 pg/mL</td><td class="ref">172–890</td></tr>
+              <tr><td class="exam">Cálcio</td><td class="val">9,7 mg/dL</td><td class="ref">8,6–10,9</td></tr>
+              <tr><td class="exam">Zinco</td><td class="val">89,3 mcg/dL</td><td class="ref">60,0–120,0</td></tr>
+
+              <tr class="cat"><td colspan="3">Hormônios</td></tr>
+              <tr><td class="exam">T4 livre</td><td class="val">1,28 ng/dL</td><td class="ref">0,89–1,61</td></tr>
+              <tr><td class="exam">Testosterona total</td><td class="val">35 ng/dL</td><td class="ref">mulher 12–60</td></tr>
+
+              <tr class="cat"><td colspan="3">Sorologias · ISTs e hepatites</td></tr>
+              <tr><td class="exam">HIV (Ag/Ac 4ª geração)</td><td class="val">Não reagente</td><td class="ref">não reagente</td></tr>
+              <tr><td class="exam">Sífilis (anticorpos totais)</td><td class="val">Não reagente</td><td class="ref">índice &lt; 1,00 (deu 0,07)</td></tr>
+              <tr><td class="exam">HBsAg (hepatite B)</td><td class="val">Não reagente</td><td class="ref">índice &lt; 1,00 (deu 0,37)</td></tr>
+              <tr><td class="exam">Anti-HCV (hepatite C)</td><td class="val">Não reagente</td><td class="ref">índice &lt; 1,00 (deu 0,11)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="result-foot">
+          B12 saiu nos dois pedidos (556 e 500 pg/mL) — mantive um valor.<br>
+          <strong>Da sua lista, não foram feitos nesta coleta:</strong> PCR ultrassensível, LDL/VLDL, ApoB, Lp(a), fosfatase alcalina, albumina, cortisol e TSH.
+        </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ============ COMPOSIÇÃO CORPORAL ============ -->
+    <section class="section section--alt" id="composicao">
+      <div class="section__head reveal">
+        <span class="kicker">📏 04 · Composição corporal</span>
+        <h2>Medidas da nutri</h2>
+        <p>Evolução das medidas ao longo das avaliações.</p>
+      </div>
+
+      <div class="result-block reveal">
+        <div class="result-head">
+          <h3>📏 Composição corporal</h3>
+          <span class="result-date">📅 até 02/06/2026</span>
+          <span class="result-src">· avaliação da nutri</span>
+          <a class="pdf-link" href="../assets/exames/evolucao-coporal-jun-2026.pdf" target="_blank" rel="noopener">📄 PDF</a>
+        </div>
+        <div class="table-wrap">
+          <table class="rtable">
+            <thead><tr><th>Parâmetro</th><th>14/06/25</th><th>26/07/25</th><th>13/09/25</th><th>02/06/26</th></tr></thead>
+            <tbody>
+              <tr><td class="exam">Peso</td><td class="val">60,7 kg</td><td class="val">60,2 kg</td><td class="val">60,7 kg</td><td class="val">57,8 kg</td></tr>
+              <tr><td class="exam">IMC</td><td class="val">23,4</td><td class="val">23,2</td><td class="val">23,4</td><td class="val">22,3</td></tr>
+              <tr><td class="exam">% de gordura</td><td class="val">34,9 %</td><td class="val">33,7 %</td><td class="val">33,6 %</td><td class="val">35,9 %</td></tr>
+              <tr><td class="exam">Massa magra</td><td class="val">39,5 kg</td><td class="val">39,9 kg</td><td class="val">40,3 kg</td><td class="val">37,1 kg</td></tr>
+              <tr><td class="exam">Massa gorda</td><td class="val">21,2 kg</td><td class="val">20,3 kg</td><td class="val">20,4 kg</td><td class="val">20,7 kg</td></tr>
+              <tr><td class="exam">Cintura</td><td class="val">72 cm</td><td class="val">72,5 cm</td><td class="val">72 cm</td><td class="val">68,5 cm</td></tr>
+              <tr><td class="exam">Busto</td><td class="val">87 cm</td><td class="val">87 cm</td><td class="val">84,5 cm</td><td class="val">83 cm</td></tr>
+              <tr><td class="exam">Quadril</td><td class="val">97,9 cm</td><td class="val">97 cm</td><td class="val">94 cm</td><td class="val">93,5 cm</td></tr>
+              <tr><td class="exam">Relação cintura/quadril</td><td class="val">0,74</td><td class="val">0,75</td><td class="val">0,77</td><td class="val">0,73</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="result-foot">Altura 1,61 m. IMC classificado como Adequado em todas as datas. "Busto" = circunferência do tórax do laudo. Medidas completas (dobras e circunferências por membro) estão no PDF.</p>
+      </div>
+    </section>
+
+    <!-- ============ DICAS ============ -->
+    <section class="section" id="dicas">
+      <div class="section__head reveal">
+        <span class="kicker">💡 05 · Dicas</span>
+        <h2>Dicas de saúde</h2>
+        <p>Anotações e lembretes que vou juntando — de preparo pra exame a hábitos.</p>
+      </div>
+
+      <div class="tip-list reveal">
+        <div class="tip-card">
+          <h3>🦠 Probiótico com antibiótico</h3>
+          <p>Antibiótico derruba também as bactérias boas do intestino — daí a diarreia e o desconforto. Um probiótico ajuda a proteger a microbiota, mas <strong>não é tudo igual</strong>: o efeito depende da cepa, da dose e de qual antibiótico você está usando.</p>
+          <p style="margin-bottom:.3rem">Cepas citadas no vídeo:</p>
+          <ul>
+            <li>Saccharomyces boulardii</li>
+            <li>Lactobacillus rhamnosus GG</li>
+            <li>Lactobacillus reuteri</li>
+            <li>Bacillus clausii</li>
+          </ul>
+          <a class="pdf-link" href="https://www.instagram.com/reel/DbB744bRm9v/" target="_blank" rel="noopener">📷 @nutricionistavick</a>
+        </div>
+
+        <div class="tip-card">
+          <h3>🧫 FIT — rastreio de câncer de intestino</h3>
+          <p>O <strong>Teste Imunoquímico Fecal (FIT)</strong> entrou no SUS em 2026 (Ministério da Saúde) como rastreamento de <strong>câncer colorretal</strong> pra pessoas de <strong>50 a 75 anos sem sintomas</strong>.</p>
+          <p>Você coleta uma <strong>amostra de fezes em casa</strong> e o teste detecta <strong>sangue oculto</strong> (invisível a olho nu), que pode indicar pólipos ou lesões iniciais. Deu positivo → encaminha pra <strong>colonoscopia</strong> (padrão-ouro, que confirma e pode remover pólipos na hora).</p>
+          <p style="color:var(--text-mute); font-size:.82rem">⚠️ Não substitui avaliação médica; pode dar falso-positivo ou falso-negativo. Câncer colorretal é o 2º mais frequente no país (+45 mil casos/ano — INCA).</p>
+          <a class="pdf-link" href="https://www.instagram.com/p/DbGY6JPOmlP/" target="_blank" rel="noopener">📷 @minsaude · INCA</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    (() => {
+      const sheet = document.getElementById('examSheet');
+      const toggle = document.getElementById('descToggle');
+      const copyBtn = document.getElementById('copyBtn');
+      if (!sheet) return;
+
+      toggle.addEventListener('click', () => {
+        const on = sheet.classList.toggle('show-desc');
+        toggle.classList.toggle('is-on', on);
+        toggle.setAttribute('aria-pressed', String(on));
+      });
+
+      copyBtn.addEventListener('click', async () => {
+        const lines = [];
+        sheet.querySelectorAll('.exam-cat, .exam-row .name').forEach(el => {
+          if (el.classList.contains('exam-cat')) {
+            lines.push('\n' + el.textContent.trim().toUpperCase());
+          } else {
+            lines.push('- ' + el.textContent.replace(/\s+/g, ' ').trim());
+          }
+        });
+        const text = 'Exames de sangue:\n' + lines.join('\n').trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = copyBtn.textContent;
+          copyBtn.textContent = '✅ Copiado!';
+          copyBtn.classList.add('is-on');
+          setTimeout(() => { copyBtn.textContent = original; copyBtn.classList.remove('is-on'); }, 1800);
+        } catch (e) {
+          copyBtn.textContent = '⚠️ Copie manualmente';
+          setTimeout(() => { copyBtn.textContent = '📋 Copiar lista'; }, 1800);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
