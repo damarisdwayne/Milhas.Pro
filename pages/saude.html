@@ -17,8 +17,6 @@
     .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
     .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
 
-    /* Aviso */
-    .health-note { max-width: 780px; margin: 1.5rem auto 0; padding: .9rem 1.15rem; border: 1px solid rgba(250,204,21,.3); border-radius: 12px; background: rgba(250,204,21,.05); color: var(--text-dim); font-size: .88rem; line-height: 1.55; }
 
     /* Lista de exames — formato "formulário de pedido" */
     .exam-sheet { max-width: 800px; margin: 0 auto; }
@@ -37,7 +35,7 @@
     .exam-row .abbr { font-family: var(--font-mono); font-size: .66rem; color: var(--text-mute); }
     .exam-desc { margin: .25rem 0 0 1.5rem; font-size: .82rem; line-height: 1.5; color: var(--text-mute); display: none; }
     .exam-sheet.show-desc .exam-desc { display: block; }
-    @media print { .exam-toolbar, .quick-nav, .nav, .footer, .health-note, .bg-grid, .bg-glow { display: none !important; } }
+    @media print { .exam-toolbar, .quick-nav, .nav, .footer, .bg-grid, .bg-glow { display: none !important; } }
 
     /* Dicas */
     .tip-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; max-width: 820px; margin: 0 auto; }
@@ -102,8 +100,6 @@
       <span class="kicker">🩺 Saúde</span>
       <h1>Meu <span class="grad-text">check-up</span></h1>
       <p>Meu cantinho de saúde: os exames de sangue que costumo pedir (com o que cada um significa pra eu não esquecer), o registro dos resultados e dicas que vou juntando.</p>
-
-      <div class="health-note">⚠️ <strong>Registro pessoal, não é recomendação médica.</strong> As descrições explicam pra que serve cada exame — a interpretação dos resultados e o que pedir é sempre com o seu médico.</div>
 
       <nav class="quick-nav" aria-label="Seções da página">
         <a href="#exames">🩸 Exames de sangue</a>
