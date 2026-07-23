@@ -56,7 +56,6 @@
         ['Quinta liberdade', P + 'quinta-liberdade.html'],
         ['Primeira classe', P + 'primeira-classe.html'],
         ['Hospedagem', P + 'hospedagem.html'],
-        ['Sonhos (lugares p/ visitar)', P + 'sonhos.html'],
         ['Lojas (moda praia & viagem)', P + 'lojas.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Tax Free', P + 'tax-free.html'],
