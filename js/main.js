@@ -61,6 +61,7 @@
         ['Tax Free', P + 'tax-free.html'],
       ]},
       { title: 'Na viagem', links: [
+        ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},
