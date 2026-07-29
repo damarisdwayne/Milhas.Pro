@@ -34,14 +34,18 @@
     .tool-table td strong { color: var(--text); }
     .tool-table tbody tr:hover { background: rgba(255,255,255,.02); }
     .rule-box { margin: 0; padding: 1.1rem 1.35rem; background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 14px; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
-    .combos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0 0 1rem; }
-    @media (max-width: 900px) { .combos { grid-template-columns: repeat(2, 1fr); } }
+    .combos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0 0 1rem; }
     @media (max-width: 620px) { .combos { grid-template-columns: 1fr; } }
     .combo-group { background: var(--surface, rgba(255,255,255,.03)); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.1rem 1.2rem; }
     .combo-group h4 { margin: 0 0 .7rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); font-weight: 600; }
     .combo-group ul { margin: 0; padding: 0; list-style: none; }
     .combo-group li { font-size: .88rem; color: var(--text); padding: .4rem 0; border-top: 1px solid var(--border-soft); line-height: 1.5; }
     .combo-group li:first-child { border-top: none; padding-top: 0; }
+    .combo-group li.combo-div { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .14em; color: #00e5ff; border-top: 1px solid rgba(0,229,255,.3); padding: .6rem 0 .35rem; }
+    .combo-group li.combo-div::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,229,255,.35), transparent); }
+    .combo-group li.is-cvl { border-top-color: rgba(0,229,255,.12); }
+    .combo-group li.is-cvl + li.is-cvl { border-top-color: rgba(0,229,255,.12); }
+    .combo-legend { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: #00e5ff; background: rgba(0,229,255,.12); border: 1px solid rgba(0,229,255,.35); padding: .18rem .5rem; border-radius: 6px; }
   </style>
 </head>
 <body>
@@ -148,6 +152,12 @@
         A porta europeia "embrulha" o destino caro — e você ainda ganha 2 cidades de bônus nas pontas.
       </div>
 
+      <div class="rule-box reveal" style="margin-top:1.25rem; background:rgba(124,92,255,.07); border-color:rgba(124,92,255,.3)">
+        📕 <strong>Colão do Luiz — as 56 melhores portas do mundo (CVL)</strong><br><br>
+        PDF do curso <strong>Como Viaja, Luiz?</strong> com as <strong>56 portas de entrada e saída</strong> mapeadas por continente (8 na Am. do Sul, 8 na Am. Central/Caribe, 16 na Am. do Norte, 8 na Europa, 8 na Ásia, 6 na Oceania, 2 na África), a tabela de <strong>stopover grátis por companhia</strong> e os <strong>termômetros de preço</strong> por região.<br><br>
+        <a href="../assets/colao-do-luiz.pdf" target="_blank" rel="noopener" style="color:var(--accent)">📄 Abrir o PDF</a> &nbsp;·&nbsp; <a href="termometro.html" style="color:var(--accent)">🌡️ Ver os termômetros no site</a>
+      </div>
+
       <div class="cta-row reveal" style="margin:1.75rem 0 1rem">
         <a href="sites-secretos.html#roteiro" class="btn btn--primary">🔎 Ver essas ferramentas</a>
       </div>
@@ -156,17 +166,137 @@
         <span class="kicker">🌍 Pare de fazer uma viagem por país</span>
         <h2>Países que <span class="grad-text">já vêm em combo</span></h2>
         <p>Vizinhos que dá pra emendar num roteiro só — usa como ponto de partida pro <strong>miolo</strong> e aplica a receita de sempre: entra por uma porta barata, circula em low cost, sai por outra. <span style="color:var(--text-mute)">Aqui é inspiração de <strong>proximidade geográfica</strong>, não promessa de rota/preço — cheque cada trecho nas ferramentas.</span></p>
+        <p>Em cada caixa, o que vem antes da linha <span class="combo-legend">CVL</span> é combo por vizinhança pura; depois dela, os roteiros do <strong>curso CVL</strong> — que já vêm com cidades e stopovers definidos.</p>
       </div>
 
       <div class="combos reveal">
+        <div class="combo-group">
+          <h4>🏛️ Europa Central &amp; Leste</h4>
+          <ul>
+            <li>🇩🇪 Alemanha · 🇦🇹 Áustria · 🇨🇭 Suíça</li>
+            <li>🇨🇿 Rep. Tcheca · 🇦🇹 Áustria · 🇭🇺 Hungria</li>
+            <li>🇵🇱 Polônia · 🇸🇰 Eslováquia · 🇭🇺 Hungria</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇩🇪 Alemanha + 🇫🇷 França + 🇪🇸 Espanha</li>
+            <li class="is-cvl">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra + 🇩🇪 Alemanha + 🇪🇸 Espanha</li>
+            <li class="is-cvl">🇩🇪 Berlim + 🇭🇺 Budapeste + 🇮🇹 Itália</li>
+            <li class="is-cvl">🇩🇪 Berlim + 🇦🇱 Albânia + 🇪🇸 Barcelona</li>
+            <li class="is-cvl">🇪🇸 Espanha + 🇲🇦 Marrocos + 🇨🇿 Rep. Tcheca + 🇭🇺 Hungria + 🇸🇰 Eslováquia</li>
+            <li class="is-cvl">🇬🇧 Londres + 🇹🇷 Istambul + 🇦🇹 Viena + 🇪🇸 Madri</li>
+            <li class="is-cvl">🇮🇹 Toscana + 🇸🇮 Eslovênia + 🇦🇹 Viena + 🇪🇸 Madri <span style="color:var(--text-mute)">(porta de saída)</span></li>
+            <li class="is-cvl">🇵🇹 Lisboa + 🇬🇧 Londres + 🇸🇮 Eslovênia + 🇮🇹 Itália</li>
+            <li class="is-cvl">🇫🇷 Paris + 🇮🇸 Islândia + 🇦🇹 Áustria + 🇪🇸 Espanha + 🇹🇷 Turquia</li>
+            <li class="is-cvl">🏰 Leste Europeu + 🇷🇺 Rússia</li>
+            <li class="is-cvl">🏰 Leste Europeu + 🇮🇹 Sardenha</li>
+            <li class="is-cvl">🏰 Berlim, Kiev, Lviv, Varsóvia, Cracóvia, Praga, Budapeste, Viena e Madri</li>
+          </ul>
+        </div>
+
+        <div class="combo-group">
+          <h4>🌎 Américas</h4>
+          <ul>
+            <li>🇵🇪 Peru · 🇧🇴 Bolívia · 🇦🇷 Argentina</li>
+            <li>🇦🇷 Argentina · 🇨🇱 Chile</li>
+            <li>🇨🇷 Costa Rica · 🇵🇦 Panamá</li>
+            <li>🇬🇹 Guatemala · 🇧🇿 Belize · 🇲🇽 México</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇦🇷 Salta + Mendoza</li>
+            <li class="is-cvl">🇦🇷 Salta + 🇨🇱 Atacama</li>
+            <li class="is-cvl">🇦🇷 El Calafate + 🇨🇱 Puerto Natales e Puerto Montt</li>
+            <li class="is-cvl">🇦🇷 El Calafate + 🇨🇱 Torres del Paine</li>
+            <li class="is-cvl">🇨🇱 Chile + 🇦🇷 Pucón, Bariloche e Mendoza</li>
+            <li class="is-cvl">🇨🇱 Chile + 🇧🇴 Bolívia + 🇵🇪 Peru</li>
+            <li class="is-cvl">🇨🇱 Chile + 🇧🇴 Bolívia</li>
+            <li class="is-cvl">🇨🇴 San Andrés + Cartagena + Bogotá</li>
+            <li class="is-cvl">🇨🇷 Costa Rica + 🇬🇹 Guatemala + 🇧🇿 Belize + 🇲🇽 México</li>
+            <li class="is-cvl">🇬🇹 Guatemala + 🇲🇽 México</li>
+            <li class="is-cvl">🇲🇽 Cidade do México + costa leste</li>
+          </ul>
+        </div>
+
+        <div class="combo-group">
+          <h4>❄️ Nórdicos, Islândia &amp; Ilhas Britânicas</h4>
+          <ul>
+            <li>🇳🇴 Noruega · 🇸🇪 Suécia · 🇫🇮 Finlândia</li>
+            <li>🇩🇰 Dinamarca · 🇸🇪 Suécia · 🇳🇴 Noruega</li>
+            <li>🇮🇸 Islândia · 🇬🇱 Groenlândia · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🌌 Aurora boreal: 🇳🇴 Noruega + 🇫🇮 Finlândia + 🇬🇧 Londres + 🇵🇹 Lisboa</li>
+            <li class="is-cvl">🌌 Aurora boreal: 🇳🇴 Noruega + 🇵🇱 Polônia + 🇪🇸 Espanha</li>
+            <li class="is-cvl">🇵🇹 Lisboa + 🇬🇧 Londres + 🇳🇴 Noruega + 🇵🇱 Polônia + 🇪🇸 Espanha</li>
+            <li class="is-cvl">🇳🇴 Noruega + 🇮🇹 Itália</li>
+            <li class="is-cvl">🇮🇸 Islândia + 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Edimburgo + 🇬🇧 Londres + 🇪🇸 Madri</li>
+            <li class="is-cvl">🇮🇸 Islândia + Leste Europeu</li>
+            <li class="is-cvl">🇬🇧 Londres + 🇮🇸 Islândia + 🇭🇺 Budapeste + 🇮🇹 Roma</li>
+            <li class="is-cvl">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia + 🇮🇪 Irlanda</li>
+            <li class="is-cvl">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia + 🇬🇧 Londres + 🇪🇸 Madri</li>
+            <li class="is-cvl">🇬🇧 Londres + 🇮🇪 Irlanda + 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia + 🇺🇦 Ucrânia + 🇬🇷 Grécia</li>
+          </ul>
+        </div>
+
+        <div class="combo-group">
+          <h4>🕌 Oriente Médio, Turquia &amp; Egito</h4>
+          <ul>
+            <li>🇦🇪 Emirados Árabes · 🇴🇲 Omã</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇹🇷 Turquia + 🇮🇹 Itália + 🇭🇺 Budapeste + 🇬🇧 Londres</li>
+            <li class="is-cvl">🇹🇷 Istambul + 🇮🇹 Roma + 🇪🇸 Barcelona + Capadócia + Pamukkale</li>
+            <li class="is-cvl">🇹🇷 Turquia + 🇬🇷 Grécia + 🇮🇱 Israel</li>
+            <li class="is-cvl">🇹🇷 Turquia + 🇮🇹 Toscana</li>
+            <li class="is-cvl">🇹🇷 Istambul (stopover) + Leste Europeu <span style="color:var(--text-mute)">(alta temporada)</span></li>
+            <li class="is-cvl">🇪🇬 Egito + 🇹🇷 Turquia + 🇦🇪 Dubai</li>
+            <li class="is-cvl">🇮🇹 Itália + 🇪🇬 Egito</li>
+            <li class="is-cvl">🇯🇴 Petra + 🇮🇹 Itália</li>
+            <li class="is-cvl">🇬🇧 Londres + 🇲🇹 Malta + 🇯🇴 Petra + 🇮🇹 Milão</li>
+            <li class="is-cvl">🇲🇻 Maldivas + 🇦🇪 Emirados + 🇹🇷 Turquia</li>
+          </ul>
+        </div>
+
+        <div class="combo-group">
+          <h4>🌅 Mediterrâneo</h4>
+          <ul>
+            <li>🇪🇸 Espanha · 🇲🇦 Marrocos · 🇬🇮 Gibraltar</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇵🇹 Lisboa + sul da França + 🇲🇦 Marrakech + 🇪🇸 Barcelona</li>
+            <li class="is-cvl">🇵🇹 Douro + 🇫🇷 Bordeaux + 🇮🇹 Toscana</li>
+            <li class="is-cvl">🇵🇹 Porto + 🇬🇧 Londres + 🇪🇸 Barcelona + 🇵🇹 Lisboa <span style="color:var(--text-mute)">(stopover duplo)</span></li>
+            <li class="is-cvl">🇬🇧 Londres + 🇲🇹 Malta + 🇪🇸 Madri + 🇵🇹 Lisboa</li>
+            <li class="is-cvl">🇮🇹 Roma + Costa Amalfitana + Sardenha + Portofino</li>
+            <li class="is-cvl">🇮🇹 Itália + 🇨🇭 Suíça</li>
+            <li class="is-cvl">🇮🇹 Itália + 🇬🇷 Grécia</li>
+            <li class="is-cvl">🇬🇷 Grécia + 🇮🇹 Itália + 🇪🇸 Espanha</li>
+          </ul>
+        </div>
+
         <div class="combo-group">
           <h4>🌏 Sudeste Asiático</h4>
           <ul>
             <li>🇹🇭 Tailândia · 🇰🇭 Camboja · 🇱🇦 Laos · 🇻🇳 Vietnã</li>
             <li>🇲🇾 Malásia · 🇸🇬 Singapura</li>
             <li>🇸🇬 Singapura · 🇮🇩 Indonésia · 🇹🇱 Timor-Leste</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇹🇭 Tailândia + 🇻🇳 Vietnã + 🇲🇾 Malásia + 🇸🇬 Singapura</li>
+            <li class="is-cvl">🇭🇰 Hong Kong + 🇹🇭 Tailândia + 🇲🇲 Myanmar + 🇲🇾 Kuala Lumpur</li>
+            <li class="is-cvl">🇵🇭 Sudeste Asiático com foco em Filipinas</li>
+            <li class="is-cvl">🏝️ Sudeste Asiático + 🇲🇻 Maldivas</li>
+            <li class="is-cvl">🇦🇪 Dubai + Sudeste Asiático</li>
           </ul>
         </div>
+
+        <div class="combo-group">
+          <h4>🇺🇸 EUA &amp; Canadá</h4>
+          <ul>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇺🇸 Boston + Rota 66 + Las Vegas</li>
+            <li class="is-cvl">🇺🇸 Las Vegas + costa da Califórnia + Nova York (stopover)</li>
+            <li class="is-cvl">🇺🇸 Orlando + Miami (stopover) + NY (stopover)</li>
+            <li class="is-cvl">🌺 Havaí + Califórnia</li>
+            <li class="is-cvl">🌺 Havaí + costa norte da Califórnia</li>
+            <li class="is-cvl">🇨🇦 Canadá + 🇺🇸 EUA</li>
+            <li class="is-cvl">🇲🇽 México + 🇺🇸 EUA (Califórnia)</li>
+          </ul>
+        </div>
+
         <div class="combo-group">
           <h4>🏔️ Sul &amp; Central da Ásia</h4>
           <ul>
@@ -174,20 +304,12 @@
             <li>🇳🇵 Nepal · 🇧🇹 Butão · 🇧🇩 Bangladesh</li>
             <li>🇺🇿 Uzbequistão · 🇰🇬 Quirguistão</li>
             <li>🇰🇿 Cazaquistão · 🇲🇳 Mongólia</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇮🇳 Índia + 🇲🇾 Malásia + 🇻🇳 Vietnã</li>
+            <li class="is-cvl">🇮🇳 Índia + Sudeste Asiático + 🇭🇰 Hong Kong</li>
           </ul>
         </div>
-        <div class="combo-group">
-          <h4>🌸 Leste Asiático</h4>
-          <ul>
-            <li>🇵🇭 Filipinas · 🇹🇼 Taiwan</li>
-          </ul>
-        </div>
-        <div class="combo-group">
-          <h4>🕌 Oriente Médio</h4>
-          <ul>
-            <li>🇦🇪 Emirados Árabes · 🇴🇲 Omã</li>
-          </ul>
-        </div>
+
         <div class="combo-group">
           <h4>🦁 África</h4>
           <ul>
@@ -196,50 +318,40 @@
             <li>🇿🇼 Zimbábue · 🇿🇲 Zâmbia · 🇧🇼 Botsuana</li>
             <li>🇿🇦 África do Sul · 🇳🇦 Namíbia</li>
             <li>🇸🇨 Seychelles · 🇲🇬 Madagascar</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇿🇦 África do Sul + 🇹🇿 Tanzânia</li>
           </ul>
         </div>
+
         <div class="combo-group">
-          <h4>🏛️ Europa Central</h4>
+          <h4>🌸 Leste Asiático</h4>
           <ul>
-            <li>🇩🇪 Alemanha · 🇦🇹 Áustria · 🇨🇭 Suíça</li>
-            <li>🇨🇿 Rep. Tcheca · 🇦🇹 Áustria · 🇭🇺 Hungria</li>
-            <li>🇵🇱 Polônia · 🇸🇰 Eslováquia · 🇭🇺 Hungria</li>
+            <li>🇵🇭 Filipinas · 🇹🇼 Taiwan</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇨🇳 China + 🇯🇵 Japão + 🇰🇷 Coreia</li>
+            <li class="is-cvl">🇰🇷 Coreia do Sul + 🇫🇮 Finlândia</li>
+            <li class="is-cvl">🇰🇷 Coreia do Sul + 🇸🇬 Singapura + 🇹🇭 Tailândia + 🇫🇮 Finlândia (stopover)</li>
+            <li class="is-cvl">🇹🇷 Turquia + 🇰🇷 Coreia do Sul</li>
           </ul>
         </div>
-        <div class="combo-group">
-          <h4>🌷 Benelux &amp; Ocidental</h4>
-          <ul>
-            <li>🇫🇷 França · 🇧🇪 Bélgica · 🇳🇱 Holanda · 🇱🇺 Luxemburgo</li>
-          </ul>
-        </div>
-        <div class="combo-group">
-          <h4>❄️ Nórdicos &amp; Atlântico Norte</h4>
-          <ul>
-            <li>🇳🇴 Noruega · 🇸🇪 Suécia · 🇫🇮 Finlândia</li>
-            <li>🇩🇰 Dinamarca · 🇸🇪 Suécia · 🇳🇴 Noruega</li>
-            <li>🇮🇸 Islândia · 🇬🇱 Groenlândia · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia</li>
-          </ul>
-        </div>
+
         <div class="combo-group">
           <h4>🌊 Bálcãs</h4>
           <ul>
             <li>🇭🇷 Croácia · 🇲🇪 Montenegro · 🇧🇦 Bósnia e Herz.</li>
             <li>🇦🇱 Albânia · 🇽🇰 Kosovo · 🇲🇰 Macedônia do Norte</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇨🇭 Suíça + Bálcãs</li>
+            <li class="is-cvl">🇬🇧 Londres (stopover) + 🇪🇸 Barcelona + norte da 🇦🇱 Albânia + norte da 🇮🇹 Itália + 🇪🇸 Madri</li>
           </ul>
         </div>
+
         <div class="combo-group">
-          <h4>🌅 Mediterrâneo Ocidental</h4>
+          <h4>🌷 Benelux &amp; Ocidental</h4>
           <ul>
-            <li>🇪🇸 Espanha · 🇲🇦 Marrocos · 🇬🇮 Gibraltar</li>
-          </ul>
-        </div>
-        <div class="combo-group">
-          <h4>🌎 Américas</h4>
-          <ul>
-            <li>🇵🇪 Peru · 🇧🇴 Bolívia · 🇦🇷 Argentina</li>
-            <li>🇦🇷 Argentina · 🇨🇱 Chile</li>
-            <li>🇨🇷 Costa Rica · 🇵🇦 Panamá</li>
-            <li>🇬🇹 Guatemala · 🇧🇿 Belize · 🇲🇽 México</li>
+            <li>🇫🇷 França · 🇧🇪 Bélgica · 🇳🇱 Holanda · 🇱🇺 Luxemburgo</li>
+            <li class="combo-div">CVL</li>
+            <li class="is-cvl">🇫🇷 Paris + sul da França + 🇩🇪 Alemanha + 🇳🇱 Amsterdam</li>
           </ul>
         </div>
       </div>
