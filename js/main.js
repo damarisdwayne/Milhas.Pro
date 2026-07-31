@@ -59,14 +59,12 @@
         ['Lojas (moda praia & viagem)', P + 'lojas.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Tax Free', P + 'tax-free.html'],
+        ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
       ]},
       { title: 'Na viagem', links: [
         ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
-      ]},
-      { title: 'Pessoal', links: [
-        ['Saúde (exames & check-up)', P + 'saude.html'],
       ]},
     ];
 
