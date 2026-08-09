@@ -51,7 +51,7 @@
         ['Guia do Seats.aero', P + 'seats-aero-guia-br.html'],
       ]},
       { title: 'Montar a viagem', links: [
-        ['Achados (rotas)', P + 'achados.html'],
+        ['Roteiros prontos', P + 'roteiros.html'],
         ['Receitas — como chegar', P + 'como-chegar.html'],
         ['Destinos por experiência', P + 'destinos.html'],
         ['Quinta liberdade', P + 'quinta-liberdade.html'],
