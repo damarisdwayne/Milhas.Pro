@@ -39,13 +39,13 @@
     .rot-stop__tags { font-size: .85rem; letter-spacing: .1em; min-height: 1.2em; }
     .rot-stop__obs { font-size: .72rem; color: var(--text-mute); line-height: 1.45; align-self: end; }
 
-    .rot__meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0 0 .85rem; }
-    .rot__meta div { display: flex; align-items: baseline; gap: .5rem; }
-    .rot__meta dt { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); }
-    .rot__meta dd { margin: 0; font-size: .85rem; color: var(--text-dim); }
-    .rot-oj { font-family: var(--font-mono); font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: #ffc078; background: rgba(255,158,44,.12); border: 1px solid rgba(255,158,44,.35); padding: .12rem .4rem; border-radius: 5px; margin-left: .35rem; }
-    .rot__porque { margin: 0; font-size: .88rem; color: var(--text-dim); line-height: 1.7; max-width: 860px; }
-    .rot__porque strong { color: var(--text); }
+    .rot[hidden] { display: none; }
+    .rot-filtro { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin: 0 0 1.25rem; }
+    .rot-filtro label { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); }
+    .rot-busca { flex: 1 1 240px; max-width: 340px; font-family: inherit; font-size: .9rem; color: var(--text); background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 10px; padding: .55rem .85rem; }
+    .rot-busca::placeholder { color: var(--text-mute); }
+    .rot-busca:focus { outline: none; border-color: rgba(0,229,255,.5); box-shadow: 0 0 0 3px rgba(0,229,255,.1); }
+    .rot-vazio { margin: 0 0 2rem; font-size: .88rem; color: var(--text-dim); }
 
     .combos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 0 0 1rem; }
     @media (max-width: 620px) { .combos { grid-template-columns: 1fr; } }
@@ -106,7 +106,14 @@
 
       <div class="rot-legenda" id="rotLegenda"></div>
 
+      <div class="rot-filtro reveal">
+        <label for="rotBusca">Filtrar por país</label>
+        <input type="search" id="rotBusca" class="rot-busca" list="rotPaises" placeholder="digite um país ou cidade…" autocomplete="off" />
+        <datalist id="rotPaises"></datalist>
+      </div>
+
       <div id="rotRoot"></div>
+      <p class="rot-vazio" id="rotVazio" hidden>Nenhum roteiro passa por aí ainda. Monte o seu com as <a href="como-chegar.html" style="color:var(--accent)">receitas de roteiro</a>.</p>
 
       <div class="method-note reveal" style="max-width:none; margin:2rem 0 0">
         💡 Os roteiros não vêm com número de dias de propósito — isso depende do seu tempo e do seu ritmo. Antes de fechar, confira o contraste em
