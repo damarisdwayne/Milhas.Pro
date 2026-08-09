@@ -58,6 +58,7 @@
           <dl class="eu-meta">
             <div><dt>Portas de entrada</dt><dd>${p.portas.map(porta).join('')}</dd></div>
             <div><dt>Melhor época</dt><dd>${esc(p.quando)}</dd></div>
+            ${p.transporte ? `<div><dt>Como circular</dt><dd><span class="eu-modo">${p.transporte.modo} ${esc(p.transporte.rotulo)}</span> ${esc(p.transporte.texto)}</dd></div>` : ''}
           </dl>
         </div>
       </header>

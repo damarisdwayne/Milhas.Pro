@@ -72,11 +72,12 @@
     .eu-meta div { display: grid; grid-template-columns: 130px 1fr; gap: .6rem; align-items: baseline; }
     @media (max-width: 560px) { .eu-meta div { grid-template-columns: 1fr; gap: .2rem; } }
     .eu-meta dt { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); }
-    .eu-meta dd { margin: 0; font-size: .84rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: .3rem; }
+    .eu-meta dd { margin: 0; font-size: .84rem; color: var(--text-dim); display: flex; flex-wrap: wrap; gap: .3rem; align-items: baseline; line-height: 1.6; }
     .eu-apt { font-size: .76rem; background: rgba(255,255,255,.04); border: 1px solid var(--border-soft); border-radius: 8px; padding: .18rem .5rem; }
     .eu-apt b { font-family: var(--font-mono); color: var(--text); }
     .eu-apt.is-porta { border-color: rgba(0,229,255,.35); background: rgba(0,229,255,.08); }
     .eu-apt.is-porta b { color: var(--accent); }
+    .eu-modo { display: inline-block; font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; color: #00d4a8; background: rgba(0,212,168,.12); border: 1px solid rgba(0,212,168,.35); padding: .16rem .5rem; border-radius: 6px; margin-right: .4rem; white-space: nowrap; }
 
     .eu-termas { display: flex; gap: .85rem; margin: 1.25rem 0 0; padding: 1rem 1.2rem; background: rgba(255,92,160,.06); border: 1px solid rgba(255,92,160,.25); border-radius: 14px; font-size: .87rem; color: var(--text-dim); line-height: 1.7; }
     .eu-termas__icon { font-size: 1.3rem; line-height: 1.2; }
@@ -158,6 +159,34 @@
       <div class="eu-rule reveal">
         <strong>Atalho de milhas:</strong> stopover é a forma mais barata de adicionar contraste. A TAP permite parada em Lisboa e a Turkish em Istambul, sem custo de passagem extra — e nos dois casos você ganha um país que quase sempre tem tag diferente do resto do roteiro. Regras e disponibilidade mudam: confirme na emissão.
       </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🚆 Dentro do continente</span>
+        <h2>Não gaste a porta com um <span class="grad-text">trecho de trem</span></h2>
+        <p style="max-width:820px">Cada país tem uma linha "como circular" na ficha abaixo. A lógica por trás dela é simples e evita o erro mais caro do planejamento: queimar um hub bom como escala interna.</p>
+      </div>
+
+      <div class="eu-method reveal">
+        <div class="eu-method__item">
+          <span>✈️</span>
+          <h3>Avião: só nas portas e nas ilhas</h3>
+          <p>Guarde Lisboa, Madri, Paris, Roma, Milão, Amsterdã, Frankfurt e Londres pra <strong>entrar e sair</strong> do continente. Se você usa Lisboa–Madri como trecho interno, perdeu uma porta que valia um open-jaw. Voo interno também ganha nas ilhas gregas, na Turquia e no norte da Escandinávia, onde a distância é grande demais.</p>
+        </div>
+        <div class="eu-method__item">
+          <span>🚆</span>
+          <h3>Trem: o miolo, até ~5h</h3>
+          <p>Depois que você entrou, trem ganha do avião em quase todo trajeto de até cerca de 5h: centro a centro, sem check-in, sem bagagem despachada, sem chegar 2h antes. Vale em França, Itália, Espanha, Alemanha, Áustria, Benelux, Reino Unido e Europa Central.</p>
+        </div>
+        <div class="eu-method__item">
+          <span>🚗</span>
+          <h3>Carro: onde o valor é parar</h3>
+          <p>Quando o que você quer está espalhado e o ponto é parar onde der vontade, o carro ganha — mesmo existindo trem. Islândia, Irlanda, Albânia, Montenegro, Croácia, Eslovênia e Bósnia são assim: sem carro, você vê metade.</p>
+        </div>
+      </div>
+
+      <div class="eu-rule reveal" style="background:rgba(0,212,168,.06); border-color:rgba(0,212,168,.28)">
+        <strong>🌙 A quarta camada: trem noturno.</strong> Resolve o problema de emendar países sem gastar um dia inteiro em deslocamento — você janta numa cidade, dorme a bordo e acorda em outra, economizando também a noite de hotel. A rede <strong>Nightjet</strong>, da austríaca ÖBB, é a espinha dorsal e liga Viena, Munique, Zurique, Praga, Budapeste e Roma, entre outras. A <strong>European Sleeper</strong> complementa por cima: opera Bruxelas–Praga e Paris–Berlim, e estreia em <strong>9 de setembro de 2026</strong> a rota Bruxelas–Colônia–Suíça–Milão, três vezes por semana em cada sentido. Reserve com antecedência: cabine boa esgota cedo.
+      </div>
     </section>
 
     <section class="section" style="padding-top:1rem">
@@ -183,6 +212,7 @@
       <div class="cta-row reveal" style="margin-top:2.5rem">
         <a href="como-chegar.html" class="btn btn--ghost">🍳 Receitas: como chegar em cada destino</a>
         <a href="roteiros.html" class="btn btn--ghost">🗓️ Roteiros prontos</a>
+        <a href="idiomas.html" class="btn btn--ghost">🗣️ Idioma antes da viagem</a>
       </div>
     </section>
   </main>

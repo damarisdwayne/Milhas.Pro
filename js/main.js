@@ -61,10 +61,12 @@
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Tax Free', P + 'tax-free.html'],
         ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
+        ['Idioma antes da viagem', P + 'idiomas.html'],
       ]},
       { title: 'Na viagem', links: [
         ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
+        ['Upgrade de cabine', P + 'upgrade.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},
     ];

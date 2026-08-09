@@ -81,7 +81,7 @@ const ROTEIROS = [
     quando: 'aplicado por uma aluna',
     onde: 'Portugal + Reino Unido + Grécia',
     paradas: [
-      { n: 'Lisboa + Leiria de carro', p: '🇵🇹', tipo: 'porta', tags: ['cidade', 'historia', 'costa'], obs: 'Nazaré, Óbidos e Berlengas — carro alugado no aeroporto e devolvido lá mesmo' },
+      { n: 'Lisboa + Leiria de carro', p: '🇵🇹', tipo: 'porta', tags: ['cidade', 'historia', 'costa'], obs: 'Nazaré, Óbidos e Berlengas — carro alugado' },
       { n: 'Londres', p: '🇬🇧', tipo: 'coringa', tags: ['cidade', 'historia'] },
       { n: 'Mykonos', p: '🇬🇷', tipo: 'coringa', tags: ['praia', 'cidade'] },
       { n: 'Ios', p: '🇬🇷', tipo: 'coringa', tags: ['praia'] },

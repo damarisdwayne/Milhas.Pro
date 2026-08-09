@@ -24,6 +24,7 @@ const EUROPA_REGIOES = [
         tags: ['natureza', 'termas', 'aurora', 'roadtrip'],
         resumo: 'Natureza extrema numa ilha que se dá a volta de carro. Vulcão, geleira, cachoeira e piscina termal no mesmo dia. Não tem cidade grande nem história monumental — é 100% paisagem.',
         quando: 'Jun–ago pra sol da meia-noite e estradas abertas · set–mar pra aurora',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Não existe ferrovia no país. A Ring Road de ~1.330 km é a própria viagem: carro alugado ou campervan, e 4x4 se for subir pras Highlands.' },
         portas: [ { c: 'KEF', n: 'Keflavík', t: 'porta' }, { c: 'AEY', n: 'Akureyri (norte)', t: 'regional' } ],
         termas: 'Sim, e das melhores do mundo. Blue Lagoon e Sky Lagoon são as famosas (caras, precisam de reserva); Mývatn Nature Baths no norte é mais tranquila; Secret Lagoon em Flúðir é a mais rústica; e Reykjadalur é um rio quente de graça, depois de uma trilha de ~1h. Atenção: as erupções na península de Reykjanes já causaram fechamentos temporários na Blue Lagoon — confirme antes de contar com ela.',
         cidades: [
@@ -40,6 +41,7 @@ const EUROPA_REGIOES = [
         tags: ['natureza', 'montanha', 'aurora', 'costa'],
         resumo: 'Fiorde é o produto principal, e não existe substituto. Some o Ártico (aurora, baleias, huskies) e você tem dois países dentro de um — o sul verde e o norte polar.',
         quando: 'Jun–set pros fiordes e trilhas · out–mar pra aurora em Tromsø',
+        transporte: { modo: '🚆/🚗', rotulo: 'Depende do trecho', texto: 'Sul de trem, norte de avião. Oslo–Bergen é uma das viagens ferroviárias mais bonitas do mundo e vale como passeio, não só como transporte. Pra Tromsø e Lofoten, voe: a distância é grande demais pra trem.' },
         portas: [ { c: 'OSL', n: 'Oslo', t: 'porta' }, { c: 'BGO', n: 'Bergen', t: 'regional' }, { c: 'TOS', n: 'Tromsø', t: 'regional' }, { c: 'EVE', n: 'Harstad/Narvik (Lofoten)', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -57,6 +59,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'natureza', 'aurora'],
         resumo: 'A mistura mais equilibrada do norte: uma capital de primeira linha, arquipélagos e um extremo ártico com aurora. Mais barata que a Noruega, com natureza menos dramática.',
         quando: 'Jun–ago pro arquipélago e Gotland · dez–mar pra aurora em Abisko',
+        transporte: { modo: '🚆/🚗', rotulo: 'Depende do trecho', texto: 'Trem rápido e confortável no sul (Estocolmo–Gotemburgo–Malmö). Existe trem noturno até Abisko e Narvik, e é uma experiência — mas se o tempo é curto, voe até Kiruna.' },
         portas: [ { c: 'ARN', n: 'Estocolmo Arlanda', t: 'porta' }, { c: 'GOT', n: 'Gotemburgo', t: 'regional' }, { c: 'KRN', n: 'Kiruna', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -73,6 +76,7 @@ const EUROPA_REGIOES = [
         tags: ['natureza', 'aurora', 'neve', 'cidade'],
         resumo: 'Floresta, lago e sauna. A Lapônia finlandesa é a versão mais "produto pronto" do Ártico — igloo de vidro, renas, Papai Noel — o que é ótimo se você quer inverno sem improviso.',
         quando: 'Dez–mar pra Lapônia e aurora · jun–ago pros lagos e sol da meia-noite',
+        transporte: { modo: '🚆/🚗', rotulo: 'Depende do trecho', texto: 'O trem noturno de Helsinque pra Lapônia (Rovaniemi, Kolari) é excelente e leva até o seu carro no vagão. Fora desse eixo, o país é grande e o avião ganha.' },
         portas: [ { c: 'HEL', n: 'Helsinque', t: 'porta' }, { c: 'RVN', n: 'Rovaniemi', t: 'regional' }, { c: 'KTT', n: 'Kittilä (Levi)', t: 'regional' }, { c: 'IVL', n: 'Ivalo (Inari)', t: 'regional' } ],
         termas: 'Não no sentido de fonte termal. O que existe é a cultura de sauna, que é levada muito a sério — Löyly e Allas em Helsinque são as públicas mais bonitas. É outra experiência: calor seco e mergulho gelado, não piscina quente ao ar livre.',
         cidades: [
@@ -89,6 +93,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'gastronomia', 'historia'],
         resumo: 'É o nórdico "de cidade": design, gastronomia e bicicleta, sem depender de natureza extrema. Copenhague sozinha justifica a parada, e o país é pequeno o suficiente pra caber em 4–5 dias.',
         quando: 'Mai–set (verão curto e agradável) · dez pros mercados de Natal',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'País pequeno e bem servido: Copenhague–Odense–Aarhus de trem, sem carro nenhum. A ponte de Øresund liga Copenhague a Malmö em ~35 min.' },
         portas: [ { c: 'CPH', n: 'Copenhague', t: 'porta' }, { c: 'BLL', n: 'Billund', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -113,6 +118,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia', 'montanha', 'roadtrip'],
         resumo: 'Londres é um destino inteiro sozinha. Fora dela o país entrega coisa bem diferente: Highlands de road trip, lagos, cidades medievais e a única cidade termal natural das ilhas.',
         quando: 'Mai–set pro norte e Escócia · Londres o ano todo',
+        transporte: { modo: '🚆/🚗', rotulo: 'Depende do trecho', texto: 'Rede densa e rápida: Londres–York–Edimburgo–Glasgow de trem, sem pensar duas vezes. Mas Highlands, Skye, Cornualha e o País de Gales pedem carro. O Eurostar liga Londres a Paris e Bruxelas.' },
         portas: [ { c: 'LHR', n: 'Londres Heathrow', t: 'porta' }, { c: 'LGW', n: 'Londres Gatwick', t: 'porta' }, { c: 'EDI', n: 'Edimburgo', t: 'regional' }, { c: 'MAN', n: 'Manchester', t: 'regional' } ],
         termas: 'Só uma, mas é boa: Bath. É a única fonte termal natural do país — os romanos construíram um complexo em cima dela, que hoje é museu (não se banha), e o Thermae Bath Spa ao lado usa a mesma água, com piscina no rooftop olhando a cidade.',
         cidades: [
@@ -132,6 +138,7 @@ const EUROPA_REGIOES = [
         tags: ['roadtrip', 'costa', 'natureza'],
         resumo: 'País de carro alugado. A graça está na costa oeste — falésia, península, vila de pescador e pub — não nas cidades. Se você não pretende dirigir, rende bem menos.',
         quando: 'Mai–set (fora disso, dia curto e chuva constante)',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Existe trem, mas ele sai de Dublin em raio — e o que vale a viagem está espalhado pela costa oeste, sem ligação entre si. Carro alugado, sem alternativa boa.' },
         portas: [ { c: 'DUB', n: 'Dublin', t: 'porta' }, { c: 'SNN', n: 'Shannon (oeste)', t: 'regional' }, { c: 'ORK', n: 'Cork', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -156,6 +163,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia'],
         resumo: 'Urbano e cultural, do começo ao fim. Canal, museu e bicicleta. País minúsculo e com trem bom — dá pra ver quatro cidades usando uma base só.',
         quando: 'Abr–mai pelas tulipas · jun–set pro clima',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Trem pra tudo: o país inteiro cabe em menos de 3h. Voo interno aqui não faz sentido nenhum, e a bicicleta resolve dentro das cidades.' },
         portas: [ { c: 'AMS', n: 'Amsterdã Schiphol', t: 'porta' } ],
         termas: null,
         cidades: [
@@ -172,6 +180,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'gastronomia', 'cidade'],
         resumo: 'Cidade histórica pequena, cerveja e chocolate. Rende 3 dias, não 10 — e funciona muito bem emendada com Países Baixos ou norte da França de trem.',
         quando: 'Abr–out · dez pelos mercados de Natal',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Bruxelas, Bruges, Gante e Antuérpia estão todas a menos de 1h de trem umas das outras. É o país mais fácil da Europa de circular.' },
         portas: [ { c: 'BRU', n: 'Bruxelas', t: 'porta' }, { c: 'CRL', n: 'Charleroi (low cost)', t: 'regional' } ],
         termas: 'Sim, e é literalmente a origem da palavra: a cidade de Spa, nas Ardenas, deu nome ao conceito. As Thermes de Spa ficam no alto do morro, ligadas ao centro por funicular, e usam água mineral local. É mais discreto que Budapeste ou Islândia, mas é real e histórico.',
         cidades: [
@@ -187,6 +196,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'natureza'],
         resumo: 'Micro-país que quase ninguém programa e quase todo mundo gosta. Fortaleza dramática, floresta de trilha e vinho de Mosela. Transporte público gratuito no país inteiro.',
         quando: 'Mai–out',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Transporte público gratuito no país inteiro — trem e ônibus, para todo mundo, sem bilhete. Basta entrar.' },
         portas: [ { c: 'LUX', n: 'Luxemburgo', t: 'regional' } ],
         termas: 'Um só, mas de verdade: Mondorf-les-Bains, na fronteira com a França, é a única estância termal do país, com água quente natural.',
         cidades: [
@@ -202,6 +212,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'gastronomia', 'montanha', 'praia', 'costa', 'roadtrip'],
         resumo: 'Provavelmente o país mais completo da Europa: capital de museu, Mediterrâneo, Alpes, vinho de classe mundial e castelo. Justamente por isso, cuidado — dá pra fazer a França inteira e nunca sair da "mesma" tag.',
         quando: 'Mai–jun e set–out pro geral · jun–jul pra lavanda na Provence · dez–mar pros Alpes',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Uma das melhores redes de alta velocidade do mundo: Paris–Lyon, Bordeaux, Marselha, Nice e Estrasburgo de TGV, em 2 a 5h. Mas Provence, Normandia, Vale do Loire e Córsega rendem muito mais de carro.' },
         portas: [ { c: 'CDG', n: 'Paris Charles de Gaulle', t: 'porta' }, { c: 'ORY', n: 'Paris Orly', t: 'regional' }, { c: 'NCE', n: 'Nice', t: 'regional' }, { c: 'LYS', n: 'Lyon', t: 'regional' }, { c: 'MRS', n: 'Marselha', t: 'regional' } ],
         termas: 'O termalismo francês é enorme, mas é mais "cura médica" do que banho de lazer — Vichy, Dax, Aix-les-Bains funcionam como estâncias de tratamento. Se você quer piscina termal com paisagem, os Pirineus entregam melhor: Cauterets e Bagnères-de-Luchon têm banhos termais de montanha. Não espere o nível de Budapeste ou da Islândia.',
         cidades: [
@@ -222,6 +233,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia', 'montanha', 'termas'],
         resumo: 'Versátil e barata pro que entrega. Berlim e Munique são cidades opostas dentro do mesmo país, tem Alpes no sul, castelo de conto de fadas, vale de vinho e uma das melhores tradições termais da Europa.',
         quando: 'Mai–set pro geral · fim de set pra Oktoberfest · dez pros mercados de Natal',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'O ICE liga tudo, e emenda naturalmente com Praga, Viena, Amsterdã e Suíça. As exceções que pedem carro são justamente as mais bonitas: Floresta Negra, Rota Romântica e o vale do Mosela.' },
         portas: [ { c: 'FRA', n: 'Frankfurt', t: 'porta' }, { c: 'MUC', n: 'Munique', t: 'porta' }, { c: 'BER', n: 'Berlim', t: 'regional' }, { c: 'DUS', n: 'Düsseldorf', t: 'regional' } ],
         termas: 'Sim, e é levada a sério. Baden-Baden é a referência: o Friedrichsbad é um ritual romano-irlandês de 17 etapas (tradicionalmente sem roupa e sem celular) e a Caracalla Therme ao lado é a versão de maiô. Wiesbaden e Bad Ems completam — as três entraram na lista UNESCO das grandes cidades termais da Europa.',
         cidades: [
@@ -241,6 +253,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'montanha', 'termas', 'neve'],
         resumo: 'Duas coisas muito distintas no mesmo país: a Viena imperial de palácio, ópera e café; e o Tirol alpino de esqui e terma. Combinação de cultura + montanha difícil de bater.',
         quando: 'Mai–set pros Alpes no verde · dez–mar pra neve e termas',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'A ÖBB é excelente e a Áustria é o centro da rede de trens noturnos da Europa. Munique–Salzburgo–Innsbruck–Viena sai inteiro de trem, com paisagem alpina no caminho.' },
         portas: [ { c: 'VIE', n: 'Viena', t: 'porta' }, { c: 'SZG', n: 'Salzburgo', t: 'regional' }, { c: 'INN', n: 'Innsbruck', t: 'regional' } ],
         termas: 'Sim, e é uma das melhores da Europa central. Aqua Dome, em Längenfeld (Ötztal), tem piscinas suspensas em forma de taça com os Alpes em volta; Rogner Bad Blumau, na Estíria, foi projetada pelo Hundertwasser e parece um desenho; e Bad Gastein é a estância termal alpina histórica, encravada numa cachoeira.',
         cidades: [
@@ -258,6 +271,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'natureza', 'termas'],
         resumo: 'A montanha em estado puro, com a melhor infraestrutura do mundo pra chegar até ela — trem panorâmico, teleférico e vilarejo sem carro. É cara de doer, então funciona melhor como bloco curto e intenso dentro de um roteiro maior.',
         quando: 'Jun–set pra trilha e trem panorâmico · dez–mar pra neve',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Aqui o trem não é transporte, é o passeio: Glacier Express, Bernina Express e vilas sem carro como Zermatt. O Swiss Travel Pass cobre trem, ônibus e barco — faça a conta, costuma compensar.' },
         portas: [ { c: 'ZRH', n: 'Zurique', t: 'porta' }, { c: 'GVA', n: 'Genebra', t: 'porta' }, { c: 'BSL', n: 'Basileia', t: 'regional' } ],
         termas: 'Sim, e com um diferencial: água termal a 1.400 m de altitude. Leukerbad é o maior centro termal alpino, com piscinas quentes ao ar livre cercadas de paredões; as Termas de Vals (7132) são uma obra de arquitetura do Peter Zumthor em quartzito; e Bad Ragaz é a versão sofisticada, ligada à garganta de Tamina.',
         cidades: [
@@ -277,6 +291,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'historia'],
         resumo: 'Microestado alpino de 160 km² entre Suíça e Áustria. Não é destino de viagem — é uma parada de meio dia que se encaixa quando você já está em Zurique ou no Tirol. O que oferece: um principado ainda governado por uma família, montanha e um centro minúsculo.',
         quando: 'Mai–out pra caminhada · dez–mar pro esqui em Malbun',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Sem estação útil no país. Chega-se de ônibus a partir de Sargans ou Buchs, na Suíça, ou de carro em 1h20 de Zurique.' },
         portas: [ { c: 'ZRH', n: 'via Zurique — ~1h20 de carro; sem aeroporto próprio', t: 'porta' } ],
         termas: null,
         cidades: [
@@ -298,6 +313,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'gastronomia', 'praia', 'costa', 'natureza'],
         resumo: 'Sem barreira de idioma, porta de entrada barata e uma variedade grande pro tamanho: cidade histórica, vinho, praia de falésia e, nas ilhas, natureza vulcânica de verdade.',
         quando: 'Abr–jun e set–out no continente · jun–set pros Açores',
+        transporte: { modo: '🚆/🚗', rotulo: 'Depende do trecho', texto: 'Lisboa–Porto de Alfa Pendular resolve o eixo principal, e Coimbra e Faro também são de trem. Mas Douro, Alentejo, Sintra rural e Algarve rendem mais de carro — e Madeira e Açores são carro obrigatório.' },
         portas: [ { c: 'LIS', n: 'Lisboa', t: 'porta' }, { c: 'OPO', n: 'Porto', t: 'porta' }, { c: 'FAO', n: 'Faro (Algarve)', t: 'regional' }, { c: 'FNC', n: 'Funchal (Madeira)', t: 'regional' }, { c: 'PDL', n: 'Ponta Delgada (Açores)', t: 'regional' } ],
         termas: 'Nos Açores, sim, e são ótimas: em Furnas (São Miguel) você tem o tanque de água ferruginosa laranja do Parque Terra Nostra e as poças escalonadas da Poça da Dona Beija, que abre até tarde da noite. No continente o termalismo existe (Chaves, São Pedro do Sul) mas é mais clínico que lazer.',
         cidades: [
@@ -317,6 +333,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia', 'praia', 'gastronomia'],
         resumo: 'Cidade grande, arte, praia e a melhor relação comida/preço da Europa Ocidental. Diferença importante: o norte (San Sebastián, Bilbao, Galícia) é verde, fresco e gastronômico; o sul é mourisco e quente. São experiências distintas.',
         quando: 'Abr–jun e set–out · jul–ago só se for praia (o interior passa de 40°C)',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'O AVE é excelente e fica barato comprado com antecedência: Madri–Sevilha em 2h30, Córdoba, Málaga e Barcelona no mesmo padrão. Andaluzia rural, Mallorca e Canárias é que pedem carro.' },
         portas: [ { c: 'MAD', n: 'Madri', t: 'porta' }, { c: 'BCN', n: 'Barcelona', t: 'porta' }, { c: 'AGP', n: 'Málaga', t: 'regional' }, { c: 'PMI', n: 'Palma de Mallorca', t: 'regional' }, { c: 'IBZ', n: 'Ibiza', t: 'regional' }, { c: 'MAH', n: 'Menorca', t: 'regional' }, { c: 'TFS', n: 'Tenerife Sul', t: 'regional' } ],
         termas: 'Sim, e é o segredo mais bem guardado: Ourense, na Galícia, é a capital termal do país. Tem fontes quentes na rua no centro (As Burgas) e uma sequência de poças termais públicas às margens do rio Miño — Outariz, Muíño da Veiga — várias delas gratuitas. Nada turístico, e é água termal de verdade.',
         cidades: [
@@ -341,6 +358,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'neve', 'termas'],
         resumo: 'Principado nos Pirineus, entre França e Espanha. Sem aeroporto — entra-se de carro ou ônibus por Barcelona (~3h) ou Toulouse (~3h). O que oferece: o maior domínio esquiável dos Pirineus, um centro termal grande de verdade e compras sem os impostos da UE.',
         quando: 'Dez–mar pra neve · jun–set pra trilha',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Sem trem. Ônibus direto de Barcelona e de Toulouse (~3h), ou carro. Dentro do país, ônibus locais e teleféricos dão conta.' },
         portas: [ { c: 'BCN', n: 'via Barcelona — ~3h de carro/ônibus', t: 'porta' }, { c: 'TLS', n: 'via Toulouse — ~3h', t: 'regional' } ],
         termas: 'Sim, e é o motivo real pra parar aqui: Caldea, em Escaldes-Engordany, é um dos maiores complexos termais lúdicos do sul da Europa, alimentado por fonte termal natural, com lagoa interna, piscinas ao ar livre com vista pras montanhas e uma torre de vidro que virou símbolo do país.',
         cidades: [
@@ -355,6 +373,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'costa'],
         resumo: 'Segundo menor país do mundo, 2 km² grudados na Riviera Francesa. Sem aeroporto: Nice (NCE) fica a 30 min de ônibus/trem ou 7 min de helicóptero. O que oferece: um bate-volta de meio dia com cassino histórico, porto de iates e um dos melhores museus oceanográficos do mundo.',
         quando: 'Abr–out · maio no GP de Fórmula 1 (cidade fechada e preços em outro patamar)',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Trem local de Nice em ~25 min, com várias saídas por hora. Não alugue carro: o país tem 2 km² e estacionar é caro.' },
         portas: [ { c: 'NCE', n: 'via Nice — ~30 min de trem; sem aeroporto próprio', t: 'porta' } ],
         termas: 'Não no sentido de fonte termal. Os Thermes Marins de Monte-Carlo são talassoterapia — água do mar aquecida, não água termal geotérmica. Bom spa, categoria diferente.',
         cidades: [
@@ -369,6 +388,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'gastronomia', 'praia', 'montanha', 'termas'],
         resumo: 'Junto com a França, o país mais completo da Europa — e o mais fácil de fazer errado, porque as cidades de arte se parecem entre si depois da terceira. Alterne: uma cidade histórica, depois Dolomitas ou costa.',
         quando: 'Abr–jun e set–out · jul–ago só litoral e montanha (as cidades ficam insuportáveis)',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'O corredor Milão–Bolonha–Florença–Roma–Nápoles é dos melhores da Europa, e Trenitalia e Italo competem na mesma linha — o que derruba o preço. Toscana, Dolomitas, Sicília e Sardenha, aí sim, carro.' },
         portas: [ { c: 'FCO', n: 'Roma Fiumicino', t: 'porta' }, { c: 'MXP', n: 'Milão Malpensa', t: 'porta' }, { c: 'VCE', n: 'Veneza', t: 'regional' }, { c: 'NAP', n: 'Nápoles', t: 'regional' }, { c: 'CTA', n: 'Catânia (Sicília)', t: 'regional' } ],
         termas: 'Sim, e com opção pra todo bolso. Saturnia, na Toscana, tem as Cascate del Mulino: cascatas termais a 37°C ao ar livre, abertas 24h e de graça. Ischia é uma ilha vulcânica inteira dedicada a isso, com parques termais como Negombo e Poseidon. E nos Alpes, QC Terme Bormio e as Terme Merano juntam água quente com neve.',
         cidades: [
@@ -393,6 +413,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'montanha'],
         resumo: 'Enclave de 61 km² dentro da Itália, no alto do Monte Titano. Sem aeroporto: entra-se por Rimini (~30 min) ou Bolonha (~2h). O que oferece: uma cidadela medieval murada com três torres e vista até o Adriático — meio dia, encaixado num roteiro pela Emília-Romanha.',
         quando: 'Abr–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Sem ferrovia. Ônibus de Rimini em ~50 min, ou carro. Dentro da cidadela é tudo a pé.' },
         portas: [ { c: 'RMI', n: 'via Rimini — ~30 min de ônibus; sem aeroporto próprio', t: 'regional' }, { c: 'BLQ', n: 'via Bolonha — ~2h', t: 'porta' } ],
         termas: null,
         cidades: [
@@ -405,6 +426,7 @@ const EUROPA_REGIOES = [
         tags: ['historia'],
         resumo: 'Menor país do mundo, 0,44 km² dentro de Roma. Não é uma parada logística — é uma manhã do seu roteiro romano. O que oferece: um dos maiores acervos de arte do planeta concentrado num espaço mínimo.',
         quando: 'O ano todo — entre bem cedo ou no fim da tarde',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Metrô de Roma até Ottaviano, ou a pé do centro histórico. Não existe transporte interno.' },
         portas: [ { c: 'FCO', n: 'via Roma Fiumicino', t: 'porta' } ],
         termas: null,
         cidades: [
@@ -418,6 +440,7 @@ const EUROPA_REGIOES = [
         tags: ['praia', 'historia', 'cidade'],
         resumo: 'Arquipélago no meio do Mediterrâneo com 7.000 anos de camadas: templos pré-históricos, cavaleiros, ingleses. Fala-se inglês, é barato pro padrão do Mediterrâneo, e cabe em 4–5 dias.',
         quando: 'Abr–jun e set–out · jul–ago é muito quente e cheio',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Não existe ferrovia. A rede de ônibus cobre a ilha inteira e é barata; ferry pra Gozo e Comino. Carro só se quiser liberdade total — as estradas são estreitas.' },
         portas: [ { c: 'MLA', n: 'Malta', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -441,6 +464,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'cidade', 'termas'],
         resumo: 'Praga é uma das cidades históricas mais completas da Europa e ainda sai em conta. Fora dela, o país é mais do mesmo em escala menor — o que muda a experiência é o oeste termal e o sul do vinho.',
         quando: 'Abr–jun e set–out · dez pelos mercados de Natal',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Praga se conecta de trem a Berlim, Dresden, Viena e Cracóvia com facilidade. Dentro do país, porém, Český Krumlov e Karlovy Vary costumam sair melhor de ônibus que de trem.' },
         portas: [ { c: 'PRG', n: 'Praga', t: 'porta' } ],
         termas: 'Sim, mas atenção ao formato: a tradição tcheca é de "cidade-spa" — Karlovy Vary e Mariánské Lázně têm colunatas onde se bebe a água mineral quente em canecas próprias, e o banho acontece dentro de hotéis de tratamento. Ambas entraram na lista UNESCO das grandes cidades termais da Europa. Se o que você quer é piscina termal ao ar livre, a Hungria e a Eslováquia entregam mais.',
         cidades: [
@@ -456,6 +480,7 @@ const EUROPA_REGIOES = [
         tags: ['termas', 'cidade', 'historia', 'gastronomia'],
         resumo: 'Se termas pesam na sua escolha, a Hungria não é uma opção — é o destino. O país inteiro fica sobre um dos maiores reservatórios de água termal do mundo, e Budapeste é a única capital europeia com dezenas de banhos termais em funcionamento.',
         quando: 'Abr–jun e set–out · o inverno é ótimo justamente por causa das termas',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Budapeste é uma das pontas da rede da Europa Central: Viena em ~2h30, e trens noturnos pra Munique e Zurique. Balaton, Eger e Tokaj também de trem.' },
         portas: [ { c: 'BUD', n: 'Budapeste', t: 'porta' } ],
         termas: 'A melhor da Europa, disparado. Széchenyi é o cartão-postal: piscinas amarelas neobarrocas ao ar livre, quentes mesmo com neve caindo. Gellért é art nouveau com azulejo e vitral. Rudas mantém a cúpula otomana do século XVI e tem um jacuzzi panorâmico no telhado com vista pro Danúbio. Fora da capital: Hévíz é o maior lago termal biologicamente ativo do mundo, onde se boia ao ar livre a 33°C mesmo em janeiro, e Egerszalók tem uma cascata calcária branca formada pela própria água.',
         cidades: [
@@ -472,6 +497,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'cidade', 'montanha'],
         resumo: 'A melhor relação história/preço da Europa. Centros medievais reconstruídos com precisão, memória pesada do século XX e — surpresa pra muita gente — termas geotérmicas de verdade no sul, ao pé dos Tatras.',
         quando: 'Mai–set · dez–fev pra neve e termas em Zakopane',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Os intercidades entre Varsóvia, Cracóvia, Wrocław e Gdańsk são rápidos, confortáveis e baratos. Zakopane e os Tatras é que pedem ônibus ou carro.' },
         portas: [ { c: 'WAW', n: 'Varsóvia Chopin', t: 'porta' }, { c: 'KRK', n: 'Cracóvia', t: 'regional' }, { c: 'GDN', n: 'Gdańsk', t: 'regional' } ],
         termas: 'Sim, e pouca gente sabe: a região de Zakopane, nos Tatras, tem água geotérmica abundante. Termy Chochołowskie e Termy Bukovina são complexos grandes de piscinas ao ar livre com vista direta pras montanhas nevadas — mesma ideia da Islândia, por uma fração do preço.',
         cidades: [
@@ -487,6 +513,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'termas', 'historia'],
         resumo: 'Quase sempre ignorada, e por um bom motivo: Bratislava não segura uma viagem sozinha. O que vale é a montanha — os Altos Tatras são Alpes em versão compacta e barata — e uma rede termal densa.',
         quando: 'Jun–set pra trilha · dez–mar pra neve e termas',
+        transporte: { modo: '🚆', rotulo: 'Trem manda', texto: 'Bratislava–Viena em ~1h de trem, o que praticamente funde as duas cidades. Pros Altos Tatras, trem até Poprad e depois os trens de montanha locais.' },
         portas: [ { c: 'BTS', n: 'Bratislava', t: 'regional' }, { c: 'VIE', n: 'via Viena — ~1h de ônibus e muito melhor conectada', t: 'porta' } ],
         termas: 'Sim, é um dos países mais termais da Europa. Piešťany é a estância clássica, famosa pela lama sulfurosa; AquaCity Poprad e Bešeňová são complexos geotérmicos grandes, com piscinas ao ar livre olhando pros Tatras.',
         cidades: [
@@ -503,6 +530,7 @@ const EUROPA_REGIOES = [
         tags: ['natureza', 'montanha', 'termas', 'praia'],
         resumo: 'O país mais eficiente da Europa em experiência por quilômetro: Alpes, caverna, rio turquesa, costa veneziana e termas — tudo a menos de 2h de carro um do outro. Ideal como bloco de natureza entre duas cidades grandes.',
         quando: 'Mai–set · dez–mar pra neve e termas',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'O país é minúsculo e tudo fica perto, mas o que vale (Bohinj, vale do Soča, Piran) não tem trem. Bled ainda dá pra alcançar de trem ou ônibus; do resto em diante, carro.' },
         portas: [ { c: 'LJU', n: 'Liubliana', t: 'regional' }, { c: 'VCE', n: 'via Veneza — ~3h de carro', t: 'porta' }, { c: 'ZAG', n: 'via Zagreb — ~2h', t: 'regional' } ],
         termas: 'Sim, e é tradição nacional — o país tem mais de uma dezena de estâncias termais naturais. Terme Čatež é a maior, com "riviera" termal ao ar livre aberta o ano todo; Rogaška Slatina é a histórica, ligada à água mineral Donat Mg; e Terme Ptuj fica na cidade mais antiga do país.',
         cidades: [
@@ -520,6 +548,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'montanha', 'natureza', 'roadtrip', 'termas'],
         resumo: 'Um dos melhores road trips da Europa, e ainda pouco explorado. Castelo na Transilvânia, cidades saxãs medievais, estradas alpinas espetaculares e um delta que não se parece com nada mais no continente.',
         quando: 'Mai–set · a Transfăgărășan só abre por volta de jun–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Trens lentos e horários ruins. Bucareste–Brașov de trem funciona bem, mas Transilvânia, Maramureș e a Transfăgărășan são road trip — é esse o ponto do país.' },
         portas: [ { c: 'OTP', n: 'Bucareste Otopeni', t: 'porta' }, { c: 'CLJ', n: 'Cluj-Napoca', t: 'regional' }, { c: 'TSR', n: 'Timișoara', t: 'regional' } ],
         termas: 'Sim, com herança romana — "Herculane" vem daí. Băile Herculane é uma estância imperial parcialmente em ruínas, decadente e fotogênica, com banhos termais ainda em funcionamento; Băile Felix é a mais estruturada; e Therme București, perto do aeroporto, é um complexo gigante alimentado por poço geotérmico — ótimo pra emendar num dia de conexão.',
         cidades: [
@@ -538,6 +567,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'historia', 'praia', 'termas'],
         resumo: 'Provavelmente o país mais barato da União Europeia. Entrega montanha com ski acessível, uma das cidades mais antigas do continente, mosteiros e praia no Mar Negro.',
         quando: 'Mai–set pro geral · dez–mar pra ski em Bansko',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Rede ferroviária lenta. Sófia–Plovdiv de trem ou ônibus tudo bem; Rila, Bansko e o Mar Negro pedem carro ou ônibus intermunicipal.' },
         portas: [ { c: 'SOF', n: 'Sófia', t: 'porta' }, { c: 'VAR', n: 'Varna', t: 'regional' }, { c: 'BOJ', n: 'Burgas', t: 'regional' } ],
         termas: 'Sim — a Bulgária é um dos países com mais fontes termais da Europa, mais de 500. Devin e Velingrad são as estâncias mais conhecidas; Sapareva Banya tem o gêiser mais quente dos Bálcãs, a mais de 100°C. É termalismo local e barato, não resort de luxo.',
         cidades: [
@@ -554,6 +584,7 @@ const EUROPA_REGIOES = [
         tags: ['gastronomia', 'historia'],
         resumo: 'Um dos países menos visitados da Europa. Não tem paisagem espetacular nem cidade monumental — o que tem é vinho, e nisso é excepcional: as maiores adegas subterrâneas do mundo ficam aqui.',
         quando: 'Mai–out · outubro no Festival Nacional do Vinho',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Distâncias curtas, mas transporte público limitado. Carro alugado ou motorista contratado por diária — que ali é barato.' },
         portas: [ { c: 'RMO', n: 'Chișinău (código antigo: KIV)', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -568,6 +599,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'cidade', 'natureza'],
         resumo: 'Tallinn tem uma das cidades medievais mais bem preservadas da Europa — e o país é o mais digitalizado do continente. Bloco báltico rende bem: os três países cabem numa semana de ônibus/carro.',
         quando: 'Jun–ago (o verão báltico é curto) · dez pelo mercado de Natal',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'A ligação entre os três bálticos ainda é feita por ônibus, não por trem (a Rail Baltica só fica pronta mais adiante). Ônibus são bons e baratos; Lahemaa e Saaremaa pedem carro.' },
         portas: [ { c: 'TLL', n: 'Tallinn', t: 'regional' } ],
         termas: 'Não há fontes termais. Pärnu e Haapsalu têm cultura de spa e lama medicinal do Báltico, e a sauna é tradição forte, incluindo a sauna esfumaçada de Võromaa, que é patrimônio imaterial UNESCO. É outra coisa, não termas quentes.',
         cidades: [
@@ -583,6 +615,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia', 'natureza'],
         resumo: 'Riga é o motivo. Tem a maior concentração de arquitetura Art Nouveau da Europa, e é a maior e mais viva das três capitais bálticas.',
         quando: 'Jun–ago',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Riga–Jūrmala e Riga–Sigulda saem de trem local sem problema. Fora desse raio, ônibus entre cidades e carro pros parques.' },
         portas: [ { c: 'RIX', n: 'Riga', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -597,6 +630,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'natureza', 'cidade'],
         resumo: 'O mais barroco dos bálticos, e o que tem a paisagem mais distinta: as dunas gigantes do Istmo da Curônia. Vilnius é a menos turística das três capitais.',
         quando: 'Jun–ago',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Vilnius–Trakai e Vilnius–Kaunas de trem funcionam. Pro Istmo da Curônia e a Colina das Cruzes, carro ou ônibus.' },
         portas: [ { c: 'VNO', n: 'Vilnius', t: 'regional' }, { c: 'KUN', n: 'Kaunas', t: 'regional' } ],
         termas: 'Não termal quente. Druskininkai é a estância clássica do país, com águas minerais e lama — categoria spa báltico, não fonte termal.',
         cidades: [
@@ -620,6 +654,7 @@ const EUROPA_REGIOES = [
         tags: ['praia', 'historia', 'natureza'],
         resumo: 'A costa mais bonita do Adriático, com mais de mil ilhas e cidades romanas/venezianas em cima do mar. Já não é barata como era, mas ainda ganha da Itália no custo.',
         quando: 'Mai–jun e set (jul–ago é caro e lotado)',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'A costa não tem ferrovia útil — a Dalmácia inteira depende de estrada. Carro mais ferry (Jadrolinija) pras ilhas; os ônibus intermunicipais são boa alternativa se não quiser dirigir.' },
         portas: [ { c: 'ZAG', n: 'Zagreb', t: 'regional' }, { c: 'SPU', n: 'Split', t: 'regional' }, { c: 'DBV', n: 'Dubrovnik', t: 'regional' }, { c: 'PUY', n: 'Pula (Ístria)', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -637,6 +672,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'natureza', 'cidade'],
         resumo: 'A experiência mais distinta dos Bálcãs: é onde o Império Otomano e a Europa central se encontram fisicamente, numa mesma rua. História recente muito presente e preços entre os mais baixos do continente.',
         quando: 'Mai–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Estradas de montanha, distâncias curtas e trânsito lento — carro. Com uma exceção que vale por si só: o trem Sarajevo–Mostar, ~2h por um desfiladeiro, é um dos mais bonitos da Europa.' },
         portas: [ { c: 'SJJ', n: 'Sarajevo', t: 'regional' }, { c: 'DBV', n: 'via Dubrovnik — ~3h até Mostar', t: 'regional' } ],
         termas: 'Existe, em escala local: Ilidža, nos arredores de Sarajevo, e Fojnica têm fontes termais usadas desde a época romana e otomana. É balneário de bairro, não destino termal.',
         cidades: [
@@ -653,6 +689,7 @@ const EUROPA_REGIOES = [
         tags: ['costa', 'montanha', 'roadtrip'],
         resumo: 'Mar e montanha alta a 1h de distância um do outro, num país do tamanho de uma região. É o melhor road trip curto da Europa — em 5 dias você atravessa fiorde, cânion e praia.',
         quando: 'Mai–jun e set–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Tudo perto e tudo sinuoso: carro, e é justamente aí que está a graça. Exceção: a ferrovia Bar–Belgrado, com 435 pontes e túneis, é passeio cênico por si.' },
         portas: [ { c: 'TIV', n: 'Tivat (baía de Kotor)', t: 'regional' }, { c: 'TGD', n: 'Podgorica', t: 'regional' }, { c: 'DBV', n: 'via Dubrovnik — ~2h até Kotor', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -670,6 +707,7 @@ const EUROPA_REGIOES = [
         tags: ['praia', 'montanha', 'historia', 'termas'],
         resumo: 'O melhor custo-benefício da Europa hoje. Praia de água transparente com preço de Bálcã, cidades otomanas UNESCO, Alpes selvagens e uma história de isolamento comunista que não se repete em lugar nenhum.',
         quando: 'Mai–jun e set pra costa · jun–set pra montanha',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'A ferrovia de passageiros é praticamente inexistente. Carro (ou os furgões locais, os "furgon") — e a estrada da riviera, descendo o passo de Llogara, é parte do passeio.' },
         portas: [ { c: 'TIA', n: 'Tirana', t: 'regional' } ],
         termas: 'Sim, e é bem rústica: as termas de Bënjë, perto de Përmet, são piscinas naturais de água quente junto a uma ponte otomana e a um cânion. Não tem estrutura de resort — é banho ao ar livre no meio do nada, e justamente por isso vale.',
         cidades: [
@@ -691,6 +729,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'gastronomia', 'natureza'],
         resumo: 'Não é país de paisagem — é de cidade e de gente. Belgrado tem uma das vidas noturnas mais intensas da Europa e preços baixos. Bom como parada de 2–3 dias dentro de um circuito balcânico.',
         quando: 'Abr–out · julho no EXIT, em Novi Sad',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Ônibus cobrem bem o país e são baratos. A linha Belgrado–Bar, descendo até o mar de Montenegro, é a viagem de trem que vale fazer.' },
         portas: [ { c: 'BEG', n: 'Belgrado', t: 'porta' } ],
         termas: 'Sim, no formato "banja" (balneário local). Vrnjačka Banja é a mais famosa e movimentada; Niška Banja e Sokobanja completam. São estâncias tradicionais frequentadas por sérvios, com preço baixo e pouca infra turística internacional.',
         cidades: [
@@ -706,6 +745,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'montanha'],
         resumo: 'O país mais jovem da Europa e um dos menos visitados. Vale como complemento de um circuito balcânico, principalmente por Prizren e pelas montanhas do oeste. População muito jovem e preços baixíssimos.',
         quando: 'Mai–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Carro ou ônibus. Distâncias pequenas — Pristina a Prizren é cerca de 1h30.' },
         portas: [ { c: 'PRN', n: 'Pristina', t: 'regional' } ],
         termas: null,
         aviso: 'Atenção à ordem de entrada: a Sérvia não reconhece os carimbos do Kosovo e pode recusar a entrada de quem chegou ao Kosovo por um terceiro país e tenta entrar na Sérvia por lá. Entrar pela Sérvia e voltar pela Sérvia costuma ser o caminho seguro — confirme as regras vigentes antes de montar o trecho.',
@@ -721,6 +761,7 @@ const EUROPA_REGIOES = [
         tags: ['natureza', 'historia', 'montanha'],
         resumo: 'Pequena e barata, com um trunfo forte: o lago Ohrid, que é patrimônio natural e cultural da UNESCO ao mesmo tempo — coisa rara no mundo.',
         quando: 'Mai–set',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Carro ou ônibus. Skopje a Ohrid leva ~3h de estrada; existe voo curto, mas raramente compensa.' },
         portas: [ { c: 'SKP', n: 'Skopje', t: 'regional' }, { c: 'OHD', n: 'Ohrid', t: 'regional' } ],
         termas: null,
         cidades: [
@@ -736,6 +777,7 @@ const EUROPA_REGIOES = [
         tags: ['praia', 'historia', 'gastronomia', 'termas'],
         resumo: 'Ilha e Antiguidade. Ponto importante de planejamento: as ilhas são muito diferentes entre si — Cíclades são brancas e secas, as Jônicas são verdes, Creta é quase um país. Não faça duas parecidas seguidas.',
         quando: 'Mai–jun e set–out · muitas ilhas fecham serviços no inverno',
+        transporte: { modo: '✈️/⛴️', rotulo: 'Voo e ferry', texto: 'Ilha não tem trem. O jogo é ferry entre as Cíclades (rápido e frequente no verão) e voo pras mais distantes, como Creta e Rodes. No continente, Atenas–Tessalônica de trem, e Meteora e Peloponeso de carro.' },
         portas: [ { c: 'ATH', n: 'Atenas', t: 'porta' }, { c: 'SKG', n: 'Tessalônica', t: 'regional' }, { c: 'HER', n: 'Heraklion (Creta)', t: 'regional' }, { c: 'JTR', n: 'Santorini', t: 'regional' }, { c: 'RHO', n: 'Rodes', t: 'regional' } ],
         termas: 'Sim, e é antiga: Loutrá Edipsoú, na ilha de Evia, é uma das estâncias termais mais antigas em uso contínuo do mundo — há fontes quentes caindo direto no mar, de graça, na beira da estrada. Loutrá Pozar, no norte, tem piscinas naturais no meio de um desfiladeiro.',
         cidades: [
@@ -763,6 +805,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'cidade', 'praia', 'termas', 'gastronomia'],
         resumo: 'O país mais diverso desta lista, e o mais estratégico: Istambul é um dos maiores hubs do mundo e permite stopover, o que na prática significa ganhar um destino inteiro dentro de um roteiro que já ia pra Europa.',
         quando: 'Abr–jun e set–out · Capadócia é bonita o ano todo, inclusive com neve',
+        transporte: { modo: '✈️/⛴️', rotulo: 'Voo e ferry', texto: 'As distâncias são continentais e o voo doméstico é barato — é ele que resolve. Alta velocidade só no eixo Istambul–Ancara–Konya. Capadócia e costa turquesa, carro.' },
         portas: [ { c: 'IST', n: 'Istambul', t: 'porta' }, { c: 'SAW', n: 'Istambul Sabiha Gökçen', t: 'regional' }, { c: 'AYT', n: 'Antalya', t: 'regional' }, { c: 'NAV', n: 'Nevşehir (Capadócia)', t: 'regional' }, { c: 'ASR', n: 'Kayseri (Capadócia)', t: 'regional' } ],
         termas: 'Sim, das mais impressionantes do mundo. Pamukkale são terraços brancos de travertino formados pela água termal escorrendo pela encosta, com as ruínas de Hierápolis em cima e a "Piscina de Cleópatra", onde se nada entre colunas romanas caídas. Bursa é a cidade termal otomana histórica, com banhos em funcionamento desde o século XIV no bairro de Çekirge. Fora isso, o hamam é cultura nacional.',
         cidades: [
@@ -782,6 +825,7 @@ const EUROPA_REGIOES = [
         tags: ['montanha', 'gastronomia', 'termas', 'historia'],
         resumo: 'O destino que mais surpreende quem vai. Cáucaso alto, vinho com 8.000 anos de método próprio, uma das melhores cozinhas do mundo e preços muito baixos. Brasileiros costumam ter entrada facilitada — confirme antes.',
         quando: 'Mai–jun e set–out · a alta montanha (Svaneti, Tusheti) só abre no verão',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Estradas de montanha e as marshrutkas (vans locais). Tbilisi–Batumi tem trem rápido e vale; mas Kazbegi e Svaneti só de carro, e Svaneti pede 4x4.' },
         portas: [ { c: 'TBS', n: 'Tbilisi', t: 'regional' }, { c: 'KUT', n: 'Kutaisi (low cost)', t: 'regional' }, { c: 'BUS', n: 'Batumi', t: 'regional' } ],
         termas: 'Sim, e a capital nasceu por causa disso — "Tbilisi" vem de "tbili", quente. No bairro de Abanotubani, os banhos sulfurosos de cúpula de tijolo funcionam há séculos, com salas privativas alugadas por hora e massagem kisa. É uma das experiências termais mais autênticas da Europa. Borjomi, no interior, é a estância de água mineral famosa.',
         cidades: [
@@ -799,6 +843,7 @@ const EUROPA_REGIOES = [
         tags: ['historia', 'montanha', 'natureza'],
         resumo: 'Primeiro Estado a adotar o cristianismo, com mosteiros do século IV em desfiladeiros. Combina naturalmente com a Geórgia — são 5–6h de estrada entre as capitais.',
         quando: 'Mai–jun e set–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Carro ou motorista contratado — é barato e resolve, porque os mosteiros ficam espalhados e o transporte público não chega neles.' },
         portas: [ { c: 'EVN', n: 'Yerevan', t: 'regional' } ],
         termas: 'Em escala pequena: Jermuk é a estância termal e de água mineral do país, com fontes quentes e uma cascata. Não é destino termal internacional.',
         cidades: [
@@ -815,6 +860,7 @@ const EUROPA_REGIOES = [
         tags: ['cidade', 'historia', 'natureza'],
         resumo: 'O mais "petrodólar" do Cáucaso: Baku mistura cidade murada medieval com arquitetura contemporânea de assinatura. Fora da capital, aparecem vulcões de lama e vilarejos de montanha. Requer visto — confirme o processo antes.',
         quando: 'Abr–jun e set–out',
+        transporte: { modo: '🚗', rotulo: 'Carro manda', texto: 'Carro pra tudo fora de Baku: Sheki, Gabala e Guba ficam a 3–5h de estrada. Dentro de Baku, o metrô resolve.' },
         portas: [ { c: 'GYD', n: 'Baku', t: 'regional' } ],
         termas: 'Não no sentido usual. A curiosidade local é Naftalan, onde se tomam banhos de petróleo bruto por suposto efeito terapêutico. É outra categoria — e não substitui uma terma.',
         cidades: [

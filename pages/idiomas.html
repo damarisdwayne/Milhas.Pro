@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Método e prompts de ChatGPT pra aprender o básico de qualquer idioma antes de viajar — com foco nas situações que você realmente vai viver na viagem." />
+  <title>Idiomas antes da viagem — método e prompts — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .guia-back { display: inline-block; color: var(--text-mute); font-size: .85rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .guia-back:hover { color: var(--text); }
+    .box { max-width: 900px; margin: 1.5rem auto 0; padding: 1.15rem 1.4rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); }
+    .box > strong { display: block; margin-bottom: .55rem; color: var(--text); font-size: 1rem; }
+    .box span, .box p { color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+    .box--warn { border-color: rgba(255,92,160,.35); background: rgba(255,92,160,.06); }
+    .box--tip  { border-color: rgba(0,212,168,.32); background: rgba(0,212,168,.05); }
+    .box--info { border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05); }
+
+    .metodo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 0 0 1rem; }
+    .metodo__item { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.15rem 1.3rem; }
+    .metodo__item span { font-size: 1.5rem; display: block; margin-bottom: .5rem; }
+    .metodo__item h3 { font-size: 1rem; margin: 0 0 .4rem; }
+    .metodo__item p { margin: 0; font-size: .85rem; color: var(--text-dim); line-height: 1.65; }
+
+    .prompt { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.2rem 1.4rem; margin: 0 0 1rem; }
+    .prompt__head { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; margin-bottom: .6rem; }
+    .prompt__n { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: #00e5ff; background: rgba(0,229,255,.12); border: 1px solid rgba(0,229,255,.35); padding: .18rem .5rem; border-radius: 6px; }
+    .prompt__head h3 { font-size: 1rem; margin: 0; }
+    .prompt__txt { position: relative; margin: 0 0 .6rem; padding: .9rem 1.05rem; background: rgba(0,0,0,.35); border: 1px solid var(--border-soft); border-left: 3px solid var(--accent); border-radius: 10px; font-family: var(--font-mono); font-size: .82rem; color: var(--text); line-height: 1.75; white-space: pre-wrap; }
+    .prompt__quando { margin: 0; font-size: .84rem; color: var(--text-dim); line-height: 1.65; }
+    .prompt__quando strong { color: var(--text); }
+    .prompt-copy { position: absolute; top: .5rem; right: .5rem; font-family: var(--font-mono); font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-mute); background: rgba(255,255,255,.05); border: 1px solid var(--border-soft); border-radius: 6px; padding: .22rem .5rem; cursor: pointer; }
+    .prompt-copy:hover { color: var(--accent); border-color: rgba(0,229,255,.4); }
+    .prompt-copy.is-ok { color: #00d4a8; border-color: rgba(0,212,168,.5); }
+
+    .fonte-nota { font-size: .74rem; color: var(--text-mute); margin: .4rem 0 0; }
+    .subhead-prompt { margin: 2rem 0 .3rem; font-size: 1.15rem; color: var(--text); }
+    .subhead-prompt:first-child { margin-top: 0; }
+    .subhead-nota { margin: 0 0 1.1rem; font-size: .84rem; color: var(--text-mute); line-height: 1.6; }
+    .subhead-nota a { color: var(--text-dim); }
+    .prompt__n { min-width: 1.6rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🗣️ Idioma antes da viagem</span>
+      <h1>O básico de qualquer idioma, <span class="grad-text">em semanas</span></h1>
+      <p>Não é sobre ficar fluente. É sobre chegar num país novo e conseguir pedir, perguntar, entender a placa e resolver um problema — que é o que separa a viagem confortável da viagem com medo de abrir a boca.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <a href="destinos.html" class="guia-back">← voltar pros destinos</a>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin-bottom:1.25rem">
+        <span class="kicker">📏 Expectativa</span>
+        <h2>Fluência não cabe em <span class="grad-text">um mês</span> — mas você não precisa dela</h2>
+      </div>
+
+      <div class="reveal" style="max-width:900px; margin:0 auto">
+        <div class="box box--warn" style="margin-top:0">
+          <strong>⚠️ O número que os cursos não contam</strong>
+          <span>
+            O <strong>Foreign Service Institute</strong>, escola de idiomas do serviço diplomático americano, mede isso há décadas com dados reais. Para um falante de inglês chegar a nível profissional (equivalente a B2/C1) num idioma "fácil" como espanhol, francês, italiano ou romeno, são cerca de <strong>600 a 750 horas de aula</strong>. Alemão fica em torno de 750h. Russo, turco e finlandês passam de 1.100h. Os mais distantes, como árabe, chinês, japonês e coreano, levam bem mais.<br><br>
+            Ou seja: qualquer conteúdo prometendo fluência em semanas está mentindo. <strong>Mas fluência não é o que você precisa pra viajar.</strong>
+            <span class="fonte-nota">Fonte: <a href="https://www.fsi-language-courses.org/blog/fsi-language-difficulty/" target="_blank" rel="noopener" style="color:var(--text-dim)">FSI Language Difficulty Ranking</a></span>
+          </span>
+        </div>
+
+        <div class="box box--tip">
+          <strong>✅ O que dá pra alcançar de verdade</strong>
+          <span>
+            Numa viagem, você repete as mesmas 30 ou 40 situações: chegar no hotel, pedir comida, comprar passagem, perguntar onde fica, explicar uma alergia, resolver um problema. É um conjunto <strong>pequeno e previsível</strong> — e é isso que dá pra dominar em algumas semanas de prática curta e diária.<br><br>
+            A meta honesta não é conversar sobre política. É <strong>não travar</strong>. E o efeito colateral é maior do que parece: em boa parte do mundo, tentar falar o idioma local muda completamente como você é tratado.
+          </span>
+        </div>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🧠 O método</span>
+        <h2>Cinco coisas que fazem <span class="grad-text">diferença de verdade</span></h2>
+        <p style="max-width:820px">Nenhuma delas é novidade — o que muda é fazer todas ao mesmo tempo, e curto o suficiente pra caber na rotina.</p>
+      </div>
+
+      <div class="metodo reveal">
+        <div class="metodo__item">
+          <span>⏱️</span>
+          <h3>15 min por dia &gt; 3h no domingo</h3>
+          <p>Idioma é memória, e memória responde a frequência, não a volume. Todo dia um pouco vence maratona de fim de semana com folga.</p>
+        </div>
+        <div class="metodo__item">
+          <span>🎯</span>
+          <h3>Vocabulário de situação, não lista</h3>
+          <p>Esqueça "as 500 palavras mais comuns". Aprenda blocos inteiros de uma cena: o check-in, o restaurante, a farmácia. Você usa frases prontas, não palavras soltas.</p>
+        </div>
+        <div class="metodo__item">
+          <span>💬</span>
+          <h3>Fale desde o primeiro dia</h3>
+          <p>O maior travamento não é falta de vocabulário, é medo de errar na frente de gente. É exatamente aí que a IA ajuda: ela não julga, não tem pressa e repete quantas vezes precisar.</p>
+        </div>
+        <div class="metodo__item">
+          <span>🔁</span>
+          <h3>Repetição espaçada</h3>
+          <p>Revisar logo antes de esquecer é o que fixa. Um app de flashcards como o Anki faz esse cálculo por você — 5 minutos por dia bastam.</p>
+        </div>
+        <div class="metodo__item">
+          <span>👂</span>
+          <h3>Ouça muito mais do que estuda</h3>
+          <p>Entender o que falam com você é mais difícil do que falar. Deixe o idioma tocando de fundo — vídeo, podcast, música — mesmo sem entender tudo.</p>
+        </div>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🤖 Os prompts</span>
+        <h2>Prompts pra usar no <span class="grad-text">ChatGPT</span></h2>
+        <p style="max-width:820px">Troque <code>[IDIOMA]</code> pelo idioma que você quer e <code>[DESTINO]</code> pelo país. Funcionam melhor no modo de voz, porque aí você treina pronúncia e escuta junto. Clique em <em>copiar</em> no canto de cada bloco.</p>
+      </div>
+
+      <div class="reveal" style="max-width:900px; margin:0 auto">
+        <h3 class="subhead-prompt">A base — os 7 do carrossel</h3>
+        <p class="subhead-nota">Sequência do <a href="https://www.instagram.com/motivatorpulse/" target="_blank" rel="noopener">@motivatorpulse</a>, transcrita e com os campos entre colchetes padronizados. Servem pra qualquer idioma e não pressupõem viagem marcada.</p>
+
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">1</span>
+            <h3>Modo professor de idiomas</h3>
+          </div>
+          <div class="prompt__txt">Seja meu tutor particular de [IDIOMA]. Considere que eu não sei absolutamente nada sobre esse idioma. Comece do zero e crie um plano de aprendizado completo. Ensine-me uma lição por vez, usando explicações simples, exemplos da vida real, dicas de pronúncia e exercícios curtos. Não passe para a próxima lição até que eu tenha compreendido completamente a atual.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> É o prompt de abertura, pra quem parte do zero. O trecho que faz diferença é o último: sem ele, o ChatGPT despeja o idioma inteiro numa resposta só.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">2</span>
+            <h3>Plano de aprendizagem de 90 dias</h3>
+          </div>
+          <div class="prompt__txt">Crie um plano de aprendizagem abrangente de 90 dias para [IDIOMA] com base no tempo que posso estudar diariamente: [TEMPO DIÁRIO]. Divida o plano em lições diárias que incluam vocabulário, gramática, pronúncia, compreensão auditiva, conversação, leitura, escrita e revisão. Explique o que devo ser capaz de alcançar a cada semana e como posso medir meu progresso.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Roda uma vez, no começo, e vira seu cronograma. Se a viagem é antes dos 90 dias, troque o número pelo tempo que você tem de verdade — o plano se ajusta.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">3</span>
+            <h3>Professor de conversação</h3>
+          </div>
+          <div class="prompt__txt">Torne-se meu parceiro de conversação para praticarmos [IDIOMA]. Comece com conversas de nível iniciante e aumente gradualmente a dificuldade à medida que eu melhorar. Corrija cada erro que eu cometer, explique por que está errado, mostre-me como um falante nativo diria e, em seguida, continue a conversa.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> O do dia a dia. Diferente do role-play mais abaixo, aqui a correção é imediata — bom pra fixar, ruim pra fluidez. Alterne os dois.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">4</span>
+            <h3>Expanda o vocabulário</h3>
+          </div>
+          <div class="prompt__txt">Ajude-me a expandir meu vocabulário em [IDIOMA] da maneira mais eficiente possível. Primeiro, ensine-me as palavras e expressões mais úteis, organizadas por situações do dia a dia, como cumprimentos, viagens, compras, trabalho, comida, emergências e conversas. Inclua exemplos de uso, técnicas de memorização e um pequeno teste ao final de cada lição.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> É o que mais rende pra viajante, porque já vem organizado por situação — exatamente o formato que gruda. As listas que saem daqui são o melhor material pra alimentar o Anki.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">5</span>
+            <h3>Gramática simplificada</h3>
+          </div>
+          <div class="prompt__txt">Ensine-me a gramática de [IDIOMA] do nível iniciante ao avançado da maneira mais simples possível. Explique uma regra por vez usando linguagem clara, exemplos práticos e comparações com minha língua materna quando necessário. Após cada lição, avalie minha compreensão com exercícios e explique quaisquer erros que eu cometer.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Use com moderação se o objetivo é viajar em poucas semanas: gramática rende a longo prazo, mas atrapalha quem precisa se virar rápido. Deixe pra depois da viagem, ou peça só o essencial.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">6</span>
+            <h3>Aprenda como um nativo</h3>
+          </div>
+          <div class="prompt__txt">Ensine-me [IDIOMA] da mesma forma que as crianças aprendem sua língua materna. Priorize a compreensão auditiva, a conversação, a repetição, situações do dia a dia, histórias e o uso prático antes de apresentar regras gramaticais complexas. Torne cada aula interativa, envolvente e fácil de acompanhar.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> O contraponto do anterior, e o mais alinhado com quem tem viagem marcada: escuta e repetição primeiro, regra depois.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">7</span>
+            <h3>Modo de imersão total</h3>
+          </div>
+          <div class="prompt__txt">Crie uma experiência de imersão completa em [IDIOMA] sem que eu precise viajar. Simule situações da vida real, faça perguntas, introduza vocabulário cotidiano naturalmente, reduza gradualmente o uso do meu idioma nativo e ajuste a dificuldade de acordo com o meu progresso.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> O mais avançado dos sete. O detalhe que faz ele funcionar é o "reduza gradualmente o uso do meu idioma nativo" — sem isso, o ChatGPT volta pro português na primeira dificuldade.</p>
+        </article>
+
+        <h3 class="subhead-prompt">A camada de viagem</h3>
+        <p class="subhead-nota">Estes eu escrevi pro caso específico de quem tem passagem marcada e pouco tempo. Rodam junto com os de cima, não no lugar deles.</p>
+
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">✈️</span>
+            <h3>As frases que você vai usar de fato</h3>
+          </div>
+          <div class="prompt__txt">Vou viajar pra [DESTINO] em [X] semanas e falo zero de [IDIOMA]. Monte a lista das 40 frases que eu mais provavelmente vou precisar, agrupadas por situação: aeroporto e imigração, transporte, hotel, restaurante, compras, farmácia e emergência. Para cada frase, dê o original, a pronúncia aproximada escrita pra um brasileiro ler, e a tradução. Não inclua nada que só serve pra sala de aula.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> É o primeiro a rodar quando já tem viagem marcada. Ele te dá o alvo — e um alvo de 40 frases é muito menos assustador que "aprender um idioma".</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">✈️</span>
+            <h3>Role-play de situação real</h3>
+          </div>
+          <div class="prompt__txt">Vamos fazer um role-play em [IDIOMA]. Você é o atendente e eu sou o cliente. A cena é: [balcão de check-in do aeroporto / restaurante / farmácia / recepção do hotel]. Fale só em [IDIOMA], num nível de iniciante, e complique um pouco a cada rodada com um imprevisto realista. Se eu errar, continue a cena normalmente e só me corrija no final, listando os erros e como eu deveria ter dito.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Todo dia, uma cena por vez. O "corrija só no final" é o que faz a conversa fluir — correção no meio de cada frase mata o exercício.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">✈️</span>
+            <h3>Ajuste de sotaque</h3>
+          </div>
+          <div class="prompt__txt">Sou brasileiro e estou aprendendo [IDIOMA]. Liste os erros de pronúncia mais típicos de quem fala português nesse idioma — os sons que a gente troca sem perceber e que mais atrapalham o entendimento. Para cada um, explique o que a boca faz de diferente e me dê três palavras pra treinar.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Uma vez, no começo. Corrigir dois ou três sons faz mais pela sua compreensibilidade do que decorar mais cem palavras.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">✈️</span>
+            <h3>O que não está no dicionário</h3>
+          </div>
+          <div class="prompt__txt">Vou pra [DESTINO]. Me explique as regras não escritas de interação local: como se cumprimenta, quando se usa formal e informal, o que é considerado grosseiro sem a gente saber, como se pede a conta, se dá gorjeta e quanto, e três gafes comuns de turista brasileiro por lá.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Na semana da viagem. Muitas vezes o que causa atrito não é o idioma errado — é o registro errado, tratar por "você" quem esperava formalidade.</p>
+        </article>
+        <article class="prompt">
+          <div class="prompt__head">
+            <span class="prompt__n">✈️</span>
+            <h3>Kit de socorro</h3>
+          </div>
+          <div class="prompt__txt">Monte um cartão de emergência em [IDIOMA] pra eu levar impresso na carteira. Precisa cobrir: sou alérgico a [X], preciso de um médico, fui roubado, onde fica a delegacia, não falo [IDIOMA], você fala inglês, e chame uma ambulância. Original, pronúncia aproximada e tradução, em formato compacto.</div>
+          <p class="prompt__quando"><strong>Quando usar:</strong> Antes de embarcar, e imprima junto com os <a href="imprevistos.html#documentos" style="color:var(--accent)">documentos da imigração</a>. É o prompt que você espera nunca precisar.</p>
+        </article>
+
+        <div class="box box--info">
+          <strong>💡 Um detalhe que muda o resultado</strong>
+          <span>Sempre peça <strong>pronúncia escrita pra brasileiro</strong>, não o alfabeto fonético. "Sank you" ensina mais rápido que /θæŋk juː/ pra quem nunca estudou fonética. E use o <strong>modo de voz</strong> do ChatGPT sempre que puder: falar em voz alta e ser corrigido na hora é o que mais acelera — e é justamente o que um app de flashcard não faz.</span>
+        </div>
+      </div>
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🧰 Ferramentas</span>
+        <h2>O que usar <span class="grad-text">junto</span></h2>
+      </div>
+
+      <div class="reveal" style="max-width:900px; margin:0 auto">
+        <div class="box" style="margin-top:0">
+          <strong>▶️ ABC Fluent — inglês, em português</strong>
+          <span>Canal no YouTube com trilha organizada do nível 0 ao avançado, forte em <strong>vocabulário</strong>, falsos cognatos e verbos irregulares, com aulas curtas e quiz na aba Comunidade. É gratuito e a didática é feita pra brasileiro. <br><br>É específico de <strong>inglês</strong> — pros outros idiomas, o método desta página vale igual, mas a fonte de escuta você troca.<br><br><a href="https://www.youtube.com/c/ABCFluent" target="_blank" rel="noopener" style="color:var(--accent)">Ver o canal →</a></span>
+        </div>
+
+        <div class="box">
+          <strong>🔁 Anki — repetição espaçada</strong>
+          <span>Flashcards que aparecem de novo pouco antes de você esquecer. Gratuito no computador e no Android, pago no iPhone. A jogada boa é alimentar ele com as frases que o ChatGPT te deu, não com listas prontas da internet — cartão que você mesmo escreveu gruda muito mais.</span>
+        </div>
+
+        <div class="box box--tip">
+          <strong>📶 Google Tradutor offline — baixe antes de embarcar</strong>
+          <span>Dá pra baixar o pacote do idioma e usar <strong>sem internet</strong>, o que resolve o pior cenário: sem chip local, sem wi-fi e precisando entender uma bula ou um cardápio. A câmera traduz placa e menu na hora. Baixe o pacote <strong>ainda no Brasil</strong>, junto com os mapas offline.</span>
+        </div>
+      </div>
+
+      <div class="box box--info reveal" style="max-width:900px">
+        <strong>🌍 Precisa mesmo estudar pro seu destino?</strong>
+        <span>Depende muito do país. Em boa parte da Escandinávia e nos Países Baixos você atravessa a viagem inteira em inglês sem atrito. Na Espanha fora das capitais, na Itália rural, na Geórgia, na Albânia ou no interior da França, dez palavras mudam a experiência. Veja os países e o que cada um pede em <a href="destinos.html" style="color:var(--accent)">destinos por experiência</a>.</span>
+      </div>
+
+      <div class="cta-row reveal" style="margin-top:2.5rem">
+        <a href="destinos.html" class="btn btn--ghost">🗺️ Destinos por experiência</a>
+        <a href="imprevistos.html#documentos" class="btn btn--ghost">🛂 Documentos pra imigração</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt__txt').forEach((el) => {
+      const texto = el.textContent.trim();
+      const b = document.createElement('button');
+      b.className = 'prompt-copy';
+      b.type = 'button';
+      b.textContent = 'copiar';
+      b.addEventListener('click', () => {
+        navigator.clipboard.writeText(texto).then(() => {
+          b.textContent = 'copiado ✓';
+          b.classList.add('is-ok');
+          setTimeout(() => { b.textContent = 'copiar'; b.classList.remove('is-ok'); }, 1800);
+        }).catch(() => { b.textContent = 'falhou'; });
+      });
+      el.appendChild(b);
+    });
+  </script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

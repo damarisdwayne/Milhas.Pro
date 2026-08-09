@@ -29,6 +29,12 @@
     .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 900px; }
     .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
     .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+    .box { max-width: 900px; margin: 1.5rem auto 0; padding: 1.15rem 1.4rem; border-radius: 14px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); }
+    .box > strong { display: block; margin-bottom: .55rem; color: var(--text); font-size: 1rem; }
+    .box span, .box p { color: var(--text-dim); font-size: .92rem; line-height: 1.65; }
+    .box--warn { border-color: rgba(255,92,160,.35); background: rgba(255,92,160,.06); }
+    .box--tip  { border-color: rgba(0,212,168,.32); background: rgba(0,212,168,.05); }
+    .box--info { border-color: rgba(0,229,255,.3); background: rgba(0,229,255,.05); }
   </style>
 </head>
 <body>
@@ -736,6 +742,44 @@
             Operacional passo a passo no tutorial da <a href="guia.html?id=hotmilhas" style="color:var(--accent)">HotMilhas →</a>
           </p>
         </article>
+      </div>
+    </section>
+
+    <!-- TROCA DE HORÁRIO NO MESMO DIA -->
+    <section class="section" id="troca-horario">
+      <div class="section__head reveal">
+        <span class="kicker">🕐 Passagem em dinheiro</span>
+        <h2>Compre o horário ruim e <span class="grad-text">troque no dia</span></h2>
+        <p>O mesmo voo, no mesmo dia, custa muito mais às 9h do que às 5h da manhã. Existe uma forma de comprar o horário barato e mudar pro horário bom pagando uma taxa fixa — que costuma ser bem menor que a diferença de tarifa.</p>
+      </div>
+
+      <div class="reveal" style="max-width:900px; margin:0 auto">
+        <div class="box box--tip">
+          <strong>Como funciona na LATAM</strong>
+          <span>
+            A LATAM permite <strong>antecipar ou adiar o voo no mesmo dia</strong>, mantendo data, origem e destino, por um valor fixo — independente de quanto o novo horário custaria se você comprasse agora. Então você compra a tarifa mais barata do dia e, na véspera, tenta migrar pro horário que queria.<br><br>
+            <strong>Janela:</strong> entre <strong>24h e 1h40</strong> antes da partida do voo, pelo site, app ou Contact Center.<br>
+            <strong>Custo:</strong> taxa fixa — a LATAM divulga <strong>até R$120</strong> em voos domésticos no Brasil. <strong>Sai de graça</strong> nas tarifas mais altas (Plus e Top) e para categorias elite do LATAM Pass.<br><br>
+            <span style="color:var(--text-mute); font-size:.85rem">Fonte: <a href="https://www.latamairlines.com/br/pt/central-ajuda/perguntas/remarcacoes/passagens/adiantar-adiar-voo-hoje" target="_blank" rel="noopener" style="color:var(--text-dim)">central de ajuda da LATAM</a>. O valor já foi R$100 e subiu — confirme no app antes de comprar contando com a troca.</span>
+          </span>
+        </div>
+
+        <div class="box box--warn">
+          <strong>⚠️ Onde a estratégia quebra</strong>
+          <span>
+            Isso é <strong>tentativa</strong>, não garantia — depende de haver assento no voo que você quer. Se não houver, você voa no horário ruim que comprou. E a troca <strong>não é permitida</strong> em algumas situações:<br><br>
+            • Se o voo original tem conexão e você quer trocar por um voo direto<br>
+            • Se você comprou embarque preferencial ou bagagem adicional junto com a tarifa<br>
+            • Se já despachou a bagagem no aeroporto<br>
+            • Se pediu algum serviço que exige confirmação com 24h de antecedência<br><br>
+            Ou seja: funciona melhor em voo direto, só com bagagem de mão, na tarifa mais simples. Fora disso, compare a taxa com a diferença de preço antes — às vezes comprar o horário bom desde o começo sai igual e sem risco.
+          </span>
+        </div>
+
+        <div class="box box--info">
+          <strong>💡 Vale pra outras companhias?</strong>
+          <span>A troca de horário no mesmo dia existe em várias companhias, mas o nome, a janela e o preço mudam em cada uma — e algumas cobram a diferença de tarifa, o que mata a estratégia. Antes de aplicar fora da LATAM, procure a regra de "mudança no mesmo dia" ou "same-day change" da companhia específica.</span>
+        </div>
       </div>
     </section>
 

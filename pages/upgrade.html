@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Todas as formas de subir pra executiva pagando pouco ou nada: leilão, milhas, categoria elite, cartão co-branded e balcão — com as regras reais de LATAM e Azul." />
+  <title>Upgrade de cabine — como subir pra executiva gastando pouco — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .guia-back { display: inline-block; color: var(--text-mute); font-size: .85rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .guia-back:hover { color: var(--text); }
+    .subhead { margin: 2.5rem 0 .85rem; font-size: 1.05rem; color: var(--text); }
+
+    .up-aviso { padding: 1rem 1.25rem; background: rgba(250,204,21,.06); border: 1px solid rgba(250,204,21,.25); border-radius: 12px; font-size: .87rem; color: var(--text-dim); line-height: 1.7; margin: 0 0 2rem; }
+    .up-aviso strong { color: var(--text); }
+
+    .up-list { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+    .up { display: grid; grid-template-columns: 46px 1fr; gap: 1.1rem; padding: 1.35rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 16px; }
+    @media (max-width: 560px) { .up { grid-template-columns: 1fr; gap: .6rem; } }
+    .up__n { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 600; color: var(--accent); line-height: 1.2; }
+    .up__body h3 { font-size: 1.1rem; margin: 0 0 .3rem; }
+    .up__body > p { margin: 0 0 .75rem; font-size: .9rem; color: var(--text-dim); line-height: 1.7; }
+    .up__body > p:last-child { margin-bottom: 0; }
+    .up__esforco { display: inline-block; font-family: var(--font-mono); font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; padding: .18rem .5rem; border-radius: 6px; margin-left: .5rem; vertical-align: middle; }
+    .is-facil { color: #00d4a8; background: rgba(0,212,168,.12); border: 1px solid rgba(0,212,168,.35); }
+    .is-medio { color: #ffc078; background: rgba(255,158,44,.12); border: 1px solid rgba(255,158,44,.35); }
+    .is-sorte { color: var(--text-mute); background: rgba(255,255,255,.05); border: 1px solid var(--border-soft); }
+
+    .up-tab { width: 100%; border-collapse: collapse; font-size: .85rem; margin: .5rem 0 .25rem; }
+    .up-tab th, .up-tab td { padding: .5rem .7rem; text-align: left; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+    .up-tab th { color: var(--text-mute); font-weight: 600; font-size: .66rem; text-transform: uppercase; letter-spacing: .05em; font-family: var(--font-mono); }
+    .up-tab td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+    .up-tab-wrap { overflow-x: auto; margin: 0 0 .75rem; }
+    .up-tab-wrap table { min-width: 460px; }
+
+    .up-fonte { font-size: .74rem; color: var(--text-mute); margin: .35rem 0 0; }
+    .up-fonte a { color: var(--text-dim); }
+    .up-cia { margin: 0 0 1.25rem; padding: 1.25rem 1.5rem; background: rgba(124,92,255,.06); border: 1px solid rgba(124,92,255,.28); border-radius: 16px; }
+    .up-cia h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
+    .up-cia p { margin: 0 0 .6rem; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
+    .up-cia p:last-child { margin-bottom: 0; }
+    .up-cia ul { margin: 0 0 .6rem; padding-left: 1.1rem; font-size: .88rem; color: var(--text-dim); line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">💺 Upgrade de cabine</span>
+      <h1>Subir pra executiva <span class="grad-text">sem pagar executiva</span></h1>
+      <p>Executiva quase nunca é comprada pelo preço cheio. Ela é conquistada num leilão, com milhas, por status ou de sorte no balcão — e cada caminho tem uma janela de tempo própria.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <a href="primeira-classe.html" class="guia-back">← voltar pra primeira classe</a>
+
+      <div class="up-aviso">
+        <strong>⚠️ Leia isto antes:</strong> valores, janelas de solicitação e regras de upgrade mudam com frequência e variam por companhia, rota e tipo de tarifa. O que está aqui foi conferido nas fontes oficiais na data de publicação, mas <strong>confirme sempre no app ou no site da companhia antes de contar com isso</strong>. Nenhuma dessas formas é garantida.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin-bottom:1.25rem">
+        <span class="kicker">🎯 As formas</span>
+        <h2>Sete caminhos, do mais <span class="grad-text">confiável</span> ao mais sortudo</h2>
+        <p style="max-width:820px">Estão em ordem de previsibilidade: os primeiros você controla, os últimos dependem de como o voo fechou. Se o upgrade importa de verdade, empilhe mais de um.</p>
+      </div>
+
+      <ol class="up-list reveal">
+        <li class="up">
+          <span class="up__n">1</span>
+          <div class="up__body">
+            <h3>Milhas <span class="up__esforco is-facil">mais previsível</span></h3>
+            <p>Trocar a econômica por executiva pagando uma quantidade de milhas é a via mais confiável, porque a confirmação é imediata — não depende de leilão nem de sorte. Costuma sair bem mais barato do que emitir a executiva do zero, já que você já pagou a base da passagem.</p>
+            <p>A pegadinha: o upgrade quase sempre exige uma <strong>tarifa mínima</strong>. Comprou a mais baratinha da promoção, muitas vezes o upgrade nem aparece como opção. Vale checar a regra antes de comprar, não depois.</p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">2</span>
+          <div class="up__body">
+            <h3>Categoria elite (status) <span class="up__esforco is-facil">de graça</span></h3>
+            <p>Quem tem categoria no programa da companhia ganha <strong>trechos de upgrade de cortesia</strong> por ano — é o caminho em que você realmente não paga nada. Quanto mais alta a categoria, mais trechos e mais destinos cobertos.</p>
+            <p>Também é o que mais pesa nas outras formas desta lista: em fila de espera, leilão e overbooking, quem tem status costuma ter prioridade sobre quem não tem.</p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">3</span>
+          <div class="up__body">
+            <h3>Leilão de upgrade <span class="up__esforco is-medio">lance em dinheiro</span></h3>
+            <p>Você dá um lance em dinheiro por um assento na cabine superior e descobre perto do voo se foi aceito. Sai por uma fração do preço da executiva, mas você fica no escuro até quase a hora — o que não combina com quem precisa de certeza.</p>
+            <p>Algumas companhias rodam o leilão dentro do próprio app; outras usam o <strong>SeatBoost</strong>, plataforma de leilão que opera com LATAM, TAP, Iberia, Avianca e Condor, entre outras. No SeatBoost o leilão fica disponível a partir de menos de 24h antes da partida.</p>
+            <p class="up-fonte">Fonte: <a href="https://seatboost.com/" target="_blank" rel="noopener">seatboost.com</a></p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">4</span>
+          <div class="up__body">
+            <h3>Ofertas na janela do check-in <span class="up__esforco is-medio">olho vivo</span></h3>
+            <p>Nos dias que antecedem o voo, quando a companhia já sabe quantos assentos vão sobrar na frente, aparecem ofertas de upgrade por valor fixo — no e-mail, no app ou na própria tela do check-in. Costuma ser mais barato que comprar antes.</p>
+            <p>Não existe uma janela universal de "72h a 24h": cada companhia tem a sua, e ela é diferente da janela do check-in. Veja as datas reais de LATAM e Azul mais abaixo, e habilite as notificações do app da companhia — as ofertas são por tempo limitado.</p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">5</span>
+          <div class="up__body">
+            <h3>Benefício de cartão <span class="up__esforco is-medio">depende do seu</span></h3>
+            <p>Alguns cartões co-branded de companhia aérea dão upgrade como benefício — o <strong>Azul Itaucard Visa Infinite</strong> é um exemplo com benefício de upgrade de cabine. Mas isso é benefício de cartão específico, não regra de mercado: a maioria dos cartões premium entrega bagagem, sala VIP e embarque prioritário, e não upgrade.</p>
+            <p>Antes de contar com isso, leia o regulamento do <em>seu</em> cartão. A lista do que cada um dá está em <a href="cartoes.html" style="color:var(--accent)">benefícios dos cartões</a>.</p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">6</span>
+          <div class="up__body">
+            <h3>Perguntar no balcão <span class="up__esforco is-sorte">chance baixa</span></h3>
+            <p>Chegar cedo e perguntar no check-in se há upgrade disponível ainda funciona, principalmente em voos com a frente vazia — a companhia prefere vender barato a voar com assento ocioso. Mas é cada vez mais raro, porque a venda migrou pro app e o balcão muitas vezes nem tem essa autonomia.</p>
+            <p>Custa uma pergunta educada. Só não construa a viagem em cima disso.</p>
+          </div>
+        </li>
+
+        <li class="up">
+          <span class="up__n">7</span>
+          <div class="up__body">
+            <h3>Overbooking e remanejamento <span class="up__esforco is-sorte">pura sorte</span></h3>
+            <p>Quando a econômica lota e sobra assento na frente, a companhia remaneja alguns passageiros pra cabine superior. Isso existe, mas é <strong>decisão operacional dela</strong>, não algo que você solicita — e a prioridade vai pra quem tem status alto, viaja sozinho ou já está com a passagem em tarifa mais flexível.</p>
+            <p>Não é estratégia. É o prêmio de consolação de um voo cheio.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🇧🇷 Na prática</span>
+        <h2>As regras reais das duas que você <span class="grad-text">mais voa</span></h2>
+        <p style="max-width:820px">Aqui é onde a teoria vira número. Confira sempre antes de usar — essas tabelas são as que mais mudam no site inteiro.</p>
+      </div>
+
+      <div class="up-cia reveal">
+        <h3>🔴 LATAM</h3>
+        <p>A LATAM tem os três caminhos ao mesmo tempo: <strong>cortesia por categoria</strong>, <strong>Instant Upgrade</strong> (paga com milhas e confirma na hora) e <strong>Auction Upgrade</strong> (você dá um lance e a resposta sai entre 12h e 2h antes da partida).</p>
+        <p>Os trechos de cortesia por categoria elite valem de <strong>1º de abril a 31 de março</strong>:</p>
+        <div class="up-tab-wrap">
+          <table class="up-tab">
+            <thead>
+              <tr><th>Categoria</th><th>Dentro da América do Sul</th><th>Fora da América do Sul</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gold</td><td>4 trechos</td><td>—</td></tr>
+              <tr><td>Platinum</td><td>8 trechos</td><td>2 trechos</td></tr>
+              <tr><td>Black</td><td>Ilimitado <span style="color:var(--text-mute)">(+4 pra acompanhante)</span></td><td>8 trechos</td></tr>
+              <tr><td>Black Signature</td><td>Ilimitado <span style="color:var(--text-mute)">(+6 pra acompanhante)</span></td><td>14 trechos</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><strong>Tarifa mínima:</strong> a partir da Light em voos internacionais na América do Sul e Caribe; a partir da <strong>Standard</strong> em doméstico Brasil e longo curso internacional.</li>
+          <li><strong>Quando pedir:</strong> entre <strong>48h e 2h</strong> antes da partida, no site ou no app, depois de fazer o check-in.</li>
+        </ul>
+        <p class="up-fonte">Fonte: <a href="https://latampass.latam.com/pt_br/categorias-elite/upgrade-de-cabine" target="_blank" rel="noopener">LATAM Pass — upgrade de cabine</a></p>
+      </div>
+
+      <div class="up-cia reveal">
+        <h3>🔵 Azul</h3>
+        <p>A Azul mudou o modelo em <strong>fevereiro de 2025</strong>: o upgrade com pontos deixou de ter valor fixo e passou a <strong>variar conforme a ocupação da cabine</strong> — voo com executiva vazia sai mais barato, voo cheio sai caro.</p>
+        <ul>
+          <li><strong>Desconto por categoria:</strong> Diamante tem 30% e Safira tem 15% sobre o valor do upgrade, independentemente da ocupação.</li>
+          <li><strong>Quando:</strong> a partir de <strong>24h antes</strong> da partida.</li>
+          <li><strong>Também existe leilão em dinheiro</strong>, com lance mínimo, além do upgrade com pontos.</li>
+        </ul>
+        <p>Como o preço agora é dinâmico, não adianta decorar tabela: consulte na hora e compare o custo em pontos com o que você pagaria em dinheiro usando a <a href="termometro.html#calculadora" style="color:var(--accent)">calculadora de emitir ou pagar</a>.</p>
+        <p class="up-fonte">Confirme o canal e o valor vigentes no app da Azul antes de contar com o upgrade.</p>
+      </div>
+
+      <div class="method-note reveal" style="max-width:none; margin:2rem 0 0; padding:1rem 1.25rem; background:rgba(0,229,255,.06); border:1px solid rgba(0,229,255,.25); border-radius:12px; font-size:.87rem; color:var(--text-dim); line-height:1.7">
+        💡 <strong>Antes de decidir:</strong> upgrade nem sempre compensa. Em voo curto, a executiva doméstica é praticamente uma econômica com o assento do meio bloqueado — o dinheiro rende mais em outro lugar. A conta muda em voo longo, com cama de verdade. Veja quando vale em <a href="primeira-classe.html" style="color:var(--accent)">primeira classe e executiva</a>.
+      </div>
+
+      <div class="cta-row reveal" style="margin-top:2.5rem">
+        <a href="primeira-classe.html" class="btn btn--ghost">🥂 Primeira classe: quando vale</a>
+        <a href="salas-vip.html" class="btn btn--ghost">🛋️ Salas VIP</a>
+        <a href="cartoes.html" class="btn btn--ghost">💳 Benefícios dos cartões</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
