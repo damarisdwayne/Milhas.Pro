@@ -53,7 +53,7 @@
       { title: 'Montar a viagem', links: [
         ['Achados (rotas)', P + 'achados.html'],
         ['Receitas — como chegar', P + 'como-chegar.html'],
-        ['Europa por experiência', P + 'europa.html'],
+        ['Destinos por experiência', P + 'destinos.html'],
         ['Quinta liberdade', P + 'quinta-liberdade.html'],
         ['Primeira classe', P + 'primeira-classe.html'],
         ['Hospedagem', P + 'hospedagem.html'],

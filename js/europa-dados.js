@@ -838,3 +838,14 @@ const EUROPA_FORA = {
     { bandeira: '🇧🇾', nome: 'Belarus' },
   ],
 };
+
+window.DESTINOS = window.DESTINOS || { continentes: [], fotos: {}, tags: {} };
+window.DESTINOS.continentes.push({
+  id: 'europa',
+  nome: 'Europa',
+  emoji: '🌍',
+  regioes: EUROPA_REGIOES,
+  fora: EUROPA_FORA,
+});
+Object.assign(window.DESTINOS.tags, EUROPA_TAGS);
+Object.assign(window.DESTINOS.fotos, EUROPA_FOTOS);

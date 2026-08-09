@@ -1,13 +1,17 @@
 (() => {
   const BASE = location.pathname.includes('/pages/') ? '../' : '';
+  const D = window.DESTINOS || { continentes: [], fotos: {}, tags: {} };
+  const TAGS = D.tags;
+  const CONTINENTES = D.continentes;
+
   const foto = (wv) => {
-    const p = (typeof EUROPA_FOTOS !== 'undefined' && EUROPA_FOTOS[wv]) || '';
+    const p = D.fotos[wv] || '';
     return p && !/^https?:/.test(p) ? BASE + p : p;
   };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   const chip = (k) => {
-    const t = EUROPA_TAGS[k];
+    const t = TAGS[k];
     if (!t) return '';
     return `<span class="eu-chip" data-tag="${k}">${t.e} ${t.l}</span>`;
   };
@@ -63,6 +67,12 @@
     </section>`;
   };
 
+  const continente = (c) => {
+    const cabecalho = CONTINENTES.length > 1
+      ? `<h2 class="eu-continent">${c.emoji} ${esc(c.nome)}</h2>` : '';
+    return cabecalho + c.regioes.map(regiao).join('');
+  };
+
   const regiao = (r) => `
     <section class="eu-region" id="reg-${r.id}" data-region="${r.id}">
       <div class="eu-region__head">
@@ -75,18 +85,18 @@
 
   const root = document.getElementById('euRoot');
   if (!root) return;
-  root.innerHTML = EUROPA_REGIOES.map(regiao).join('');
+  root.innerHTML = CONTINENTES.map(continente).join('');
 
   const legenda = document.getElementById('euLegenda');
   if (legenda) {
-    legenda.innerHTML = Object.entries(EUROPA_TAGS)
+    legenda.innerHTML = Object.entries(TAGS)
       .map(([k, t]) => `<button type="button" class="eu-filter" data-filter="${k}">${t.e} ${t.l}</button>`)
       .join('');
   }
 
   const indice = document.getElementById('euIndice');
   if (indice) {
-    indice.innerHTML = EUROPA_REGIOES
+    indice.innerHTML = CONTINENTES.flatMap((c) => c.regioes)
       .map((r) => `<div class="eu-idx__group"><span class="eu-idx__title">${r.emoji} ${esc(r.nome)}</span>`
         + r.paises.map((p) => `<a href="#${p.slug}" data-slug="${p.slug}">${p.bandeira} ${esc(p.nome)}</a>`).join('')
         + '</div>')
@@ -94,10 +104,12 @@
   }
 
   const fora = document.getElementById('euFora');
-  if (fora && typeof EUROPA_FORA !== 'undefined') {
-    fora.innerHTML = `<h3>${esc(EUROPA_FORA.titulo)}</h3>`
-      + `<div class="eu-fora__flags">${EUROPA_FORA.paises.map((p) => `<span>${p.bandeira} ${esc(p.nome)}</span>`).join('')}</div>`
-      + `<p>${esc(EUROPA_FORA.texto)}</p>`;
+  if (fora) {
+    fora.innerHTML = CONTINENTES.filter((c) => c.fora).map((c) => {
+      const f = c.fora;
+      const flags = f.paises.map((p) => `<span>${p.bandeira} ${esc(p.nome)}</span>`).join('');
+      return `<h3>${esc(f.titulo)}</h3><div class="eu-fora__flags">${flags}</div><p>${esc(f.texto)}</p>`;
+    }).join('');
   }
 
   const ativos = new Set();
