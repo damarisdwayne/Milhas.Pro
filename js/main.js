@@ -67,6 +67,7 @@
         ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Upgrade de cabine', P + 'upgrade.html'],
+        ['Poses pra foto', P + 'poses.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},
     ];
