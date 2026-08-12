@@ -11,7 +11,9 @@ const ROTEIROS_TAGS = {
 };
 
 const ROTEIROS_PAISES = {
+  '🇦🇱': 'Albânia',
   '🇩🇪': 'Alemanha',
+  '🇧🇪': 'Bélgica',
   '🇪🇬': 'Egito',
   '🇪🇸': 'Espanha',
   '🏴󠁧󠁢󠁳󠁣󠁴󠁿': 'Escócia',
@@ -21,6 +23,7 @@ const ROTEIROS_PAISES = {
   '🇬🇧': 'Inglaterra',
   '🇮🇸': 'Islândia',
   '🇮🇹': 'Itália',
+  '🇲🇦': 'Marrocos',
   '🇲🇪': 'Montenegro',
   '🇵🇱': 'Polônia',
   '🇵🇹': 'Portugal',
@@ -113,6 +116,32 @@ const ROTEIROS = [
       { n: 'Edimburgo', p: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', tipo: 'coringa', tags: ['cidade', 'historia'] },
       { n: 'Maiorca', p: '🇪🇸', tipo: 'coringa', tags: ['praia', 'costa'] },
       { n: 'Madri ou Barcelona', p: '🇪🇸', tipo: 'porta', tags: ['cidade', 'historia', 'gastronomia'] },
+    ],
+  },
+  {
+    id: 'eindhoven-amsterda',
+    epoca: 'mai–set',
+    onde: 'Holanda + Puglia + Albânia + Bélgica',
+    paradas: [
+      { n: 'Eindhoven', p: '🇳🇱', tipo: 'porta', tags: ['cidade'], obs: 'base de low cost e entrada mais barata que Schiphol — Ryanair voa direto pra Brindisi' },
+      { n: 'Brindisi', p: '🇮🇹', tipo: 'coringa', tags: ['praia', 'costa'], obs: 'porta do Salento' },
+      { n: 'Bari', p: '🇮🇹', tipo: 'coringa', tags: ['cidade', 'gastronomia'], obs: 'de trem desde Brindisi' },
+      { n: 'Tirana', p: '🇦🇱', tipo: 'coringa', tags: ['cidade', 'gastronomia'], obs: 'Bari–Tirana em 55 min, cerca de 3 voos por dia' },
+      { n: 'Bruxelas', p: '🇧🇪', tipo: 'coringa', tags: ['cidade', 'gastronomia'], obs: 'Tirana–Bruxelas em 2h50; taxa de embarque bem menor que a holandesa' },
+      { n: 'Amsterdã', p: '🇳🇱', tipo: 'porta', tags: ['cidade', 'historia'], obs: 'de trem desde Bruxelas, cerca de 2h' },
+    ],
+  },
+  {
+    id: 'milao-madri',
+    epoca: 'mar–mai · set–out',
+    onde: 'Itália + Espanha + Marrocos',
+    paradas: [
+      { n: 'Milão', p: '🇮🇹', tipo: 'porta', tags: ['cidade'], obs: 'entrada na Europa e emenda com low cost pra Espanha' },
+      { n: 'Málaga', p: '🇪🇸', tipo: 'coringa', tags: ['praia', 'cidade'] },
+      { n: 'Andaluzia de carro', p: '🇪🇸', tipo: 'coringa', tags: ['historia', 'roadtrip'], obs: 'Granada, Córdoba e os povoados brancos' },
+      { n: 'Marrakech', p: '🇲🇦', tipo: 'coringa', tags: ['cidade', 'historia'] },
+      { n: 'Sevilha', p: '🇪🇸', tipo: 'coringa', tags: ['cidade', 'historia', 'gastronomia'] },
+      { n: 'Madri', p: '🇪🇸', tipo: 'porta', tags: ['cidade', 'historia', 'gastronomia'] },
     ],
   },
   {
