@@ -49,6 +49,7 @@
         ['Estratégias', P + 'estrategias.html'],
         ['Ferramentas (sites)', P + 'sites-secretos.html'],
         ['Guia do Seats.aero', P + 'seats-aero-guia-br.html'],
+        ['Europa Perfeita', P + 'europa-perfeita.html'],
       ]},
       { title: 'Montar a viagem', links: [
         ['Roteiros prontos', P + 'roteiros.html'],

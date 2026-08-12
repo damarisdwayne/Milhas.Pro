@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anotações do curso Europa Perfeita: a fórmula do auge, as quatro formas de mesclar estímulos, índice de hospedagem, o que priorizar em cada estação, as 8 melhores portas da Europa, imposto de embarque por país, comparação de modais e pesquisa cruzada." />
+  <title>Europa Perfeita — anotações do curso — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .guia-back { display: inline-block; color: var(--text-mute); font-size: .85rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .guia-back:hover { color: var(--text); }
+
+    .tk-rule { padding: 1.1rem 1.35rem; background: rgba(0,229,255,.06); border: 1px solid rgba(0,229,255,.25); border-radius: 14px; font-size: .9rem; color: var(--text-dim); line-height: 1.7; margin: 1.25rem 0 0; }
+    .tk-rule strong { color: var(--text); }
+    .tk-tablewrap { overflow-x: auto; margin: 1.25rem 0 0; }
+    .tk-table { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 480px; }
+    .tk-table th, .tk-table td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--border-soft); }
+    .tk-table th { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); font-weight: 400; }
+    .tk-table td { color: var(--text-dim); }
+    .tk-table td:first-child { color: var(--text); }
+    .tk-table .tk-num { font-family: var(--font-mono); white-space: nowrap; }
+    .tk-table tr.is-hi td { color: var(--accent); }
+
+    .tk-formula { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: 1.25rem 0 0; }
+    .tk-formula__part { font-size: .84rem; color: var(--text); background: rgba(124,92,255,.1); border: 1px solid rgba(124,92,255,.35); border-radius: 10px; padding: .5rem .8rem; }
+    .tk-formula__part.is-opt { color: var(--text-dim); background: rgba(255,255,255,.04); border-color: var(--border-soft); }
+    .tk-formula__op { font-family: var(--font-mono); color: var(--text-mute); }
+
+    .tk-mix { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.25rem 0 0; }
+    .tk-mix span { font-size: .8rem; color: var(--text-dim); background: rgba(255,255,255,.04); border: 1px solid var(--border-soft); border-radius: 999px; padding: .32rem .7rem; }
+
+    .tk-sub { font-size: 1.05rem; margin: 2rem 0 0; }
+
+    .tk-season { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.25rem 0 0; }
+    @media (max-width: 760px) { .tk-season { grid-template-columns: 1fr; } }
+    .tk-season__item { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 14px; padding: 1.1rem 1.25rem; }
+    .tk-season__item h3 { font-size: 1.05rem; margin: 0 0 .2rem; }
+    .tk-season__when { display: inline-block; font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3); padding: .18rem .5rem; border-radius: 6px; margin-bottom: .7rem; }
+    .tk-season__item ol { margin: 0; padding-left: 1.2rem; }
+    .tk-season__item li { font-size: .85rem; color: var(--text-dim); line-height: 1.6; margin-bottom: .3rem; }
+
+    .tk-steps { counter-reset: tk; display: grid; gap: .85rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+    .tk-steps li { counter-increment: tk; position: relative; padding: .9rem 1.1rem .9rem 3rem; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 12px; font-size: .88rem; color: var(--text-dim); line-height: 1.65; }
+    .tk-steps li::before { content: counter(tk); position: absolute; left: 1rem; top: .9rem; font-family: var(--font-mono); font-size: .8rem; color: var(--accent); }
+    .tk-steps strong { color: var(--text); }
+
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🧠 Anotações do curso</span>
+      <h1>Europa <span class="grad-text">Perfeita</span></h1>
+      <p>Duas metades do mesmo trabalho. Primeiro o método: escolher o auge, mesclar estímulos, equilibrar o orçamento e respeitar a estação. Depois a execução: qual porta usar, qual modal, qual aeroporto e onde tem taxa escondida. Onde há número, ele está conferido com a data da checagem.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <a href="estrategias.html" class="guia-back">← voltar pras estratégias de emissão</a>
+
+      <div class="tk-rule reveal" style="margin-bottom:2rem">
+        <strong>O que é esta página.</strong> Minhas anotações do curso <strong>Europa Perfeita</strong>, organizadas em duas metades: primeiro o <strong>método</strong> de montar o roteiro — escolher o auge, mesclar estímulos, equilibrar o orçamento, respeitar a estação — e depois a <strong>execução</strong>: qual porta usar, qual modal, qual aeroporto e onde tem taxa escondida.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin-bottom:1.25rem">
+        <span class="kicker">⭐ Regra 1</span>
+        <h2>Todo roteiro precisa de um <span class="grad-text">auge</span></h2>
+        <p style="max-width:820px">O auge é o <strong>destino UAU</strong> — aquele que, sozinho, justifica a viagem inteira. Ele vem primeiro; tudo o mais se organiza em volta dele. Um segundo auge é opcional, e costuma ser o que transforma uma viagem boa em inesquecível.</p>
+      </div>
+
+      <div class="tk-formula reveal">
+        <span class="tk-formula__part">Auge</span>
+        <span class="tk-formula__op">+</span>
+        <span class="tk-formula__part is-opt">Auge 2 (opcional)</span>
+        <span class="tk-formula__op">+</span>
+        <span class="tk-formula__part is-opt">complementos de roteiro</span>
+        <span class="tk-formula__op">+</span>
+        <span class="tk-formula__part is-opt">complementos logísticos (portas e coringas)</span>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Dois roteiros reais montados assim:</strong><br>
+        <strong>Out/2024:</strong> Paris → Amsterdã → Dolomitas → Sharm el-Sheikh e Dahab → Cairo<br>
+        <strong>Jun/2026:</strong> Lisboa → Cinque Terre → Zaquintos → Mykonos → Barcelona<br><br>
+        O padrão se repete nos dois: começam e terminam em porta grande, e o auge fica no meio, não na ponta.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🎨 Regra 2</span>
+        <h2>Quanto mais estímulos diferentes, mais <span class="grad-text">marcante</span></h2>
+        <p style="max-width:820px">É a regra que mais gente ignora. Cinco cidades bonitas do mesmo tipo viram uma lembrança só; cidade cosmopolita + ilha + montanha + vila pequena viram quatro. Mesmo princípio que organiza os <a href="destinos.html" style="color:var(--accent)">destinos por experiência</a> — e são quatro formas de aplicá-lo.</p>
+      </div>
+
+      <h3 class="tk-sub reveal">A) Mesclar tipos de atração</h3>
+      <div class="tk-mix reveal">
+        <span>🏖️ praia (normalmente ilhas)</span>
+        <span>🌆 cidade cosmopolita</span>
+        <span>🏙️ cidade no leste europeu</span>
+        <span>🏘️ cidadezinha charmosa (glamour)</span>
+        <span>❄️ neve</span>
+        <span>🏞️ paisagens</span>
+        <span>⛷️ esporte — esqui ou trilha</span>
+        <span>🏛️ foco em história (Roma, Cairo)</span>
+        <span>🌌 aurora boreal</span>
+        <span>🇲🇦 Marrocos e norte da África</span>
+        <span>🕌 Oriente Médio</span>
+        <span>🍷 destino de vinho</span>
+        <span>🦐 destino gastronômico (norte da Espanha)</span>
+        <span>🚗 roadtrip</span>
+        <span>🎲 fora da caixa</span>
+      </div>
+
+      <h3 class="tk-sub reveal">B) Mesclar países</h3>
+      <p class="reveal" style="font-size:.9rem; color:var(--text-dim); line-height:1.7; max-width:820px; margin:.5rem 0 0">Dois países na mesma viagem entregam mais contraste que duas regiões do mesmo país — idioma, comida, preço e ritmo mudam de uma vez.</p>
+
+      <h3 class="tk-sub reveal">C) Mesclar região com cidade</h3>
+      <div class="tk-mix reveal">
+        <span>Toscana + Barcelona</span>
+        <span>Maiorca + Veneza</span>
+        <span>Zaquintos + Budapeste</span>
+      </div>
+
+      <h3 class="tk-sub reveal">D) Mesclar cidade grande com cidade pequena</h3>
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>Categoria</th><th>Exemplos</th><th>Papel no roteiro</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cidade "A"</td>
+              <td>Londres, Madri, Barcelona, Roma, Milão</td>
+              <td>capitais e metrópoles — normalmente também são as portas</td>
+            </tr>
+            <tr>
+              <td>Cidade "B"</td>
+              <td>Sevilha (Andaluzia), Florença (Toscana), Nice (Côte d'Azur)</td>
+              <td>capital de uma região — base pra explorar em volta</td>
+            </tr>
+            <tr>
+              <td>Leste europeu</td>
+              <td>Praga, Budapeste</td>
+              <td>estímulo próprio, e bem mais barato que o oeste</td>
+            </tr>
+            <tr>
+              <td>Cidadezinha (town)</td>
+              <td>Montalcino, Montepulciano, Siena, Panzano</td>
+              <td>não se visita sozinha — várias juntas formam uma região</td>
+            </tr>
+            <tr>
+              <td>Região ou ilha</td>
+              <td>Toscana, Andaluzia, Côte d'Azur, Puglia, Dolomitas, Maiorca, Zaquintos, Mykonos</td>
+              <td>entra como bloco de dias, não como parada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>A ideia por trás da tabela:</strong> cidadezinha não é destino, é ingrediente — Siena sozinha não sustenta a viagem, mas Siena + Montalcino + Montepulciano viram "Toscana". Cidade "A" sustenta sozinha e frequentemente já é a sua porta, então quase não custa dias extras.
+      </div>
+
+      <h3 class="tk-sub reveal">País divisível × país não divisível</h3>
+      <p class="reveal" style="font-size:.9rem; color:var(--text-dim); line-height:1.7; max-width:820px; margin:.5rem 0 0">A pergunta que define quantos dias o país exige de você — e se ele cabe num roteiro de vários países ou pede viagem própria.</p>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">✂️</div>
+          <h3>Divisível</h3>
+          <p>Dá pra conhecer <strong>só uma região</strong> e sair satisfeita. A Itália é o exemplo: você faz apenas a Toscana e a viagem se sustenta — não fica a sensação de ter deixado o país pela metade. É o tipo de país que encaixa como bloco dentro de um roteiro maior.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🚫</div>
+          <h3>Não divisível</h3>
+          <p>Duas situações diferentes com a mesma consequência. Ou é país que <strong>só compensa se você for ver tudo</strong> — e aí ele pede viagem dedicada, não uma parada. Ou é país em que <strong>só a capital vale a pena</strong> — e aí ele entra no roteiro como uma cidade, e nada mais.</p>
+        </article>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Por que isso importa na hora de montar:</strong> é o que evita os dois erros opostos. Reservar duas semanas pra um país em que só a capital rende, ou reservar três dias pra um país que só faz sentido inteiro — e voltar com a impressão de não ter visto nada.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">💰 Técnica do agridoce</span>
+        <h2>Índice de hospedagem, de <span class="grad-text">1 a 5</span></h2>
+        <p style="max-width:820px">Cada destino tem um patamar de preço de hospedagem. Sabendo o índice de cada um, você equilibra o orçamento de propósito: destino nível 5 cabe na viagem se estiver acompanhado de um nível 2.</p>
+      </div>
+
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>Índice</th><th>Destinos</th></tr>
+          </thead>
+          <tbody>
+            <tr class="is-hi"><td class="tk-num">5 · caríssimo</td><td>Países nórdicos e Suíça</td></tr>
+            <tr><td class="tk-num">4 · caro</td><td>Principais capitais, Costa Amalfitana, Mykonos e Santorini</td></tr>
+            <tr><td class="tk-num">3 · médio</td><td>Cidades "B", ilhas gregas fora de Santorini e Mykonos, Praga e Budapeste, Malta, Alemanha, Puglia</td></tr>
+            <tr><td class="tk-num">2 · barato</td><td>Fora da zona do euro em geral: Romênia, Armênia, Bulgária, Polônia, Geórgia, Albânia, Egito, Jordânia</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>Orçamento de referência, com passagem</th><th>Por pessoa</th><th>Casal</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Por dia de viagem</td><td class="tk-num">R$ 1.000 – 1.200</td><td class="tk-num">R$ 2.000 – 2.400</td></tr>
+            <tr><td>Viagem de 15 dias</td><td class="tk-num">R$ 15.000 – 18.000</td><td class="tk-num">R$ 30.000 – 36.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🗓️ Estação</span>
+        <h2>O que priorizar em <span class="grad-text">cada época</span></h2>
+        <p style="max-width:820px">A estação não muda só o clima — muda quais destinos fazem sentido. Cidade cosmopolita você vê em qualquer época; aurora boreal, vindima e mercado de Natal têm janela fixa.</p>
+      </div>
+
+      <div class="tk-season reveal">
+        <div class="tk-season__item">
+          <h3>☀️ Verão</h3>
+          <span class="tk-season__when">15/jun – 15/set</span>
+          <ol>
+            <li><strong>Praias</strong></li>
+            <li><strong>Natureza</strong> — a melhor época pra trilha e lago</li>
+            <li><strong>Vinho</strong> — vindima</li>
+            <li><strong>Cidadezinhas charmosas</strong> com certa altitude, que escapam do calor</li>
+          </ol>
+        </div>
+        <div class="tk-season__item">
+          <h3>🍂 Outono</h3>
+          <span class="tk-season__when">15/set – 15/dez</span>
+          <ol>
+            <li><strong>Paisagens de outono</strong></li>
+            <li><strong>Egito</strong></li>
+            <li><strong>Aurora boreal</strong></li>
+          </ol>
+        </div>
+        <div class="tk-season__item">
+          <h3>❄️ Inverno</h3>
+          <span class="tk-season__when">15/dez – 15/mar</span>
+          <ol>
+            <li>Quer <strong>esquiar ou fazer snowboard</strong></li>
+            <li>Quer ver <strong>neve e paisagem de neve</strong></li>
+            <li>Quer ver <strong>mercado de Natal</strong></li>
+            <li>Só pode viajar nessa época</li>
+            <li><strong>Cidade cosmopolita</strong> — funciona em qualquer época</li>
+            <li><strong>Egito, Marrocos e Oriente Médio</strong></li>
+          </ol>
+        </div>
+        <div class="tk-season__item">
+          <h3>🌸 Primavera</h3>
+          <span class="tk-season__when">15/mar – 15/jun</span>
+          <ol>
+            <li><strong>Cidades cosmopolitas</strong></li>
+            <li><strong>Paisagens</strong> — Suíça, Escócia, Eslovênia</li>
+            <li><strong>Campos de flores</strong></li>
+            <li><strong>Cidadezinhas e castelos</strong></li>
+            <li><strong>Marrocos, Egito e Oriente Médio</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Quantos dias em cada tipo, no verão:</strong> cidade cosmopolita tradicional — Londres, Madri, Paris, Roma — pede <strong>3 a 5 dias</strong>, e no verão vale reduzir os dias nas portas pra sobrar tempo pra praia e natureza. Praga, Budapeste, Sevilha e Florença rendem em <strong>2 dias</strong> em média.
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Sobre o inverno:</strong> a regra que fecha a lista é <strong>risco comedido</strong>. Inverno tem mais chance de neve fechando estrada, teleférico parado e dia curto de luz — então o roteiro pede folga e plano B, não o encadeamento apertado que funciona no verão.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🚪 Portas de entrada e saída</span>
+        <h2>Casca e <span class="grad-text">miolo</span></h2>
+        <p style="max-width:820px">O vocabulário que organiza o orçamento inteiro da viagem. <strong>Casca</strong> é a ida e volta do Brasil até o continente. <strong>Miolo</strong> é todo o resto do deslocamento, já lá dentro. São dois mercados diferentes, com lógica de preço diferente — e a escolha da porta é o que liga um ao outro. <span style="color:var(--text-mute)">A aula lista as 8 melhores portas de <strong>cada continente</strong>; abaixo estão as da Europa.</span></p>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">1️⃣</div>
+          <h3>Preço bom do Brasil até ela</h3>
+          <p>A porta precisa ser barata de alcançar daqui. É a perna mais cara da viagem, então é onde a escolha pesa mais.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">2️⃣</div>
+          <h3>Preço bom dela pro miolo</h3>
+          <p>Não basta chegar barato: a porta tem que ter voo barato <strong>pra onde você quer ir depois</strong>. Porta barata e mal conectada não serve.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">3️⃣</div>
+          <h3>Ser lugar que você quer conhecer</h3>
+          <p>Você vai passar por ela de qualquer forma — então que seja uma cidade que valha os dias que ela vai consumir.</p>
+        </article>
+      </div>
+
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>As 8 melhores portas da Europa</th><th>Bloco</th></tr>
+          </thead>
+          <tbody>
+            <tr class="is-hi"><td>Londres · Milão</td><td class="tk-num">1º</td></tr>
+            <tr><td>Paris · Roma · Barcelona</td><td class="tk-num">2º</td></tr>
+            <tr><td>Madri</td><td class="tk-num">3º</td></tr>
+            <tr><td>Lisboa · Amsterdã</td><td class="tk-num">4º</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Londres é a melhor porta pros países nórdicos.</strong> Quando o destino é Escandinávia, ela ganha das outras — vale escolher a porta pelo miolo que você quer, não só pelo preço da casca.
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Onde isso se conecta no site:</strong> o conceito de porta, miolo e coringa está detalhado em <a href="como-chegar.html" style="color:var(--accent)">como chegar</a>, e o cálculo de quanto se economiza entrando por uma porta em vez de voar direto está em <a href="estrategias.html#portas" style="color:var(--accent)">estratégias</a>. Aqui ficam só o critério de escolha e o ranking.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">💸 Imposto de embarque</span>
+        <h2>Voe do <span class="grad-text">país vizinho</span></h2>
+        <p style="max-width:820px">Cada país europeu cobra seu próprio imposto sobre passageiro que embarca, e a diferença entre vizinhos é grande. O caso mais extremo é Holanda contra Bélgica: às vezes compensa pegar um trem de Amsterdã até Bruxelas e voar de lá.</p>
+      </div>
+
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>Taxa de embarque</th><th>Por pessoa</th><th>Casal</th></tr>
+          </thead>
+          <tbody>
+            <tr class="is-hi"><td>🇳🇱 Holanda (qualquer voo, 2026)</td><td class="tk-num">€30,25</td><td class="tk-num">€60,50</td></tr>
+            <tr><td>🇧🇪 Bélgica — destino europeu acima de 500 km</td><td class="tk-num">€2,00</td><td class="tk-num">€4,00</td></tr>
+            <tr><td>🇧🇪 Bélgica — destino abaixo de 500 km</td><td class="tk-num">€10,00</td><td class="tk-num">€20,00</td></tr>
+            <tr><td>🇧🇪 Bélgica — intercontinental</td><td class="tk-num">€4,00</td><td class="tk-num">€8,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>A diferença chega a €28 por pessoa</strong> num voo europeu — e o teto da taxa belga é €10 por bilhete. A Holanda ainda vai subir: passa a cobrar €29,40 em voos de até 2.000 km a partir de 1º de janeiro, e migra pra um sistema por distância em 2027.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🎒 Low cost e transporte</span>
+        <h2>O que conferir <span class="grad-text">antes de fechar</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🟨</div>
+          <h3>easyJet</h3>
+          <p>Costuma ter a <strong>bagagem mais cara</strong> entre as low cost. Em troca, tem trechos que a Ryanair não faz — e voa mais em aeroporto principal, enquanto a Ryanair usa muito aeroporto secundário. Vale comparar as duas sempre.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🚉</div>
+          <h3>Omio</h3>
+          <p>Onde pesquisar <strong>e comprar</strong> passagem de trem e de ônibus na Europa. Resolve o problema de cada país ter seu próprio operador — você vê tudo num lugar e fecha ali.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🛬</div>
+          <h3>Aeroporto secundário</h3>
+          <p>Antes de fechar low cost, confira <strong>qual</strong> aeroporto é. Paris tem CDG, Orly e Beauvais; Beauvais fica a mais de uma hora da cidade. Milão tem três. Passagem barata em aeroporto distante pode custar mais no transfer.</p>
+        </article>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🚆 Qual modal usar</span>
+        <h2>Avião × trem × <span class="grad-text">ônibus</span> × carro</h2>
+        <p style="max-width:820px">Cada modal tem uma faixa de distância em que ganha, e escolher fora dessa faixa é onde se perde tempo ou dinheiro sem querer.</p>
+      </div>
+
+      <div class="tk-tablewrap reveal">
+        <table class="tk-table">
+          <thead>
+            <tr><th>Modal</th><th>Quando usa</th><th>A favor</th><th>Neutro</th><th>Contra</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>✈️ Avião</td>
+              <td>deslocamento longo</td>
+              <td>chega onde os outros não chegam</td>
+              <td>costuma ter o melhor custo × benefício</td>
+              <td>aeroporto longe do centro e toda a função de aeroporto</td>
+            </tr>
+            <tr>
+              <td>🚆 Trem</td>
+              <td>curto, até ~4h</td>
+              <td>é a opção mais gostosa, e chega no centro</td>
+              <td>tempo — às vezes se perde muito</td>
+              <td>normalmente é o mais caro</td>
+            </tr>
+            <tr>
+              <td>🚌 Ônibus</td>
+              <td>curto, até ~6h</td>
+              <td>normalmente o mais barato</td>
+              <td>desconforto</td>
+              <td>tempo, muito tempo</td>
+            </tr>
+            <tr>
+              <td>🚗 Carro</td>
+              <td>onde o valor é parar</td>
+              <td>é o que dá mais liberdade</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>O par que confunde:</strong> trem e ônibus servem a mesma distância curta, e a escolha entre eles é literalmente preço contra tempo e conforto. Ônibus barato de 6h consome um terço do dia útil — compare com o valor do dia, não só com o da passagem.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🔀 Pesquisa cruzada</span>
+        <h2>Ache a <span class="grad-text">cidade-ponte</span></h2>
+        <p style="max-width:820px">Serve pra quando o trecho direto entre dois pontos que você quer está caro. Em vez de aceitar o preço, você procura uma terceira cidade que seja barata a partir das <strong>duas</strong> — e emenda dois voos baratos no lugar de um caro.</p>
+      </div>
+
+      <ol class="tk-steps reveal">
+        <li>Abra o <strong>Explorar do Google Flights</strong> em duas abas: uma saindo da cidade A, outra saindo da cidade B.</li>
+        <li>Compare os mapas e procure um <strong>destino em comum</strong> que apareça barato nas duas.</li>
+        <li>Confira se as duas pernas usam o <strong>mesmo aeroporto</strong> na cidade-ponte, e some bagagem e transfer antes de decidir.</li>
+      </ol>
+
+      <div class="tk-rule reveal">
+        <strong>O exemplo clássico.</strong> Veneza → Lisboa estava R$ 600. Mas Veneza e Lisboa <em>as duas</em> tinham voo para Bordeaux por cerca de R$ 100. Dois trechos de R$ 100 em vez de um de R$ 600.
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>Por que isso funciona:</strong> companhia low cost <strong>baseia avião</strong> em certos aeroportos, e tudo que sai ou chega naquela base é barato. Quando duas cidades distantes têm tarifa baixa pro mesmo lugar, quase sempre é porque aquele lugar é base de alguma low cost. Não é coincidência — é malha.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🕐 Horário</span>
+        <h2>Divida o dia em <span class="grad-text">três terços</span></h2>
+        <p style="max-width:820px">Escolher o horário do voo é escolher quanto do dia você perde.</p>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🌅</div>
+          <h3>6h às 12h — bom</h3>
+          <p>Você voa cedo e <strong>ganha a tarde inteira</strong> no destino. Só confira se há transporte funcionando pro aeroporto no seu horário.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🚫</div>
+          <h3>12h às 18h — evite</h3>
+          <p>É o pior dos três: <strong>parte o dia ao meio</strong>. Você não aproveita a origem porque tem que sair, e não aproveita o destino porque chega no fim da tarde.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🌆</div>
+          <h3>18h à meia-noite — bom</h3>
+          <p>Você <strong>usa o dia inteiro</strong> onde está e dorme no destino. Ótimo pra trecho curto entre duas bases da viagem.</p>
+        </article>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🚗 Carro</span>
+        <h2>A taxa de <span class="grad-text">one-way</span></h2>
+        <p style="max-width:820px">Pegar o carro numa cidade e entregar em outra pode custar caro — ou nada. Não existe valor padrão, e é por isso que essa taxa pega tanta gente de surpresa.</p>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>O que dá pra afirmar:</strong> dentro da Itália, muitas vezes <strong>não há taxa nenhuma</strong>. Quando há, varia de <strong>€50 a €250</strong> conforme a locadora — Avis, Hertz, Europcar e Sixt cobram valores diferentes na mesma rota. Guias gerais falam em €150–250 para Itália e França.
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>E o mais importante:</strong> a taxa <strong>sempre aparece antes de você confirmar</strong> a reserva. Você nunca descobre no balcão. Então não orce por estimativa — cote a mesma rota nas quatro locadoras e leia a linha da taxa. É comum uma cobrar zero e outra cobrar €200 pelo mesmo trajeto.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
+        <span class="kicker">🌉 Cidade-coringa</span>
+        <h2>Saia do país pra <span class="grad-text">atravessar o país</span></h2>
+        <p style="max-width:820px">Em país de malha radial, voo entre duas cidades secundárias quase nunca existe — tudo passa pela capital. Às vezes sair para um hub estrangeiro e voltar por outro ponto é mais rápido e mais barato do que respeitar a geografia.</p>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🇬🇷</div>
+          <h3>Grécia: use a Itália de ponte</h3>
+          <p>A malha grega é radial em Atenas, então ilha-para-ilha raramente tem direto — e balsa entre mares diferentes leva o dia inteiro. Um destino coringa italiano no meio resolve, e sai <strong>mais barato e mais rápido que o ferry</strong>. O exemplo da aula é <strong>Corfu → Nápoles → Santorini</strong>, pra sair do lado esquerdo da Grécia e chegar no direito. Confirmei a primeira perna: <strong>Corfu ↔ Nápoles tem voo direto</strong> de easyJet e Ryanair, cerca de 6 vezes por semana, em <strong>1h15</strong>. A segunda, Nápoles → Santorini, eu não consegui confirmar. Adapte o par de ilhas ao seu caso e valide as <strong>duas</strong> pernas antes, porque nem toda combinação existe.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🇹🇷</div>
+          <h3>Turquia: saia por Viena</h3>
+          <p>Se você vai fazer só Istambul e Capadócia, não precisa voltar a Istambul pra sair do país. <strong>Kayseri (ASR) ↔ Viena tem voo direto</strong> na Pegasus e na SunExpress, em <strong>2h45</strong>. Kayseri é o aeroporto que serve a Capadócia de verdade — Nevşehir tem muito menos oferta. Rota <strong>sazonal, de maio a outubro</strong>.</p>
+        </article>
+      </div>
+
+      <div class="tk-rule reveal">
+        <strong>O princípio, pra você aplicar em qualquer lugar:</strong> quando dois pontos do mesmo país não se conectam bem, olhe quem voa pra fora a partir dos dois. Ilha grega, costa turca, arquipélago português e sul da Itália funcionam assim. Só lembre que atravessar fronteira duas vezes significa dois bilhetes separados — vale a ressalva da pesquisa cruzada.
+      </div>
+
+      <div class="cta-row reveal" style="margin-top:2.5rem">
+        <a href="estrategias.html" class="btn btn--ghost">🛠 Estratégias de emissão</a>
+        <a href="como-chegar.html" class="btn btn--ghost">🍳 Receitas: como chegar</a>
+        <a href="sites-secretos.html" class="btn btn--ghost">🕵️ Ferramentas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
