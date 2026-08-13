@@ -35,39 +35,44 @@
     const SECTIONS = [
       { title: 'Comece aqui', links: [
         ['Visão geral', ROOT + 'index.html'],
+        ['Passo a passo: da ideia ao embarque', P + 'passo-a-passo.html'],
         ['Curso completo (do zero)', P + 'curso-completo.html'],
-        ['Roadmap de 12 meses', P + 'roadmap.html'],
       ]},
-      { title: 'Programas & moedas', links: [
-        ['Programas (todos)', P + 'programas.html'],
-        ['Qual moeda transferir', P + 'qual-moeda.html'],
-        ['Multiplicadores', P + 'multiplicadores.html'],
+      { title: '1 · Escolher a viagem', links: [
+        ['Destinos por experiência', P + 'destinos.html'],
+        ['Europa Perfeita (método)', P + 'europa-perfeita.html'],
+        ['Roteiros prontos', P + 'roteiros.html'],
+        ['Receitas — como chegar', P + 'como-chegar.html'],
+      ]},
+      { title: '2 · Ver se cabe', links: [
         ['Termômetro de preços', P + 'termometro.html'],
         ['Calculadora: emitir ou pagar', P + 'termometro.html#calculadora'],
       ]},
-      { title: 'Achar a passagem', links: [
+      { title: '3 · Juntar as milhas', links: [
+        ['Programas (todos)', P + 'programas.html'],
+        ['Qual moeda transferir', P + 'qual-moeda.html'],
+        ['Multiplicadores', P + 'multiplicadores.html'],
+        ['Roadmap de 12 meses', P + 'roadmap.html'],
+      ]},
+      { title: '4 · Achar e emitir', links: [
         ['Estratégias', P + 'estrategias.html'],
         ['Ferramentas (sites)', P + 'sites-secretos.html'],
         ['Guia do Seats.aero', P + 'seats-aero-guia-br.html'],
-        ['Europa Perfeita', P + 'europa-perfeita.html'],
-      ]},
-      { title: 'Montar a viagem', links: [
-        ['Roteiros prontos', P + 'roteiros.html'],
-        ['Receitas — como chegar', P + 'como-chegar.html'],
-        ['Destinos por experiência', P + 'destinos.html'],
-        ['Quinta liberdade', P + 'quinta-liberdade.html'],
         ['Primeira classe', P + 'primeira-classe.html'],
+        ['Quinta liberdade', P + 'quinta-liberdade.html'],
+        ['Upgrade de cabine', P + 'upgrade.html'],
+      ]},
+      { title: '5 · Fechar o resto', links: [
         ['Hospedagem', P + 'hospedagem.html'],
-        ['Lojas (moda praia & viagem)', P + 'lojas.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
-        ['Tax Free', P + 'tax-free.html'],
         ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
         ['Idioma antes da viagem', P + 'idiomas.html'],
+        ['Lojas (moda praia & viagem)', P + 'lojas.html'],
+        ['Tax Free', P + 'tax-free.html'],
       ]},
-      { title: 'Na viagem', links: [
+      { title: '6 · Na viagem', links: [
         ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
-        ['Upgrade de cabine', P + 'upgrade.html'],
         ['Poses pra foto', P + 'poses.html'],
         ['Deu ruim na viagem (direitos)', P + 'imprevistos.html'],
       ]},

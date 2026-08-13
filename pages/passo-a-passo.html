@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="O caminho inteiro em ordem: escolher a viagem, desenhar a rota, ver se cabe em milhas, juntar as milhas, achar e emitir, fechar hospedagem e embarcar. Cada passo aponta pra página do site que ensina aquilo a fundo." />
+  <title>Passo a passo — da ideia ao embarque — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .pp-intro { padding: 1.1rem 1.35rem; background: rgba(0,229,255,.06); border: 1px solid rgba(0,229,255,.25); border-radius: 14px; font-size: .9rem; color: var(--text-dim); line-height: 1.7; margin: 0 0 2.5rem; }
+    .pp-intro strong { color: var(--text); }
+
+    .pp-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem; margin: 0 0 2.5rem; }
+    .pp-map a { display: block; padding: .8rem .9rem; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 12px; text-decoration: none; transition: var(--transition); }
+    .pp-map a:hover { border-color: rgba(0,229,255,.4); transform: translateY(-2px); }
+    .pp-map__n { display: block; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; color: var(--text-mute); margin-bottom: .2rem; }
+    .pp-map__t { display: block; font-size: .86rem; color: var(--text); line-height: 1.35; }
+
+    .pp-phase { margin: 0 0 3rem; }
+    .pp-phase__head { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; margin: 0 0 1.5rem; padding-bottom: .6rem; border-bottom: 1px solid var(--border-soft); }
+    .pp-phase__head h2 { font-size: 1.4rem; margin: 0; }
+    .pp-phase__tag { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3); padding: .2rem .55rem; border-radius: 6px; }
+    .pp-phase__head p { margin: .3rem 0 0; flex-basis: 100%; font-size: .88rem; color: var(--text-dim); line-height: 1.6; }
+
+    .timeline__body p a { color: var(--accent); }
+    .pp-go { display: inline-block; margin-top: .45rem; font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); text-decoration: none; border: 1px solid rgba(0,229,255,.3); background: rgba(0,229,255,.07); border-radius: 999px; padding: .28rem .7rem; }
+    .pp-go:hover { background: rgba(0,229,255,.16); }
+    .pp-opt { font-family: var(--font-mono); font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); border: 1px solid var(--border-soft); border-radius: 5px; padding: .1rem .35rem; margin-left: .4rem; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🧭 Comece aqui</span>
+      <h1>Da ideia ao <span class="grad-text">embarque</span></h1>
+      <p>O site inteiro em ordem de execução. Cada passo diz o que fazer numa frase e aponta pra página que ensina aquilo a fundo. Não é conteúdo novo — é o caminho, pra você não precisar adivinhar qual página abrir primeiro.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="pp-intro reveal">
+        <strong>Como usar:</strong> siga de cima pra baixo na primeira viagem. Depois da segunda, você vai pular direto pra fase que precisa. Passos marcados como <span class="pp-opt">opcional</span> só valem se o caso for seu. <strong>Nunca fez uma emissão?</strong> Antes de tudo, leia o <a href="curso-completo.html">curso completo</a> — ele explica os conceitos que os passos abaixo assumem que você já sabe.
+      </div>
+
+      <nav class="pp-map reveal" aria-label="Fases">
+        <a href="#f1"><span class="pp-map__n">Fase 1</span><span class="pp-map__t">🎯 Escolher a viagem</span></a>
+        <a href="#f2"><span class="pp-map__n">Fase 2</span><span class="pp-map__t">🗺️ Desenhar a rota</span></a>
+        <a href="#f3"><span class="pp-map__n">Fase 3</span><span class="pp-map__t">💰 Ver se cabe</span></a>
+        <a href="#f4"><span class="pp-map__n">Fase 4</span><span class="pp-map__t">🎫 Juntar as milhas</span></a>
+        <a href="#f5"><span class="pp-map__n">Fase 5</span><span class="pp-map__t">🔍 Achar e emitir</span></a>
+        <a href="#f6"><span class="pp-map__n">Fase 6</span><span class="pp-map__t">🏨 Fechar o resto</span></a>
+        <a href="#f7"><span class="pp-map__n">Fase 7</span><span class="pp-map__t">🧳 Véspera e viagem</span></a>
+      </nav>
+
+      <div class="pp-phase" id="f1">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 1</span>
+          <h2>🎯 Escolher a viagem</h2>
+          <p>Vem antes de qualquer pesquisa de preço. Decidir o destino olhando tarifa é o erro que faz a viagem inteira parecer aleatória.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">1</div>
+            <div class="timeline__body">
+              <h3>Escolha o auge</h3>
+              <p>Defina o <strong>destino UAU</strong> — o que sozinho justifica a viagem. Tudo o mais se organiza em volta dele.</p>
+              <a class="pp-go" href="europa-perfeita.html#auge">Europa Perfeita → Auge</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">2</div>
+            <div class="timeline__body">
+              <h3>Confira se a época bate</h3>
+              <p>Aurora boreal, vindima, mercado de Natal e trilha têm janela fixa. Cidade cosmopolita você vê em qualquer mês — então ela nunca deve mandar na data.</p>
+              <a class="pp-go" href="europa-perfeita.html#estacoes">Europa Perfeita → Estações</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">3</div>
+            <div class="timeline__body">
+              <h3>Garanta contraste entre os destinos</h3>
+              <p>Cinco cidades do mesmo tipo viram uma lembrança só. Misture tipos de atração, tamanhos de cidade e países.</p>
+              <a class="pp-go" href="destinos.html">Destinos por experiência</a>
+              <a class="pp-go" href="europa-perfeita.html#estimulos">Europa Perfeita → Estímulos</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">4</div>
+            <div class="timeline__body">
+              <h3>Ou pegue um roteiro pronto <span class="pp-opt">atalho</span></h3>
+              <p>Se não quiser montar do zero, comece de uma sequência que já funciona e adapte.</p>
+              <a class="pp-go" href="roteiros.html">Roteiros prontos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f2">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 2</span>
+          <h2>🗺️ Desenhar a rota</h2>
+          <p>Agora você tem os destinos. Falta decidir por onde entra, por onde sai e como liga um ao outro.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">5</div>
+            <div class="timeline__body">
+              <h3>Escolha a porta de entrada e a de saída</h3>
+              <p>Separe <strong>casca</strong> (a ida e volta do Brasil) de <strong>miolo</strong> (tudo lá dentro). A porta boa é barata daqui, barata pro miolo e um lugar que você quer conhecer.</p>
+              <p><strong>Antes de fechar, confirme que ela voa pra onde você quer.</strong> O <strong>FlightConnections</strong> mostra o mapa de rotas <strong>diretas</strong> de qualquer aeroporto — quanto mais linhas saindo, melhor a cidade serve de porta. E o mapa <strong>Explorar do Google Flights</strong> mostra pra onde sai barato a partir dali.</p>
+              <a class="pp-go" href="europa-perfeita.html#portas">Europa Perfeita → Portas</a>
+              <a class="pp-go" href="estrategias.html#portas">Estratégias → Portas</a>
+              <a class="pp-go" href="guia.html?id=flightconnections">Tutorial: FlightConnections</a>
+              <a class="pp-go" href="guia.html?id=google-flights">Tutorial: Google Flights</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">6</div>
+            <div class="timeline__body">
+              <h3>Preencha o miolo e ache seus coringas</h3>
+              <p>Cidades muito conectadas e baratas que encaixam em qualquer roteiro. Aqui está o método de descobrir as suas, com as ferramentas de busca.</p>
+              <a class="pp-go" href="como-chegar.html">Receitas — como chegar</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">7</div>
+            <div class="timeline__body">
+              <h3>Decida o modal de cada trecho</h3>
+              <p>Avião pro longo, trem pro curto, ônibus pro barato, carro pra onde o valor é parar. E confira o imposto de embarque do país de onde você vai decolar.</p>
+              <a class="pp-go" href="europa-perfeita.html#modais">Europa Perfeita → Modais</a>
+              <a class="pp-go" href="europa-perfeita.html#imposto">Europa Perfeita → Imposto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f3">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 3</span>
+          <h2>💰 Ver se cabe</h2>
+          <p>Antes de mexer em milha nenhuma: descobrir se essa viagem se paga melhor em milha ou em dinheiro.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">8</div>
+            <div class="timeline__body">
+              <h3>Descubra se está caro ou barato</h3>
+              <p>Sem uma régua, qualquer preço parece razoável. O termômetro te dá a referência da rota.</p>
+              <a class="pp-go" href="termometro.html">Termômetro de preços</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">9</div>
+            <div class="timeline__body">
+              <h3>Rode a conta: emitir ou pagar?</h3>
+              <p>Milha só vale a pena acima de um certo valor por milha. A calculadora resolve isso em segundos.</p>
+              <a class="pp-go" href="termometro.html#calculadora">Calculadora: emitir ou pagar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f4">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 4</span>
+          <h2>🎫 Juntar as milhas</h2>
+          <p>Decidiu emitir. Agora é descobrir em qual programa, com qual moeda, e como multiplicar no caminho.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">10</div>
+            <div class="timeline__body">
+              <h3>Veja qual programa emite essa rota</h3>
+              <p>Você não emite no programa que tem milha — emite no que cobra menos por aquele trecho. Comece pela tabela "quer voar X? emite por Y".</p>
+              <a class="pp-go" href="estrategias.html">Estratégias</a>
+              <a class="pp-go" href="programas.html">Programas a fundo</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">11</div>
+            <div class="timeline__body">
+              <h3>Descubra qual moeda transferir</h3>
+              <p>Tem Livelo ou Esfera parada? Este é o framework de decisão pra não transferir pro lugar errado — transferência não volta atrás.</p>
+              <a class="pp-go" href="qual-moeda.html">Qual moeda transferir</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">12</div>
+            <div class="timeline__body">
+              <h3>Multiplique antes de transferir</h3>
+              <p>Camadas de bônus, clube e promoção empilhadas mudam o total em dezenas de milhares de milhas. Fazer isso na ordem errada custa caro.</p>
+              <a class="pp-go" href="multiplicadores.html">Multiplicadores</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">13</div>
+            <div class="timeline__body">
+              <h3>Falta muita milha? Entre no roadmap <span class="pp-opt">se faltar</span></h3>
+              <p>Se o saldo não chega, o plano de 12 meses mostra o que fazer mês a mês pra chegar lá.</p>
+              <a class="pp-go" href="roadmap.html">Roadmap de 12 meses</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f5">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 5</span>
+          <h2>🔍 Achar e emitir</h2>
+          <p>A parte operacional. Aqui é onde a maioria desiste, porque o assento não aparece no site óbvio.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">14</div>
+            <div class="timeline__body">
+              <h3>Monte seu arsenal de busca</h3>
+              <p>Cada ferramenta responde uma pergunta diferente. Usar a errada faz parecer que não tem assento.</p>
+              <a class="pp-go" href="sites-secretos.html">Ferramentas</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">15</div>
+            <div class="timeline__body">
+              <h3>Aprenda a ler o Seats.aero</h3>
+              <p>É a ferramenta mais poderosa e a mais fácil de interpretar errado. Este guia é a leitura pela ótica do brasileiro.</p>
+              <a class="pp-go" href="seats-aero-guia-br.html">Guia do Seats.aero</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">16</div>
+            <div class="timeline__body">
+              <h3>Emita — inclusive o que o site não mostra</h3>
+              <p>Muita rota boa só sai por telefone ou chat. E é aqui que você estica a viagem com <strong>open-jaw</strong> e <strong>stopover</strong>, ganhando destino sem gastar passagem.</p>
+              <a class="pp-go" href="estrategias.html">Estratégias</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">17</div>
+            <div class="timeline__body">
+              <h3>Suba de cabine <span class="pp-opt">opcional</span></h3>
+              <p>Vale a pena gastar 350k numa primeira classe? Dá pra pegar wide-body de quinta liberdade num trecho curto? Dá pra subir sem pagar executiva?</p>
+              <a class="pp-go" href="primeira-classe.html">Primeira classe</a>
+              <a class="pp-go" href="quinta-liberdade.html">Quinta liberdade</a>
+              <a class="pp-go" href="upgrade.html">Upgrade de cabine</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f6">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 6</span>
+          <h2>🏨 Fechar o resto</h2>
+          <p>Passagem na mão. Agora o que sobra do orçamento — e o preparo que dá errado quando fica pra última hora.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">18</div>
+            <div class="timeline__body">
+              <h3>Reserve a hospedagem com desconto duplo</h3>
+              <p>Agregador, cashback, transferência bonificada e reserva direta se empilham. E lembre do índice de hospedagem: destino nível 5 pede um nível 2 do lado.</p>
+              <a class="pp-go" href="hospedagem.html">Hospedagem</a>
+              <a class="pp-go" href="europa-perfeita.html#agridoce">Europa Perfeita → Índice</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">19</div>
+            <div class="timeline__body">
+              <h3>É cruzeiro? <span class="pp-opt">opcional</span></h3>
+              <p>Cruzeiro tem lógica de preço própria e não segue nada do que está acima.</p>
+              <a class="pp-go" href="cruzeiros.html">Cruzeiros</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">20</div>
+            <div class="timeline__body">
+              <h3>Resolva vacina e remédio</h3>
+              <p>Alguns destinos exigem comprovante e algumas vacinas precisam de semanas de antecedência. É o passo que não dá pra correr no fim.</p>
+              <a class="pp-go" href="saude.html">Saúde na viagem</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">21</div>
+            <div class="timeline__body">
+              <h3>Comece o idioma agora</h3>
+              <p>O básico de qualquer idioma cabe em algumas semanas — mas só se começar com semanas de sobra.</p>
+              <a class="pp-go" href="idiomas.html">Idioma antes da viagem</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">22</div>
+            <div class="timeline__body">
+              <h3>Monte a mala</h3>
+              <p>Onde comprar o que falta pra viagem e pra praia.</p>
+              <a class="pp-go" href="lojas.html">Lojas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-phase" id="f7">
+        <div class="pp-phase__head reveal">
+          <span class="pp-phase__tag">Fase 7</span>
+          <h2>🧳 Véspera e viagem</h2>
+          <p>O dinheiro que você já pagou e esquece de usar — e o que fazer quando algo sai do plano.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">23</div>
+            <div class="timeline__body">
+              <h3>Ative os benefícios do cartão</h3>
+              <p>Concierge, seguro, proteção de compra e assistência que você já paga na anuidade e nunca aciona.</p>
+              <a class="pp-go" href="cartoes.html">Benefícios dos cartões</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">24</div>
+            <div class="timeline__body">
+              <h3>Use a sala VIP e o crédito de restaurante</h3>
+              <p>Muitos cartões dão crédito pra comer no aeroporto, não só acesso a lounge — e quase ninguém usa.</p>
+              <a class="pp-go" href="salas-vip.html">Salas VIP</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">25</div>
+            <div class="timeline__body">
+              <h3>Peça Tax Free nas compras</h3>
+              <p>Imposto de volta no bolso, mas só se você pedir o formulário na loja e validar antes de sair do bloco.</p>
+              <a class="pp-go" href="tax-free.html">Tax Free</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">26</div>
+            <div class="timeline__body">
+              <h3>Saiba o que fotografar <span class="pp-opt">opcional</span></h3>
+              <p>Banco de poses por categoria, com enquadramento e luz — pra consultar no celular na hora.</p>
+              <a class="pp-go" href="poses.html">Poses pra foto</a>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__dot">27</div>
+            <div class="timeline__body">
+              <h3>Deu ruim? Você tem direitos</h3>
+              <p>Atraso, cancelamento, bagagem extraviada e overbooking têm regra e valor. Guarde este link no celular antes de embarcar.</p>
+              <a class="pp-go" href="imprevistos.html">Deu ruim na viagem</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row reveal" style="margin-top:1rem">
+        <a href="curso-completo.html" class="btn btn--primary">🎓 Não sei o básico ainda</a>
+        <a href="europa-perfeita.html" class="btn btn--ghost">🧠 Europa Perfeita</a>
+        <a href="roteiros.html" class="btn btn--ghost">🗓️ Roteiros prontos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
