@@ -29,6 +29,7 @@ const ROTEIROS_PAISES = {
   '🇵🇹': 'Portugal',
   '🇸🇬': 'Singapura',
   '🇹🇭': 'Tailândia',
+  '🇹🇷': 'Turquia',
   '🇻🇳': 'Vietnã',
 };
 
@@ -142,6 +143,19 @@ const ROTEIROS = [
       { n: 'Marrakech', p: '🇲🇦', tipo: 'coringa', tags: ['cidade', 'historia'] },
       { n: 'Sevilha', p: '🇪🇸', tipo: 'coringa', tags: ['cidade', 'historia', 'gastronomia'] },
       { n: 'Madri', p: '🇪🇸', tipo: 'porta', tags: ['cidade', 'historia', 'gastronomia'] },
+    ],
+  },
+  {
+    id: 'roma-milao-litoral-turco',
+    epoca: 'mai–out',
+    onde: 'Itália + Turquia + ilhas gregas',
+    paradas: [
+      { n: 'Roma', p: '🇮🇹', tipo: 'porta', tags: ['cidade', 'historia'] },
+      { n: 'Istambul', p: '🇹🇷', tipo: 'coringa', tags: ['cidade', 'historia', 'gastronomia'] },
+      { n: 'Capadócia', p: '🇹🇷', tipo: 'coringa', tags: ['natureza', 'historia'], obs: 'aeroporto de Kayseri (ASR)' },
+      { n: 'Esmirna + costa lícia de carro', p: '🇹🇷', tipo: 'coringa', tags: ['praia', 'costa', 'roadtrip'], obs: 'Fethiye, Ölüdeniz e Kaş' },
+      { n: 'Rodes', p: '🇬🇷', tipo: 'coringa', tags: ['praia', 'historia'], obs: 'balsa de Fethiye em 1h30–2h, o ano todo, até 3 saídas por dia' },
+      { n: 'Milão', p: '🇮🇹', tipo: 'porta', tags: ['cidade'], obs: 'Rodes–Milão direto na easyJet, Ryanair e Neos, cerca de 3h' },
     ],
   },
   {
