@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Os apps que resolvem problema real na Europa: achar caixa eletrônico sem taxa, reservar atração e restaurante com desconto, guardar mala pra bater perna, transporte público, banheiro e água de graça." />
+  <title>Apps pra usar na viagem — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .guia-back { display: inline-block; color: var(--text-mute); font-size: .85rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .guia-back:hover { color: var(--text); }
+
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    .ap-rule { padding: 1.1rem 1.35rem; background: rgba(0,229,255,.06); border: 1px solid rgba(0,229,255,.25); border-radius: 14px; font-size: .9rem; color: var(--text-dim); line-height: 1.7; margin: 1.25rem 0 0; }
+    .ap-rule strong { color: var(--text); }
+    .ap-warn { padding: 1.1rem 1.35rem; background: rgba(250,204,21,.06); border: 1px solid rgba(250,204,21,.25); border-radius: 14px; font-size: .9rem; color: var(--text-dim); line-height: 1.7; margin: 1.25rem 0 0; }
+    .ap-warn strong { color: #facc15; }
+
+    .ap-app { display: flex; gap: .5rem; align-items: baseline; flex-wrap: wrap; margin-bottom: .4rem; }
+    .ap-app__tag { font-family: var(--font-mono); font-size: .58rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); border: 1px solid var(--border-soft); border-radius: 5px; padding: .12rem .4rem; }
+
+    .ap-nota { margin: 2.5rem 0 0; font-size: .78rem; color: var(--text-mute); line-height: 1.8; }
+    .ap-nota strong { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; margin-bottom: .5rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">📱 Na viagem</span>
+      <h1>Os apps que <span class="grad-text">resolvem problema</span></h1>
+      <p>Nada de app de inspiração. São os sete que resolvem uma dor concreta na rua: sacar sem taxa, não pagar caro em atração, guardar a mala entre o check-out e o voo, achar banheiro, encher a garrafa e se virar no transporte. Baixe tudo <strong>antes de embarcar</strong> — alguns exigem cadastro e você não vai querer fazer isso no roaming.</p>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#dinheiro">💸 Dinheiro</a>
+        <a href="#atracoes">🎟️ Atração &amp; restaurante</a>
+        <a href="#bagagem">🧳 Bagagem</a>
+        <a href="#transporte">🚇 Transporte</a>
+        <a href="#basico">🚻 Banheiro &amp; água</a>
+      </nav>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <a href="passo-a-passo.html" class="guia-back">← voltar pro passo a passo</a>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin-bottom:1.25rem" id="dinheiro">
+        <span class="kicker">💸 Dinheiro</span>
+        <h2>Sacar sem <span class="grad-text">ser roubado</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🏧</div>
+          <div class="ap-app"><h3>ATM Fee Saver</h3><span class="ap-app__tag">grátis com premium</span></div>
+          <p>Mostra os caixas eletrônicos <strong>sem taxa ou com taxa baixa</strong> perto de você, em mais de <strong>180 países</strong>. Também lista casas de câmbio avaliadas, telefones de emergência (polícia, ambulância) e links oficiais de visto.<br><br>Na versão grátis você vê todos os caixas e as respectivas taxas; a paga só adiciona ordenar e filtrar.</p>
+        </article>
+      </div>
+
+      <div class="ap-warn reveal">
+        <strong>⚠️ A economia maior não é o app — é uma pergunta na tela.</strong><br>
+        Caixa eletrônico e maquininha no exterior costumam perguntar se você quer pagar <strong>em reais</strong> ou na moeda local. Isso se chama <strong>DCC (conversão dinâmica de moeda)</strong>, e aceitar é sempre pior: eles aplicam o câmbio deles, inflado, em cima da taxa que você já paga. <strong>Escolha sempre a moeda local</strong> — euro na Europa, lira na Turquia — e deixe seu banco fazer a conversão. Por lei, eles têm que te dar a escolha e não podem decidir por você.
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="atracoes">
+        <span class="kicker">🎟️ Atração, passeio e restaurante</span>
+        <h2>Reservar antes sai <span class="grad-text">mais barato</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🧡</div>
+          <div class="ap-app"><h3>GetYourGuide</h3><span class="ap-app__tag">atrações</span></div>
+          <p>Ingresso e passeio com <strong>cancelamento grátis</strong> na maioria das atividades. Bom pra furar fila em atração concorrida e pra achar tour em português.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">💗</div>
+          <div class="ap-app"><h3>Civitatis</h3><span class="ap-app__tag">atrações · em pt</span></div>
+          <p>Mesma ideia, mas <strong>espanhol e português nativos</strong> e forte em Europa e América Latina. Costuma ter free tour a pé e passeio guiado no seu idioma que o GetYourGuide não lista. <strong>Compare os dois</strong> — o mesmo passeio tem preço diferente em cada um.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🍴</div>
+          <div class="ap-app"><h3>TheFork</h3><span class="ap-app__tag">restaurantes</span></div>
+          <p>Reserva de restaurante com desconto na conta em boa parte da Europa. Vale abrir antes de escolher onde jantar: o mesmo lugar que você ia entrar na porta pode estar com promoção no app.</p>
+        </article>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="bagagem">
+        <span class="kicker">🧳 O dia sem hotel</span>
+        <h2>Onde deixar a mala entre o <span class="grad-text">check-out e o voo</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🎒</div>
+          <div class="ap-app"><h3>Radical Storage</h3><span class="ap-app__tag">bagagem</span></div>
+          <p>Rede de pontos que guardam sua bagagem por algumas horas — lojas, cafés e hotéis credenciados, quase sempre perto de estação e centro histórico.<br><br>Resolve o dia morto clássico: você faz check-out às 11h e o voo é às 21h. Sem isso, ou você carrega mala por dez horas, ou perde o último dia da cidade.</p>
+        </article>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="transporte">
+        <span class="kicker">🚇 Transporte e mapa</span>
+        <h2>Se virar sem <span class="grad-text">internet</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🗺️</div>
+          <div class="ap-app"><h3>Google Maps offline</h3><span class="ap-app__tag">todo lugar</span></div>
+          <p><strong>Baixe o mapa da cidade antes de viajar</strong>, no wi-fi do hotel ou ainda do Brasil. Offline continuam funcionando a busca por endereço e a navegação a pé e de carro. Some o transporte público em tempo real — mas é justamente ele que costuma cair quando o sinal falha.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🚊</div>
+          <div class="ap-app"><h3>Citymapper</h3><span class="ap-app__tag">só onde tem cobertura</span></div>
+          <p>Melhor que o Google Maps <strong>para transporte público</strong>: diz em qual vagão entrar, qual saída usar e quanto custa o bilhete. Cobre mais de <strong>430 cidades</strong>, mas <strong>não é o mundo todo</strong> — cidade pequena e ilha grega provavelmente não têm.<br><br><strong>Confira sua cidade em <code>citymapper.com/cities</code> antes de contar com ele.</strong></p>
+        </article>
+      </div>
+
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="basico">
+        <span class="kicker">🚻 As duas necessidades básicas</span>
+        <h2>Banheiro e <span class="grad-text">água</span></h2>
+      </div>
+
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__icon">🚻</div>
+          <div class="ap-app"><h3>Toilet Finder &amp; Map</h3><span class="ap-app__tag">banheiro</span></div>
+          <p>Mapa dos banheiros públicos mais próximos. Parece bobagem até o dia de caminhar oito horas numa cidade onde banheiro é pago e escondido.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">💧</div>
+          <div class="ap-app"><h3>Refill — Water Fountains</h3><span class="ap-app__tag">água</span></div>
+          <p>Mapa de bebedouros e fontes públicas de água potável. Em cidade europeia com fonte na praça — Roma é o caso extremo — dá pra atravessar o dia inteiro sem comprar uma garrafa. <strong>Leve garrafa reutilizável</strong>, senão o app não serve pra nada.</p>
+        </article>
+      </div>
+
+      <div class="ap-rule reveal">
+        <strong>Faça isso antes de embarcar:</strong> baixe os apps, crie as contas e deixe o mapa da cidade salvo offline. Fazer cadastro com roaming caro, ou no wi-fi instável do aeroporto, é onde a economia toda se perde.
+      </div>
+
+      <p class="ap-nota">
+        <strong>Sobre estes apps</strong>
+        Cobertura, preço e recursos mudam sem aviso — confirme na loja do seu celular. Verifiquei em agosto de 2026 o que o ATM Fee Saver faz e a cobertura do Citymapper; os demais estão descritos pela função que cumprem, sem número, justamente porque plano e desconto variam por país e por época.
+      </p>
+
+      <div class="cta-row reveal" style="margin-top:2.5rem">
+        <a href="cartoes.html" class="btn btn--ghost">💳 Benefícios dos cartões</a>
+        <a href="salas-vip.html" class="btn btn--ghost">🛋️ Salas VIP</a>
+        <a href="imprevistos.html" class="btn btn--ghost">🆘 Deu ruim na viagem</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="programas.html">Programas</a>
+        <a href="estrategias.html">Estratégias</a>
+        <a href="termometro.html">Termômetro</a>
+        <a href="sites-secretos.html">Ferramentas</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

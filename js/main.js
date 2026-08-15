@@ -71,6 +71,7 @@
         ['Tax Free', P + 'tax-free.html'],
       ]},
       { title: '6 · Na viagem', links: [
+        ['Apps pra usar na viagem', P + 'apps-na-viagem.html'],
         ['Benefícios dos cartões (concierge)', P + 'cartoes.html'],
         ['Salas VIP & crédito em restaurantes', P + 'salas-vip.html'],
         ['Poses pra foto', P + 'poses.html'],
