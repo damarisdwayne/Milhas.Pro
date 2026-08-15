@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Banco de poses de foto pra viagem, separado por categoria — praia, natureza e mirante. Cada referência com o que fazer com o corpo, o enquadramento e a luz que faz aquela foto funcionar." />
+  <meta name="description" content="Banco de referências de pose pra foto de viagem, separado por categoria — genéricas, praia, natureza, neve, noite, mirante, casal, China e Paris. Pra consultar no celular na hora de fotografar." />
   <title>Poses pra foto na viagem — referências por categoria — Milhas.pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -40,7 +40,7 @@
     .po-cat__n { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); vertical-align: super; }
     .po-cat__head p { margin: 0; font-size: .9rem; color: var(--text-dim); line-height: 1.7; }
 
-    .po-dica { margin: 1.1rem 0 0; padding: 1rem 1.25rem; background: rgba(124,92,255,.07); border: 1px solid rgba(124,92,255,.28); border-radius: 14px; }
+    .po-dica { margin: 0 0 1.5rem; padding: 1rem 1.25rem; background: rgba(124,92,255,.07); border: 1px solid rgba(124,92,255,.28); border-radius: 14px; }
     .po-dica strong { display: block; font-family: var(--font-mono); font-size: .64rem; text-transform: uppercase; letter-spacing: .11em; color: #a78bfa; margin-bottom: .5rem; }
     .po-dica p { margin: 0; font-size: .86rem; color: var(--text-dim); line-height: 1.65; }
     .po-dica ul { margin: .7rem 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; }
@@ -56,21 +56,12 @@
     .po-item__img:hover { border-color: rgba(0,229,255,.4); transform: translateY(-3px); }
     .po-item__img img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
 
-    .po-lightbox { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(4,5,9,.92); backdrop-filter: blur(8px); }
+    .po-lightbox { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: .75rem; background: rgba(4,5,9,.94); backdrop-filter: blur(8px); cursor: zoom-out; }
     .po-lightbox.is-open { display: flex; }
-    .po-lightbox__box { position: relative; display: grid; grid-template-columns: auto minmax(240px, 320px); gap: 1.25rem; align-items: start; max-height: 100%; }
-    @media (max-width: 720px) { .po-lightbox__box { grid-template-columns: 1fr; overflow-y: auto; } }
-    .po-lightbox img { max-width: min(56vw, 480px); max-height: 82vh; border-radius: 12px; display: block; }
-    @media (max-width: 720px) { .po-lightbox img { max-width: 100%; max-height: 52vh; margin: 0 auto; } }
-    .po-lightbox__x { position: absolute; top: 1rem; right: 1rem; z-index: 2; width: 34px; height: 34px; font-size: 1.15rem; color: var(--text-dim); background: rgba(7,8,13,.9); border: 1px solid var(--border-soft); border-radius: 999px; cursor: pointer; }
+    .po-lightbox__box { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .po-lightbox img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 10px; display: block; }
+    .po-lightbox__x { position: absolute; top: 1rem; right: 1rem; z-index: 2; width: 38px; height: 38px; font-size: 1.2rem; color: var(--text-dim); background: rgba(7,8,13,.85); border: 1px solid var(--border-soft); border-radius: 999px; cursor: pointer; }
     .po-lightbox__x:hover { color: var(--text); }
-    .po-info { max-height: 82vh; overflow-y: auto; }
-    .po-info h3 { font-size: 1.1rem; margin: 0 0 .6rem; }
-    .po-info__chips { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: 1rem; }
-    .po-chip { font-size: .68rem; color: var(--text-dim); background: rgba(255,255,255,.05); border: 1px solid var(--border-soft); border-radius: 999px; padding: .2rem .55rem; white-space: nowrap; }
-    .po-info dl { margin: 0; }
-    .po-info dt { font-family: var(--font-mono); font-size: .6rem; text-transform: uppercase; letter-spacing: .12em; color: var(--text-mute); margin: 0 0 .2rem; }
-    .po-info dd { margin: 0 0 .9rem; font-size: .82rem; color: var(--text-dim); line-height: 1.65; }
 
     .po-fonte { margin: 2.5rem 0 0; font-size: .78rem; color: var(--text-mute); line-height: 1.7; }
   </style>
@@ -96,7 +87,7 @@
     <section class="page-hero">
       <span class="kicker">📸 Banco de referências</span>
       <h1>Poses pra <span class="grad-text">foto na viagem</span></h1>
-      <p>O problema nunca é o cenário — é chegar no lugar bonito e não saber o que fazer com o corpo. Aqui cada referência vem com três coisas: o que fazer com o corpo, de onde a câmera aponta e qual luz faz aquilo funcionar. Filtre pelo que você tem na mão e vá marcando o que já fez.</p>
+      <p>O problema nunca é o cenário — é chegar no lugar bonito e não saber o que fazer com o corpo. Escolha a categoria, role até achar uma pose que te agrade e toque pra ver grande.</p>
     </section>
 
     <section class="section" style="padding-top:0">
@@ -105,7 +96,7 @@
       <div class="section__head reveal" style="text-align:left; max-width:none; margin-bottom:1.25rem">
         <span class="kicker">🧠 Como usar</span>
         <h2>A pose é o menor dos <span class="grad-text">três fatores</span></h2>
-        <p style="max-width:820px">Repare, rolando os cards, que as poses se repetem muito — o que muda de uma foto boa pra uma ruim quase sempre é de onde a câmera aponta e que hora do dia é. Por isso cada card separa as três informações: copie as três, não só a posição do braço.</p>
+        <p style="max-width:820px">Repare, rolando as fotos, que as poses se repetem muito — o que muda de uma foto boa pra uma ruim quase sempre é de onde a câmera aponta e que hora do dia é. Ao copiar uma referência, copie as três coisas, não só a posição do braço.</p>
       </div>
 
       <div class="po-method reveal">
@@ -126,8 +117,10 @@
         </div>
       </div>
 
-      <div class="po-rule reveal">
-        <strong>🤳 Sozinha:</strong> clique em qualquer foto pra ver o detalhe — o que fazer com o corpo, de onde a câmera aponta, a luz, e se aquela pose sai <em>no braço estendido</em> ou <em>precisa de tripé ou alguém</em>. Pras que precisam de distância, um tripé de mesa com controle no relógio ou o timer com o celular apoiado na mochila resolve. Grave em vídeo e tire o frame depois — costuma render mais que rajada de foto.
+      <div class="po-rule reveal" style="background:rgba(124,92,255,.07); border-color:rgba(124,92,255,.3)">
+        <strong>📷 Se a foto do iPhone parece "plástica":</strong> o problema não é você nem a luz — é o processamento. A câmera nativa tira <strong>várias exposições e funde tudo</strong>, aplicando redução de ruído, nitidez e HDR por cima. O resultado é uma imagem limpa demais, sem textura.<br><br>
+        O app <strong>2Shoot</strong> tem o modo <strong>Zero Process</strong>, que desliga isso: ele captura <strong>uma única exposição, sem pós-processamento</strong>, e ainda dá controle manual de ISO, obturador, balanço de branco e foco. Sai mais granulada, mas mais nítida no detalhe e com cara de <strong>câmera digital antiga</strong> — que é justamente o visual de várias referências desta página.<br><br>
+        <span style="color:var(--text-mute); font-size:.85rem">A mesma ideia existe no <strong>Halide</strong>, que popularizou o nome "Process Zero". Vale mais em luz boa: sem a fusão de exposições, sombra fechada e cena noturna ficam bem mais ruidosas.</span>
       </div>
     </section>
 
@@ -140,7 +133,7 @@
       <div id="poRoot"></div>
 
       <p class="po-fonte">
-        As fotos são referências salvas da internet, guardadas aqui só pra consulta na hora de fotografar — os créditos são dos autores originais. As descrições de corpo, enquadramento e luz são leitura da própria imagem: o que dá pra ver ali.
+        As fotos são referências salvas da internet, guardadas aqui só pra consulta na hora de fotografar — os créditos são dos autores originais.
       </p>
 
       <div class="cta-row reveal" style="margin-top:2.5rem">

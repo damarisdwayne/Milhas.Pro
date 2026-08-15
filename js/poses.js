@@ -1,6 +1,6 @@
 (() => {
   const BASE = location.pathname.includes('/pages/') ? '../' : '';
-  const P = window.POSES || { tags: {}, categorias: [] };
+  const P = window.POSES || { categorias: [] };
 
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
@@ -17,7 +17,6 @@
     </figure>`;
   };
 
-  const onde = (t) => `<dt>Onde funciona</dt><dd>${esc(t)}</dd>`;
   const li = (i) => `<li>${esc(i)}</li>`;
   const remate = (t) => `<p class="po-dica__remate">${esc(t)}</p>`;
 
@@ -34,8 +33,8 @@
       <div class="po-cat__head">
         <h2><span class="po-cat__emoji">${c.emoji}</span> ${esc(c.nome)} <span class="po-cat__n">${c.poses.length}</span></h2>
         <p>${esc(c.resumo)}</p>
-        ${c.dica ? dica(c.dica) : ''}
       </div>
+      ${c.dica ? dica(c.dica) : ''}
       ${c.poses.length
         ? `<div class="po-grid">${c.poses.map((p) => item(c, p)).join('')}</div>`
         : `<div class="po-vazio">Sem referências ainda. Salve as fotos em <code>assets/poses/${c.id}/</code> e elas entram aqui.</div>`}
@@ -85,22 +84,7 @@
   const abrir = (id) => {
     const p = porId.get(id);
     if (!p || !lightbox || !alvo) return;
-    const chips = p.tags
-      .map((t) => P.tags[t])
-      .filter(Boolean)
-      .map((t) => `<span class="po-chip">${t.e} ${t.l}</span>`)
-      .join('');
-    alvo.innerHTML = `
-      <img src="${esc(BASE)}assets/poses/${esc(id)}" alt="${esc(p.nome)}" />
-      <div class="po-info">
-        <h3>${esc(p.nome)}</h3>
-        <div class="po-info__chips">${chips}</div>
-        <dl>
-          <dt>Enquadramento</dt><dd>${esc(p.quadro)}</dd>
-          <dt>Luz</dt><dd>${esc(p.luz)}</dd>
-          ${p.onde ? onde(p.onde) : ''}
-        </dl>
-      </div>`;
+    alvo.innerHTML = `<img src="${esc(BASE)}assets/poses/${esc(id)}" alt="${esc(p.nome)}" />`;
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   };
