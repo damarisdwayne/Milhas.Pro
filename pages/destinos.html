@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Destinos organizados por tipo de experiência — cidade, montanha, praia, natureza, aurora, termas — com cidades, aeroportos e fotos, pra montar roteiros que não repetem a mesma coisa. Começando pela Europa." />
+  <meta name="description" content="Destinos organizados por tipo de experiência — cidade, montanha, praia, natureza, aurora, termas — com cidades, aeroportos e fotos, pra montar roteiros que não repetem a mesma coisa." />
   <title>Destinos por experiência — países, cidades e portas de entrada — Milhas.pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -27,6 +27,35 @@
     .eu-rule strong { color: var(--text); }
 
     #euControles { position: sticky; top: 64px; z-index: 20; background: rgba(7,8,13,.92); backdrop-filter: blur(12px); border: 1px solid var(--border-soft); border-radius: 16px; padding: 1rem 1.1rem; margin: 0 0 2rem; }
+    .eu-abas { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .85rem; padding-bottom: .85rem; border-bottom: 1px solid var(--border-soft); }
+    .eu-aba { display: inline-flex; align-items: center; gap: .45rem; font-family: inherit; font-size: .9rem; font-weight: 600; color: var(--text-dim); background: rgba(255,255,255,.04); border: 1px solid var(--border-soft); border-radius: 12px; padding: .5rem .9rem; cursor: pointer; transition: var(--transition); }
+    .eu-aba:hover { color: var(--text); border-color: rgba(0,229,255,.35); }
+    .eu-aba span { font-family: var(--font-mono); font-size: .66rem; color: var(--text-mute); background: rgba(255,255,255,.06); border-radius: 999px; padding: .1rem .4rem; }
+    .eu-aba.is-on { color: var(--text); background: rgba(0,229,255,.12); border-color: rgba(0,229,255,.5); }
+    .eu-aba.is-on span { color: var(--accent); background: rgba(0,229,255,.14); }
+    .eu-cont__nota { margin: 0 0 1.75rem; font-size: .9rem; color: var(--text-dim); line-height: 1.7; }
+    .eu-destaque { margin: 0 0 2.25rem; padding: 1.4rem 1.6rem; background: rgba(124,92,255,.07); border: 1px solid rgba(124,92,255,.3); border-radius: 16px; }
+    .eu-destaque summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 1.05rem; font-weight: 600; cursor: pointer; list-style: none; }
+    .eu-destaque summary::-webkit-details-marker { display: none; }
+    .eu-destaque summary span { font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); border: 1px solid var(--border-soft); border-radius: 999px; padding: .2rem .6rem; white-space: nowrap; }
+    .eu-destaque[open] summary { margin-bottom: .9rem; }
+    .eu-destaque[open] summary span::after { content: 'fechar ▲'; }
+    .eu-destaque:not([open]) summary span::after { content: 'abrir ▼'; }
+    .eu-destaque p { margin: 0 0 .7rem; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
+    .eu-destaque ul { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
+    .eu-destaque li { font-size: .85rem; color: var(--text-dim); line-height: 1.65; padding-left: 1rem; position: relative; }
+    .eu-destaque li::before { content: '·'; position: absolute; left: .2rem; color: var(--accent); font-weight: 700; }
+    .eu-destaque li b { color: var(--text); font-weight: 600; }
+    .eu-lista { margin: 1.25rem 0 0; padding-top: 1.1rem; border-top: 1px solid var(--border-soft); }
+    .eu-lista h4 { font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 0 0 .45rem; }
+    .eu-lista p { margin: 0 0 .6rem; font-size: .85rem; }
+    .eu-lista__chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .eu-lista__chips span { font-size: .8rem; color: var(--text); background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.3); border-radius: 999px; padding: .25rem .7rem; }
+    .eu-lista__chips.is-falta span { color: var(--text-dim); background: rgba(255,255,255,.04); border-color: var(--border-soft); }
+    .eu-lista p.eu-lista__falta { margin: 1.35rem 0 .6rem; font-size: .82rem; color: var(--text-mute); }
+    .eu-destaque > a { display: inline-block; margin-top: 1rem; font-size: .82rem; color: var(--accent); text-decoration: none; }
+    .eu-destaque > a:hover { text-decoration: underline; }
+
     .eu-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .75rem; }
     .eu-filter { font-family: inherit; font-size: .78rem; color: var(--text-dim); background: rgba(255,255,255,.04); border: 1px solid var(--border-soft); border-radius: 999px; padding: .35rem .7rem; cursor: pointer; transition: var(--transition); }
     .eu-filter:hover { color: var(--text); border-color: rgba(0,229,255,.35); }
@@ -48,7 +77,6 @@
     .eu-idx.is-filtrando .eu-idx__group a { color: var(--text-mute); opacity: .4; }
     .eu-idx.is-filtrando .eu-idx__group a.is-match { color: var(--accent); opacity: 1; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
-    .eu-continent { font-size: 1.9rem; margin: 0 0 1.5rem; padding-bottom: .6rem; border-bottom: 1px solid var(--border-soft); }
     .eu-region { margin: 0 0 3.5rem; }
     .eu-region__head { max-width: 780px; margin: 0 0 1.75rem; }
     .eu-region__emoji { font-size: 2rem; display: block; margin-bottom: .35rem; }
@@ -97,6 +125,7 @@
 
     .eu-fora { border: 1px solid var(--border-soft); border-radius: 16px; padding: 1.5rem 1.75rem; background: var(--bg-card); }
     .eu-fora h3 { font-size: 1.05rem; margin: 0 0 .75rem; }
+    .eu-fora__bloco + .eu-fora__bloco { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-soft); }
     .eu-fora__flags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .85rem; }
     .eu-fora__flags span { font-size: .82rem; color: var(--text-dim); background: rgba(255,255,255,.04); border: 1px solid var(--border-soft); border-radius: 999px; padding: .25rem .7rem; }
     .eu-fora p { margin: 0; font-size: .88rem; color: var(--text-dim); line-height: 1.7; }
@@ -126,7 +155,7 @@
     <section class="page-hero">
       <span class="kicker">🗺️ Mapa de experiências</span>
       <h1>Destinos por <span class="grad-text">experiência</span></h1>
-      <p>Cada país com as cidades que valem e o que cada uma entrega de fato. Serve pra uma coisa só: montar roteiro que não repete a mesma sensação três vezes seguidas. <span style="color:var(--text-mute)">Por enquanto cobre a Europa; outros continentes entram aqui mesmo.</span></p>
+      <p>Cada país com as cidades que valem e o que cada uma entrega de fato. Serve pra uma coisa só: montar roteiro que não repete a mesma sensação três vezes seguidas. <span style="color:var(--text-mute)">Organizado por região, do outro lado do mundo até o que dá pra fazer de carro num sábado. Destino novo entra aqui mesmo.</span></p>
     </section>
 
     <section class="section" style="padding-top:0">
@@ -191,6 +220,7 @@
 
     <section class="section" style="padding-top:1rem">
       <div id="euControles">
+        <div class="eu-abas" id="euAbas"></div>
         <div class="eu-filters" id="euLegenda"></div>
         <div class="eu-searchrow">
           <input type="search" id="euBusca" placeholder="Buscar país, cidade ou palavra (ex: aurora, trufa, cânion)" aria-label="Buscar" />
@@ -239,6 +269,7 @@
 
   <script src="../js/europa-fotos.js"></script>
   <script src="../js/europa-dados.js"></script>
+  <script src="../js/brasil-dados.js"></script>
   <script src="../js/destinos.js"></script>
   <script src="../js/main.js"></script>
 </body>
