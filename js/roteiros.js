@@ -159,6 +159,18 @@ const ROTEIROS = [
     ],
   },
   {
+    id: 'roma-milao-ilhas-gregas',
+    epoca: 'jun–set',
+    onde: 'Itália + ilhas gregas',
+    paradas: [
+      { n: 'Roma', p: '🇮🇹', tipo: 'porta', tags: ['cidade', 'historia'] },
+      { n: 'Toscana ou Puglia ou Dolomitas', p: '🇮🇹', tipo: 'coringa', tags: ['gastronomia', 'praia', 'montanha'], obs: 'escolhe uma — Toscana e Puglia rendem gastronomia, Dolomitas rende montanha' },
+      { n: 'Zakynthos ou Cefalônia ou Creta', p: '🇬🇷', tipo: 'coringa', tags: ['praia'], obs: 'só emenda no verão; fora de jun–set as ilhas esvaziam e Atenas rende mais' },
+      { n: 'Veneza', p: '🇮🇹', tipo: 'coringa', tags: ['cidade', 'historia'] },
+      { n: 'Milão', p: '🇮🇹', tipo: 'porta', tags: ['cidade'], obs: 'de trem desde Veneza, cerca de 2h30 no Frecciarossa' },
+    ],
+  },
+  {
     id: 'asia-primeira-vez',
     epoca: 'nov–fev',
     onde: 'Tailândia + Vietnã',
