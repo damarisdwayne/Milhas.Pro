@@ -64,6 +64,7 @@
       ]},
       { title: '5 · Fechar o resto', links: [
         ['Hospedagem', P + 'hospedagem.html'],
+        ['Hospedagem com pontos (4 combos)', P + 'hospedagem-com-pontos.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
         ['Idioma antes da viagem', P + 'idiomas.html'],
