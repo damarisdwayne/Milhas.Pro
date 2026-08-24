@@ -171,6 +171,21 @@ const ROTEIROS = [
     ],
   },
   {
+    id: 'londres-milao-italia-grecia',
+    epoca: 'jun–set',
+    onde: 'Inglaterra + Itália + ilhas gregas',
+    paradas: [
+      { n: 'Londres', p: '🇬🇧', tipo: 'porta', tags: ['cidade', 'historia'] },
+      { n: 'Florença + Toscana', p: '🇮🇹', tipo: 'coringa', tags: ['cidade', 'historia', 'gastronomia'] },
+      { n: 'Bolonha', p: '🇮🇹', tipo: 'coringa', tags: ['gastronomia', 'cidade'], obs: '35 min de trem desde Florença — é daqui que sai o low cost pra Grécia, não de Florença' },
+      { n: 'Corfu', p: '🇬🇷', tipo: 'coringa', tags: ['praia', 'historia'], obs: 'Bolonha–Corfu direto na Ryanair, rota de verão' },
+      { n: 'Atenas', p: '🇬🇷', tipo: 'coringa', tags: ['historia', 'cidade'] },
+      { n: 'Santorini', p: '🇬🇷', tipo: 'coringa', tags: ['costa', 'cidade'] },
+      { n: 'Mykonos', p: '🇬🇷', tipo: 'coringa', tags: ['praia', 'cidade'], obs: 'balsa desde Santorini, 2 a 3h dependendo do barco' },
+      { n: 'Milão', p: '🇮🇹', tipo: 'porta', tags: ['cidade'], obs: 'Mykonos–Milão direto no verão na easyJet, Aegean e Neos' },
+    ],
+  },
+  {
     id: 'asia-primeira-vez',
     epoca: 'nov–fev',
     onde: 'Tailândia + Vietnã',
