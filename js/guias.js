@@ -387,6 +387,24 @@ const GUIAS = {
       { i: '💰', t: 'Pra dinheiro, não pra milha', d: 'Essa ferramenta acha tarifa paga barata. Antes de comprar, vale cruzar com o custo em milhas da mesma rota — às vezes a milha ganha, às vezes não. É mais uma fonte, não substitui a busca award.' }
     ]
   },
+  'aegean': {
+    nome: 'Aegean Miles+Bonus', cat: 'Busca de award', badge: 'Grátis', url: 'https://en.aegeanair.com', idioma: 'Em inglês',
+    oque: 'A busca de resgate da Aegean mostra a disponibilidade da <strong>Star Alliance inteira</strong> — United incluída — num <strong>calendário de mês</strong>, com a opção <strong>±30 dias</strong> (60 dias numa tela). É a janela que falta pra ver estoque Star, do mesmo jeito que o <strong>aa.com</strong> serve de janela pra oneworld.',
+    passos: [
+      { t: 'Crie conta grátis no Miles+Bonus', d: 'A busca de award exige estar logado. A conta é gratuita e você <strong>não precisa acumular nada</strong> aqui — o programa é grego e não tem via boa de acúmulo no Brasil. Você usa a Aegean só pra <strong>olhar</strong>.' },
+      { t: 'Vá na busca de resgate (Redeem miles)', d: 'Preencha origem, destino e a data-alvo. O resultado abre um <strong>calendário do mês</strong> com os dias que têm assento award.' },
+      { t: 'Use o ±30 dias pra varrer 60 dias', d: 'Em <strong>Modify search</strong> existe a opção <strong>±30 dias</strong>, que já vem marcada. Com ela você vê <strong>30 dias pra trás e 30 pra frente</strong> da data pesquisada numa tela só — em vez de abrir data por data.' },
+      { t: 'Sem saldo de milhas? Desmarque o ±30 dias', d: 'Esse é o pulo do gato: com a opção marcada e a conta zerada, a busca <strong>esconde</strong> resultado que você não tem milha pra pagar. <strong>Desmarcando</strong> o ±30 dias, ela passa a mostrar <strong>toda</strong> a disponibilidade mesmo com saldo zero.<br><br>Ou seja: marcado = visão ampla mas filtrada pelo seu saldo; desmarcado = uma data por vez, porém completa. Use os dois modos.' },
+      { t: 'Leve a vaga pro programa onde você emite', d: 'A Aegean é só o vidro da vitrine. Achou o assento Star Alliance, emita onde você tem ponto — <strong>Smiles</strong>, <strong>TudoAzul</strong> ou <strong>Aeroplan</strong>, dependendo da rota e do que você consegue abastecer no Brasil.' },
+      { t: 'Confirme no programa emissor antes de transferir', d: 'Mesma regra sagrada dos outros buscadores: <strong>achou → confirmou no emissor → só então transferiu</strong>. Ponto transferido não volta.' }
+    ],
+    dicas: [
+      { i: '⭐', t: 'Por que ela vale a pena', d: 'A maioria dos buscadores cobra pra ver Star Alliance com calendário. A Aegean faz isso de graça, e a visão de <strong>60 dias numa tela</strong> é o que mais economiza tempo quando você tem flexibilidade de data.' },
+      { i: '🇧🇷', t: 'Não tente acumular Miles+Bonus', d: 'Não existe via boa de abastecer o programa grego a partir do Brasil. Se você <strong>emitir</strong> pela Aegean, vai precisar comprar milha — quase sempre pior que usar Smiles, TudoAzul ou Aeroplan. Trate como ferramenta de consulta.' },
+      { i: '🔁', t: 'Cruze com o seats.aero', d: 'Duas fontes de dados diferentes. Quando as duas mostram o mesmo assento, a confiança sobe muito — e a Aegean às vezes pega vaga Star que o cache do seats.aero perdeu.' },
+      { i: '⚠️', t: 'Truque documentado, mas frágil', d: 'O comportamento do ±30 dias com saldo zero é <strong>brecha</strong>, não recurso oficial (documentado pelo LoyaltyLobby em jul/2026). Companhia fecha brecha sem avisar — se parar de funcionar, é isso.' }
+    ]
+  },
   'skyscanner': {
     nome: 'Skyscanner', cat: 'Busca em dinheiro', badge: 'Grátis', url: 'https://www.skyscanner.com.br', idioma: 'Em português',
     oque: 'O jeito nº1 de <strong>descobrir um destino barato</strong> a partir da sua cidade. Com o destino <strong>"Em todo o lado"</strong>, ele lista os países e cidades mais baratos pra onde dá pra ir — base pra achar uma porta ou um coringa.',
