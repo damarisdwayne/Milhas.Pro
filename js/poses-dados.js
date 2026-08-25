@@ -33,6 +33,7 @@ window.POSES = {
         { img: 'camisetao-e-bone-andando-na-agua.jpeg', nome: 'Camisetão e boné, andando na água' },
         { img: 'fotografando-o-por-do-sol.jpeg', nome: 'Fotografando o pôr do sol' },
         { img: 'sentada-de-lado-com-o-mar-atras.jpeg', nome: 'Sentada de lado com o mar atrás' },
+        { img: 'sentada-na-pedra-apoio-atras-olhando-pro-lado.jpeg', nome: 'Sentada na pedra, apoio atrás e olhar pro lado' },
         { img: 'deitada-de-brucos-na-canga.jpeg', nome: 'Deitada de bruços na canga' },
         { img: 'agua-de-coco-de-pernas-cruzadas.jpeg', nome: 'Água de coco de pernas cruzadas' },
         { img: 'cabelo-molhado-na-toalha.jpeg', nome: 'Cabelo molhado na toalha' },
