@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Os 28 resorts all inclusive do Brasil que aparecem nos rankings, com cidade, nota de hóspedes do Booking e em qual programa de pontos dá pra pagar cada um." />
+  <title>Resorts all inclusive do Brasil — Milhas.pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="../assets/icon-192.png" />
+  <style>
+    .quick-nav { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 2rem auto 0; max-width: 960px; }
+    .quick-nav a { padding: .55rem 1rem; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(255,255,255,.03); color: var(--text-dim); font-size: .85rem; font-weight: 500; transition: all .2s ease; text-decoration: none; }
+    .quick-nav a:hover { color: var(--text); border-color: var(--accent); background: rgba(124,92,255,.1); }
+
+    .rs-city { display: block; color: var(--text-mute); font-size: .82rem; font-weight: 500; margin-top: -.5rem; margin-bottom: .75rem; letter-spacing: .02em; }
+    .rs-notas { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    .rs-nota { font-family: 'JetBrains Mono', monospace; font-size: .78rem; padding: .25rem .55rem; border-radius: 6px; border: 1px solid var(--border-soft); color: var(--text-dim); background: rgba(255,255,255,.03); }
+    .rs-nota strong { color: var(--text); }
+    .rs-pts { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .85rem; }
+    .rs-pt { font-size: .75rem; padding: .25rem .6rem; border-radius: 999px; font-weight: 600; letter-spacing: .01em; }
+    .rs-pt--azul { background: rgba(0,132,209,.16); border: 1px solid rgba(56,168,226,.45); color: #6ec5f5; }
+    .rs-pt--star { background: rgba(250,204,21,.12); border: 1px solid rgba(250,204,21,.4); color: #f5d76e; }
+    .rs-flag { font-size: .8rem; color: var(--text-mute); margin-top: .6rem; display: block; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <span class="nav__plane">✈</span>
+        <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="kicker">🏝️ Resorts all inclusive</span>
+      <h1>Os <span class="grad-text">28 resorts</span> que aparecem nos rankings</h1>
+      <p>Todo resort all inclusive brasileiro que aparece nos rankings que circulam, com a cidade, a nota de quem se hospedou e em qual programa de pontos dá pra pagar cada um.</p>
+
+      <nav class="quick-nav" aria-label="Seções da página">
+        <a href="#como-ler">🧭 Como ler isso</a>
+        <a href="#consenso">🥇 1 · Consenso</a>
+        <a href="#uma-lista">🥈 2 · Fora do ranking</a>
+        <a href="#ressalva">⚠️ 3 · Com ressalva</a>
+        <a href="#pontos">💳 Pagando com ponto</a>
+      </nav>
+
+      <p style="margin-top:1.5rem"><a href="hospedagem.html" class="guia-back">← voltar pra Hospedagem</a></p>
+    </section>
+
+    <section class="section" id="como-ler">
+      <div class="section__head reveal">
+        <span class="kicker">🧭 Antes de olhar a lista</span>
+        <h2>De onde vem cada coisa aqui</h2>
+        <p>Ranking de resort é assunto que vive de opinião. A nota que aparece nesta página é a mais dura que existe pro caso — quem já se hospedou e avaliou.</p>
+      </div>
+
+      <div class="cards" style="margin-bottom:2rem">
+        <article class="card reveal" style="border-color:rgba(0,229,255,.3)">
+          <div class="card__icon">⭐</div>
+          <h3>A nota é de hóspede, não de crítico</h3>
+          <p>Vem do ranking dos <strong>25 melhores all inclusive do Brasil em 2026</strong> do Melhores Destinos, que publica a <strong>nota do Booking</strong> (0 a 10) e, pra alguns, a <strong>nota do Google</strong> (0 a 5). Não é avaliação da redação nem de influenciador: é média de quem passou a semana lá.</p>
+        </article>
+        <article class="card reveal" style="border-color:rgba(250,204,21,.3)">
+          <div class="card__icon">⚠️</div>
+          <h3>Nota alta não é o mesmo que valer o preço</h3>
+          <p>Vários resorts com <strong>9,0+</strong> aparecem como decepção nos rankings que circulam — a crítica quase sempre é <em>preço</em>, não estrutura. Por isso a Seção 3 existe: não pra desqualificar, mas pra você saber onde a expectativa costuma quebrar antes de fechar.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">📖</div>
+          <h3>Como ler os selos de cada card</h3>
+          <p>
+            <strong>Booking 9,4</strong> — nota de hóspedes, escala 0–10 · <strong>Google 4,6/5</strong> — quando é a única publicada<br><br>
+✈️ <strong>Azul Viagens</strong> — confirmei o resort à venda na plataforma da Azul, onde dá pra pagar o pacote com pontos TudoAzul<br>
+            🟡 <strong>Bonvoy</strong> — dá pra resgatar direto no programa da rede, com diária-prêmio<br><br>
+            Card sem selo é resort que <strong>não achei na Azul Viagens</strong> — pode existir e não ter aparecido na busca, então confira na hora de reservar antes de descartar.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="consenso">
+      <div class="section__head reveal">
+        <span class="kicker">🥇 Seção 1 · Consenso</span>
+        <h2>Nota alta e nenhuma ressalva</h2>
+        <p>Estes 6 estão bem colocados no ranking <em>e</em> não aparecem como decepção em nenhum lugar. É o mais perto de unanimidade que esse material chega.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" style="border-color:rgba(124,92,255,.4)">
+          <div class="card__icon">🥇</div>
+          <h3>Japaratinga Lounge Resort</h3>
+          <span class="rs-city">📍 Japaratinga · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,6</strong></span></div>
+          <p>A maior nota da página inteira. Grupo Salinas, adults only.</p>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(124,92,255,.4)">
+          <div class="card__icon">🥈</div>
+          <h3>Salinas Maragogi</h3>
+          <span class="rs-city">📍 Maragogi · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,5</strong></span></div>
+          <p>Segunda maior nota. É o resort das piscinas naturais de Maragogi — o passeio de galé sai da porta.</p>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(124,92,255,.4)">
+          <div class="card__icon">🥉</div>
+          <h3>Salinas Maceió</h3>
+          <span class="rs-city">📍 Praia de Ipioca, Maceió · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,4</strong></span></div>
+          <p>O terceiro Alagoas seguido no pódio, e o terceiro do grupo Salinas. Na Ipioca, 20 km ao norte do centro de Maceió.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">4️⃣</div>
+          <h3>Summerville Resort</h3>
+          <span class="rs-city">📍 Muro Alto, Ipojuca · PE</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,3</strong></span></div>
+          <p>Muro Alto, a piscina natural vizinha de Porto de Galinhas. O mais bem avaliado do Nordeste fora de Alagoas.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">5️⃣</div>
+          <h3>Transamerica Comandatuba</h3>
+          <span class="rs-city">📍 Ilha de Comandatuba, Una · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,0</strong></span></div>
+          <p>Ilha privativa com 21 km de praia, campo de golfe e 363 acomodações. O mais "destino em si" da lista — você não sai de lá.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">6️⃣</div>
+          <h3>Ocean Palace All Inclusive Premium</h3>
+          <span class="rs-city">📍 Ponta Negra, Natal · RN</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,0</strong></span></div>
+          <p>Parque aquático, 6 restaurantes e 6 bares, na Ponta Negra. Dos consensuais, é o que mais aparece com pacote na Azul.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="uma-lista">
+      <div class="section__head reveal">
+        <span class="kicker">🥈 Seção 2 · Fora do ranking</span>
+        <h2>Sem ressalva, mas sem confirmação</h2>
+        <p>Estes 8 nunca aparecem como decepção — só que também não têm a mesma checagem que os de cima. Quatro <strong>não entram no ranking dos 25</strong> (não têm nota aqui), e quatro entram sem que nenhum outro material os cite.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" style="border-color:rgba(0,229,255,.25)">
+          <div class="card__icon">🏞️</div>
+          <h3>Monreale Resort</h3>
+          <span class="rs-city">📍 Poços de Caldas · MG</span>
+          <div class="rs-notas"><span class="rs-nota">fora do ranking dos 25</span></div>
+          <p><strong>Atenção:</strong> opera em pensão completa, não all inclusive — as bebidas não entram. Parque aquático e spa; o único de serra da lista.</p>
+          <span class="rs-flag">Na Azul só achei as unidades urbanas Monreale de São Paulo, não o resort.</span>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(0,229,255,.25)">
+          <div class="card__icon">💎</div>
+          <h3>NANNAI Muro Alto</h3>
+          <span class="rs-city">📍 Muro Alto, Ipojuca · PE</span>
+          <div class="rs-notas"><span class="rs-nota">fora do ranking dos 25</span></div>
+          <p>O mais caro da lista e o único de categoria luxo — bangalôs com piscina privativa e um dos maiores spas L'Occitane da América Latina. Faz parte da Preferred Hotels &amp; Resorts.</p>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(0,229,255,.25)">
+          <div class="card__icon">🌊</div>
+          <h3>Maceió Mar Resort</h3>
+          <span class="rs-city">📍 Praia de Ipioca, Maceió · AL</span>
+          <div class="rs-notas"><span class="rs-nota">fora do ranking dos 25</span></div>
+          <p>Vizinho do Salinas Maceió, na mesma Ipioca. Cuidado ao pesquisar: existe um <em>Maceió Mar Hotel</em> na Ponta Verde que é outro imóvel, não é o resort.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(0,229,255,.25)">
+          <div class="card__icon">🐴</div>
+          <h3>Fazzenda Park Resort</h3>
+          <span class="rs-city">📍 Gaspar · SC</span>
+          <div class="rs-notas"><span class="rs-nota">fora do ranking dos 25</span></div>
+          <p>Resort de fazenda no Vale do Itajaí, 24 km de Blumenau — 2 milhões de m². Nada de praia; é o oposto do resto da lista.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+          <span class="rs-flag">Na Azul aparece como "Fazzenda Park Hotel".</span>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(250,204,21,.35)">
+          <div class="card__icon">🏅</div>
+          <h3>The Westin Porto de Galinhas</h3>
+          <span class="rs-city">📍 Ipojuca · PE</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,1</strong></span></div>
+          <p><strong>O mais interessante da página inteira pra quem tem ponto.</strong> É all inclusive de bandeira Marriott — o único da lista com diária-prêmio de programa global. Novo demais pra ter aparecido nos outros materiais.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--star">🟡 Marriott Bonvoy</span><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">🥥</div>
+          <h3>Vila Galé Touros</h3>
+          <span class="rs-city">📍 Touros · RN</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,9</strong></span></div>
+          <p>80 km de Natal, 514 quartos em 113 mil m². O melhor avaliado dos Vila Galé — e o único da rede que não caiu na Seção 3.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">🌅</div>
+          <h3>Sauípe Grand Premium Brisa</h3>
+          <span class="rs-city">📍 Mata de São João · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,8</strong></span></div>
+          <p>O topo do complexo da Costa do Sauípe, 85 km de Salvador. Hóspede dele usa a estrutura dos resorts vizinhos do complexo também.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">⛱️</div>
+          <h3>Porto Seguro Praia Resort</h3>
+          <span class="rs-city">📍 Porto Seguro · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Google <strong>4,4/5</strong></span></div>
+          <p>É o Porto Seguro que escapou — o La Torre, vizinho, caiu na Seção 3.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="ressalva">
+      <div class="section__head reveal">
+        <span class="kicker">⚠️ Seção 3 · Com ressalva</span>
+        <h2>Já apareceu como decepção — ou tem a pior nota</h2>
+        <p>Os <strong>13</strong> que aparecem pelo menos uma vez num balde de <em>"não iria"</em>, <em>"melhor evitar"</em>, <em>"não vale o preço"</em>, <em>"não compensa"</em> ou <em>"ruim"</em> nos rankings que circulam — mais o <strong>Pratagy</strong>, que ninguém citou mas leva a pior nota da página. Nota alta aqui não salva: vários têm 9,0+ e mesmo assim entram na lista de quem não voltaria.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>La Torre Resort</h3>
+          <span class="rs-city">📍 Porto Seguro · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,2</strong></span></div>
+          <p>Nota boa e mesmo assim citado em <strong>3 rankings</strong> como "não vale o preço" / "melhor evitar". A crítica é preço, não qualidade.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>Club Med Lake Paradise</h3>
+          <span class="rs-city">📍 Mogi das Cruzes · SP</span>
+          <div class="rs-notas"><span class="rs-nota">Google <strong>4,6/5</strong></span></div>
+          <p>Em <strong>3 rankings</strong> como "não vale o preço" / "melhor evitar". É o resort de bate-volta de São Paulo — 1h30 da capital, sem praia.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>Club Med Rio das Pedras</h3>
+          <span class="rs-city">📍 Mangaratiba · RJ</span>
+          <div class="rs-notas"><span class="rs-nota">Google <strong>4,6/5</strong></span></div>
+          <p>Em <strong>3 rankings</strong> como "não vale o preço" / "melhor evitar". Na Costa Verde, entre a mata e o mar.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>Malai Manso Resort</h3>
+          <span class="rs-city">📍 Chapada dos Guimarães · MT</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,0</strong></span></div>
+          <p>Em <strong>3 rankings</strong> como "não vale o preço" / "melhor evitar". Beira do lago de Manso, no Centro-Oeste — o mais longe de tudo da lista.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">💸</div>
+          <h3>Costão do Santinho</h3>
+          <span class="rs-city">📍 Praia do Santinho, Florianópolis · SC</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>9,1</strong></span></div>
+          <p>Citado em <strong>5 rankings</strong> — o mais apontado de todos — e ainda assim com <strong>9,1</strong> de quem se hospedou. 750 mil m² de mata atlântica, 11 piscinas, 7 restaurantes. Decida por conta própria.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__icon">🌴</div>
+          <h3>Vila Galé Alagoas</h3>
+          <span class="rs-city">📍 Barra de Santo Antônio · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,7</strong></span></div>
+          <p>Aparece como "iria sem medo" num ranking e "melhor evitar" em outros três. É também um dos mais baratos em ponto na Azul.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Grand Palladium Imbassaí</h3>
+          <span class="rs-city">📍 Mata de São João · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,7</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong> como decepção. 45 min de Salvador, ao lado da Praia do Forte.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Iberostar Selection Praia do Forte</h3>
+          <span class="rs-city">📍 Mata de São João · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,6</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong> — campeão de rejeição junto com o Grand Palladium e o Enotel.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Cana Brava All Inclusive</h3>
+          <span class="rs-city">📍 Ilhéus · BA</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,2</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong> como decepção.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Vila Galé Cumbuco</h3>
+          <span class="rs-city">📍 Caucaia · CE</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>7,9</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong>, e uma das piores notas da página. 45 km do aeroporto de Fortaleza.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Vila Galé Eco Resort de Angra</h3>
+          <span class="rs-city">📍 Angra dos Reis · RJ</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,0</strong></span></div>
+          <p>Citado em <strong>5 rankings</strong> como decepção. Antiga fazenda Tanguá, 10 min do centro de Angra.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Grand Oca Maragogi</h3>
+          <span class="rs-city">📍 Maragogi · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>8,0</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong> como decepção. Mesma Maragogi do Salinas, que é 9,5 — dá pra trocar de resort sem trocar de destino.</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🚫</div>
+          <h3>Enotel Porto de Galinhas</h3>
+          <span class="rs-city">📍 Ipojuca · PE</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>7,9</strong></span></div>
+          <p>Citado em <strong>6 rankings</strong>, e das piores notas do ranking. O maior all inclusive de Pernambuco, 15 piscinas — mesma Ipojuca do Summerville (9,3) e do Westin (9,1).</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+
+        <article class="card reveal" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">📉</div>
+          <h3>Pratagy Beach All Inclusive</h3>
+          <span class="rs-city">📍 Praia de Pratagy, Maceió · AL</span>
+          <div class="rs-notas"><span class="rs-nota">Booking <strong>7,4</strong></span></div>
+          <p><strong>A pior nota da página inteira</strong> — última posição do ranking dos 25, e a única abaixo de 7,9. Está aqui pela nota: nenhum material o cita como decepção. Bandeira Wyndham, parque aquático temático de 15 mil m².</p>
+          <div class="rs-pts"><span class="rs-pt rs-pt--azul">✈️ Azul Viagens</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pontos">
+      <div class="section__head reveal">
+        <span class="kicker">💳 Pagando com ponto</span>
+        <h2>O que dá e o que não dá pra resgatar</h2>
+        <p>Programa por programa, o que funciona pra resort all inclusive brasileiro. A resposta curta é que <strong>só existe um caminho largo (Azul Viagens) e um sweet spot (Bonvoy)</strong> — o resto serve pra outra coisa.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" id="azul" style="border-color:rgba(74,222,128,.4)">
+          <div class="card__icon">🟢</div>
+          <h3>Azul Viagens · o caminho largo</h3>
+          <p>Paga o pacote com <strong>pontos TudoAzul</strong>, e o cupom entra por cima do pagamento em ponto. É o único canal que cobre a maioria da lista — confirmei <strong>19 dos 28</strong> resorts à venda lá.<br><br>Fabricar o ponto: transferência bonificada <strong>Livelo ou Esfera → TudoAzul</strong>, que já bateu 133% de bônus em 2026.<br><br><a href="hospedagem-com-pontos.html#combo-azul-viagens" style="color:var(--accent)">Hospedagem com pontos → Combo 2 · Azul Viagens</a></p>
+        </article>
+
+        <article class="card reveal" id="bonvoy" style="border-color:rgba(250,204,21,.45)">
+          <div class="card__icon">🟡</div>
+          <h3>Marriott Bonvoy · o único sweet spot</h3>
+          <p>O <strong>The Westin Porto de Galinhas</strong> é o único all inclusive brasileiro dessa lista com <strong>diária-prêmio de rede global</strong>. Dá pra resgatar direto no Marriott.com, com o all inclusive incluso na diária.<br><br>Do Brasil o ponto Bonvoy vem por <strong>compra direta em promo</strong> ou por transferência de programa aéreo — não tem transferência de Livelo/Esfera pro Bonvoy.</p>
+        </article>
+
+        <article class="card reveal" id="accor" style="border-color:rgba(255,107,107,.3)">
+          <div class="card__icon">🔴</div>
+          <h3>ALL Accor · não serve aqui</h3>
+          <p><strong>Nenhum</strong> dos 28 resorts é da rede Accor. O combo ALL do site continua ótimo — pra hotel de cidade e resort fora do Brasil. Pra all inclusive brasileiro, não tem onde usar.<br><br><a href="hospedagem-com-pontos.html#combo-all" style="color:var(--accent)">Hospedagem com pontos → Combo 1 · ALL Accor</a></p>
+        </article>
+
+        <article class="card reveal" id="wyndham" style="border-color:rgba(250,204,21,.3)">
+          <div class="card__icon">🟠</div>
+          <h3>Wyndham Rewards · a bandeira existe, o resgate não</h3>
+          <p>Só o <strong>Pratagy Beach</strong> tem bandeira Wyndham na lista, e não consegui confirmar se ele aceita <strong>resgate de Wyndham Rewards</strong> — resort all inclusive de bandeira costuma ficar de fora.<br><br>E o ponto Wyndham <strong>não se fabrica do Brasil</strong>: não existe transferência de Livelo nem Esfera, só compra em dólar na promo. Como ele está na Azul Viagens, o caminho prático é por lá.<br><br><a href="hospedagem-com-pontos.html#combo-comprar-pontos" style="color:var(--accent)">Hospedagem com pontos → Combo 3 · Comprar ponto na promo</a></p>
+        </article>
+
+        <article class="card reveal" id="hilton" style="border-color:rgba(0,229,255,.3)">
+          <div class="card__icon">🔵</div>
+          <h3>Hilton Honors · fácil de juntar, sem onde usar</h3>
+          <p>Desde <strong>julho/2026</strong> dá pra transferir <strong>Livelo → Hilton Honors</strong> (2:1, com bônus em promo) — virou um dos pontos de hotel mais fáceis de fabricar em real.<br><br>Só que <strong>nenhum dos 28 é Hilton</strong>. Junte pensando em hotel de cidade e viagem internacional, não em all inclusive brasileiro.<br><br><a href="hospedagem-com-pontos.html#combo-comprar-pontos" style="color:var(--accent)">Hospedagem com pontos → Combo 3 · Comprar ponto na promo</a></p>
+        </article>
+
+        <article class="card reveal" id="aereos">
+          <div class="card__icon">✈️</div>
+          <h3>Smiles e LATAM Pass · plataforma, não diária-prêmio</h3>
+          <p>Os dois deixam pagar hospedagem com milha, mas por <strong>plataforma de reserva</strong> (o LATAM roda por Booking.com) — não é tabela de resgate, é a milha virando desconto no preço em dinheiro. Serve como saída pra queimar saldo parado, e a conta quase nunca ganha da Azul Viagens em all inclusive.</p>
+        </article>
+
+        <article class="card reveal" id="vilagale">
+          <div class="card__icon">🏷️</div>
+          <h3>Vila Galé Star · é desconto, não ponto</h3>
+          <p>São 5 Vila Galé nessa lista, e o programa da rede — <strong>Clube Vila Galé</strong>, cartão Star — dá <strong>10% de desconto</strong> em hospedagem, restaurante, bar e spa. É gratuito e serve pra empilhar por cima, mas não acumula ponto resgatável.</p>
+        </article>
+
+        <article class="card reveal" id="conta" style="border-color:rgba(124,92,255,.35)">
+          <div class="card__icon">🧮</div>
+          <h3>A conta que decide, sempre</h3>
+          <p>Ponto em resort só ganha se <strong>diária em dinheiro − custo das milhas queimadas</strong> for positivo. Compare com o Booking nas mesmas datas antes de fechar. Em all inclusive costuma valer porque você está pagando comida e bebida de uma semana com ponto — em hotel sem refeição, quase nunca.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="nav__logo">
+          <span class="nav__plane">✈</span>
+          <span>MILHAS<span class="nav__logo-dot">.</span>PRO</span>
+        </div>
+        <p>Voe mais, gaste menos.</p>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html">Visão Geral</a>
+        <a href="hospedagem.html">Hospedagem</a>
+        <a href="hospedagem-com-pontos.html">Hospedagem com pontos</a>
+        <a href="termometro.html">Termômetro</a>
+      </div>
+      <div class="footer__small">© 2026 Milhas.pro</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

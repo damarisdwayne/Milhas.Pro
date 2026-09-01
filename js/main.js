@@ -65,6 +65,7 @@
       { title: '5 · Fechar o resto', links: [
         ['Hospedagem', P + 'hospedagem.html'],
         ['Hospedagem com pontos', P + 'hospedagem-com-pontos.html'],
+        ['Resorts all inclusive do Brasil', P + 'resorts.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
         ['Idioma antes da viagem', P + 'idiomas.html'],
