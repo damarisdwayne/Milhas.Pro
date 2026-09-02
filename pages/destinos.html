@@ -23,6 +23,32 @@
     .eu-method__item span { font-size: 1.5rem; display: block; margin-bottom: .5rem; }
     .eu-method__item h3 { font-size: 1rem; margin: 0 0 .4rem; }
     .eu-method__item p { margin: 0; font-size: .85rem; color: var(--text-dim); line-height: 1.6; }
+    .dl { list-style: none; margin: .9rem 0 0; padding: 0; display: flex; flex-direction: column; gap: .1rem; }
+    .dl li { display: flex; align-items: baseline; gap: .55rem; padding: .34rem 0; border-bottom: 1px solid var(--border-soft); }
+    .dl li:last-child { border-bottom: 0; }
+    .dl__t { flex: 0 0 4.6rem; font-size: .82rem; letter-spacing: -.06em; }
+    .dl__n { color: var(--text); font-size: .9rem; font-weight: 500; }
+    .dl__m { margin-left: auto; font-family: var(--font-mono); font-size: .58rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mute); white-space: nowrap; align-self: center; }
+    .br-wrap { overflow-x: auto; border: 1px solid var(--border-soft); border-radius: 14px; background: var(--bg-card); }
+    .br-cap { caption-side: top; text-align: left; padding: .7rem 1rem 0; font-size: .74rem; color: var(--text-mute); }
+    @media (min-width: 1100px) { .br-cap { display: none; } }
+    .br-tab { border-collapse: separate; border-spacing: 3px; width: 100%; min-width: 900px; font-size: .7rem; }
+    .br-tab thead th { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .08em; color: var(--text-mute); font-weight: 600; padding: .5rem .2rem; text-align: center; }
+    .br-tab th.br-corner { text-align: left; padding-left: 1rem; }
+    .br-tab tbody th { text-align: left; padding: .55rem 1rem .55rem 1rem; font-weight: 500; min-width: 230px; position: sticky; left: 0; background: var(--bg-card); z-index: 1; }
+    .br-tab tbody th strong { display: block; color: var(--text); font-size: .85rem; }
+    .br-sub { display: block; font-size: .72rem; color: var(--text-dim); margin-top: .1rem; }
+    .br-obs { display: block; font-size: .68rem; color: var(--text-mute); line-height: 1.4; margin-top: .3rem; }
+    .br-tab td { text-align: center; border-radius: 6px; padding: .45rem .15rem; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .03em; font-weight: 600; white-space: nowrap; }
+    .br-ot { background: rgba(34,160,90,.22); color: #6fdc9b; box-shadow: inset 0 0 0 1px rgba(74,222,128,.28); }
+    .br-bom { background: rgba(132,204,22,.14); color: #b6e06a; box-shadow: inset 0 0 0 1px rgba(163,230,53,.22); }
+    .br-alta { background: rgba(250,204,21,.16); color: #f2d472; box-shadow: inset 0 0 0 1px rgba(250,204,21,.3); }
+    .br-chuva { background: rgba(239,68,68,.16); color: #f79191; box-shadow: inset 0 0 0 1px rgba(239,68,68,.3); }
+    .br-frio { background: rgba(56,132,226,.18); color: #7cbcf5; box-shadow: inset 0 0 0 1px rgba(56,168,226,.34); }
+    .br-med { background: rgba(255,255,255,.05); color: var(--text-mute); box-shadow: inset 0 0 0 1px var(--border-soft); }
+    .br-legenda { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem 1rem; margin: 1.1rem 0 1.5rem; font-size: .78rem; }
+    .br-lg { padding: .2rem .5rem; border-radius: 6px; font-family: var(--font-mono); font-size: .6rem; font-weight: 600; letter-spacing: .03em; }
+    .br-lgt { color: var(--text-dim); margin-right: .5rem; }
     .mes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .85rem; margin: 0 0 1.25rem; }
     @media (max-width: 900px) { .mes-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 520px) { .mes-grid { grid-template-columns: 1fr; } }
@@ -198,6 +224,59 @@
         <strong>Atalho de milhas:</strong> stopover é a forma mais barata de adicionar contraste. A TAP permite parada em Lisboa e a Turkish em Istambul, sem custo de passagem extra — e nos dois casos você ganha um país que quase sempre tem tag diferente do resto do roteiro. Regras e disponibilidade mudam: confirme na emissão.
       </div>
 
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="tres-grandes">
+        <span class="kicker">🇮🇹🇫🇷🇪🇸 Os três grandes</span>
+        <h2>Itália, França e Espanha <span class="grad-text">destrinchados</span></h2>
+        <p style="max-width:820px">Os três países mais pedidos da Europa, com o que cada canto deles entrega de fato — o ícone na frente é a mesma tag do catálogo mais abaixo. Serve pra montar a combinação: se o roteiro ficou <strong>Roma + Paris + Madri</strong>, são três metrópoles na mesma tag, e o conserto é trocar ou somar uma linha de baixo <strong>sem trocar de país nem de porta de entrada</strong>. <span style="color:var(--text-mute)">Mais países entram aqui conforme forem sendo mapeados.</span></p>
+      </div>
+
+      <div class="cards" style="margin-bottom:2rem">
+        <article class="card reveal">
+          <div class="card__icon">🇮🇹</div>
+          <h3>Itália</h3>
+          <ul class="dl">
+            <li><span class="dl__t">🏛️🌆🍷</span><span class="dl__n">Roma</span><span class="dl__m">metrópole</span></li>
+            <li><span class="dl__t">🌆🍷</span><span class="dl__n">Milão</span><span class="dl__m">metrópole</span></li>
+            <li><span class="dl__t">🏛️🌆</span><span class="dl__n">Veneza</span></li>
+            <li><span class="dl__t">🍷🚗</span><span class="dl__n">Toscana</span></li>
+            <li><span class="dl__t">🏔️🌲🎿</span><span class="dl__n">Dolomitas</span></li>
+            <li><span class="dl__t">🍷🏖️🚗🏛️</span><span class="dl__n">Puglia</span></li>
+            <li><span class="dl__t">🏖️🌊🌲</span><span class="dl__n">Sardenha</span></li>
+            <li><span class="dl__t">🏛️🏖️🌲</span><span class="dl__n">Sicília</span></li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🇫🇷</div>
+          <h3>França</h3>
+          <ul class="dl">
+            <li><span class="dl__t">🌆🏛️🍷</span><span class="dl__n">Paris</span><span class="dl__m">metrópole</span></li>
+            <li><span class="dl__t">🌊🏖️🌆</span><span class="dl__n">Côte d’Azur</span><span class="dl__m">Nice · Èze · Mônaco</span></li>
+            <li><span class="dl__t">🍷</span><span class="dl__n">Champagne</span></li>
+            <li><span class="dl__t">🍷🌆</span><span class="dl__n">Bordeaux</span></li>
+            <li><span class="dl__t">🏛️🍷</span><span class="dl__n">Alsácia</span></li>
+            <li><span class="dl__t">🚗🍷</span><span class="dl__n">Provence</span></li>
+            <li><span class="dl__t">🏔️🎿🌲</span><span class="dl__n">Mont Blanc</span><span class="dl__m">Chamonix · 4.808 m</span></li>
+          </ul>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🇪🇸</div>
+          <h3>Espanha</h3>
+          <ul class="dl">
+            <li><span class="dl__t">🌆🏛️🍷</span><span class="dl__n">Madri</span><span class="dl__m">metrópole</span></li>
+            <li><span class="dl__t">🌆🏛️🏖️</span><span class="dl__n">Barcelona</span><span class="dl__m">metrópole</span></li>
+            <li><span class="dl__t">🏛️🏔️</span><span class="dl__n">Andaluzia</span><span class="dl__m">Sevilha · Granada · Córdoba</span></li>
+            <li><span class="dl__t">🌆🏛️</span><span class="dl__n">Bilbao</span></li>
+            <li><span class="dl__t">🏖️🏔️</span><span class="dl__n">Maiorca</span></li>
+            <li><span class="dl__t">🏖️🌲</span><span class="dl__n">Menorca</span></li>
+            <li><span class="dl__t">🏖️🌆</span><span class="dl__n">Ibiza</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="eu-rule reveal">
+        <strong>⚠️ A ressalva é o mês.</strong> Região de montanha, praia e vindima tem janela fixa — Dolomitas e Mont Blanc mudam de função entre verão e inverno, ilha grega e balear esvaziam fora de jun–set, e a vindima do Champagne é no outono. Cruze com o <a href="#calendario" style="color:var(--accent)">Calendário do ano · internacional</a> antes de fechar data.
+      </div>
+
       <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem">
         <span class="kicker">🚆 Dentro do continente</span>
         <h2>Não gaste a porta com um <span class="grad-text">trecho de trem</span></h2>
@@ -227,9 +306,9 @@
       </div>
 
       <div class="section__head reveal" style="text-align:left; max-width:none; margin:3rem 0 1.25rem" id="calendario">
-        <span class="kicker">🗓️ Calendário do ano</span>
-        <h2>Onde ir em <span class="grad-text">cada mês</span></h2>
-        <p style="max-width:820px">O eixo do tempo da mesma decisão: <strong>quando</strong> muda o que vale a pena tanto quanto <strong>onde</strong>. Praia, migração animal, outono e temporada de esqui têm janela fixa — cidade cosmopolita funciona o ano todo.</p>
+        <span class="kicker">🌎 Calendário do ano · internacional</span>
+        <h2>Onde ir <span class="grad-text">fora do país</span> em cada mês</h2>
+        <p style="max-width:820px">O eixo do tempo da mesma decisão, <strong>pra viagem internacional</strong>: <strong>quando</strong> muda o que vale a pena tanto quanto <strong>onde</strong>. Praia, migração animal, outono e temporada de esqui têm janela fixa — cidade cosmopolita funciona o ano todo. <a href="#calendario-brasil" style="color:var(--accent)">Destinos → Calendário do Brasil</a> faz o mesmo pra dentro do país.</p>
       </div>
 
       <div class="mes-grid reveal">
@@ -289,6 +368,232 @@
 
     </section>
 
+    <section class="section" style="padding-top:1rem" id="calendario-brasil">
+      <div class="section__head reveal" style="text-align:left; max-width:none; margin:0 0 1.25rem">
+        <span class="kicker">🇧🇷 Calendário do Brasil</span>
+        <h2>Quando ir a <span class="grad-text">cada canto do país</span></h2>
+        <p style="max-width:820px">A mesma pergunta do calendário de cima, virada pra dentro. No Brasil a estação chuvosa <strong>não é a mesma em todo lugar</strong> — e no litoral do Nordeste ela é justamente o inverno, o contrário do Sudeste. Errar isso é passar a semana de resort na chuva.</p>
+      </div>
+
+      <div class="br-wrap reveal">
+        <table class="br-tab">
+          <caption class="br-cap">Deslize pro lado pra ver o ano inteiro →</caption>
+          <thead>
+            <tr><th scope="col" class="br-corner">Destino</th><th scope="col">JAN</th><th scope="col">FEV</th><th scope="col">MAR</th><th scope="col">ABR</th><th scope="col">MAI</th><th scope="col">JUN</th><th scope="col">JUL</th><th scope="col">AGO</th><th scope="col">SET</th><th scope="col">OUT</th><th scope="col">NOV</th><th scope="col">DEZ</th></tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row"><strong>Santa Catarina</strong><span class="br-sub">Litoral e Serra</span><span class="br-obs">Chuva no verão (jan–fev os mais chuvosos) · serra com frio de verdade jun–ago</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-frio"><span>FRIO</span></td>
+            <td class="br-frio"><span>FRIO</span></td>
+            <td class="br-frio"><span>FRIO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Rio de Janeiro</strong><span class="br-sub">Capital e Região dos Lagos</span><span class="br-obs">Chuva out–mar, pico jan–fev · seco abr–set</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>São Paulo</strong><span class="br-sub">Capital e Interior</span><span class="br-obs">Chuva out–mar com pancada de fim de tarde · inverno seco, às vezes semanas sem chover</span></th>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Bahia</strong><span class="br-sub">Salvador e Litoral</span><span class="br-obs">Chuva abr–jun em Salvador · seco ago–jan · no extremo sul (Porto Seguro) chove o ano todo</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Pernambuco</strong><span class="br-sub">Recife e Litoral</span><span class="br-obs">Chuva mar–jul com pico mai–jul · seco ago–jan</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Ceará</strong><span class="br-sub">Litoral</span><span class="br-obs">Quadra chuvosa fev–mai concentra ~75% da chuva do ano · vento de kite ago–jan, mais forte jul–set</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Rio Grande do Norte</strong><span class="br-sub">Natal e Litoral</span><span class="br-obs">Chuva mar–jul, abril o mais chuvoso · outubro é o mês mais seco do ano</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Alagoas</strong><span class="br-sub">Maceió e Litoral</span><span class="br-obs">Chuva mar–ago, com mai–jul os mais fortes · seco set–fev</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Amazonas</strong><span class="br-sub">Manaus</span><span class="br-obs">Cheia dez–mai (chuva) e vazante jun–nov · praia de rio e trilha aparecem set–nov</span></th>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Mato Grosso do Sul</strong><span class="br-sub">Bonito e Pantanal</span><span class="br-obs">Chuva nov–abr · Pantanal rende jul–out, quando o bicho sai no aberto · Bonito seco mai–nov</span></th>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Paraná</strong><span class="br-sub">Curitiba e Foz do Iguaçu</span><span class="br-obs">Chuva out–mar · cataratas com mais água dez–mar, menos fila e clima ameno abr–set · Curitiba melhor no outono</span></th>
+            <td class="br-alta"><span>ALTA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-frio"><span>FRIO</span></td>
+            <td class="br-frio"><span>FRIO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-alta"><span>ALTA</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Paraíba</strong><span class="br-sub">Cariri e Sertão</span><span class="br-obs">O menor índice de chuva do Brasil — não tem estação chuvosa pra evitar · mai–ago é quando o calor dá trégua e o céu fica mais limpo</span></th>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><strong>Minas Gerais</strong><span class="br-sub">BH e Cidades Históricas</span><span class="br-obs">Chuva out–mar · seca abr–set, a janela das cidades históricas e das cachoeiras de estrada de terra</span></th>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-ot"><span>ÓTIMO</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-bom"><span>BOM</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+            <td class="br-chuva"><span>CHUVA</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="br-legenda reveal">
+        <span class="br-lg br-ot">ÓTIMO</span> <span class="br-lgt">seco e estável — a melhor janela</span>
+        <span class="br-lg br-bom">BOM</span> <span class="br-lgt">funciona, com alguma ressalva</span>
+        <span class="br-lg br-alta">ALTA</span> <span class="br-lgt">alta temporada: mais gente e preço mais alto</span>
+        <span class="br-lg br-chuva">CHUVA</span> <span class="br-lgt">estação chuvosa da região</span>
+        <span class="br-lg br-frio">FRIO</span> <span class="br-lgt">frio é a característica — pode ser o motivo de ir</span>
+      </div>
+
+      <div class="eu-rule reveal" style="background:rgba(250,204,21,.06); border-color:rgba(250,204,21,.28)">
+        <strong>⚠️ É climatologia, não previsão.</strong> A tabela é a média histórica de cada região — chuva fora de época acontece, e ano de El Niño ou La Niña desloca a janela inteira. Use pra <strong>escolher o mês</strong>, não pra apostar no dia. Fontes: estação chuvosa do Sudeste pelo <a href="https://portal.inmet.gov.br" target="_blank" rel="noopener">INMET</a>, quadra chuvosa do Ceará, ciclo de cheia e vazante do Amazonas e ciclo de águas do Pantanal.
+      </div>
+    </section>
+
     <section class="section" style="padding-top:1rem">
       <div id="euControles">
         <div class="eu-abas" id="euAbas"></div>
@@ -341,6 +646,7 @@
   <script src="../js/europa-fotos.js"></script>
   <script src="../js/europa-dados.js"></script>
   <script src="../js/brasil-dados.js"></script>
+  <script src="../js/brasil-aviao-dados.js"></script>
   <script src="../js/destinos.js"></script>
   <script src="../js/main.js"></script>
 </body>

@@ -44,7 +44,7 @@
   };
 
   const pais = (p) => {
-    const busca = [p.nome, p.resumo, p.termas || '', ...p.cidades.map((c) => c.n + ' ' + c.d)].join(' ').toLowerCase();
+    const busca = [p.nome, p.resumo, p.termas || '', p.hospedagem || '', ...p.cidades.map((c) => c.n + ' ' + c.d)].join(' ').toLowerCase();
     const tagsPais = new Set(p.tags);
     p.cidades.forEach((c) => c.tags.forEach((t) => tagsPais.add(t)));
     return `
@@ -64,6 +64,7 @@
         </div>
       </header>
       ${p.termas ? `<div class="eu-termas"><span class="eu-termas__icon">♨️</span><div><strong>Termas</strong>${esc(p.termas)}</div></div>` : ''}
+      ${p.hospedagem ? `<div class="eu-termas"><span class="eu-termas__icon">🛏️</span><div><strong>Onde dormir</strong>${esc(p.hospedagem)}</div></div>` : ''}
       ${p.aviso ? `<div class="eu-aviso"><strong>⚠️ Antes de montar o trecho</strong>${esc(p.aviso)}</div>` : ''}
       <div class="eu-cities">${p.cidades.map(cidade).join('')}</div>
     </section>`;

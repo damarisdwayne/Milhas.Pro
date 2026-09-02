@@ -259,6 +259,21 @@ const MG_REGIOES = [
           { n: 'São Thomé das Letras', tags: ['montanha', 'vilarejo', 'gruta'], d: 'Cidade construída em quartzito no alto da serra, cercada de mirante e de fama mística. Pirâmide, Matriz, Vale das Borboletas, Cachoeira Véu da Noiva e grutas no entorno — várias em propriedade privada, com taxa.' },
         ],
       },
+      {
+        slug: 'mg-santa-barbara', nome: 'Vila de Santa Bárbara', bandeira: '♨️',
+        tags: ['termas', 'aguas', 'cachoeira', 'vilarejo'],
+        resumo: 'Um vilarejo de 1872 no norte de Minas, aos pés do Espinhaço, com um lago de água mineral que sai do chão morna. É o único lugar dessa faixa onde o programa é entrar na água quente sem ir pro sul de Minas — e o lago fica dentro do resort, não é atração pública.',
+        quando: 'Abr–set (seca) pra estrada e pra cachoeira · o lago é morno o ano todo',
+        transporte: { modo: '🚗', rotulo: 'Carro pela BR-135', texto: 'Uns 270 km de BH: BR-040 até Curvelo e BR-135 pro norte, até o km 524. São cerca de 3h30 a 4h. A vila fica em propriedade privada abrangida pelo município de Augusto de Lima — não confunda com a cidade de Águas de Santa Bárbara, que é em São Paulo.' },
+        rotuloPortas: 'Saindo de BH',
+        portas: [{ c: '≈3h45', n: 'Augusto de Lima · BR-040 + BR-135 km 524', t: 'porta' }],
+        cidades: [
+          { n: 'O lago termal', tags: ['termas', 'aguas'], d: 'Lago de água mineral que, segundo o resort, brota naturalmente a 32 °C. Fica dentro do Águas de Santa Bárbara Resort: pra entrar é preciso estar hospedada ou comprar o day use (entrada às 10h, saída às 18h, almoço incluso).' },
+          { n: 'A cachoeira de 183 m', tags: ['cachoeira'], d: 'Queda de 183 metros a 1.300 metros do resort, na base da Cordilheira do Espinhaço. É o passeio a pé mais óbvio de lá.' },
+          { n: 'A vila', tags: ['vilarejo'], d: 'Surgiu em 1872 como parada de tropeiros na rota do ouro pra Diamantina, entre o Espinhaço e a Serra do Cabral. Fica a 1.500 metros do resort e é onde tem opção de jantar fora.' },
+        ],
+        aviso: 'O resort é meia-pensão: a diária inclui café da manhã e almoço, não o jantar — que sai à parte no bistrô ou na vila. Some isso ao preço antes de comparar com resort all inclusive.',
+      },
     ],
   },
   {
