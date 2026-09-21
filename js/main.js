@@ -50,7 +50,7 @@
       ]},
       { title: '3 · Juntar as milhas', links: [
         ['Programas (todos)', P + 'programas.html'],
-        ['Qual moeda transferir', P + 'qual-moeda.html'],
+        ['Pra onde mandar os pontos', P + 'pra-onde-mandar-os-pontos.html'],
         ['Multiplicadores', P + 'multiplicadores.html'],
         ['Roadmap de 12 meses', P + 'roadmap.html'],
       ]},
@@ -66,6 +66,7 @@
         ['Hospedagem', P + 'hospedagem.html'],
         ['Hospedagem com pontos', P + 'hospedagem-com-pontos.html'],
         ['Resorts all inclusive do Brasil', P + 'resorts.html'],
+        ['Sonhos — onde eu ainda quero ir', P + 'sonhos.html'],
         ['Cruzeiros', P + 'cruzeiros.html'],
         ['Saúde na viagem (vacinas & remédios)', P + 'saude.html'],
         ['Idioma antes da viagem', P + 'idiomas.html'],

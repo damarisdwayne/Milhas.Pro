@@ -26,7 +26,7 @@ const PRECACHE = [
   '/pages/seats-aero-guia-br.html',
   '/pages/quinta-liberdade.html',
   '/pages/roadmap.html',
-  '/pages/qual-moeda.html',
+  '/pages/pra-onde-mandar-os-pontos.html',
   '/pages/multiplicadores.html',
   '/pages/primeira-classe.html',
   '/pages/curso-completo.html',
