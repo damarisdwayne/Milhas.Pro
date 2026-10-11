@@ -482,18 +482,22 @@ const GUIAS = {
   },
   'rove-miles': {
     nome: 'Rove Miles', cat: 'Acúmulo de milhas', badge: 'Grátis', url: 'https://www.rovemiles.com', idioma: 'Em inglês',
-    oque: 'Plataforma de reserva de <strong>hotel</strong> (e compras) que rende <strong>milhas próprias transferíveis 1:1</strong> pra vários programas aéreos. A graça é o acúmulo alto em hotel — <strong>10 a 25 milhas por dólar</strong> (às vezes mais) — uma forma de gerar milha que o brasileiro quase não tem.',
+    oque: 'Uma espécie de <strong>"Livelo americana"</strong>: você junta Rove Miles reservando <strong>hotel</strong>, <strong>voo</strong> e fazendo <strong>compras online</strong> pela plataforma, e transfere <strong>1:1</strong> pra uns 20 programas aéreos. O forte é hotel — <strong>até ~25–30 milhas por dólar</strong> — uma forma de gerar milha transferível que o brasileiro quase não tem.',
     passos: [
       { t: 'Crie a conta (grátis)', d: 'Cadastro grátis, sem precisar de cartão específico. Rola bônus de boas-vindas de vez em quando.' },
-      { t: 'Busque o hotel na plataforma', d: 'Pesquise a hospedagem que você quer dentro do Rove. O preço é cobrado em <strong>dólar</strong>.' },
-      { t: 'Veja quantas milhas rende', d: 'Cada hotel mostra o multiplicador (10–25×/US$, às vezes maior). É aí que mora o valor — não no preço da diária em si.' },
-      { t: 'Reserve e acumule', d: 'Fecha a reserva e as Rove Miles caem na conta após a estadia.' },
-      { t: 'Transfira quando tiver resgate em mente', d: 'Transfere 1:1 pro programa aéreo (Star/oneworld/SkyTeam, via parceiros). Só transfira quando já tem a emissão em vista — milha parada desvaloriza.' }
+      { t: 'Hotel: veja quantas milhas rende', d: 'Pesquise a hospedagem dentro do Rove (cobrado em <strong>dólar</strong>). Cada hotel mostra o multiplicador — a base é ~5×/US$ e os hotéis com boost chegam a 25–30×/US$. É aí que mora o valor, não no preço da diária.' },
+      { t: 'Voo pagante: acumula em dobro', d: 'Passagem comprada pelo Rove rende Rove Miles <strong>e</strong> a milha normal da cia aérea, por ser bilhete pago. O @ovictorfischer fala em 1 milha/US$ e diz que em trechos internos na Europa o preço era igual ao do site da cia; a Upgraded Points fala em 1× a 10×. Compare antes.' },
+      { t: 'Compras: use o portal', d: 'Comprando pelo portal ou pela extensão do Chrome, ganha milha por dólar em lojas como <strong>Booking.com, Hoteis.com, GetYourGuide, ALL Accor, Kiwi.com</strong> e site de cia aérea (Qatar, por exemplo). A taxa varia por loja.' },
+      { t: 'Transfira quando tiver resgate em mente', d: 'Transfere 1:1 pros programas aéreos (lista nas dicas abaixo) e 1,5:1 pra ALL Accor. Só transfira com a emissão já em vista — milha parada desvaloriza.' }
     ],
     dicas: [
+      { i: '🎯', t: 'Bônus de transferência até 31/10/2026', d: '<strong>JAL Mileage Bank +50%</strong> (1.000 → 1.500), <strong>Flying Blue +40%</strong> (1.000 → 1.400) e <strong>Qatar Privilege Club</strong> escalonado: +15% até 49.999, +25% de 50 mil a 99.999 e +35% a partir de 100 mil. Bônus pra Flying Blue costuma ficar em 20–25% em outros programas, então 40% é raro.' },
+      { i: '✈️', t: 'Pra quem transfere', d: '1:1 pra Aeromexico, Aeroplan, Cathay, Etihad, Finnair Plus, Flying Blue, Frontier, Hainan, JAL, Air India, Miles &amp; More, Qantas, Qatar, SAS EuroBonus, Thai, Turkish Miles&amp;Smiles, Vietnam Lotusmiles, Virgin Atlantic e Virgin Red (o Victor cita também Copa ConnectMiles, que nem toda lista traz). <strong>ALL Accor é 1,5:1.</strong> A lista muda — confira no app antes.' },
+      { i: '⭐', t: 'Os que o Victor destaca', d: '<strong>Flying Blue</strong> pra Europa e Ásia · <strong>Qatar</strong> pra voar Qatar · <strong>Finnair Plus</strong>, "o ouro do ecossistema Avios" · <strong>JAL</strong> pros EUA · <strong>Aeroplan</strong>, muitas oportunidades · <strong>Miles &amp; More</strong> ok pra EUA em executiva e Europa · <strong>ConnectMiles</strong> pra upgrade.' },
       { i: '🆕', t: 'Novo, mas confiável', d: 'Lançado em 2025 e avaliado por fontes sérias do setor (Upgraded Points, AwardWallet, Frequent Miler). Não é hype vazio — mas, por ser novo, comece com uma reserva pequena pra testar.' },
+      { i: '🐢', t: 'Acúmulo lento', d: 'É o "próximo passo" depois de dominar Livelo/Esfera — não substitui. O acúmulo não é rápido; o valor aparece em hotel com boost e nas janelas de bônus.' },
       { i: '🇺🇸', t: 'Exige número americano', d: 'O cadastro pede um <strong>número de telefone dos EUA</strong>. Use um <strong>número virtual estável que você controla</strong> (Hushed ou Burner pagos, ou um eSIM pré-pago americano) — <strong>não</strong> um número descartável/público, senão você perde o SMS de login (2FA) e o acesso às milhas. Antes de depender disso, teste se o código chega no número virtual (alguns serviços bloqueiam VoIP).' },
-      { i: '⚖️', t: 'Compare o preço da diária', d: 'Portais de pontos às vezes cobram um pouco mais caro na diária. Cheque o mesmo hotel no Google Hotéis: só vale se o preço estiver competitivo + as milhas compensarem a diferença.' },
+      { i: '⚖️', t: 'Compare o preço da diária', d: 'Sempre compare com <strong>Hoteis.com + cashback</strong>, <strong>Booking + milhas</strong> e <strong>Azul Viagens com cupom</strong>. Só vale se o preço estiver competitivo e as milhas compensarem a diferença.' },
       { i: '💵', t: 'É em dólar', d: 'Pagamento em dólar incide IOF/câmbio. Use um cartão bom pra compra internacional e considere isso no custo final.' }
     ]
   }

@@ -53,6 +53,7 @@ window.POSES = {
         { img: 'livro-na-canga-foto-do-colo.jpeg', nome: 'Livro na canga, foto do próprio colo' },
         { img: 'mao-sustentando-o-rosto-na-areia.jpeg', nome: 'Mão sustentando o rosto na areia' },
         { img: 'sentada-de-camisa-cabeca-inclinada.jpeg', nome: 'Sentada de camisa, cabeça inclinada' },
+        { img: 'rindo-no-daybed-pernas-cruzadas.jpeg', nome: 'Rindo no daybed, pernas cruzadas e mãos atrás' },
       ],
     },
     {
